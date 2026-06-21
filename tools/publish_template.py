@@ -13,9 +13,9 @@ add it here on purpose.
 Usage:
     python tools/publish_template.py [--repo OWNER/NAME] [--message "..."] [--dry-run]
 
-Default repo: chaorandu-ai/oros-nvgate-template (override with --repo).
+Default repo: chaorandu-ai/oros-nvgate-app-builder (the template; override with --repo).
 The template repo must already exist (create it once with:
-    gh repo create OWNER/oros-nvgate-template --private ).
+    gh repo create OWNER/oros-nvgate-app-builder --private ).
 """
 
 import argparse
@@ -27,7 +27,7 @@ import sys
 from pathlib import Path
 
 WORKSPACE = Path(__file__).resolve().parents[1]
-DEFAULT_REPO = "chaorandu-ai/oros-nvgate-template"
+DEFAULT_REPO = "chaorandu-ai/oros-nvgate-app-builder"   # the customer template repo
 
 # --- WHAT CUSTOMERS GET (allowlist of paths, relative to workspace root) -----
 INCLUDE = [
