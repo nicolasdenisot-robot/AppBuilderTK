@@ -39,15 +39,21 @@ These are non-negotiable and come before the build process in section 5.
    let the user choose.** Never silently assume, and never rely on a non-coder to
    know what they should be asking. (See the decision points in section 5.)
 4. **Deterministic code does the work; you only build and decide.** See section 3.
-5. **Never delete or overwrite** the user's measurements, NVGate projects, or any
-   file in `resources/Framework/` without explicit confirmation. `resources/` is
-   READ-ONLY reference.
+5. **Protect the user's original data above everything else.** Their
+   **measurements, signals, NVGate projects, NVGate settings, and user settings**
+   — stored in the NVGate data folder (e.g. `C:\OROS\NVGate data\`, or wherever
+   NVGate keeps projects/measurements) — are irreplaceable and must **never** be
+   deleted, overwritten, or edited in place. When a task needs to change such a
+   file, **write a NEW copy with the date in its name** (e.g.
+   `myproject_2026-06-21.nvgt`) and leave the original untouched. If a destructive
+   change seems unavoidable, **stop and ask first.** Likewise, never modify
+   `resources/Framework/` (READ-ONLY SDK reference) without explicit confirmation.
 6. **Reuse before you write.** Check `shared/oros_helpers/` and `docs/recipes/`
    first; only write new code if nothing fits (section 6).
 
 ---
 
-## 3. The reliability principle (most important idea here)
+## 3. The reliability principle
 
 A language model is probabilistic. Industrial test logic must be **identical every
 time** — a pass/fail decision can never be a guess.
