@@ -35,7 +35,7 @@ INCLUDE = [
     "README.md",
     ".gitignore",
     ".claude/settings.json",
-    ".claude/skills",            # ship the skills (e.g. sync-github)
+    ".claude/skills/sync-github",  # ship ONLY the customer-facing skill (NOT publish-template)
     "docs",
     "shared",
     "apps/_template",            # ONLY the template app, never real apps
