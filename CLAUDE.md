@@ -78,10 +78,13 @@ and then **export each one as a self-contained app** the user can ship.
 Claude-NVGate/
 ├── CLAUDE.md                 ← you are here
 ├── README.md                 ← 1-page human start
-├── resources/Framework/      ← OROS SDK + manuals (READ-ONLY source of truth)
-│   ├── NVDrive_Reference_Manual.pdf      (live control, 386 pages)
-│   ├── OR3x_Developer_Toolkit.pdf        (toolkit overview)
-│   └── Python/pynvdrive/                 (the live-control library you import)
+├── resources/
+│   ├── Framework/            ← OROS SDK + manuals (READ-ONLY; NOT in git — added by user, see README)
+│   │   ├── NVDrive_Reference_Manual.pdf  (live control, 386 pages)
+│   │   ├── OR3x_Developer_Toolkit.pdf    (toolkit overview)
+│   │   └── Python/pynvdrive/             (the live-control library you import)
+│   └── manuals-text/        ← plain-text mirror of the PDFs (committed; read THESE,
+│                              since PDFs may not render — e.g. NVDrive_Reference_Manual.txt)
 ├── docs/                     ← distilled guidance — READ THIS, not the 386-page PDF
 │   ├── nvdrive-cheatsheet.md     top ~30 commands with examples
 │   ├── algorithms.md             where to get calculations (turbomachinery, sound quality)
@@ -201,4 +204,4 @@ Use `tools/export_app.py`. It reads the app's `DIRECTIVE.md` frontmatter and:
 | React when the operator changes/saves something | `docs/recipes/notifications.md` |
 | Rotating-machinery / turbomachinery or sound-quality math | `docs/algorithms.md` |
 | Understand which app type this is | `docs/app-archetypes.md` |
-| Any NVDrive command detail not in the cheatsheet | `resources/Framework/NVDrive_Reference_Manual.pdf` |
+| Any NVDrive command detail not in the cheatsheet | `resources/manuals-text/NVDrive_Reference_Manual.txt` (searchable text mirror of the PDF) |

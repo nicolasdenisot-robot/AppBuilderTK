@@ -80,9 +80,15 @@ Run `git remote -v` to check if a remote exists.
 
 ### 6. Push
 
-Run `git push -u origin main` (or whatever the current branch is).
+Detect the current branch automatically, then push it (do not hard-code `main` —
+this workspace's branch may be `master`):
 
-If this fails because the branch doesn't exist on remote yet, try `git push -u origin HEAD`.
+```
+git push -u origin "$(git branch --show-current)"
+```
+In PowerShell: `git push -u origin (git branch --show-current)`.
+
+If that fails because the branch doesn't exist on remote yet, `git push -u origin HEAD` also works.
 
 ### 7. Confirm
 

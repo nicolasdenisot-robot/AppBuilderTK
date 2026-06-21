@@ -1,0 +1,849 @@
+OROS 3-SERIES ANALYZER / NVGATE
+
+ DEVELOPER TOOLKIT
+
+        - GETTING STARTED -
+
+              Compatibility  Identification  Date updated
+             NVGate® V17.00  F227-C04-17       June 2024
+
+F227-C04-17                                                1/37
+  Summary
+
+I. Resources.......................................................................................................................3
+II. Python............................................................................................................................3
+
+   1. NVFileManager.........................................................................................................3
+       a. Documentation......................................................................................................3
+       b. Packages ...............................................................................................................4
+       c. Examples ..............................................................................................................4
+
+   2. Pynvdrive ...................................................................................................................8
+       a. Documentation......................................................................................................8
+       b. Packages ...............................................................................................................8
+       c. Examples ..............................................................................................................8
+
+III. Matlab............................................................................................................................9
+   1. MatDrive®..................................................................................................................9
+       a. NVDrive and TCPIP folders.................................................................................9
+       b. Example: Super spectra application .....................................................................9
+
+IV. Visual...........................................................................................................................11
+   1. NVDrive® .................................................................................................................11
+       a. C++ Visual Studio 2010, Client .........................................................................11
+       b. C++ Visual Studio 2015, UsingNVDrive...........................................................14
+       c. C++ Visual Studio 2015, Notifications ..............................................................16
+   2. DllNVD.....................................................................................................................20
+       a. C++ Visual Studio 2010, Waterfall transfer.......................................................21
+       b. C++ Visual Studio 2010, OneMoreFFT .............................................................23
+       c. C++ Visual Studio 2010, ScalarValue................................................................25
+       d. C++ Visual Studio 2015, DataReinjection .........................................................26
+   3. Result access ............................................................................................................29
+       a. C++ Visual Studio 2010, NVGateFilesDemo ....................................................29
+   4. Signal access ............................................................................................................32
+       a. C++ Visual Studio 2015, NVGateSignalDemo..................................................32
+       b. C++ Visual Studio 2015, NVGateSignalEditingDemo ......................................34
+
+F227-C04-17  2/37
+Your OROS 3-series developer toolkit enables:
+
+    · to control the analyzer analysis while NVGate® is running,
+    · to access results and signals stored in disk,
+    · to send result into NVGate through a TCP channel
+
+I. Resources
+
+           The "NVGate_projects" directory contains some projects and measurements that
+           must be imported in NVGate for some examples.
+
+           The "NVGate_macro" directory contains one NVGate macro that must be copied in
+           the NVGate macro directory, for one example.
+
+II. Requirements
+
+   You need to install "Microsoft Visual C++ 2010 Redistributable".
+   https://www.microsoft.com/en-us/download/details.aspx?id=26999.
+
+III. Python
+
+   1. NVFileManager
+
+Name         NVFileManager - Oros Python Toolkit
+Type
+Description  A Python library implementing OROS .dll
+             Enables to control NVGate® directly from the Python® language,
+Associated   mainly used for file signal and measurements data.
+document     "Python Toolkit® reference manual"
+
+    a. Documentation
+
+OROS Python Toolkit documentation is an html format, available into:
+Python/NVFileManager/Documentation/html/index.html
+
+F227-C04-17                                                           3/37
+    b. Packages
+OROS Python Toolkit is build using Dynamic Link Libraries and is Python dependent
+version. Please use appropriate version.
+e.g.: if you are using Python 3.8 64bits, use OROSPythonToolkit_Python38_x64_bdist.
+
+    c. Examples
+First, unzip the OROSPythonToolkit_examples.zip file.
+For each example, the orostk package should be copied into example folder, or installed
+into Python lib.
+
+Example_gui_simple
+
+The purpose of this example is to show how to retrieve and edit a NVGate setting
+using a simple GUI.
+
+NVDrive Command used:
+
+         GetSettingValue
+         SetSettingValue
+
+Prerequisites:
+     NVGate launched
+
+Running the example:
+
+F227-C04-17  4/37
+         The application retrieves the setting value based on the IDN provided (module,
+         submodule and setting) using the "get" button.
+         The "set" button allows you to change a setting value.
+
+Example_gui_advanced
+
+This example shows a GUI example with a more complex GUI framework: Qt.
+There is also a script to build an .exe using Pyinstaller.
+
+Command used:
+
+         ResultChannel
+
+Prerequisites:
+
+     NVGate model loaded: AdvancedUI
+
+Running the example:
+
+To generate the executable, you have to modify the generate_exe.cmd file and
+specify your own paths.
+The steps are:
+
+F227-C04-17  5/37
+· Create the file advanced.py from the file advanced.ui thanks to pyuic5.exe
+    (delivered with the package PyQt5)
+
+· Generate the executable thanks to pyinstaller.exe (delivered with the package
+    PyInstaller). The executable will be in the "dist" folder.
+
+Run the advanced_ui(32/64)bit.exe
+
+Example_sig_read
+
+         These examples read a NVGate measurement containing a signal file (.osfh).
+
+         Command used:
+
+                  NVGateFileManager
+                  Measurement/Record/Channel
+
+         Prerequisites:
+
+              A measurement named "signal", which is a directory (test_sig_tst in this
+                  example) that contains a file "signal.mes", a directory per record, a signal
+                  file in OSF format (.osfh) and some other files or directory.
+
+         Running the example:
+
+         - Run the signal_read.py, it will print signal/channels metadata.
+         - Run the signal_read_to_txt.py file, it will create a .txt containing the signal data.
+
+Example_sig_write
+
+         These examples read write a NVGate signal (which contains a file (.osfh) and one
+    directory for the single record). This signal can be imported in NVGate.
+
+         Command used:
+
+                  NVGateFileManager
+                  Measurement/Record/Channel
+
+         Prerequisites:
+
+              The text_signal.txt file provided.
+
+         Running the example:
+
+F227-C04-17  6/37
+- Run the signal_write.py file, it will create a signal measurement from scratch.
+- Run the signal_write_from_txt.py file, it reads a txt file (format given in the
+
+    "example_sig_read" example) and will create a NVGate signal (which contains
+    a file (.osfh) and one directory for the single record) containing the same signal
+    data as the txt file.
+
+Others examples
+
+All              python  examples      are       available  into
+
+Python/NVFileManager/OROSPythonToolkit_examples  folder (unzip the
+
+OROSPythonToolkit_examples.zip file).
+
+F227-C04-17                                                 7/37
+2. Pynvdrive
+
+Name          Pynvdrive
+Type          A python package implementing NVDrive
+Description   Enables to control NVGate® directly from the Python® language,
+              mainly used for live control, commands
+Associated    "pynvdrive documentation"
+document
+
+    a. Documentation
+
+OROS Python Toolkit documentation is an html format, available into:
+Python/pynvdrive/doc/html/index.html
+
+    b. Packages
+
+Pynvdrive does not use OROS Libraries, it's a simple TCP/IP implementation of NVDrive.
+It implements some commands which are described in NVDrive_Reference_Manual.pdf,
+and shows how to implement new ones if needed by users.
+
+    c. Examples
+Examples are provided into pynvdrive/examples folder.
+
+F227-C04-17                                                           8/37
+IV. Matlab
+
+    1. MatDrive®
+
+Name              MatDrive®
+Type              a set of Matlab® functions
+Description       Enables to control NVGate® directly from the Matlab® language
+Associated        "MatDrive® reference manual"
+document
+
+This folder contains files and example to use NVDrive® language within Matlab®
+environment.
+
+d. NVDrive and TCPIP folders
+
+    NVDrive folder: NVDrive API via MatDrive
+    TCPIP folder: Matlab TCPIP toolbox
+
+e. Example: Super spectra application
+
+    Prerequisites:
+
+     NVGate project: SuperSpectra
+    Load this project in NVGate before running this application
+
+    MatDrive commands used:
+
+             Nvd_run
+             Nvd_stop
+             Nvd_pause
+             Nvd_getresult
+             Nvd_getresultlist
+             Nvd_getresultcaption
+             Nvd_setsettingvalue
+
+F227-C04-17                                                                      9/37
+F227-C04-17  10/37
+V. Visual
+
+   This toolkit supplies DLLs and header files needed for an application development.
+   These examples demonstrate how to use those DLLs, in Visual Basic or C++ language.
+
+   The examples have to be copied in the NVGate directory, so that they can use NVGate
+   DLLfiles. Alternatively, NVGate directory can be added to the PATH environment
+   variable.
+
+2. NVDrive®
+
+Name         NVDrive®
+Type
+Description  a command language
+Associated   enables to control NVGate® analysis while NVGate® is running
+document     "NVDrive® reference manual"
+
+a. C++ Visual Studio 2010, Client
+
+Project name: Client.vcxproj
+
+This example shows how to retrieve an NVGate Result in the NVGate Result
+format (see NVDrive® Reference Manual, chapter "3.10.7 - Result format").
+
+NVDrive commands used:
+
+         CreateResultEx
+         GetResultEx
+         GetSavedResultEx
+
+Prerequisites:
+
+     This application needs NVGate® to be launched, and that the selected result
+         is displayed in a window.
+
+Running the example:
+
+This example is a console application and is based on a command line:
+
+    · Syntax to run the executable file:
+Client.exe <Server IP adress> <NVDrive Command>
+Ex: Client.exe 127.0.0.1 GetResultEx 10 2 1
+
+F227-C04-17                                                                11/37
+    · Configuration in design mode:
+Command argument: 127.0.0.1 MyNVDriveCmdName NVDriveCmdParameters
+
+Ex: 127.0.0.1 GetResultEx 10 2 1 => display the FFT1 Avrg spectrum Ch1 data.
+Ex: 127.0.0.1 GetResultEx 2 10 1 => display the Monitor RMS Ch1 data.
+
+(NB: In the example, the CreateResultEx command is sent just before sending the
+NVDrive command passed in command line).
+
+The other commands that can be treated with this application are the following
+ones:
+
+         GetResultList
+         GetSavedResultList
+         GetResultEx
+         GetSavedResultEx
+The example deals with the RegVector, RefVector or Scalar result format. The
+Waterfall results have not been taken into account in this example.
+
+The following screen shot is the result of the GetResultEx command (with
+parameters 10 2 1).
+
+F227-C04-17  12/37
+The following screen shot is the result of the GetResultList command (the
+"NVDrive (ex)" project was loaded in NVGate, and the "octave" layout was active).
+
+F227-C04-17  13/37
+b. C++ Visual Studio 2015, UsingNVDrive
+
+    Project name: UsingNVDrive.sln
+
+    NVDrive commands used:
+
+             LoadProject
+             ExecMacro
+             The interface enables to run any NVDrive command
+
+    Prerequisites:
+
+          NVGate® is running. A project named "myProject" is present in the projects
+             base and a macro called "Macro1" is present in the macros base.
+
+F227-C04-17  14/37
+Running the example:
+
+    · Click on the "Connect NVGate" button. It is renamed
+         "DisconnectNVGate" as soon as the connection is established.
+
+· To send a command, copy the command in the box next to the "Send
+     command" button and press this button. The acknowledgment code is displayed
+     in the "Reply" box.
+
+For each NVDrive command sent by the application, the acknowledgment code is
+displayed in the "Reply" box. The acknowledgment code of the previous command
+must be displayed before sending a new command.
+
+· To load a project, its name must be written in the text box. Then click on the
+     "Load Project" button.
+
+· To run a macro, its name must be written in the text box. Then click on the
+     "Run Macro" button.
+
+F227-C04-17  15/37
+    c. C++ Visual Studio 2015, Notifications
+
+         Project name: Notifications.sln
+
+         This application contains a client subscribing to NVGate notifications using an
+         NVDrive socket: settings changes, states changes, ...
+
+         NVDrive commands used:
+
+                  ConnectToTCPClient
+                  DisconnectFromTCPClient
+                  RegisterSetting
+                  UnregisterSetting
+                  RegisterState
+                  UnregisterState
+                  RegisterUINotification
+                  UnregisterUINotification
+                  RegisterCommand
+                  UnregisterCommand
+
+         Decrypt_UI_Info functions used:
+
+                  DecryptUI_Info_Data
+                  CloseUI_InfoDecrypt
+                  DI_GetBase_MessageType
+                  DI_GetBase_DataSize
+                  DI_GetScalar_String
+                  DI_GetBoolean_String
+                  DI_GetEnum_String
+                  ...
+
+         Prerequisites:
+
+              NVGate must be launched.
+
+         Running the example:
+
+1. Connect this application to NVDrive server
+         Click on the "Connect to NVGate" button. The text box displays "Connection
+         OK" as soon as the connection is established. One of the NVGate threads is waiting
+         for a socket connection on port 3000 by default.
+
+2. Create Server and connect to TCP client
+         Click on the "Create server and connect to TCP client" button. The text box
+         displays "Connection OK" as soon as the connection is established. It creates a
+
+F227-C04-17  16/37
+thread in this application, using the selected port to wait for the socket connection
+from NVGate.
+
+3. Select "Settings" tab
+         Register several settings using their identification number (IDN). The IDN of a
+         setting is displayed in NVGate when SHIFT + RightClick on the setting in the ASB
+         (see NVDrive® Reference Manual, chapter "3.6.1 - Identification number setting
+         (setting IDN)").
+         Change the value of one of this setting in NVGate and see those registered settings
+         whose value has changed are displayed in the Text box.
+         A setting can be removed from the list of registered setting using the button
+         "Unregister".
+
+         The same principle is applied to the "States" tab. You may retrieve the IDN of any
+         state from NVGate software using the Customize Control Panel and holding pressed
+         the "SHIFT" key (see NVDrive® Reference Manual, chapter "3.6.2 - Identification
+         number state (state IDN)")
+
+F227-C04-17  17/37
+4. Select "Commands" tab
+         Register command "Run" (command ID = 0), command "Pause" (command ID = 1)
+         and command "Stop" (command ID = 2). It enables to be informed when the state
+         of the corresponding icon in the control toolbar (in NVGate) changes.
+         Then press Run in NVGate (with a result to be displayed) and press Stop.
+         The following information is displayed in the text box.
+
+         After "Run":
+                  Command ID 2 => Value = Active 0 - Enable 1
+                  -> Stop button is not pushed and is enabled
+
+                  Command ID 0 => Value = Active 1 - Enable 1
+                  ->Start button is pushed and is enabled
+
+         After "Stop":
+                  Command ID 2 => Value = Active 1 - Enable 0
+                  -> Stop button is pushed and is disabled
+
+F227-C04-17  18/37
+         Command ID 0 => Value = Active 0 - Enable 1
+         ->Start button is not pushed and is enabled
+
+(see "NVGate Notification Mechanism, reference manual", chapter "2.5 Block-
+Command")
+
+5. Select "User Interface" tab
+         Register the "SaveProject" event (ID = 48)
+
+         (see "NVGate Notification Mechanism, reference manual", chapter "2.8 Block -
+         User Interface" to consult the list of events)
+
+         The second parameter means that the action (ex: project saving) has to be executed
+         if 0, or not (if 1). If not executed immediately, it could be executed using the
+         ExecUINotification NVDrive® command (see "NVDrive® Reference manual",
+         chapter "3.9.7 - RegisterUINotification" and chapter "3.9.8 - ExecUINotification").
+
+F227-C04-17  19/37
+3. DllNVD
+
+Name         NVDCommand.dll and NVDResult.dll
+Type
+Description  DLL
+             enable to run an NVDrive® command and to get the return values in an
+Associated   easy way => enable to control NVGate® analysis while NVGate® is
+document     running
+
+             "DLL NVDCommand and DLL NVDResult Reference manual"
+
+The document "DLL NVDCommand and DLL NVDResult Reference manual" lists the
+functions of the DLLs NVDCommand and NVDResult, and explains the relationship
+between functions of a "command" type and functions of an "info" type.
+
+F227-C04-17  20/37
+a. C++ Visual Studio 2010, Waterfall transfer
+
+    Project name: WaterfallTransfer.vcxproj
+
+    The purpose of this example is to demonstrate the use of the encapsulated
+    NVDrive® commands in a C++ language.
+
+    NVD_Command used:
+
+             InitBufferContents
+             DeleteBufferContents
+             InitpResult
+             DeletepResult
+             NVD_CommandConnect
+             NVD_ResultAffectSocket
+             NVD_Action
+             NVD_Run
+             NVD_CmdGetResultEx
+             NVD_CmdGetSettingValues
+             NVD_CmdGetAnalyzer_TriggerState
+
+    Prerequisites:
+
+          To correctly work, the application must be run after NVGate has been
+             launched in online-mode.
+
+    Running the example:
+
+    The application enables to measure the time it takes to transfer results through the
+    NVDrive®. The application is a dialog-based application with only one interface:
+
+F227-C04-17  21/37
+The CONNECTION button connects the n first inputs on the FFT analyzer and
+connects the average spectrum of these channels to the waterfall.
+
+The SETUP button sets up the number of lines of the FFT analyzer and the depth of
+the waterfall
+
+The RUN button runs the analyzer.
+
+F227-C04-17  22/37
+    The TRANSFER button transfers all the averaged spectrums from NVDrive to the
+    application. The duration of the operation is displayed at the bottom.
+
+    The TRANSFER WRITE button executes the same action than the previous button
+    and writes down all the data in a binary file ContentWtf.txt.
+
+    The RUN TO WRITE button runs the analyzer, waits for the waterfall to be
+    stopped, transfers and writes the data in a binary file. This sequence is interesting to
+    evaluate the cost of the transfer regarding the duration of the acquisition.
+
+    The behavior of this dialog is defined in the files WaterfallTransferDlg.cpp and
+    WaterfallTransferDlg.h.
+
+    The example shows:
+         · how to connect inputs to a plug-in and how to connect channels to the
+             waterfall though the commands "ConnectInput" and "SelectWtfChannels"
+         · how to modify a setting and how to retrieve all the possible values of an
+             enumerated setting through the commands "SetSettingValue" and
+             "GetSettingValues"
+         · how to run the analyzer ("Run") and how to check that it has stopped
+             ("GetAnalyzerTriggerState").
+         · how to get results through the command "CreateResultEx", GetResultEx"
+             and "DeleteAllResultEx".
+
+b. C++ Visual Studio 2010, OneMoreFFT
+
+    Project name: OneMoreFFT.vcxproj
+
+    The purpose of this example is to demonstrate the use of the encapsulated
+    NVDrive® commands in a C++ language in a console application that does not use
+    MFC (Look at NVGate to see the action of this console application).
+
+    NVD_Command used:
+
+             InitBufferContents
+             DeleteBufferContents
+             NVD_CommandConnectEx
+             NVD_CommandDisConnect
+             NVD_CmdGetSettingValue
+             NVD_Action
+             NVD_CmdGetCurrentLayout
+             NVD_Run
+
+F227-C04-17  23/37
+Prerequisites:
+
+     To correctly work, the application must be run after NVGate has been
+         launched in online-mode.
+
+Running the example:
+
+The application searches for the first input which is not connected and connects this
+input on FFT1 analyzer. The application shuts down once the setup is completed.
+The example shows:
+
+    · how to connect inputs to a plug-in though the command "ConnectInput"
+    · how to get the status of an input through the command "GetSettingValue"
+    · how to run the analyzer ("Run")
+    · how to create a window ("AddWindowResult")
+    · how to tile the windows ("ArrangeWindow")
+    · how to get a log file to debug ("NVD_CommandConnectEx")
+
+F227-C04-17  24/37
+c. C++ Visual Studio 2010, ScalarValue
+
+    Project name: ScalarValue.vcxproj
+
+    The purpose of this example is to demonstrate the use of the encapsulated
+    NVDrive® commands in a C++ language in a console application that does not use
+    MFC (Look at NVGate to see the action of this console application).
+
+    NVD_Command used:
+
+             InitBufferContents
+             InitpResults
+             NVD_CommandConnect
+             NVD_ResultAffectSocket
+             NVD_Action
+             NVD_CmdGetResultEx
+             GR_GetScal_Value
+             NVD_CommandDisConnect
+             DeletepResult
+             DeleteBufferContents
+
+    Prerequisites:
+
+          NVGate project: ScalarValue.
+             Load this project in NVGate and run the analysis.
+
+F227-C04-17  25/37
+    Running the example:
+
+    The application returns result scalar value.
+
+    The example shows:
+         · how to create a result "CreateResultEx"
+         · how to get the result value "NVD_CmdGetResultEx"
+
+d. C++ Visual Studio 2015, DataReinjection
+
+    Project name: DataReinjection.vcxproj
+
+    The purpose of this C++ application is to demonstrate the use of the encapsulated
+    NVDrive® commands. Basically, the encapsulated commands allow to both send an
+    NVDrive® command and to receive its associated answers using functions in a
+    DLL.
+    Moreover, this example shows how to inject data (scalar or instant spectrum) in a
+    NVGate Result.
+
+    NVD_Command used:
+
+             NVD_CommandConnect
+             NVD_CommandDisConnect
+             NVD_ResultAffectSocket
+             NVD_Action
+             NVD_CreateTCPResultChannel
+             NVD_NewDataForTCPResultChannel
+             NVD_CmdGetResultEx
+             GR_GetHead_Version, GR_GetHead_BlockSize, ...
+             NVD_CmdGetScaleInfo
+             GSI_GetScaleMin, GSI_GetScaleMax, GSI_GetType
+
+    Prerequisites:
+
+          NVGate project: ScalarAndSpectrum.
+             Load this project in NVGate and run the analysis.
+
+F227-C04-17  26/37
+Running the example:
+
+F227-C04-17           27/37
+F227-C04-17  28/37
+4. Result access
+
+Name         NVGateResultFile.dll
+Type         DLL
+Description  enables to get information from results and signals stored in a directory
+             (no need of NVGate)
+Associated   "NVGateResultFile Reference manual"
+document
+
+f. C++ Visual Studio 2010, NVGateFilesDemo
+
+    Project name (Visual C++): NVGateFilesDemo.vcxproj
+
+    This C++ example uses the "NVGateResultFile" DLL. The functions in this DLL
+    that are used in this example have a name that begins with NVGR_.
+
+    NVGateResultFile functions used:
+
+             NVGR_LoadFile
+             NVGR_GetResultType
+             NVGR_GetResultSize
+             NVGR_GetVector
+             NVGR_GetVector_1
+             NVGR_GetWaterfall
+             NVGR_GetWaterfall_1
+             NVGR_GetLoadedFileName
+             NVGR_GetNumberOfResults
+             NVGR_GetResultList
+             NVGR_GetReferenceName
+             NVGR_GetProcessName
+             NVGR_GetSettingString
+             NVGR_GetReferenceUnit
+             NVGR_GetSettingType
+             NVGR_GetScalarValue
+             NVGR_GetStringValue
+             NVGR_GetIntArrayValue
+             NVGR_GetFloatArrayValue
+             NVGR_GetReferencesValue
+             NVGR_GetResultUnit
+
+Running the example:
+
+F227-C04-17           29/37
+To use this example, an NVGate Result file (result.res) must first be selected thanks
+to the "Browse" button. Some result files are delivered in the "NVGate_projects"
+directory (in its subdirectories "1 on 3rd octave", "frf", "order profiles").
+Then click on "Load".
+
+To get information on the results contained in the selected file:
+
+Select the "General" tab, and click on the "GetResultList" button.
+Then select one of the Result ID and click on "Copy selected result".
+Select the "Result" tab, and click on the "Paste selected result" button.
+Then click on any button on this tab, and the associated information is displayed
+either in the array or in the window below.
+
+         To get information on a specific setting:  30/37
+F227-C04-17
+It enables to get the value of a setting stored in the result file (when the result was
+saved).
+Select the "Settings" tab, and fill the fields for the IDN number of a setting (module
+number; submodule number; setting number).
+Click on the "Value" button to display the value of the setting.
+Click on the "String" button to display the name of the setting and its value.
+
+F227-C04-17  31/37
+5. Signal access
+
+Name         NVGateFile.dll
+Type         DLL
+Description  enables to get information from results and signals stored in a directory
+             (no need of NVGate)
+Associated   "NVGateResultFile Reference manual"
+document
+
+"NVGateFile" DLL enables to access signal, stored in a measurement directory,
+with no need of NVGate®.
+
+    g. C++ Visual Studio 2015, NVGateSignalDemo        32/37
+
+         Project name: NVGateSignalDemo.sln
+
+         NVGateFile functions used:
+
+                  NVGS_OpenMeasurement
+                  NVGS_CloseMeasurement
+                  NVGS_GetMeasurementMetadataKeyList
+                  NVGS_GetMeasurementMetadataType
+                  NVGS_GetMeasurementMetadataString
+                  NVGS_GetMeasurementMetadataLong
+                  NVGS_GetMeasurementMetadataLongLong
+                  NVGS_GetMeasurementMetadataFloat
+                  NVGS_GetMeasurementMetadataDouble
+                  NVGS_GetMeasurementMetadataBool
+                  NVGS_GetAnalyzers
+                  NVGS_GetRecordsVect
+                  NVGS_GetMarkers
+                  NVGS_GetMeasurementProperties
+                  NVGS_GetChannelList
+                  NVGS_GetChannelMetadataKeyList
+                  NVGS_GetChannelMetadataType
+                  NVGS_GetChannelMetadataString
+                  NVGS_GetChannelMetadataBool
+                  NVGS_GetChannelMetadataLong
+                  NVGS_GetChannelMetadataLongLong
+                  NVGS_GetChannelMetadataFloat
+                  NVGS_GetChannelMetadataDouble
+                  NVGS_GetChannelMetadataFloatArray
+
+F227-C04-17
+         NVGS_FreeStringArray
+         NVGS_GetReadPosition
+         NVGS_SetReadPosition
+         NVGS_ReadSampleBlock
+
+This example uses the "NVGateFile" DLL. The functions in this DLL that are used
+in this example have a name that begins with NVGS_. They enable to get
+information from an oros signal (since V17), with no need of NVGate®.
+
+F227-C04-17  33/37
+h. C++ Visual Studio 2015, NVGateSignalEditingDemo
+
+A measurement can be composed of several records that are pieces of signal. The recorder
+can be configured to write a single signal file or several files (parts) of fixed length, e.g., 64
+seconds or 640 seconds. A record composed of several signal files is called a multi-part
+signal.
+
+The editing functionalities of the toolkit allow splitting a multi-part record in several
+records or deleting one of them. To save disk space, irrelevant parts can be erased, meaning
+that the corresponding file is removed, and the signal data is considered zero.
+
+This example shows the Split, Remove Record and Erase features. It also explains how to
+remove a channel.
+
+         Project name: NVGateSignalEditingDemo.sln
+
+         NVGateFile functions used:
+
+                  NVGS_CreateNewMeasurement
+                  NVGS_OpenMeasurement
+                  NVGS_CloseMeasurement
+                  NVGS_GetMeasurementPath
+
+                  NVGS_GetRecordsVect
+                  NVGS_OpenRecord
+                  NVGS_CloseRecord
+
+                  NVGS_StartRecord
+                  NVGS_StopRecord
+                  NVGS_WriteSampleBlock
+
+                  NVGS_AddChannel
+                  NVGS_SetRecordMultiPart
+                  NVGS_GetRecordPartLength
+
+                  NVGS_StartEditing
+                  NVGS_StopEditing
+                  NVGS_Split
+                  NVGS_RemoveRecord
+                  NVGS_RemoveChannel
+                  NVGS_ErasePart
+
+F227-C04-17  34/37
+This example uses the "NVGateFile" DLL. The functions in this DLL that are used
+
+in this example have a name that begins with NVGS_. They enable to get
+information from an oros signal (since V17), with no need of NVGate®.
+
+The timeline shows the list of records and parts for each record. The starting and ending
+dates relatively to the record is written between square brackets.
+
+Split: select a part and click on Split record to create a new record starting from this part.
+Selecting part 0 has no effect.
+
+Remove: select any part of a record and click on Remove record to remove the
+corresponding record.
+
+Erase: select a part and click on Erase part to remove it. The corresponding file is removed
+and space is freed on the disk. Note that this has no impact on the Timeline list and on the
+
+F227-C04-17  35/37
+length of the signal. Browse the measurement directory to observe that the part file has
+been removed.
+
+Remove channel: select a channel on the list and click on remove channel to remove it.
+
+You can open the measurement in NVGate to see the effects.
+
+F227-C04-17  36/37
+             Figure 1 - NVGS editing diagram
+
+               *** End of document ***
+
+F227-C04-17                                   37/37
+

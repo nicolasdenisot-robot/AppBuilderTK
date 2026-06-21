@@ -29,6 +29,36 @@ turbomachinery or sound-quality analysis tools. See `docs/app-archetypes.md`.
 - **NVGate** installed (and running, for any app that controls the analyzer live).
 - **Python** on the machine where apps are built (Claude will guide installation if
   needed). Finished `.exe` apps do **not** need Python on the operator's machine.
+- **The OROS Framework SDK** in `resources/Framework/` — see first-time setup below.
+
+## First-time setup: add the OROS Framework SDK
+
+This repo does **not** include the OROS SDK (it's large and you already have access
+to it from OROS). Add it once:
+
+1. Download the **Framework** zip from
+   <https://my.oros.com/categories/software/nvgate/>.
+2. Unzip it. You'll get a folder named **`Framework`**.
+3. Copy that whole `Framework` folder into the **`resources/`** folder of this
+   project, so the path becomes **`resources/Framework/`**
+   (you should then see `resources/Framework/Python/pynvdrive/`, the PDFs, etc.).
+
+That's it — the apps and helpers expect the SDK at that path.
+
+> The plain-text versions of the manuals already in `resources/manuals-text/` are
+> part of this repo, so Claude can read them even before you add the SDK.
+
+## Backing up your work to GitHub
+
+Use the **`/sync-github`** command any time to save your work to a private GitHub
+repository (it commits your changes and pushes them).
+
+- **First run** also creates the private repo and sets up the connection. You'll
+  need the GitHub CLI: `winget install --id GitHub.cli`, then `gh auth login`.
+  Claude walks you through it.
+- The SDK in `resources/Framework/` is **not** backed up (it's excluded on purpose);
+  re-add it with the first-time setup above after cloning onto a new machine.
+- `/sync-github` again later just saves your latest changes.
 
 ## What's in this folder
 
