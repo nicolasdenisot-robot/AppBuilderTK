@@ -50,6 +50,10 @@ These are non-negotiable and come before the build process in section 5.
    `resources/Framework/` (READ-ONLY SDK reference) without explicit confirmation.
 6. **Reuse before you write.** Check `shared/oros_helpers/` and `docs/recipes/`
    first; only write new code if nothing fits (section 6).
+7. **When an app works end-to-end, create `README.md` in the app folder.**
+   Write it in plain language — no Python, no jargon. The content depends on the
+   app: adapt it to who will use it and what they need to know. Do this automatically
+   — do not wait for the user to ask. See section 6 for guidance.
 
 ---
 
@@ -120,17 +124,57 @@ and let them pick** (rule #3). Capture the answers in the app's `DIRECTIVE.md`.
 
 | # | Decision point | What you ask the user |
 |---|----------------|-----------------------|
-| **1** | **Goal & operator** | What outcome do you want? Who runs the finished app — you, or an operator who just clicks an icon? Live analyzer (real-time) or saved files (offline)? |
+| **1** | **Goal & operator** | What outcome do you want? Who runs the finished app — you, or an operator who just clicks an icon? Live analyzer (real-time) or saved files (offline)? **And: from where will they invoke it** — double-clicking a file on the desktop, from NVGate's Automation menu, a scheduled task, something else? |
 | **2** | **Capability layer** | Live control / file access / both. Usually you can infer it — confirm in plain words. |
 | **3** | **Computation source** | When custom math is needed: NVGate-native (preferred) vs a Python library. See `docs/algorithms.md` and the Tier-1 rule below. |
 | **4** | **Where results appear** | **Always ask, never assume:** show results *in NVGate* (drive windows/layouts/markers — nothing to build, but operator needs NVGate open) vs a *custom UI* (needed when no NVGate is in front of the operator, or for a branded/simplified screen). |
 | **5** | **UI stack** *(only if custom UI)* | **Ask per app**, proposing options with pros/cons so the user can choose well — e.g. PySide6/Qt desktop (packages to `.exe`, best for operators), Streamlit (browser dashboard, fast to build), Tkinter (built-in, simplest, dated). Do not default. |
-| **6** | **Export form** | Default is a **standalone `.exe`** for an operator — but **always ask before building**, offering a source bundle as the alternative. Do not assume the user will request source themselves. |
+| **6** | **Export form** | Two options — standalone `.exe` or `.bat` + Python source. **Always ask**, explain both with pros/cons, and let the user choose. Never default silently. See note below. |
 
 **Tier-1 computation rule:** If NVGate already computes it (FFT, 1/n-octave, order
 tracking, FRF, overall/RMS, waterfall/Campbell…), **drive NVGate and fetch the
 result — do not reimplement it in Python.** Only reach for Python libraries
 (`docs/algorithms.md`) for math NVGate does not do, or for post-processing.
+
+**NVGate Automation / integration layer.** An app's own launcher (e.g.
+`launch_xyz.bat`) uses paths relative to its own folder and must stay there.
+If the operator wants to invoke the app from **NVGate's Automation → Execute
+menu**, they cannot simply copy that launcher to the NVGate Links folder
+(`C:\OROS\NVGate data\Links\`) — it will break because relative paths no longer
+resolve. A separate entry-point file that references the real launcher by its
+**full absolute path** is required in the Links folder.
+
+The right form for that entry point depends entirely on context: who installs
+the app, where it lives, whether it will be redistributed to other machines.
+There is no fixed recipe. What is fixed is the question — **always ask the user
+where and how the operator will invoke the app before you consider delivery
+complete**, and design the entry point accordingly. Do not assume a
+double-click launcher is the only thing needed.
+
+**Export form — what to offer and how to explain it.** Present both options with
+their trade-offs so the user can make an informed choice. Both forms work equally
+well with NVGate's Automation → Execute menu — that is *not* the differentiator.
+
+*Option A — Standalone `.exe`*
+PyInstaller bundles Python, all libraries, and the app into a single file. The
+operator needs **nothing pre-installed** — no Python, no pip, no setup.
+- Pros: truly zero-dependency; one file to hand over; no IT involvement needed.
+- Cons: the `.exe` is large (50–150 MB); Windows Defender or company antivirus
+  sometimes flags unknown executables (even clean ones); every bug fix requires a
+  full rebuild and re-delivery.
+- Best when: the operator is a production-line worker or someone outside your
+  company; you have no control over their PC; or IT policy forbids installing Python.
+
+*Option B — `.bat` + Python source*
+The operator runs the Python code directly. They need **Python installed once**
+(done via `setup.bat`); after that, launches are instant.
+- Pros: tiny package (a few KB of text files); no antivirus issues; a bug fix is
+  just editing a `.py` file and sending it — no rebuild; easier to diagnose when
+  something breaks (the terminal shows the exact error).
+- Cons: Python must be installed on the operator's PC; if it is not (or is the
+  wrong version), IT help is needed before the app runs.
+- Best when: the operator is an engineer in the same organisation; IT can install
+  Python once; you expect to update the app regularly; or you are still iterating.
 
 ---
 
@@ -142,10 +186,11 @@ shipped on its own.
 ```
 apps/<app-name>/
 ├── DIRECTIVE.md      ← the app's spec + build manifest (see below)
+├── README.md         ← plain-language guide for whoever will use this app
 ├── app/              ← the app's deterministic Python (UI + logic) = the runtime
 ├── requirements.txt  ← PyPI packages this app needs (numpy, openpyxl, …)
 ├── .tmp/             ← scratch / intermediate files — gitignored, NEVER exported
-└── dist/             ← generated standalone bundle (.exe or source zip)
+└── dist/             ← generated operator package (built by tools/export_app.py)
 ```
 
 **`DIRECTIVE.md` is the heart of each app.** It has YAML frontmatter (read by the
@@ -157,6 +202,14 @@ export tool) and a body (the spec). Treat it as a **living document**:
   section** so the next session and the next app benefit.
 - **Do not overwrite or discard a DIRECTIVE.md without asking** (rule #5). Improve
   it over time; never use it ad hoc and throw it away.
+
+**`README.md` is the plain-language guide** (rule #7). Write it once the app
+runs successfully end-to-end, without being asked. Ask yourself: *who will use
+this app, and what do they need to know to use it confidently?* The answer shapes
+the content — there is no fixed template. A self-service tool for an engineer needs
+different information than a one-click app for a production-line operator or a
+deliverable sent to a customer. Use your judgement: include what is genuinely
+useful, leave out what is obvious. Always write in plain language with no jargon.
 
 **Self-correction loop.** When something breaks: read the error, fix the code,
 re-test to confirm, then add the cause + fix to `DIRECTIVE.md`. Each failure should
@@ -170,12 +223,71 @@ re-writing connection / result / export boilerplate.
 
 ## 7. Exporting (delivering the app)
 
-Use `tools/export_app.py`. It reads the app's `DIRECTIVE.md` frontmatter and:
+Use `tools/export_app.py`. Run it once when the app is ready to ship:
 
-1. Vendors `pynvdrive` + the specific `oros_helpers` modules the app uses into
-   `dist/`, so the result has **no dependency on this workspace**.
-2. Writes the app's `requirements.txt` into the bundle.
-3. If the target is `exe`, builds a standalone executable with PyInstaller.
+```
+python tools/export_app.py <app-name>
+```
+
+It produces a **versioned, operator-ready folder** at:
+
+```
+apps/<name>/dist/<name>-v<version>-<target>/
+```
+
+For example: `apps/thd-ui/dist/thd-ui-v1.0-exe/` or `apps/thd-ui/dist/thd-ui-v1.0-source/`.
+Both forms can exist side by side in `dist/` without overwriting each other.
+
+After the tool runs, show the user the folder path. **The user** inspects the
+contents, then zips and sends it — the tool stops after producing the folder
+and does not zip automatically. Its contents depend on the delivery form:
+
+| Exe delivery | Source / bat delivery |
+|---|---|
+| `<name>.exe` | `app/` + `pynvdrive/` + `oros_helpers/` |
+| `install_to_nvgate.bat` | `launch_<name>.bat` |
+| `README.txt` | `setup.bat` (pip install, run once) |
+| | `install_to_nvgate.bat` |
+| | `requirements.txt` · `README.txt` |
+
+The README in the app folder is `README.md` (Markdown, for reading in the editor
+during development). The export tool copies it into the delivery package as
+**`README.txt`** so any operator can open it with a double-click — no special app
+needed.
+
+When the two delivery forms need different instructions (different files, different
+setup steps), create form-specific READMEs alongside `README.md`:
+
+```
+apps/<app-name>/
+    README.md           ← development reference, covers the app overall
+    README-exe.md       ← delivery README for exe form (if different)
+    README-source.md    ← delivery README for source form (if different)
+```
+
+The export tool picks `README-<target>.md` first if it exists, and falls back to
+`README.md`. Write form-specific READMEs whenever the two forms would otherwise
+reference files that don't exist in that package (e.g. `launch_*.bat` in an exe
+delivery, or `setup.bat` in a source delivery that isn't mentioned anywhere).
+
+Both delivery forms include a **generated `install_to_nvgate.bat`** that
+registers the app in NVGate's Automation → Execute menu (see section 5,
+integration layer note). It uses the exe / launcher bat's absolute path,
+captured at package time from the folder where the operator unzips.
+
+**Required DIRECTIVE.md frontmatter fields for this tool:**
+
+```yaml
+version: 1.0                # becomes part of the folder name
+display_name: My App Name   # shown in NVGate Automation (derived from app_name if absent)
+export_target: exe|source
+entry_point: app/main.py
+```
+
+**Workflow for updates:** modify the app in `apps/<name>/`, bump `version` in
+`DIRECTIVE.md`, run the export tool again. The user zips the new folder and
+sends it to the operator; the operator unzips it and, if needed, re-runs
+`install_to_nvgate.bat` (only when the install location changes).
 
 **Always confirm the export form with the user first** (rule #6 / stop #6).
 

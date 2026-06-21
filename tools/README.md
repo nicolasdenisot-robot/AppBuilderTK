@@ -7,10 +7,15 @@ Bundles an app into a self-contained deliverable.
 python tools/export_app.py <app-name> [--target exe|source]
 ```
 
-- Reads the app's `DIRECTIVE.md` frontmatter (`export_target`, `entry_point`).
-- Vendors `pynvdrive` + the `oros_helpers` package into `apps/<app-name>/dist/`.
-- `--target source` → zipped folder (recipient runs with Python).
-- `--target exe` → standalone `.exe` via PyInstaller (recipient just double-clicks;
-  requires `pyinstaller` installed in the build environment).
+- Reads the app's `DIRECTIVE.md` frontmatter (`version`, `display_name`,
+  `export_target`, `entry_point`).
+- Vendors `pynvdrive` + the `oros_helpers` package into the delivery folder.
+- Produces a versioned folder at `apps/<app-name>/dist/<app-name>-v<version>-<target>/`.
+  The tool stops there — the user inspects the folder, then zips and sends it.
+- `--target source` → folder with Python source + launcher + `setup.bat` +
+  `install_to_nvgate.bat` + `README.txt` (recipient needs Python installed).
+- `--target exe` → folder with standalone `.exe` + `install_to_nvgate.bat` +
+  `README.txt` (recipient needs nothing pre-installed; requires `pyinstaller`
+  in the build environment).
 
 > Always confirm the export form with the user before building (CLAUDE.md rule #6).

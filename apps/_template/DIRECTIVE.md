@@ -1,7 +1,10 @@
 ---
 # ── Build manifest (read by tools/export_app.py) ─────────────────────────
 app_name: _template
-export_target: exe          # "exe" (operator double-clicks) or "source" (zip)
+version: 1.0                # bumped for each new delivery; used in folder name
+display_name: My App Name   # shown in NVGate Automation menu; used in bat names
+export_target: exe          # "exe" (self-contained, no Python on operator PC)
+                            # "source" (Python source + launcher; needs Python)
 entry_point: app/main.py
 helpers_used:               # which oros_helpers modules this app imports
   - connection
@@ -22,6 +25,9 @@ _One or two plain sentences: what does this app do, and for whom?_
 - **Who runs it:** _the engineer themselves / a line operator who just clicks_
 - **Live or offline:** _live analyzer (NVGate running) / saved files (offline)_
 - **Capability layer:** _live control (pynvdrive) / file access (orostk) / both_
+- **UI stack:** _none (console) / Tkinter / PySide6 / Streamlit — see CLAUDE.md §5 stop #5_
+- **Delivery form:** _exe (no Python needed) / source (Python required) / both — see CLAUDE.md §5 stop #6_
+- **Launch point:** _double-click / NVGate Automation → Execute / scheduled task_
 
 ## 3. Inputs
 _Settings to apply, channels, files, thresholds, operator entries, etc._
