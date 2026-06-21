@@ -1,0 +1,56 @@
+---
+# ── Build manifest (read by tools/export_app.py) ─────────────────────────
+app_name: _template
+export_target: exe          # "exe" (operator double-clicks) or "source" (zip)
+entry_point: app/main.py
+helpers_used:               # which oros_helpers modules this app imports
+  - connection
+  - results
+# requirements are listed in requirements.txt
+---
+
+# DIRECTIVE — <app name>
+
+> The spec AND living memory for this app. Written during the 6-stop interview
+> (CLAUDE.md §5) and updated as you learn. **Do not overwrite or discard without
+> asking the user** (CLAUDE.md rule #5).
+
+## 1. Objective
+_One or two plain sentences: what does this app do, and for whom?_
+
+## 2. Operator & run context
+- **Who runs it:** _the engineer themselves / a line operator who just clicks_
+- **Live or offline:** _live analyzer (NVGate running) / saved files (offline)_
+- **Capability layer:** _live control (pynvdrive) / file access (orostk) / both_
+
+## 3. Inputs
+_Settings to apply, channels, files, thresholds, operator entries, etc._
+
+| Name | IDN / source | Value / range |
+|------|--------------|---------------|
+|      |              |               |
+
+## 4. Steps (the deterministic flow)
+_The exact, repeatable sequence the app performs. This is what becomes code._
+1.
+2.
+3.
+
+## 5. Computation
+- **NVGate-native (preferred):** _which results are fetched (module/process/channel)_
+- **Python library (only if needed):** _name + why NVGate can't do it_
+
+## 6. Outputs
+- **Where results appear:** _in NVGate / custom UI_ (decision, with reason)
+- **Exports:** _Excel / report / CSV — path & format_
+
+## 7. Pass/fail criteria (if any)
+_Exact, deterministic rules. No ambiguity._
+
+## 8. Edge cases & error handling
+_NVGate not running, no signal, out-of-range, operator cancels, etc._
+
+## 9. Lessons learned (living)
+_Record discoveries here so the next session/app benefits: setting IDNs, quirks
+(e.g. "setting X only applies after Run"), timing, fixes for errors you hit._
+-

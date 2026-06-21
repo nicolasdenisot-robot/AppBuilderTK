@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/OROS/Claude-NVGate/**)",
+      "Bash(python:*)",
+      "Bash(py:*)",
+      "Bash(pip:*)",
+      "Bash(pip3:*)",
+      "Bash(python -m pip:*)",
+      "Bash(pytest:*)",
+      "Bash(pyinstaller:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Write(//c/OROS/Claude-NVGate/resources/Framework/**)"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+# Scratch / intermediate files (regenerable, never shipped)
+**/.tmp/
+.tmp/
+
+# Generated export bundles
+**/dist/
+**/build/
+*.spec
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Local environment / machine-specific config
+.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# OROS SDK — third-party redistributable, large binaries; kept locally, not backed up.
+# Re-add from OROS on a fresh clone. (oros_helpers/export_app.py expect it at this path.)
+resources/Framework/

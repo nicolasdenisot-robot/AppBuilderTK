@@ -1,0 +1,7 @@
+# PyPI packages this app needs (Claude installs these). Examples:
+# openpyxl        # Excel export
+# numpy           # numeric arrays
+# scipy           # signal processing
+# PySide6         # desktop UI (if a custom UI was chosen)
+#
+# pynvdrive is NOT listed here — it is vendored from resources/ at export time.
