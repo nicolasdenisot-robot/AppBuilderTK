@@ -54,27 +54,10 @@ These are non-negotiable and come before the build process in section 5.
    Write it in plain language — no Python, no jargon. The content depends on the
    app: adapt it to who will use it and what they need to know. Do this automatically
    — do not wait for the user to ask. See section 6 for guidance.
-8. **Open every new conversation with the standard greeting.** When a session
-   starts with no prior context AND the user's first message is a simple
-   greeting or contains no specific request (e.g. "hi", "hello", "start"),
-   deliver this message. If the user's first message already contains a task
-   or request, skip the greeting and go straight to helping them.
-
-   ---
-   **Hello! I'm your NVGate application builder.**
-
-   I can turn an outcome you describe into a working, deliverable application.
-
-   **What would you like to build?**
-
-   A sentence or two about the result you want is enough to get started. For example:
-   - *"Automate a test sequence and export the results to Excel"*
-   - *"A pass/fail screen an operator can use without knowing NVGate"*
-   - *"Monitor a live signal and alert when it goes out of range"*
-
-   Tell me your goal and I'll guide you through the rest.
-
-   ---
+8. **Open every new conversation with the standard greeting** (`docs/greeting.md`)
+   when the session starts with no prior context and the user's first message is a
+   simple greeting with no specific request (e.g. "hi", "hello", "start"). Skip it
+   if the first message already contains a task or request.
 
 ---
 
@@ -220,74 +203,11 @@ re-writing connection / result / export boilerplate.
 
 ## 7. Exporting (delivering the app)
 
-Use `tools/export_app.py`. Run it once when the app is ready to ship:
-
-```
-python tools/export_app.py <app-name>
-```
-
-It produces a **versioned, operator-ready folder** at:
-
-```
-apps/<name>/dist/<name>-v<version>-<target>/
-```
-
-For example: `apps/thd-ui/dist/thd-ui-v1.0-exe/` or `apps/thd-ui/dist/thd-ui-v1.0-source/`.
-Both forms can exist side by side in `dist/` without overwriting each other.
-
-After the tool runs, show the user the folder path. **The user** inspects the
-contents, then zips and sends it — the tool stops after producing the folder
-and does not zip automatically. Its contents depend on the delivery form:
-
-| Exe delivery | Source / bat delivery |
-|---|---|
-| `<name>.exe` | `app/` + `pynvdrive/` + `oros_helpers/` |
-| `install_to_nvgate.bat` | `launch_<name>.bat` |
-| `README.txt` | `setup.bat` (pip install, run once) |
-| | `install_to_nvgate.bat` |
-| | `requirements.txt` · `README.txt` |
-
-The README in the app folder is `README.md` (Markdown, for reading in the editor
-during development). The export tool copies it into the delivery package as
-**`README.txt`** so any operator can open it with a double-click — no special app
-needed.
-
-When the two delivery forms need different instructions (different files, different
-setup steps), create form-specific READMEs alongside `README.md`:
-
-```
-apps/<app-name>/
-    README.md           ← development reference, covers the app overall
-    README-exe.md       ← delivery README for exe form (if different)
-    README-source.md    ← delivery README for source form (if different)
-```
-
-The export tool picks `README-<target>.md` first if it exists, and falls back to
-`README.md`. Write form-specific READMEs whenever the two forms would otherwise
-reference files that don't exist in that package (e.g. `launch_*.bat` in an exe
-delivery, or `setup.bat` in a source delivery that isn't mentioned anywhere).
-
-Both delivery forms include a **generated `install_to_nvgate.bat`** that
-registers the app in NVGate's Automation → Execute menu (see section 5,
-integration layer note). It uses the exe / launcher bat's absolute path,
-captured at package time from the folder where the operator unzips.
-
-**Required DIRECTIVE.md frontmatter fields for this tool:**
-
-```yaml
-version: 1.0                # becomes part of the folder name
-display_name: My App Name   # shown in NVGate Automation (derived from app_name if absent)
-export_target: exe|source
-entry_point: app/main.py
-logo: oros                  # brand folder under shared/assets/logos/ (default: oros)
-```
-
-**Workflow for updates:** modify the app in `apps/<name>/`, bump `version` in
-`DIRECTIVE.md`, run the export tool again. The user zips the new folder and
-sends it to the operator; the operator unzips it and, if needed, re-runs
-`install_to_nvgate.bat` (only when the install location changes).
-
-**Always confirm the export form with the user first** (rule #6 / stop #6).
+Run `python tools/export_app.py <app-name>` when the app is ready to ship.
+Output: `apps/<name>/dist/<name>-v<version>-<target>/`. Show the user the folder
+path — they zip and send it. **Always confirm the export form with the user first**
+(rule #6 / stop #6). Full reference (folder contents, README logic, frontmatter
+fields, update workflow): `docs/exporting.md`.
 
 ---
 
@@ -314,45 +234,8 @@ sends it to the operator; the operator unzips it and, if needed, re-runs
 
 ## 10. Logo convention
 
-App UIs show a brand logo in the header. Logos are **shared assets** — never
-store them inside an app's `app/` folder. They live in `shared/assets/logos/<brand>/`.
-
-**Which variant to use:**
-
-| File | When to use |
-|------|-------------|
-| `logo_color.png` | Light-theme UI — **default for all apps unless told otherwise** |
-| `logo_white.png` | Dark-theme UI only |
-
-**To add a logo to an app:**
-
-1. Set `logo: oros` (or the customer brand name) in `DIRECTIVE.md`.
-   The export tool reads this and copies the right files automatically — nothing
-   else to do for delivery.
-
-2. In `main.py`, use this exact pattern (copy-paste; change `_LOGO_BRAND` and
-   `_LOGO_VARIANT` as needed):
-
-   ```python
-   _LOGO_BRAND   = "oros"   # must match a folder under shared/assets/logos/
-   _LOGO_VARIANT = "color"  # "color" for light themes · "white" for dark themes
-
-   def _logo_path() -> str:
-       fname = f"logo_{_LOGO_VARIANT}.png"
-       if hasattr(sys, '_MEIPASS'):           # running as a PyInstaller exe
-           return os.path.join(sys._MEIPASS, fname)
-       _here = Path(__file__).resolve()
-       for candidate in (
-           _here.parents[3] / "shared" / "assets" / "logos" / _LOGO_BRAND,
-           _here.parent,                      # local override next to main.py
-       ):
-           p = candidate / fname
-           if p.exists():
-               return str(p)
-       return ""
-   ```
-
-**For a customer-branded app:** create `shared/assets/logos/<customer-name>/`
-and place `logo_color.png` and `logo_white.png` inside it. Then set
-`logo: <customer-name>` in `DIRECTIVE.md` and `_LOGO_BRAND = "<customer-name>"`
-in `main.py`. No other changes needed.
+Logos live in `shared/assets/logos/<brand>/`. Use `logo_color.png` on light-theme
+UIs (default) and `logo_white.png` on dark-theme UIs. Declare the brand with
+`logo: oros` (or customer name) in `DIRECTIVE.md` — the export tool copies the
+files automatically. Full instructions and `_logo_path()` pattern:
+`shared/assets/logos/README.md`.
