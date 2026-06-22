@@ -1,14 +1,16 @@
 ---
-# ── Build manifest (read by tools/export_app.py) ─────────────────────────
-app_name: _template
+# ── Build manifest ───────────────────────────────────────────────────────
+# Fields read by tools/export_app.py: version, display_name, export_target,
+# entry_point, logo. The others below are informational only.
+app_name: _template         # informational; the tool uses the folder name
 version: 1.0                # bumped for each new delivery; used in folder name
 display_name: My App Name   # shown in NVGate Automation menu; used in bat names
 export_target: exe          # "exe" (self-contained, no Python on operator PC)
                             # "source" (Python source + launcher; needs Python)
 entry_point: app/main.py
 logo: oros                  # brand folder under shared/assets/logos/ (see CLAUDE.md §10)
-helpers_used:               # which oros_helpers modules this app imports
-  - connection
+helpers_used:               # informational; the tool always vendors the whole
+  - connection              #   oros_helpers package regardless of this list
   - results
 # requirements are listed in requirements.txt
 ---

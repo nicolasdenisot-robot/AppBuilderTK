@@ -62,7 +62,9 @@ These are non-negotiable and come before the build process in section 5.
    Hello! I'm your NVGate application builder. I can turn an outcome you describe
    into a working, deliverable application.
 
-   **What would you like to build?** Tell me your goal and I'll guide you through
+   **What would you like to build?** 
+   
+   Tell me your goal and I'll guide you through
    the rest.
 
 ---

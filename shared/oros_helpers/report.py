@@ -1,9 +1,10 @@
 """
-Report helpers — generate a simple PDF/HTML report from results.
+Report helpers — generate a simple HTML report from results.
 
-The HTML path has no dependencies (just writes a file you can open or print to
-PDF from a browser). The PDF path uses `reportlab` if you add it to the app's
-requirements.txt. Keep reports deterministic and template-driven.
+`render_html_report` has no dependencies: it writes an .html file you can open
+or print to PDF from a browser. For automated PDF output, add a
+`render_pdf_report(...)` here using `reportlab` or WeasyPrint (see
+docs/recipes/generate-report.md). Keep reports deterministic and template-driven.
 """
 
 import datetime as _dt

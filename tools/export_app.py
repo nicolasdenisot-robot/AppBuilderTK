@@ -2,27 +2,28 @@
 export_app.py — package an app into a ready-to-ship operator deliverable.
 
 Reads the app's DIRECTIVE.md frontmatter, vendors pynvdrive + oros_helpers,
-then builds a versioned, zippable folder at:
+then builds a versioned folder at:
 
-    apps/<name>/dist/<name>-v<version>/
+    apps/<name>/dist/<name>-v<version>-<target>/
 
-and a matching .zip file next to it.
+The tool does not zip — it leaves the folder ready for you to inspect, zip,
+and send.
 
 ── Exe delivery (operator needs nothing pre-installed) ──────────────────────
-    <name>-v<version>/
+    <name>-v<version>-exe/
         <name>.exe                   standalone — Python not required
         install_to_nvgate.bat        run once: adds to NVGate Automation
-        README.md
+        README.txt
 
 ── Source / bat delivery (operator needs Python installed) ──────────────────
-    <name>-v<version>/
+    <name>-v<version>-source/
         app/                         Python source
         pynvdrive/  oros_helpers/    bundled SDK — workspace not required
         launch_<name>.bat            double-click to run
         setup.bat                    run once: pip install -r requirements.txt
         install_to_nvgate.bat        run once: adds to NVGate Automation
         requirements.txt
-        README.md
+        README.txt
 
 ── DIRECTIVE.md frontmatter fields used by this tool ────────────────────────
     version: 1.0           → folder / zip name  (default: 1.0)

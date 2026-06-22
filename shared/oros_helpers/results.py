@@ -45,13 +45,15 @@ def stop_measurement(client=None):
 
 def list_results(client=None):
     """
-    Return the list of currently available results. Each item exposes
-    `.module_id`, `.process_id`, `.channel_number`.
+    Return the list of currently available results. Each item is a
+    ResultFormatAndDescription object exposing `.module_id`, `.process_id`,
+    `.channel_number`, `.reference_channel_number` and `.input_name`
+    (and `.to_dict()` / `.to_list()`).
     """
     def _do(c):
         cmd = GetResultList()
         c.send_command(cmd)
-        return cmd.list
+        return cmd.list_result_format_and_description
     return _with_client(client, _do)
 
 
@@ -83,9 +85,17 @@ def get_scalar_result(module, process, channel, reference_channel_number=0,
     """
     Convenience wrapper that returns a single scalar value (e.g. an overall /
     RMS level) for the given result address.
+
+    Raises ValueError if the addressed result is not a scalar (e.g. a spectrum
+    or other vector) — use get_result(...) to read those.
     """
     result = get_result(module, process, channel, reference_channel_number,
                          waterfall=False, client=client)
+    if getattr(result, "scal", None) is None:
+        raise ValueError(
+            f"Result at (module={module}, process={process}, channel={channel}) "
+            "is not a scalar; use get_result(...) to read a spectrum/vector."
+        )
     return result.scal.value
 
 

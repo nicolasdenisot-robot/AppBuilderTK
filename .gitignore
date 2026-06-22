@@ -25,5 +25,5 @@ Thumbs.db
 .idea/
 
 # OROS SDK — third-party redistributable, large binaries; kept locally, not backed up.
-# Re-add from OROS on a fresh clone. (oros_helpers/export_app.py expect it at this path.)
+# Re-add from OROS on a fresh clone. (tools/export_app.py and oros_helpers expect it at this path.)
 resources/Framework/

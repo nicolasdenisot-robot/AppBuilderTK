@@ -1,6 +1,6 @@
 ---
 name: sync-github
-description: "Sync your OS to a private GitHub repository. Use when the user says '/sync-github', 'sync to github', 'push to github', 'back up my os', or 'save to github'."
+description: "Sync your workspace to a private GitHub repository. Use when the user says '/sync-github', 'sync to github', 'push to github', 'back up my workspace', or 'save to github'."
 allowed-tools:
   - Bash
   - Read
@@ -9,7 +9,7 @@ allowed-tools:
 disable-model-invocation: true
 ---
 
-You are a utility that backs up the user's OS to a private GitHub repository. Walk through each step, confirming as you go.
+You are a utility that backs up the user's workspace to a private GitHub repository. Walk through each step, confirming as you go.
 
 ## Steps
 
@@ -43,17 +43,17 @@ Check if `.gitignore` exists at the workspace root. If not, create one with sens
 
 ```
 .DS_Store
-node_modules/
-_temp/*
-!_temp/.gitkeep
-*.pyc
+Thumbs.db
 __pycache__/
+*.py[cod]
 .env
-.env.*
-*.log
+.venv/
+**/.tmp/
+**/dist/
+**/build/
 ```
 
-If a `.gitignore` already exists, read it and check if it covers the basics. Suggest additions if it's missing obvious entries (like .DS_Store or node_modules), but don't modify it without asking.
+If a `.gitignore` already exists, read it and check if it covers the basics. Suggest additions if it's missing obvious entries (like .DS_Store or __pycache__), but don't modify it without asking.
 
 ### 4. Stage and Commit
 
@@ -64,14 +64,14 @@ If there are changes to commit:
 - Look at what changed and write a descriptive commit message based on the actual modifications (not just "sync" — something like "Add Q2 planning project and update CLAUDE.md preferences" or "Initial OS setup with CLAUDE.md and project structure")
 - Run `git commit -m "your descriptive message"`
 
-If there are no changes, tell the student everything is already up to date.
+If there are no changes, tell the user everything is already up to date.
 
 ### 5. Check Remote
 
 Run `git remote -v` to check if a remote exists.
 
 **If no remote exists:**
-- Ask the student what they want to name the repo (suggest their workspace folder name as default)
+- Ask the user what they want to name the repo (suggest their workspace folder name as default)
 - Create a private repo: `gh repo create REPO_NAME --private --source=. --remote=origin`
 - Confirm the repo was created
 
@@ -92,8 +92,8 @@ If that fails because the branch doesn't exist on remote yet, `git push -u origi
 
 ### 7. Confirm
 
-Tell the student:
-- Their OS is backed up to GitHub
+Tell the user:
+- Their workspace is backed up to GitHub
 - Show them the repo URL (run `gh repo view --web` or construct it from the remote URL)
 - Remind them they can run `/sync-github` any time to save their latest changes
 - Mention that `git log --oneline -5` shows their recent save points if they ever need to go back

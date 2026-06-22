@@ -27,6 +27,7 @@ from .results import (
     list_results,
     get_scalar_result,
     get_result,
+    clear_results,
 )
 
 __all__ = [
@@ -41,4 +42,5 @@ __all__ = [
     "list_results",
     "get_scalar_result",
     "get_result",
+    "clear_results",
 ]
