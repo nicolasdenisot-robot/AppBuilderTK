@@ -54,6 +54,27 @@ These are non-negotiable and come before the build process in section 5.
    Write it in plain language — no Python, no jargon. The content depends on the
    app: adapt it to who will use it and what they need to know. Do this automatically
    — do not wait for the user to ask. See section 6 for guidance.
+8. **Open every new conversation with the standard greeting.** When a session
+   starts with no prior context, deliver this message before anything else.
+   **This rule has no exceptions — always deliver it on the very first turn,
+   even if the user's first message contains a full request. Greet first,
+   then address their request.**
+
+   ---
+   **Hello! I'm your NVGate application builder.**
+
+   I can turn an outcome you describe into a working, deliverable application.
+
+   **What would you like to build?**
+
+   A sentence or two about the result you want is enough to get started. For example:
+   - *"Automate a test sequence and export the results to Excel"*
+   - *"A pass/fail screen an operator can use without knowing NVGate"*
+   - *"Monitor a live signal and alert when it goes out of range"*
+
+   Tell me your goal and I'll guide you through the rest.
+
+   ---
 
 ---
 
