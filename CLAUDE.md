@@ -162,45 +162,16 @@ tracking, FRF, overall/RMS, waterfall/Campbell…), **drive NVGate and fetch the
 result — do not reimplement it in Python.** Only reach for Python libraries
 (`docs/algorithms.md`) for math NVGate does not do, or for post-processing.
 
-**NVGate Automation / integration layer.** An app's own launcher (e.g.
-`launch_xyz.bat`) uses paths relative to its own folder and must stay there.
-If the operator wants to invoke the app from **NVGate's Automation → Execute
-menu**, they cannot simply copy that launcher to the NVGate Links folder
-(`C:\OROS\NVGate data\Links\`) — it will break because relative paths no longer
-resolve. A separate entry-point file that references the real launcher by its
-**full absolute path** is required in the Links folder.
+**NVGate Automation / integration.** The app's launcher uses relative paths and
+must stay in its own folder. To register in NVGate's Execute menu
+(`C:\OROS\NVGate data\Links\`), a separate entry-point with the **full absolute
+path** is required. Always ask the user where and how the operator will invoke
+the app before considering delivery complete.
 
-The right form for that entry point depends entirely on context: who installs
-the app, where it lives, whether it will be redistributed to other machines.
-There is no fixed recipe. What is fixed is the question — **always ask the user
-where and how the operator will invoke the app before you consider delivery
-complete**, and design the entry point accordingly. Do not assume a
-double-click launcher is the only thing needed.
-
-**Export form — what to offer and how to explain it.** Present both options with
-their trade-offs so the user can make an informed choice. Both forms work equally
-well with NVGate's Automation → Execute menu — that is *not* the differentiator.
-
-*Option A — Standalone `.exe`*
-PyInstaller bundles Python, all libraries, and the app into a single file. The
-operator needs **nothing pre-installed** — no Python, no pip, no setup.
-- Pros: truly zero-dependency; one file to hand over; no IT involvement needed.
-- Cons: the `.exe` is large (50–150 MB); Windows Defender or company antivirus
-  sometimes flags unknown executables (even clean ones); every bug fix requires a
-  full rebuild and re-delivery.
-- Best when: the operator is a production-line worker or someone outside your
-  company; you have no control over their PC; or IT policy forbids installing Python.
-
-*Option B — `.bat` + Python source*
-The operator runs the Python code directly. They need **Python installed once**
-(done via `setup.bat`); after that, launches are instant.
-- Pros: tiny package (a few KB of text files); no antivirus issues; a bug fix is
-  just editing a `.py` file and sending it — no rebuild; easier to diagnose when
-  something breaks (the terminal shows the exact error).
-- Cons: Python must be installed on the operator's PC; if it is not (or is the
-  wrong version), IT help is needed before the app runs.
-- Best when: the operator is an engineer in the same organisation; IT can install
-  Python once; you expect to update the app regularly; or you are still iterating.
+**Export form — what to offer.** Present both options with their trade-offs and
+let the user choose (full script in `docs/export-forms.md`):
+- **Exe**: zero-dependency, no Python needed, one file to hand over; large (50–150 MB), antivirus may flag it, full rebuild needed for every update.
+- **Source + bat**: tiny package, easy to update; Python must be installed once on the operator's PC.
 
 ---
 
@@ -322,20 +293,8 @@ sends it to the operator; the operator unzips it and, if needed, re-runs
 
 ## 8. Connection facts (quick reference)
 
-- NVGate listens on **TCP port 3000**; same machine uses host **`127.0.0.1`**.
-- `pynvdrive` is at `resources/Framework/Python/pynvdrive/`. `oros_helpers` adds it
-  to the path automatically — you just `import oros_helpers`.
-- Minimal pattern:
-  ```python
-  import pynvdrive
-  from pynvdrive.commands.actions import Run, Stop
-  with pynvdrive.Client() as client:        # connects to 127.0.0.1:3000
-      try:
-          client.send_command(Run())
-      except pynvdrive.NVDriveCommandError as e:
-          print('error', e.error)
-  ```
-- See `docs/nvdrive-cheatsheet.md` for the commands you'll use most.
+- NVGate: TCP **port 3000**, host **`127.0.0.1`**. `import oros_helpers` adds pynvdrive to the path automatically.
+- See `docs/nvdrive-cheatsheet.md` for the top ~30 commands with examples.
 
 ---
 
