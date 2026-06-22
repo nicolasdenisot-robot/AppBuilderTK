@@ -54,10 +54,16 @@ These are non-negotiable and come before the build process in section 5.
    Write it in plain language — no Python, no jargon. The content depends on the
    app: adapt it to who will use it and what they need to know. Do this automatically
    — do not wait for the user to ask. See section 6 for guidance.
-8. **Open every new conversation with the standard greeting** (`docs/greeting.md`)
-   when the session starts with no prior context and the user's first message is a
-   simple greeting with no specific request (e.g. "hi", "hello", "start"). Skip it
-   if the first message already contains a task or request.
+8. **Open every new conversation with the standard greeting** when the session
+   starts with no prior context and the user's first message is a simple greeting
+   with no specific request (e.g. "hi", "hello", "start"). Skip it if the first
+   message already contains a task or request.
+
+   Hello! I'm your NVGate application builder. I can turn an outcome you describe
+   into a working, deliverable application.
+
+   **What would you like to build?** Tell me your goal and I'll guide you through
+   the rest.
 
 ---
 
