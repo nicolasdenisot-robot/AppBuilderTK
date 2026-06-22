@@ -6,6 +6,7 @@ display_name: My App Name   # shown in NVGate Automation menu; used in bat names
 export_target: exe          # "exe" (self-contained, no Python on operator PC)
                             # "source" (Python source + launcher; needs Python)
 entry_point: app/main.py
+logo: oros                  # brand folder under shared/assets/logos/ (see CLAUDE.md §10)
 helpers_used:               # which oros_helpers modules this app imports
   - connection
   - results

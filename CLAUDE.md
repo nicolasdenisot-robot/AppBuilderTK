@@ -48,8 +48,8 @@ These are non-negotiable and come before the build process in section 5.
    `myproject_2026-06-21`) and leave the original untouched. If a destructive
    change seems unavoidable, **stop and ask first.** Likewise, never modify
    `resources/Framework/` (READ-ONLY SDK reference) without explicit confirmation.
-6. **Reuse before you write.** Check `shared/oros_helpers/` and `docs/recipes/`
-   first; only write new code if nothing fits (section 6).
+6. **Reuse before you write.** Check `shared/oros_helpers/`, `shared/assets/`,
+   and `docs/recipes/` first; only write new code if nothing fits (section 6).
 7. **When an app works end-to-end, create `README.md` in the app folder.**
    Write it in plain language — no Python, no jargon. The content depends on the
    app: adapt it to who will use it and what they need to know. Do this automatically
@@ -100,7 +100,12 @@ Claude-NVGate/
 │   ├── algorithms.md             where to get calculations (turbomachinery, sound quality)
 │   ├── app-archetypes.md         app types → which example to copy
 │   └── recipes/                  proven copy-adapt patterns
-├── shared/oros_helpers/      ← reusable, tested helpers (reuse these!)
+├── shared/
+│   ├── oros_helpers/         ← reusable Python helpers (reuse these!)
+│   └── assets/
+│       └── logos/            ← brand logos for app UIs (never store in app/ folders)
+│           ├── oros/         ← OROS brand: logo_color.png (light) · logo_white.png (dark)
+│           └── <customer>/   ← add a folder here for each customer brand
 ├── apps/                     ← the user's applications, one self-contained folder each
 │   └── _template/                clone this to start a new app
 └── tools/export_app.py       ← bundles an app into a standalone deliverable
@@ -282,6 +287,7 @@ version: 1.0                # becomes part of the folder name
 display_name: My App Name   # shown in NVGate Automation (derived from app_name if absent)
 export_target: exe|source
 entry_point: app/main.py
+logo: oros                  # brand folder under shared/assets/logos/ (default: oros)
 ```
 
 **Workflow for updates:** modify the app in `apps/<name>/`, bump `version` in
@@ -323,3 +329,50 @@ sends it to the operator; the operator unzips it and, if needed, re-runs
 | Rotating-machinery / turbomachinery or sound-quality math | `docs/algorithms.md` |
 | Understand which app type this is | `docs/app-archetypes.md` |
 | Any NVDrive command detail not in the cheatsheet | `resources/manuals-text/NVDrive_Reference_Manual.txt` (searchable text mirror of the PDF) |
+
+---
+
+## 10. Logo convention
+
+App UIs show a brand logo in the header. Logos are **shared assets** — never
+store them inside an app's `app/` folder. They live in `shared/assets/logos/<brand>/`.
+
+**Which variant to use:**
+
+| File | When to use |
+|------|-------------|
+| `logo_color.png` | Light-theme UI — **default for all apps unless told otherwise** |
+| `logo_white.png` | Dark-theme UI only |
+
+**To add a logo to an app:**
+
+1. Set `logo: oros` (or the customer brand name) in `DIRECTIVE.md`.
+   The export tool reads this and copies the right files automatically — nothing
+   else to do for delivery.
+
+2. In `main.py`, use this exact pattern (copy-paste; change `_LOGO_BRAND` and
+   `_LOGO_VARIANT` as needed):
+
+   ```python
+   _LOGO_BRAND   = "oros"   # must match a folder under shared/assets/logos/
+   _LOGO_VARIANT = "color"  # "color" for light themes · "white" for dark themes
+
+   def _logo_path() -> str:
+       fname = f"logo_{_LOGO_VARIANT}.png"
+       if hasattr(sys, '_MEIPASS'):           # running as a PyInstaller exe
+           return os.path.join(sys._MEIPASS, fname)
+       _here = Path(__file__).resolve()
+       for candidate in (
+           _here.parents[3] / "shared" / "assets" / "logos" / _LOGO_BRAND,
+           _here.parent,                      # local override next to main.py
+       ):
+           p = candidate / fname
+           if p.exists():
+               return str(p)
+       return ""
+   ```
+
+**For a customer-branded app:** create `shared/assets/logos/<customer-name>/`
+and place `logo_color.png` and `logo_white.png` inside it. Then set
+`logo: <customer-name>` in `DIRECTIVE.md` and `_LOGO_BRAND = "<customer-name>"`
+in `main.py`. No other changes needed.

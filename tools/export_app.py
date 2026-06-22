@@ -47,6 +47,7 @@ from pathlib import Path
 WORKSPACE = Path(__file__).resolve().parents[1]
 APPS      = WORKSPACE / "apps"
 SHARED    = WORKSPACE / "shared" / "oros_helpers"
+LOGOS     = WORKSPACE / "shared" / "assets" / "logos"
 PYNVDRIVE = (WORKSPACE / "resources" / "Framework"
              / "Python" / "pynvdrive" / "pynvdrive")
 LINKS_DIR = r"C:\OROS\NVGate data\Links"
@@ -107,7 +108,7 @@ def _bat(path, lines):
 
 # ── staging (common to both targets) ─────────────────────────────────────────
 
-def build_staging(app_dir, dist):
+def build_staging(app_dir, dist, logo_brand="oros"):
     """Copy app source + vendors into dist/_staging/. Returns the staging path."""
     staging = dist / "_staging"
     if staging.exists():
@@ -118,6 +119,17 @@ def build_staging(app_dir, dist):
     _no_cache = shutil.ignore_patterns("__pycache__", "*.pyc")
     shutil.copytree(PYNVDRIVE, staging / "pynvdrive", ignore=_no_cache)
     shutil.copytree(SHARED, staging / "oros_helpers", ignore=_no_cache)
+
+    # Copy brand logos into staging/app/ so they are available at runtime
+    # (source delivery) and picked up by the asset-bundling loop (exe delivery).
+    logo_dir = LOGOS / logo_brand
+    for variant in ("logo_color.png", "logo_white.png"):
+        src = logo_dir / variant
+        if src.exists():
+            shutil.copy2(src, staging / "app" / variant)
+            print(f"  Logo         : {logo_brand}/{variant}")
+        else:
+            print(f"  WARNING: logo not found: {src}")
     return staging
 
 
@@ -317,6 +329,11 @@ def package_exe(app_dir, dist, staging, pkg_dir, meta, app_name, display_name):
         "--specpath", str(exe_work),
         str(entry_path),
     ]
+    # Bundle any non-Python asset files from app/ (logos, icons, config, etc.)
+    for asset in sorted((staging / "app").glob("*")):
+        if asset.is_file() and asset.suffix not in (".py", ".pyc", ".spec"):
+            cmd += ["--add-data", f"{asset}{sep}."]
+            print(f"  Asset        : {asset.name}")
     print(f"  Running PyInstaller...")
     subprocess.check_call(cmd)
 
@@ -357,6 +374,7 @@ def main():
     version = meta.get("version", "1.0")
     display = make_display_name(app_name, meta)
     target  = args.target or meta.get("export_target", "source")
+    logo    = meta.get("logo", "oros")
 
     dist    = app_dir / "dist"
     dist.mkdir(exist_ok=True)
@@ -371,9 +389,10 @@ def main():
     print(f"  Version      : {version}")
     print(f"  Display name : {display}")
     print(f"  Target       : {target}")
+    print(f"  Logo brand   : {logo}")
     print(f"  Output       : {pkg_dir}\n")
 
-    staging = build_staging(app_dir, dist)
+    staging = build_staging(app_dir, dist, logo)
 
     if target == "exe":
         package_exe(app_dir, dist, staging, pkg_dir, meta, app_name, display)
