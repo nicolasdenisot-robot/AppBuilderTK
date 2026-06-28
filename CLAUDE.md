@@ -105,31 +105,18 @@ and then **export each one as a self-contained app** the user can ship.
 
 ```
 Claude-NVGate/
-├── CLAUDE.md                 ← you are here
-├── README.md                 ← 1-page human start
-├── resources/
-│   ├── Framework/            ← OROS SDK + manuals (READ-ONLY; NOT in git — added by user, see README)
-│   │   ├── NVDrive_Reference_Manual.pdf  (live control, 386 pages)
-│   │   ├── OR3x_Developer_Toolkit.pdf    (toolkit overview)
-│   │   └── Python/pynvdrive/             (the live-control library you import)
-│   └── manuals-text/        ← plain-text mirror of the PDFs (committed; read THESE,
-│                              since PDFs may not render — e.g. NVDrive_Reference_Manual.txt)
-├── docs/                     ← distilled guidance — READ THIS, not the 386-page PDF
-│   ├── nvdrive-cheatsheet.md     top ~30 commands with examples
-│   ├── algorithms.md             where to get calculations (turbomachinery, sound quality)
-│   ├── app-archetypes.md         app types → which example to copy
+├── CLAUDE.md, README.md       ← this manual · 1-page human start
+├── resources/                 ← OROS SDK (Framework/: READ-ONLY, not in git) + manuals
+│   └── manuals-text/          ← plain-text mirror — read THESE, not the PDFs (may not render)
+├── docs/                      ← distilled guidance — READ THIS, not the 386-page PDF
 │   └── recipes/                  proven copy-adapt patterns
-├── shared/
-│   ├── oros_helpers/         ← reusable Python helpers (reuse these!)
-│   └── assets/
-│       └── logos/            ← brand logos for app UIs (brand logos live here, not in app/;
-│                               app-specific runtime assets do go in app/ — see §6)
-│           ├── oros/         ← OROS brand: logo_color.png (light) · logo_white.png (dark)
-│           └── <customer>/   ← add a folder here for each customer brand
-├── apps/                     ← the user's applications, one self-contained folder each
-│   └── _template/                clone this to start a new app
-└── tools/export_app.py       ← bundles an app into a standalone deliverable
+├── shared/oros_helpers/       ← reusable Python helpers (reuse these — rule #6)
+├── shared/assets/logos/       ← brand logos (live here, not in app/; app runtime assets go in app/ — §6)
+├── apps/                      ← one self-contained folder per app; clone _template/ to start
+└── tools/export_app.py        ← bundles an app into a standalone deliverable
 ```
+
+Full annotated tree: `docs/workspace-layout.md`.
 
 ### Two capability layers
 
@@ -178,12 +165,10 @@ Sometimes the user wants to **change an app that already exists**, not start fro
 scratch. Three user-invoked skills support this — use them in order:
 
 1. **`/explore-codebase <app>`** — understand the app and write a plain-language
-   overview into its `DIRECTIVE.md`. **Also the onboarding step:** if the user is
-   bringing in app code from elsewhere, the convention is to copy `apps/_template/`
-   to `apps/<name>/`, paste their code into `apps/<name>/app/`, then run this skill —
-   it reverse-engineers a `DIRECTIVE.md` from the code. Runtime templates the app
-   loads (Excel/report templates) go in `app/` as top-level files; source documents
-   that only inform the build (specs, examples) go in `reference/` — see §6.
+   overview into its `DIRECTIVE.md`. **Also the onboarding step:** if the user brings
+   in app code from elsewhere, copy `apps/_template/` to `apps/<name>/`, paste their
+   code into `apps/<name>/app/`, then run this skill — it reverse-engineers a
+   `DIRECTIVE.md` from the code. (Where runtime templates vs build-only docs go: §6.)
 2. **`/scope-feature <app> <change>`** — map what the change needs, what already
    exists to reuse, and where the difficulty is; it ends with a short improvement
    interview (boundaries, edge cases, pass criteria) and records the result in
@@ -205,16 +190,15 @@ shipped on its own.
 
 ```
 apps/<app-name>/
-├── DIRECTIVE.md      ← the app's spec + build manifest (see below)
-├── README.md         ← plain-language guide for whoever will use this app
-├── CHANGELOG.md      ← plain-language version history; shipped as WHATS-NEW.txt (rule #9)
-├── app/              ← deterministic Python (UI + logic) = the runtime; ALSO holds
-│                       runtime assets the app loads (templates, images) as top-level files
-├── reference/        ← source docs that inform the build (specs, examples) — NEVER shipped
-├── requirements.txt  ← PyPI packages this app needs (numpy, openpyxl, …)
-├── .tmp/             ← scratch / intermediate files — gitignored, NEVER exported
-└── dist/             ← generated operator package (built by tools/export_app.py)
+├── DIRECTIVE.md      ← spec + build manifest (the heart — see below)
+├── README.md         ← plain-language guide (rule #7)
+├── CHANGELOG.md      ← version history → shipped as WHATS-NEW.txt (rule #9)
+├── app/              ← the runtime: deterministic Python + top-level runtime assets (templates/images)
+├── reference/        ← build-only source docs — NEVER shipped
+└── requirements.txt · .tmp/ (scratch, NEVER exported) · dist/ (built operator package)
 ```
+
+Full per-app layout: `docs/workspace-layout.md`.
 
 **`DIRECTIVE.md` is the heart of each app.** It has YAML frontmatter (read by the
 export tool) and a body (the spec). Treat it as a **living document**:
@@ -226,13 +210,11 @@ export tool) and a body (the spec). Treat it as a **living document**:
 - **Do not overwrite or discard a DIRECTIVE.md without asking** (rule #5). Improve
   it over time; never use it ad hoc and throw it away.
 
-**`README.md` is the plain-language guide** (rule #7). Write it once the app
-runs successfully end-to-end, without being asked. Ask yourself: *who will use
-this app, and what do they need to know to use it confidently?* The answer shapes
-the content — there is no fixed template. A self-service tool for an engineer needs
-different information than a one-click app for a production-line operator or a
-deliverable sent to a customer. Use your judgement: include what is genuinely
-useful, leave out what is obvious. Always write in plain language with no jargon.
+**`README.md` is the plain-language guide** (rule #7). Write it automatically once
+the app runs end-to-end — there is no fixed template: ask *who will use this app and
+what they need to use it confidently*, and adapt (an engineer's self-service tool
+differs from a one-click operator app or a customer deliverable). Plain language, no
+jargon; include what's genuinely useful, leave out the obvious.
 
 **`CHANGELOG.md` is the version history** (rule #9). Plain language, newest first.
 Whenever you bump `version` in `DIRECTIVE.md`, add a matching entry describing what
@@ -246,16 +228,9 @@ the *app* opens them:
 - A document the **app loads at runtime** (an Excel template it fills, a report
   template, a config file, an image) → put it in `app/` as a **top-level file**. The
   export tool bundles those automatically (the exe bundler does **not** recurse, so
-  keep them top-level, not in a sub-folder). Load it with a bundle-aware helper, the
-  same shape as `_logo_path()` (§10):
-
-  ```python
-  def _asset_path(fname):
-      if hasattr(sys, "_MEIPASS"):               # running as the .exe
-          return os.path.join(sys._MEIPASS, fname)
-      return str(Path(__file__).parent / fname)  # running from source
-  ```
-
+  keep them top-level, not in a sub-folder). Load it with a bundle-aware helper —
+  the same `_asset_path()` shape as `_logo_path()`; the pattern lives in
+  `shared/assets/logos/README.md` (§10).
   Treat a template as a **read-only blueprint** (rule #5): read it, write output to a
   **new** file, never overwrite it.
 - A document that only **informs the build** (initial spec, example output, customer

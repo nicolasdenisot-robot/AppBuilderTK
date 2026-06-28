@@ -11,7 +11,10 @@
     ],
     "deny": [
       "Read(./.env)",
-      "Write(./resources/Framework/**)"
+      "Write(./resources/Framework/**)",
+      "Edit(./resources/Framework/**)",
+      "Write(C:\\OROS\\NVGate data\\**)",
+      "Edit(C:\\OROS\\NVGate data\\**)"
     ]
   }
 }

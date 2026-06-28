@@ -33,6 +33,7 @@ DEFAULT_REPO = "chaorandu-ai/oros-nvgate-app-builder"   # the customer template 
 INCLUDE = [
     "CLAUDE.md",
     "README.md",
+    "LICENSE",
     ".gitignore",
     ".claude/settings.json",
     # Customer-facing skills only. publish-template is maintainer-only and NOT shipped.

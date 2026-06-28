@@ -1,0 +1,25 @@
+Copyright (c) 2026 OROS. All rights reserved.
+
+This software kit ("the NVGate App Builder") and its accompanying documentation
+are the property of OROS and are provided to OROS customers for the purpose of
+building, testing, and delivering their own NVGate / OROS analyzer applications.
+
+Permitted use
+  - Use the kit to build, run, and package your own applications.
+  - Modify the kit's templates, helpers, and documentation for your own use.
+  - Distribute the applications YOU build with it.
+
+Restrictions
+  - Do not redistribute, resell, sublicense, or publish the kit itself (in whole
+    or in part) outside your organization without OROS's written permission.
+  - The OROS Framework SDK under resources/Framework/ is NOT part of this kit and
+    is NOT covered by this notice. It is owned by OROS and governed by the license
+    terms that accompany it; obtain it directly from OROS.
+
+No warranty
+  THE KIT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
+  TO THE MAXIMUM EXTENT PERMITTED BY LAW, OROS SHALL NOT BE LIABLE FOR ANY CLAIM,
+  DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THE KIT.
+
+These terms are a starting point — confirm the exact wording with OROS before
+distributing the kit externally.

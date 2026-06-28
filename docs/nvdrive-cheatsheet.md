@@ -41,7 +41,7 @@ client.send_command(Run())
 ## Results (`pynvdrive.commands.signalresult`)
 | Command | Does |
 |---------|------|
-| `GetResultList()` → `cmd.list` | What results exist now (items: `.module_id/.process_id/.channel_number`) |
+| `GetResultList()` → `cmd.list_result_format_and_description` | What results exist now (each item exposes `.module_id/.process_id/.channel_number`; `cmd.list` holds the same rows as plain lists). Helper: `list_results()` |
 | `CreateResultEx(module, process, channel, reference_channel_number=0, waterfall_flag=0)` | Register a result before reading it |
 | `GetResultEx(...)` → `cmd.result` | Fetch it; scalar via `result.scal.value`; inspect via `result.to_dict()` |
 | `DeleteAllResultEx()` | Clear created results |
@@ -59,8 +59,10 @@ Helpers wrap this: `from oros_helpers import list_results, get_result, get_scala
 Helpers: `from oros_helpers import nvgate_display`.
 
 ## Projects (`pynvdrive.commands.project`)
-`LoadProject`, `SaveProject`, `GetProjectList`, `LoadMeasurement`, … — load a
-prepared project to set the analyzer up fast.
+`LoadProject`, `OpenProject`, `GetProjectList`, `GetMeasureList`, `LoadWorkbook`,
+`SaveWorkbook`, … — load a prepared project/workbook to set the analyzer up fast.
+(Browse `pynvdrive/commands/project/` for the full set; there is no `SaveProject`
+or `LoadMeasurement` class.)
 
 ## Notifications (manual §3.9) — react to changes
 Subscribe to setting/state/command/UI events so an app responds when the operator

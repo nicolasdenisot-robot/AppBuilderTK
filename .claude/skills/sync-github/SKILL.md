@@ -42,15 +42,28 @@ Run `git rev-parse --is-inside-work-tree` to check if the workspace is already a
 Check if `.gitignore` exists at the workspace root. If not, create one with sensible defaults:
 
 ```
-.DS_Store
-Thumbs.db
-__pycache__/
-*.py[cod]
-.env
-.venv/
+# Scratch / generated (never backed up)
 **/.tmp/
 **/dist/
 **/build/
+*.spec
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Local / OS / editor
+.env
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# OROS SDK — large third-party binaries, re-added locally on each machine
+resources/Framework/
 ```
 
 If a `.gitignore` already exists, read it and check if it covers the basics. Suggest additions if it's missing obvious entries (like .DS_Store or __pycache__), but don't modify it without asking.

@@ -317,10 +317,15 @@ def package_source(app_dir, dist, pkg_dir, display_name, target="source"):
         print("  WARNING: no launch_*.bat found — operator will have no launcher.")
         launcher_name = "launch.bat"
 
-    for fname in ("requirements.txt",):
-        src = app_dir / fname
-        if src.exists():
-            shutil.copy2(src, pkg_dir / fname)
+    req_src = app_dir / "requirements.txt"
+    if req_src.exists():
+        shutil.copy2(req_src, pkg_dir / "requirements.txt")
+    else:
+        # setup.bat always runs `pip install -r requirements.txt`; ship a
+        # comment-only file so that step succeeds (a no-op) instead of erroring.
+        (pkg_dir / "requirements.txt").write_text(
+            "# This app needs no third-party Python packages.\n", encoding="utf-8")
+        print("  Note: app has no requirements.txt — shipped an empty placeholder.")
     readme = find_readme(app_dir, target)
     if readme:
         shutil.copy2(readme, pkg_dir / "README.txt")

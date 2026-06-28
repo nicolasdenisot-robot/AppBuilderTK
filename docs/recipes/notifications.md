@@ -16,12 +16,18 @@ NVGate can push events to a client that has **registered** for them:
 You register with the item's **IDN** (SHIFT+right-click in NVGate to find it), then
 read pushed updates on the socket.
 
-## In pynvdrive
-The notification/registration commands live under
-`resources/Framework/Python/pynvdrive/pynvdrive/commands/`. Check there for the
-exact classes before coding (e.g. the `others` / `settingsstates` groups), and
-verify each signature against its module — the registration API is lower-level
-than the simple request/response commands.
+## Not wrapped in pynvdrive — raw protocol only
+**Important:** the names above are NVDrive *protocol* commands (text sent over the
+TCP link, manual §3.9). They are **not** available as Python classes in pynvdrive —
+there is no `RegisterSetting` class, and `Client` exposes no subscribe/notify
+method. A scan of `resources/Framework/Python/pynvdrive/pynvdrive/commands/` (and
+the `toolbox/`) confirms no registration commands exist there.
+
+So building an event-driven app (archetype 6) means working **below** the helper
+layer: send the raw register-command bytes yourself and read the asynchronous
+notification frames off the socket. This is advanced and **not helper-supported** —
+budget extra time, and verify everything against manual §3.9 and the Visual C++
+`Notifications` example. For most needs, prefer the simpler polling approach below.
 
 ## Pattern (pseudostructure)
 1. Connect (a dedicated client for notifications).

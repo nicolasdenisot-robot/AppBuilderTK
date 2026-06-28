@@ -7,6 +7,19 @@
 | `logo_color.png` | Light-theme UI — **default for all apps unless told otherwise** |
 | `logo_white.png` | Dark-theme UI only |
 
+### Asset quality standard
+
+Supply each variant as a PNG with transparency, **at least ~500 px wide** so it
+stays crisp when a UI scales it up. Both variants of a brand should be the same
+resolution.
+
+> **Known gap (oros):** the current `oros/logo_color.png` is only 135×37 px, while
+> `oros/logo_white.png` is 500×135 px. The colour mark is the *default* (light
+> themes) yet is the lower-resolution file, so it can look soft when enlarged. It
+> is a multi-colour mark, so it can't be regenerated from the white silhouette —
+> replace it with a high-resolution colour PNG from OROS's brand assets when one is
+> available. (At small header sizes the current file is acceptable.)
+
 ---
 
 ## Adding a logo to an app
@@ -48,6 +61,21 @@ def _logo_path() -> str:
 
 This works in development (finds the logo in `shared/assets/logos/<brand>/`) and
 in a bundled exe (`sys._MEIPASS` — the export tool puts it there via `--add-data`).
+
+---
+
+## Loading other runtime assets (templates, images)
+
+Any file the app loads at runtime (an Excel/report template, a config, an image)
+uses the same bundle-aware pattern as `_logo_path()`. Keep the file **top-level in
+`app/`** — the exe bundler does not recurse into sub-folders — and read it with:
+
+```python
+def _asset_path(fname):
+    if hasattr(sys, "_MEIPASS"):               # running as the .exe
+        return os.path.join(sys._MEIPASS, fname)
+    return str(Path(__file__).parent / fname)  # running from source
+```
 
 ---
 
