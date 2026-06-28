@@ -4,21 +4,27 @@
 
 | File | When to use |
 |------|-------------|
-| `logo_color.png` | Light-theme UI — **default for all apps unless told otherwise** |
-| `logo_white.png` | Dark-theme UI only |
+| `logo_color.png` | Light-theme UI — **default for all apps unless told otherwise** (logo + "OROS") |
+| `logo_white.png` | Dark-theme UI (logo + "OROS") |
+| `logo_color_tagline.png` | Light-theme UI, with the "MEASURING NOISE & VIBRATION" tagline under the mark |
+| `logo_white_tagline.png` | Dark-theme UI, with the tagline |
+
+The plain `logo_color` / `logo_white` (no tagline) are the **defaults** — they are
+what the export tool and `_logo_path()` look up by name, and the compact mark reads
+best in a small UI header. The `_tagline` variants are **opt-in**: load one by its
+filename with the `_asset_path()` helper below (or just point `_logo_path()` at the
+tagline filename). Use the tagline version when the logo is shown large, e.g. a
+splash or an about screen.
 
 ### Asset quality standard
 
-Supply each variant as a PNG with transparency, **at least ~500 px wide** so it
-stays crisp when a UI scales it up. Both variants of a brand should be the same
-resolution.
+Supply each variant as a transparent PNG, **at least ~1000 px wide** so it stays
+crisp when a UI scales it. Keep the four files of a brand consistent: the same
+artwork in colour and white, the tagline pair sharing the OROS-only pair's mark at
+the same size/position.
 
-> **Known gap (oros):** the current `oros/logo_color.png` is only 135×37 px, while
-> `oros/logo_white.png` is 500×135 px. The colour mark is the *default* (light
-> themes) yet is the lower-resolution file, so it can look soft when enlarged. It
-> is a multi-colour mark, so it can't be regenerated from the white silhouette —
-> replace it with a high-resolution colour PNG from OROS's brand assets when one is
-> available. (At small header sizes the current file is acceptable.)
+> The `oros` brand ships all four at high resolution (logo + "OROS" ≈ 1230×349;
+> with tagline ≈ 1233×406; transparent). When adding a new brand, match this set.
 
 ---
 
