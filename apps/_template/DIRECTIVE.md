@@ -59,7 +59,11 @@ _Exact, deterministic rules. No ambiguity._
 ## 8. Edge cases & error handling
 _NVGate not running, no signal, out-of-range, operator cancels, etc._
 
-## 9. Lessons learned (living)
+## 9. Lessons learned & improvement log (living)
 _Record discoveries here so the next session/app benefits: setting IDNs, quirks
 (e.g. "setting X only applies after Run"), timing, fixes for errors you hit._
+
+_This is also the landing spot for the "improve an existing app" skills
+(CLAUDE.md §5): `/explore-codebase` appends a dated "Current state" note here when
+revisiting an app, and `/scope-feature` appends its dated scoping notes here._
 -

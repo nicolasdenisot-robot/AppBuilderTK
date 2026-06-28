@@ -35,7 +35,11 @@ INCLUDE = [
     "README.md",
     ".gitignore",
     ".claude/settings.json",
-    ".claude/skills/sync-github",  # ship ONLY the customer-facing skill (NOT publish-template)
+    # Customer-facing skills only. publish-template is maintainer-only and NOT shipped.
+    ".claude/skills/sync-github",
+    ".claude/skills/explore-codebase",
+    ".claude/skills/scope-feature",
+    ".claude/skills/frontend-design",
     "docs",
     "shared",
     "apps/_template",            # ONLY the template app, never real apps

@@ -16,6 +16,12 @@ Both delivery forms can exist side by side in `dist/` without overwriting each o
 After the tool runs, show the user the folder path — they inspect it, zip it, and send
 it. The tool does not zip automatically.
 
+**Only `app/` plus a few named files are packaged** (README, CHANGELOG → WHATS-NEW,
+requirements, bundled SDK). Other folders in the app — notably `reference/` (source
+docs that inform the build) and `.tmp/` — are **never shipped**. Documents the app
+loads at runtime (templates, images) must therefore live as top-level files in `app/`,
+not in `reference/`. See CLAUDE.md §6.
+
 ---
 
 ## Delivery folder contents
@@ -25,8 +31,8 @@ it. The tool does not zip automatically.
 | `<name>.exe` | `app/` + `pynvdrive/` + `oros_helpers/` |
 | `install_to_nvgate.bat` | `launch_<name>.bat` |
 | `README.txt` | `setup.bat` (pip install, run once) |
-| | `install_to_nvgate.bat` |
-| | `requirements.txt` · `README.txt` |
+| `WHATS-NEW.txt` | `install_to_nvgate.bat` |
+| | `requirements.txt` · `README.txt` · `WHATS-NEW.txt` |
 
 ---
 
@@ -50,6 +56,19 @@ reference files that don't exist in that package (e.g. `launch_*.bat` only exist
 in the source package; `setup.bat` only in source).
 
 ---
+
+## Release notes (`WHATS-NEW.txt`)
+
+Every delivery automatically includes a plain-text **`WHATS-NEW.txt`** so the
+operator can see what changed in this version. It is a straight copy of the app's
+**`CHANGELOG.md`** (single source of truth, newest entry first) — the same way
+`README.md` is shipped as `README.txt`.
+
+- Keep `apps/<name>/CHANGELOG.md` current: add an entry whenever you bump `version`
+  (CLAUDE.md rule #9). New apps start from `apps/_template/CHANGELOG.md`.
+- If an app has **no** `CHANGELOG.md`, the tool prints a warning and ships the
+  package without `WHATS-NEW.txt` — it does not fail. Add one so updates carry
+  release notes.
 
 ## Generated files
 
@@ -75,7 +94,9 @@ logo: oros                  # brand folder under shared/assets/logos/ (default: 
 
 1. Modify the app in `apps/<name>/`.
 2. Bump `version` in `DIRECTIVE.md`.
-3. Run `python tools/export_app.py <app-name>` again.
-4. The user zips the new folder and sends it to the operator.
-5. Operator unzips and re-runs `install_to_nvgate.bat` only if the install
+3. **Add a `CHANGELOG.md` entry** for the new version (plain language, newest
+   first) — this is what ships as `WHATS-NEW.txt` (rule #9).
+4. Run `python tools/export_app.py <app-name>` again.
+5. The user zips the new folder and sends it to the operator.
+6. Operator unzips and re-runs `install_to_nvgate.bat` only if the install
    location has changed.

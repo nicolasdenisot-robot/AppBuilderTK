@@ -67,6 +67,13 @@ These are non-negotiable and come before the build process in section 5.
    Tell me your goal and I'll guide you through
    the rest.
 
+9. **Keep each app's `CHANGELOG.md` current.** Every app has a `CHANGELOG.md`
+   (plain language, newest first). Whenever you change an app and bump `version`
+   in `DIRECTIVE.md`, add a matching entry describing what changed for the user.
+   The export tool ships it inside every delivery as `WHATS-NEW.txt` automatically,
+   so the operator always sees what's new — an out-of-date changelog ships wrong
+   release notes. Start new apps from `apps/_template/CHANGELOG.md`.
+
 ---
 
 ## 3. The reliability principle
@@ -115,7 +122,8 @@ Claude-NVGate/
 ├── shared/
 │   ├── oros_helpers/         ← reusable Python helpers (reuse these!)
 │   └── assets/
-│       └── logos/            ← brand logos for app UIs (never store in app/ folders)
+│       └── logos/            ← brand logos for app UIs (brand logos live here, not in app/;
+│                               app-specific runtime assets do go in app/ — see §6)
 │           ├── oros/         ← OROS brand: logo_color.png (light) · logo_white.png (dark)
 │           └── <customer>/   ← add a folder here for each customer brand
 ├── apps/                     ← the user's applications, one self-contained folder each
@@ -164,6 +172,30 @@ let the user choose (full script in `docs/export-forms.md`):
 - **Exe**: zero-dependency, no Python needed, one file to hand over; large (50–150 MB), antivirus may flag it, full rebuild needed for every update.
 - **Source + bat**: tiny package, easy to update; Python must be installed once on the operator's PC.
 
+### Improving an existing app (instead of building new)
+
+Sometimes the user wants to **change an app that already exists**, not start from
+scratch. Three user-invoked skills support this — use them in order:
+
+1. **`/explore-codebase <app>`** — understand the app and write a plain-language
+   overview into its `DIRECTIVE.md`. **Also the onboarding step:** if the user is
+   bringing in app code from elsewhere, the convention is to copy `apps/_template/`
+   to `apps/<name>/`, paste their code into `apps/<name>/app/`, then run this skill —
+   it reverse-engineers a `DIRECTIVE.md` from the code. Runtime templates the app
+   loads (Excel/report templates) go in `app/` as top-level files; source documents
+   that only inform the build (specs, examples) go in `reference/` — see §6.
+2. **`/scope-feature <app> <change>`** — map what the change needs, what already
+   exists to reuse, and where the difficulty is; it ends with a short improvement
+   interview (boundaries, edge cases, pass criteria) and records the result in
+   `DIRECTIVE.md`.
+3. **`/frontend-design <app>`** — design or refine the app's screen in the project's
+   Python UI stacks (PySide6 / Streamlit / Tkinter), using the §10 logo convention.
+
+All three speak plain language, act on one app under `apps/`, and write into that
+app's `DIRECTIVE.md` — the single source of truth. They do **not** replace the
+6-stop interview above; that is for building new. (There is intentionally no separate
+"spec interview" skill — `DIRECTIVE.md` §7/§8 plus rules #1/#3 already cover that.)
+
 ---
 
 ## 6. Working inside an app
@@ -175,7 +207,10 @@ shipped on its own.
 apps/<app-name>/
 ├── DIRECTIVE.md      ← the app's spec + build manifest (see below)
 ├── README.md         ← plain-language guide for whoever will use this app
-├── app/              ← the app's deterministic Python (UI + logic) = the runtime
+├── CHANGELOG.md      ← plain-language version history; shipped as WHATS-NEW.txt (rule #9)
+├── app/              ← deterministic Python (UI + logic) = the runtime; ALSO holds
+│                       runtime assets the app loads (templates, images) as top-level files
+├── reference/        ← source docs that inform the build (specs, examples) — NEVER shipped
 ├── requirements.txt  ← PyPI packages this app needs (numpy, openpyxl, …)
 ├── .tmp/             ← scratch / intermediate files — gitignored, NEVER exported
 └── dist/             ← generated operator package (built by tools/export_app.py)
@@ -199,6 +234,34 @@ different information than a one-click app for a production-line operator or a
 deliverable sent to a customer. Use your judgement: include what is genuinely
 useful, leave out what is obvious. Always write in plain language with no jargon.
 
+**`CHANGELOG.md` is the version history** (rule #9). Plain language, newest first.
+Whenever you bump `version` in `DIRECTIVE.md`, add a matching entry describing what
+changed *for the user*. The export tool ships it inside every delivery as
+`WHATS-NEW.txt` automatically — so an out-of-date changelog ships wrong release
+notes. Copy `apps/_template/CHANGELOG.md` when starting a new app.
+
+**Source documents the user provides** go in one of two places, depending on whether
+the *app* opens them:
+
+- A document the **app loads at runtime** (an Excel template it fills, a report
+  template, a config file, an image) → put it in `app/` as a **top-level file**. The
+  export tool bundles those automatically (the exe bundler does **not** recurse, so
+  keep them top-level, not in a sub-folder). Load it with a bundle-aware helper, the
+  same shape as `_logo_path()` (§10):
+
+  ```python
+  def _asset_path(fname):
+      if hasattr(sys, "_MEIPASS"):               # running as the .exe
+          return os.path.join(sys._MEIPASS, fname)
+      return str(Path(__file__).parent / fname)  # running from source
+  ```
+
+  Treat a template as a **read-only blueprint** (rule #5): read it, write output to a
+  **new** file, never overwrite it.
+- A document that only **informs the build** (initial spec, example output, customer
+  email — the app never opens it) → put it in `reference/`, which is **never shipped**.
+  Distil its requirements into `DIRECTIVE.md` so the spec stands on its own.
+
 **Self-correction loop.** When something breaks: read the error, fix the code,
 re-test to confirm, then add the cause + fix to `DIRECTIVE.md`. Each failure should
 make the app and the docs stronger.
@@ -214,8 +277,10 @@ re-writing connection / result / export boilerplate.
 Run `python tools/export_app.py <app-name>` when the app is ready to ship.
 Output: `apps/<name>/dist/<name>-v<version>-<target>/`. Show the user the folder
 path — they zip and send it. **Always confirm the export form with the user first**
-(rule #6 / stop #6). Full reference (folder contents, README logic, frontmatter
-fields, update workflow): `docs/exporting.md`.
+(rule #6 / stop #6). The tool also copies the app's `CHANGELOG.md` into the package
+as `WHATS-NEW.txt` (rule #9), so make sure the changelog is current before exporting.
+Full reference (folder contents, README logic, frontmatter fields, update workflow):
+`docs/exporting.md`.
 
 ---
 
@@ -230,6 +295,9 @@ fields, update workflow): `docs/exporting.md`.
 
 | The user wants… | Start from |
 |-----------------|------------|
+| Understand / onboard an existing app (and write its DIRECTIVE.md) | `/explore-codebase <app>` (§5 "Improving an existing app") |
+| Scope a change to an existing app | `/scope-feature <app> <change>` (§5 "Improving an existing app") |
+| Design or refine an app's screen (UI) | `/frontend-design <app>` (§5 "Improving an existing app", §10 logos) |
 | Automate a test sequence (run → measure → judge → export) | `docs/recipes/pass-fail.md`, `docs/recipes/run-get-result.md` |
 | Export data to Excel | `docs/recipes/export-to-excel.md` |
 | Auto-generate a report | `docs/recipes/generate-report.md` |

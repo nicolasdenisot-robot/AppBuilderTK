@@ -1,0 +1,61 @@
+{
+  "_comment": "Editable list of accelerometer models. Add your own here. 'unit' is either 'mV/g' or 'mV/(m/s^2)'. 'nominal_sensitivity' is in that unit. 'tolerance_pct' is the allowed +/- deviation for PASS. 'input_type' is 'IEPE' or 'charge'.",
+  "models": [
+    {
+      "name": "PCB 333B30",
+      "manufacturer": "PCB Piezotronics",
+      "nominal_sensitivity": 100.0,
+      "unit": "mV/g",
+      "tolerance_pct": 5.0,
+      "input_type": "IEPE"
+    },
+    {
+      "name": "PCB 352C33",
+      "manufacturer": "PCB Piezotronics",
+      "nominal_sensitivity": 100.0,
+      "unit": "mV/g",
+      "tolerance_pct": 5.0,
+      "input_type": "IEPE"
+    },
+    {
+      "name": "PCB 356A16 (triaxial)",
+      "manufacturer": "PCB Piezotronics",
+      "nominal_sensitivity": 100.0,
+      "unit": "mV/g",
+      "tolerance_pct": 5.0,
+      "input_type": "IEPE"
+    },
+    {
+      "name": "Bruel & Kjaer 4533-B",
+      "manufacturer": "Bruel & Kjaer",
+      "nominal_sensitivity": 10.0,
+      "unit": "mV/(m/s^2)",
+      "tolerance_pct": 5.0,
+      "input_type": "IEPE"
+    },
+    {
+      "name": "Dytran 3055B1",
+      "manufacturer": "Dytran",
+      "nominal_sensitivity": 100.0,
+      "unit": "mV/g",
+      "tolerance_pct": 5.0,
+      "input_type": "IEPE"
+    },
+    {
+      "name": "Generic 100 mV/g IEPE",
+      "manufacturer": "Generic",
+      "nominal_sensitivity": 100.0,
+      "unit": "mV/g",
+      "tolerance_pct": 5.0,
+      "input_type": "IEPE"
+    },
+    {
+      "name": "Generic 10 mV/g IEPE",
+      "manufacturer": "Generic",
+      "nominal_sensitivity": 10.0,
+      "unit": "mV/g",
+      "tolerance_pct": 5.0,
+      "input_type": "IEPE"
+    }
+  ]
+}

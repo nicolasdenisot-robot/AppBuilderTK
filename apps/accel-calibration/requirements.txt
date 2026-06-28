@@ -1,0 +1,6 @@
+# PyPI packages this app needs. Installed automatically.
+PySide6        # desktop operator screen
+python-docx    # Word calibration certificate
+matplotlib     # sensitivity-vs-frequency curve in the report (pulls in numpy)
+#
+# pynvdrive is NOT listed here — it is vendored from resources/ at export time.

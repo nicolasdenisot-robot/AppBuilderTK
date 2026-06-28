@@ -14,6 +14,7 @@ and send.
         <name>.exe                   standalone — Python not required
         install_to_nvgate.bat        run once: adds to NVGate Automation
         README.txt
+        WHATS-NEW.txt                what changed in this version (from CHANGELOG.md)
 
 ── Source / bat delivery (operator needs Python installed) ──────────────────
     <name>-v<version>-source/
@@ -24,6 +25,7 @@ and send.
         install_to_nvgate.bat        run once: adds to NVGate Automation
         requirements.txt
         README.txt
+        WHATS-NEW.txt                what changed in this version (from CHANGELOG.md)
 
 ── DIRECTIVE.md frontmatter fields used by this tool ────────────────────────
     version: 1.0           → folder / zip name  (default: 1.0)
@@ -100,6 +102,25 @@ def find_readme(app_dir, target):
         return specific
     generic = app_dir / "README.md"
     return generic if generic.exists() else None
+
+
+def copy_whats_new(app_dir, pkg_dir):
+    """Ship the app's CHANGELOG.md into the package as WHATS-NEW.txt.
+
+    Project-wide convention: every delivery carries a plain-text 'what's new' so
+    the operator can see what changed in this version. The app's CHANGELOG.md
+    (newest entry first) is the single source of truth — mirrors how README.md is
+    shipped as README.txt. Missing changelog warns but never blocks the export.
+    Returns True if a file was written.
+    """
+    changelog = app_dir / "CHANGELOG.md"
+    if changelog.exists():
+        shutil.copy2(changelog, pkg_dir / "WHATS-NEW.txt")
+        print("  What's new   : CHANGELOG.md -> WHATS-NEW.txt")
+        return True
+    print("  WARNING: no CHANGELOG.md — no WHATS-NEW.txt in this package.")
+    print("           Add apps/<app>/CHANGELOG.md so every update ships a release note.")
+    return False
 
 
 def _bat(path, lines):
@@ -400,6 +421,8 @@ def main():
     else:
         package_source(app_dir, dist, pkg_dir, display, target)
 
+    shipped_whats_new = copy_whats_new(app_dir, pkg_dir)
+
     shutil.rmtree(staging, ignore_errors=True)
 
     SEP = "=" * 60
@@ -414,6 +437,8 @@ def main():
     else:
         print(f"  1. Run install_to_nvgate.bat  (registers in NVGate, once)")
         print(f"  2. Launch via NVGate Automation, or double-click {app_name}.exe.")
+    if shipped_whats_new:
+        print(f"\n  This version's changes are in WHATS-NEW.txt")
     print(SEP + "\n")
 
 

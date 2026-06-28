@@ -24,6 +24,23 @@ Automated test sequences, pass/fail stations, custom configuration & results
 screens, Excel/report exports, data collectors, signal/result converters, and
 turbomachinery or sound-quality analysis tools. See `docs/app-archetypes.md`.
 
+## Improving an app you already have
+
+You don't have to start from scratch. If you already have an app — one built here
+before, or code you bring in from elsewhere — Claude can help you understand and
+change it. Just ask in plain words ("help me improve my pass/fail test"), or use
+these commands:
+
+- **`/explore-codebase`** — Claude reads an existing app and explains, in plain
+  language, what it does and how it's built. (If you're bringing in code from
+  elsewhere, drop it into a folder under `apps/` first and Claude will set up the
+  rest.)
+- **`/scope-feature`** — describe a change you want; Claude tells you what it would
+  take, what can be reused, and what's tricky, then asks a few questions to pin it down.
+- **`/frontend-design`** — Claude designs or refines the on-screen part of an app.
+
+You still never touch code — Claude does the work and shows you a plan first.
+
 ## Requirements
 
 - **NVGate** installed (and running, for any app that controls the analyzer live).

@@ -33,7 +33,7 @@ from pynvdrive.commands.project.getdatabasepath import GetDatabasePath
 from pynvdrive.commands.analyzers.getnvgateinfo import GetNVGateInfo
 
 from PySide6.QtCore import Qt, Signal, QThread
-from PySide6.QtGui import QPixmap
+from PySide6.QtGui import QPixmap, QDoubleValidator
 from PySide6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QGridLayout, QLabel, QComboBox, QPushButton, QLineEdit,
@@ -239,6 +239,18 @@ QLineEdit#StepDisplay {
 }
 QLineEdit#StepDisplay:focus {
     border-color: #1565c0;
+}
+QLineEdit#LimitInput {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    padding: 5px 8px;
+    color: #1a1a2e;
+    min-width: 160px;
+    max-width: 200px;
+}
+QLineEdit#LimitInput:focus {
+    border: 1px solid #1565c0;
 }
 """
 
@@ -545,6 +557,8 @@ def export_to_excel(filepath, data):
     num_harm    = data['num_harmonics']
     thd         = data['thd']
     thd_db      = data['thd_db']
+    thd_limit   = data.get('thd_limit')
+    verdict     = data.get('verdict')
     window_name = data['window_name']
     meta        = data.get('meta', {})
     n_bins      = len(amplitudes)
@@ -620,6 +634,9 @@ def export_to_excel(filepath, data):
     r = _row(ws_meta, r, "Number of harmonics", num_harm)
     r = _row(ws_meta, r, "THD result (%)",       round(thd,    4))
     r = _row(ws_meta, r, "THD result (dB)",      round(thd_db, 2))
+    if thd_limit is not None:
+        r = _row(ws_meta, r, "THD limit (%)", round(thd_limit, 4))
+        r = _row(ws_meta, r, "Verdict",       verdict)
     r += 1
 
     r = _section(ws_meta, r, "Export")
@@ -732,6 +749,16 @@ def export_to_excel(filepath, data):
     ws2.cell(row=row, column=1, value="THD (dB)").font      = result_font
     ws2.cell(row=row, column=2, value=round(thd_db, 2)).font = result_font
     ws2.cell(row=row, column=3, value="dB").font              = result_font
+
+    if verdict is not None:
+        row += 2
+        ws2.cell(row=row, column=1, value="THD limit (%)").font = HEADER_FONT
+        ws2.cell(row=row, column=2, value=round(thd_limit, 4))
+        row += 1
+        verdict_font = Font(bold=True, size=13,
+                            color=("2E7D32" if verdict == "PASS" else "C62828"))
+        ws2.cell(row=row, column=1, value="Verdict").font = verdict_font
+        ws2.cell(row=row, column=2, value=verdict).font   = verdict_font
 
     wb.active = ws_meta
     wb.save(filepath)
@@ -990,6 +1017,20 @@ class THDApp(QMainWindow):
                                                 initial=DEFAULT_HARMONICS)
         cfg_grid.addWidget(self._harmonics_sel, 1, 1, Qt.AlignLeft)
 
+        lbl_limit = QLabel("THD limit (%) — optional pass/fail:")
+        lbl_limit.setObjectName("ConfigLabel")
+        cfg_grid.addWidget(lbl_limit, 2, 0, Qt.AlignLeft | Qt.AlignVCenter)
+
+        self._limit_input = QLineEdit()
+        self._limit_input.setObjectName("LimitInput")
+        self._limit_input.setPlaceholderText("e.g. 1.0  (blank = no verdict)")
+        self._limit_input.setValidator(QDoubleValidator(0.0, 1.0e6, 4))
+        limit_row = QHBoxLayout()
+        limit_row.setSpacing(6)
+        limit_row.addWidget(self._limit_input)
+        limit_row.addStretch()
+        cfg_grid.addLayout(limit_row, 2, 1)
+
         root.addWidget(cfg_frame)
 
         # Result cards — 2 × 2 grid
@@ -1004,6 +1045,18 @@ class THDApp(QMainWindow):
         cards_grid.addWidget(self._card_h1_freq,  1, 0)
         cards_grid.addWidget(self._card_h1_amp,   1, 1)
         root.addLayout(cards_grid)
+
+        # Verdict banner — large PASS / FAIL, hidden until a limit-checked result
+        self._verdict_frame = QFrame()
+        self._verdict_frame.setObjectName("VerdictBanner")
+        verdict_row = QHBoxLayout(self._verdict_frame)
+        verdict_row.setContentsMargins(14, 10, 14, 10)
+        self._verdict_label = QLabel("")
+        self._verdict_label.setObjectName("VerdictLabel")
+        self._verdict_label.setAlignment(Qt.AlignCenter)
+        verdict_row.addWidget(self._verdict_label)
+        self._verdict_frame.setVisible(False)
+        root.addWidget(self._verdict_frame)
 
         # Status panel — prominent colored bar above the buttons
         self._status_frame = QFrame()
@@ -1061,6 +1114,37 @@ class THDApp(QMainWindow):
         )
         self._status_label.setText(msg)
 
+    # ── Verdict helpers ──────────────────────────────────────────────────────
+
+    def _parse_limit(self):
+        """Return the THD limit as a positive float, or None if blank/invalid."""
+        text = self._limit_input.text().strip()
+        if not text:
+            return None
+        try:
+            v = float(text)
+        except ValueError:
+            return None
+        return v if v > 0 else None
+
+    def _set_verdict(self, text, passed):
+        bg, fg, border = (("#e8f5e9", "#1b5e20", "#2e7d32") if passed
+                          else ("#fdecea", "#7f1d1d", "#c62828"))
+        self._verdict_frame.setStyleSheet(
+            f"QFrame#VerdictBanner {{ background-color: {bg};"
+            f" border: 2px solid {border}; border-radius: 8px; }}"
+        )
+        self._verdict_label.setStyleSheet(
+            f"color: {fg}; background: transparent;"
+            f" font-size: 30px; font-weight: 800; letter-spacing: 2px;"
+        )
+        self._verdict_label.setText(text)
+        self._verdict_frame.setVisible(True)
+
+    def _clear_verdict(self):
+        self._verdict_frame.setVisible(False)
+        self._verdict_label.setText("")
+
     # ── Window list loading ──────────────────────────────────────────────────
 
     def _start_window_load(self):
@@ -1111,6 +1195,7 @@ class THDApp(QMainWindow):
         for card in (self._card_thd_pct, self._card_thd_db,
                      self._card_h1_freq, self._card_h1_amp):
             card.set_empty()
+        self._clear_verdict()
 
         self._set_status(f"Calculating THD on '{window}'…", "working")
 
@@ -1134,13 +1219,33 @@ class THDApp(QMainWindow):
         self._card_h1_freq.set_ready(f"{f0:.2f}", "Hz")
         self._card_h1_amp.set_ready(_fmt_sci(h1), amp_unit)
 
+        # Optional pass/fail verdict — only when a valid limit is set.
+        # PASS when THD ≤ limit (the limit value itself passes).
+        limit = self._parse_limit()
+        if limit is not None:
+            passed = thd <= limit
+            self._set_verdict("PASS" if passed else "FAIL", passed)
+            calc['thd_limit'] = limit
+            calc['verdict']   = "PASS" if passed else "FAIL"
+        else:
+            self._clear_verdict()
+            calc['thd_limit'] = None
+            calc['verdict']   = None
+
         self._run_btn.setText("▶   Run THD")
         self._run_btn.setEnabled(True)
         self._refresh_btn.setEnabled(True)
         self._export_btn.setEnabled(True)
-        self._set_status(
-            f"Done — THD = {thd:.3f} %  ({thd_db:.1f} dB)", "success"
-        )
+        if limit is not None:
+            self._set_status(
+                f"Done — THD = {thd:.3f} %  ({thd_db:.1f} dB)  →  {calc['verdict']}"
+                f"  (limit {limit:g} %)",
+                "success" if calc['verdict'] == "PASS" else "error",
+            )
+        else:
+            self._set_status(
+                f"Done — THD = {thd:.3f} %  ({thd_db:.1f} dB)", "success"
+            )
 
     def _on_run_failure(self, error):
         self._run_btn.setText("▶   Run THD")

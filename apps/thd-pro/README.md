@@ -21,7 +21,8 @@ and shows the results directly in the application window.
    | **H1 — Fundamental amplitude** | The amplitude of the main peak |
 
 6. Places a harmonic marker on the NVGate spectrum (shows H1, H2, H3… visually).
-7. Lets you export a full Excel report with one click.
+7. *(Optional)* If you set a THD limit, it shows a clear **PASS** or **FAIL** result.
+8. Lets you export a full Excel report with one click.
 
 ---
 
@@ -42,16 +43,22 @@ and shows the results directly in the application window.
    analyse. If you don't see the right window, click **↺** to refresh the list.
 4. **Set the number of harmonics** — how many harmonic peaks to include in the
    THD calculation (minimum 2, default 5).
-5. Click **▶ Run THD**. The status bar at the bottom shows progress.
-6. Results appear in the four boxes. A harmonic marker is added to the NVGate
-   spectrum.
-7. Click **Export to Excel** to save a detailed report. Choose where to save
+5. **(Optional) Set a THD limit (%)** — if you type a limit here, the app will
+   tell you PASS or FAIL after the calculation. **PASS** means the measured THD is
+   at or below your limit. Leave this box blank if you just want the THD number
+   with no pass/fail check.
+6. Click **▶ Run THD**. The status bar at the bottom shows progress.
+7. Results appear in the four boxes. A harmonic marker is added to the NVGate
+   spectrum. If you set a limit, a large green **PASS** or red **FAIL** banner
+   appears.
+8. Click **Export to Excel** to save a detailed report. Choose where to save
    the file. The report has three sheets:
    - **Metadata** — NVGate version, project, signal details, FFT parameters,
-     THD result.
+     THD result (and your limit + PASS/FAIL, if set).
    - **Spectrum** — full frequency/amplitude table with a chart showing the
      spectrum and the harmonic positions.
-   - **THD Analysis** — harmonic table, formula, THD in % and dB.
+   - **THD Analysis** — harmonic table, formula, THD in % and dB (and the
+     PASS/FAIL verdict, if you set a limit).
 
 ---
 
