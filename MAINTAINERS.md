@@ -16,7 +16,10 @@ published, because the publish step copies an explicit **allowlist** (see
 
 ## Updating what customers get
 
-After you improve the kit (CLAUDE.md, helpers, docs, recipes…):
+After you improve the kit (CLAUDE.md, helpers, docs, recipes…), first run
+**`/audit-workspace`** — it checks the whole kit for inconsistencies and errors
+(and verifies the helpers/docs against the real SDK) before customers ever see it.
+Then publish:
 
 ```
 python tools/publish_template.py            # publish to the template repo

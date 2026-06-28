@@ -36,7 +36,8 @@ INCLUDE = [
     "LICENSE",
     ".gitignore",
     ".claude/settings.json",
-    # Customer-facing skills only. publish-template is maintainer-only and NOT shipped.
+    # Customer-facing skills only. publish-template and audit-workspace are
+    # maintainer-only and NOT shipped.
     ".claude/skills/sync-github",
     ".claude/skills/explore-codebase",
     ".claude/skills/scope-feature",
