@@ -42,6 +42,8 @@ INCLUDE = [
     ".claude/skills/explore-codebase",
     ".claude/skills/scope-feature",
     ".claude/skills/frontend-design",
+    ".claude/skills/checkpoint",
+    ".claude/skills/restore",
     "docs",
     "shared",
     "apps/_template",            # ONLY the template app, never real apps

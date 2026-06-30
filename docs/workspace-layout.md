@@ -43,6 +43,7 @@ apps/<app-name>/
 ├── CHANGELOG.md      ← plain-language version history; shipped as WHATS-NEW.txt (rule #9)
 ├── app/              ← deterministic Python (UI + logic) = the runtime; ALSO holds
 │                       runtime assets the app loads (templates, images) as top-level files
+├── launch_<name>.bat ← double-click launcher (source delivery); export_app.py looks for launch_*.bat
 ├── reference/        ← source docs that inform the build (specs, examples) — NEVER shipped
 ├── requirements.txt  ← PyPI packages this app needs (numpy, openpyxl, …)
 ├── .tmp/             ← scratch / intermediate files — gitignored, NEVER exported
