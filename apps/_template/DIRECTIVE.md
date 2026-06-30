@@ -66,4 +66,18 @@ _Record discoveries here so the next session/app benefits: setting IDNs, quirks
 _This is also the landing spot for the "improve an existing app" skills
 (CLAUDE.md §5): `/explore-codebase` appends a dated "Current state" note here when
 revisiting an app, and `/scope-feature` appends its dated scoping notes here._
--
+
+## 10. Build state (living — for multi-session builds)
+_Where we left off, so a fresh session resumes instantly. **Read this first when
+resuming.** Update it whenever you checkpoint — automatically when about 30% of context
+remains, or on demand when the user runs `/checkpoint` (CLAUDE.md rule #10). Every build
+has at least one milestone below (a one-step app is a single milestone); only the "last
+session left off" note can stay empty when the whole app is finished in one session._
+
+**Milestones** _(fill during planning — CLAUDE.md §5; tick each slice once it is
+built, tested, and committed)_
+- [ ] 1.
+- [ ] 2.
+- [ ] 3.
+
+**Last session left off:** _date — what's done & tested · what's half-built · the next concrete step._

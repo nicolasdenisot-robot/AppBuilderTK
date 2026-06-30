@@ -73,6 +73,14 @@ These are non-negotiable and come before the build process in section 5.
    The export tool ships it inside every delivery as `WHATS-NEW.txt` automatically,
    so the operator always sees what's new — an out-of-date changelog ships wrong
    release notes. Start new apps from `apps/_template/CHANGELOG.md`.
+10. **Slice every build; checkpoint before context runs low.** Don't guess whether an
+   app "fits in one session" (one stubborn bug can eat half of it). **Split every app
+   into the smallest slices that each end in tested, working code** — even a one-step
+   app is one slice — and **always propose that slice list and get the user's go-ahead
+   before building** (no app is too small to plan; rule #2 / §5). **Checkpoint when about
+   30% of context remains:** stop at the next slice boundary, don't ride it to empty
+   (your reliability drops as context fills). The user can `/checkpoint <app>` anytime.
+   *How* to checkpoint and resume: §6 and the `/checkpoint` skill.
 
 ---
 
@@ -103,20 +111,12 @@ Concretely:
 A place to **build OROS / NVGate applications**, develop them with shared tooling,
 and then **export each one as a self-contained app** the user can ship.
 
-```
-Claude-NVGate/
-├── CLAUDE.md, README.md       ← this manual · 1-page human start
-├── resources/                 ← OROS SDK (Framework/: READ-ONLY, not in git) + manuals
-│   └── manuals-text/          ← plain-text mirror — read THESE, not the PDFs (may not render)
-├── docs/                      ← distilled guidance — READ THIS, not the 386-page PDF
-│   └── recipes/                  proven copy-adapt patterns
-├── shared/oros_helpers/       ← reusable Python helpers (reuse these — rule #6)
-├── shared/assets/logos/       ← brand logos (live here, not in app/; app runtime assets go in app/ — §6)
-├── apps/                      ← one self-contained folder per app; clone _template/ to start
-└── tools/export_app.py        ← bundles an app into a standalone deliverable
-```
-
-Full annotated tree: `docs/workspace-layout.md`.
+The pieces: **`resources/`** (OROS SDK + manuals — read **`manuals-text/`**, not the
+PDFs), **`docs/`** (distilled guidance + `recipes/` — read these, **not the 386-page
+PDF**), **`shared/`** (reusable `oros_helpers/` + brand `assets/logos/`), **`apps/`**
+(one self-contained folder per app; clone `_template/` to start), and
+**`tools/export_app.py`** (bundles an app into a standalone deliverable). Full annotated
+tree — and what each subfolder is for — in `docs/workspace-layout.md`.
 
 ### Two capability layers
 
@@ -148,16 +148,13 @@ tracking, FRF, overall/RMS, waterfall/Campbell…), **drive NVGate and fetch the
 result — do not reimplement it in Python.** Only reach for Python libraries
 (`docs/algorithms.md`) for math NVGate does not do, or for post-processing.
 
-**NVGate Automation / integration.** The app's launcher uses relative paths and
-must stay in its own folder. To register in NVGate's Execute menu
-(`C:\OROS\NVGate data\Links\`), a separate entry-point with the **full absolute
-path** is required. Always ask the user where and how the operator will invoke
-the app before considering delivery complete.
+**NVGate Automation / integration.** Always ask *where and how* the operator will invoke
+the app — double-click, NVGate's Automation → Execute menu, a scheduled task — before
+considering delivery complete. Registration mechanics: `docs/exporting.md`.
 
-**Export form — what to offer.** Present both options with their trade-offs and
-let the user choose (full script in `docs/export-forms.md`):
-- **Exe**: zero-dependency, no Python needed, one file to hand over; large (50–150 MB), antivirus may flag it, full rebuild needed for every update.
-- **Source + bat**: tiny package, easy to update; Python must be installed once on the operator's PC.
+**Export form — what to offer.** Present both options with their trade-offs and let the
+user choose; never default silently (stop #6). The exe-vs-source pros/cons script:
+`docs/export-forms.md`.
 
 ### Improving an existing app (instead of building new)
 
@@ -188,17 +185,12 @@ app's `DIRECTIVE.md` — the single source of truth. They do **not** replace the
 Each app is a **self-contained folder** under `apps/` so it can be exported and
 shipped on its own.
 
-```
-apps/<app-name>/
-├── DIRECTIVE.md      ← spec + build manifest (the heart — see below)
-├── README.md         ← plain-language guide (rule #7)
-├── CHANGELOG.md      ← version history → shipped as WHATS-NEW.txt (rule #9)
-├── app/              ← the runtime: deterministic Python + top-level runtime assets (templates/images)
-├── reference/        ← build-only source docs — NEVER shipped
-└── requirements.txt · .tmp/ (scratch, NEVER exported) · dist/ (built operator package)
-```
-
-Full per-app layout: `docs/workspace-layout.md`.
+An app folder holds: **`DIRECTIVE.md`** (spec + build manifest — the heart, below),
+**`README.md`** (rule #7), **`CHANGELOG.md`** (rule #9), **`app/`** (the runtime —
+deterministic Python plus any runtime assets it loads, as **top-level** files),
+**`reference/`** (build-only docs, **never shipped**), `requirements.txt`, and the
+generated `.tmp/` (scratch, **never exported**) and `dist/`. Full per-app layout:
+`docs/workspace-layout.md`.
 
 **`DIRECTIVE.md` is the heart of each app.** It has YAML frontmatter (read by the
 export tool) and a body (the spec). Treat it as a **living document**:
@@ -209,6 +201,19 @@ export tool) and a body (the spec). Treat it as a **living document**:
   section** so the next session and the next app benefit.
 - **Do not overwrite or discard a DIRECTIVE.md without asking** (rule #5). Improve
   it over time; never use it ad hoc and throw it away.
+
+**`DIRECTIVE.md` also carries the build state** (rule #10). Its **"Build state"**
+section holds the milestone checklist and a "last session left off" note. Fill the
+milestones when you plan the build (§5), tick each one as its slice is built and
+tested, and update the "left off" note whenever you checkpoint — **automatically when
+about 30% of context remains, or on demand when the user runs `/checkpoint <app>`**.
+**Save a recoverable copy of the code at each checkpoint** — a git commit, or a dated
+code snapshot when the workspace has no git (git is never required) — so every one can
+be rolled back to later with **`/restore`** (it lists the save points in plain language
+and brings one back, saving the current version first). A resuming session reads this
+section first and is instantly back in sync. (Automatic context
+summarising is a backstop within a long session, never a substitute for writing the
+state down.)
 
 **`README.md` is the plain-language guide** (rule #7). Write it automatically once
 the app runs end-to-end — there is no fixed template: ask *who will use this app and
@@ -273,6 +278,8 @@ Full reference (folder contents, README logic, frontmatter fields, update workfl
 | Understand / onboard an existing app (and write its DIRECTIVE.md) | `/explore-codebase <app>` (§5 "Improving an existing app") |
 | Scope a change to an existing app | `/scope-feature <app> <change>` (§5 "Improving an existing app") |
 | Design or refine an app's screen (UI) | `/frontend-design <app>` (§5 "Improving an existing app", §10 logos) |
+| Save build progress mid-app so a fresh session can resume | `/checkpoint <app>` (rule #10, §6) |
+| Roll an app back to an earlier save point | `/restore <app>` (companion to `/checkpoint`) |
 | Automate a test sequence (run → measure → judge → export) | `docs/recipes/pass-fail.md`, `docs/recipes/run-get-result.md` |
 | Export data to Excel | `docs/recipes/export-to-excel.md` |
 | Auto-generate a report | `docs/recipes/generate-report.md` |

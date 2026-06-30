@@ -65,6 +65,25 @@ That's it — the apps and helpers expect the SDK at that path.
 > The plain-text versions of the manuals already in `resources/manuals-text/` are
 > part of this repo, so Claude can read them even before you add the SDK.
 
+## Building something big — saving progress and going back
+
+A complicated app can take more than one work session to build — that's normal, and
+Claude won't lose its place. It saves progress as it goes (and automatically before a
+session gets too full), writing down exactly where things stand. To continue another
+time, just start a new session and say *"continue building my-app"* — Claude reads its
+notes and picks up where it left off.
+
+Two commands put you in control:
+
+- **`/checkpoint`** — save the current progress now, as a recoverable point. Handy
+  before you stop for the day, or before trying something you might want to undo.
+- **`/restore`** — go back to an earlier save point. Claude shows you a plain list of
+  your save points (*"Excel export working"*, *"pass/fail logic done"*, …); you pick
+  one and it rolls the app back — **saving your current version first**, so going back
+  is always undoable.
+
+These work whether or not you use GitHub.
+
 ## Backing up your work to GitHub
 
 Use the **`/sync-github`** command any time to save your work to a private GitHub

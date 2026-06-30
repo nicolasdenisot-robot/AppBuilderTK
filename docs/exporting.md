@@ -76,6 +76,12 @@ Both delivery forms include a generated **`install_to_nvgate.bat`** that registe
 the app in NVGate's Automation → Execute menu. It captures the exe / launcher bat's
 absolute path at package time from wherever the operator unzips.
 
+The app's own launcher uses **relative** paths and must stay in its folder. NVGate's
+Execute-menu registration, by contrast, lives in `C:\OROS\NVGate data\Links\` and needs
+the **full absolute path** — which is exactly what `install_to_nvgate.bat` writes. So
+always confirm *where and how* the operator will invoke the app (double-click, Automation
+→ Execute, scheduled task) before treating delivery as complete.
+
 ---
 
 ## Required DIRECTIVE.md frontmatter fields

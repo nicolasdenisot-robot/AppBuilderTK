@@ -59,6 +59,13 @@ so progress is visible. Inventory the tree first (`find . -type f` excluding `.g
   maintainer-only leak** into customer-facing files (grep `CLAUDE.md` and `README.md`
   for `publish.template`, `MAINTAINERS`, the template repo owner/name — they must be
   clean).
+- **CLAUDE.md attention budget** — the manual is always loaded; prose around a rule
+  dilutes it. Flag where an **instruction + its trigger** is padded with movable
+  **elaboration** (rationale, examples, code snippets, folder trees). Test each:
+  *would cutting this ever change how the rule is applied, or hide a trigger?* No →
+  propose relocating it to the right `docs/` file behind a **one-line pointer that keeps
+  the trigger keyword**, and confirm the target exists. Never strip a trigger; never
+  rewrite CLAUDE.md wholesale — flag and propose.
 - **`docs/`** (`algorithms.md`, `app-archetypes.md`, `exporting.md`, `export-forms.md`,
   `nvdrive-cheatsheet.md`, `recipes/*`): every NVDrive command/class/parameter named
   must exist in the SDK; every recipe's code must use real helper signatures; every
@@ -139,3 +146,6 @@ user may say "fix all"). When fixing:
   maintainer can ship with confidence.
 - If a fix is a real judgment call (a licence's exact wording, a brand asset only OROS
   owns), do the safe reversible thing and flag it for confirmation rather than guessing.
+- **Keep CLAUDE.md sharp — fewer words, sharper signal.** Triggers and instructions stay
+  100% intact; elaboration moves to `docs/` behind a one-line pointer. Move only what
+  doesn't change behavior, and never lose a trigger. (Same applies to SKILL.md bodies.)
