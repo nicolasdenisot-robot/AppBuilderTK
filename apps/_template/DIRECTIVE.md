@@ -75,7 +75,9 @@ has at least one milestone below (a one-step app is a single milestone); only th
 session left off" note can stay empty when the whole app is finished in one session._
 
 **Milestones** _(fill during planning — CLAUDE.md §5; tick each slice once it is
-built, tested, and committed)_
+built, tested, and committed. How to choose the boundaries — walking skeleton →
+thicken → UI, riskiest integration first; for a custom UI, prototype-on-a-fake with a
+sign-off gate: `docs/build-slicing.md`.)_
 - [ ] 1.
 - [ ] 2.
 - [ ] 3.

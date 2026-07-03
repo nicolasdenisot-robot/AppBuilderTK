@@ -47,6 +47,34 @@ without a manual. Make it look considered and branded, but never at the cost of 
   this is industrial test equipment, so favor **legible, restrained, high-contrast** over
   decorative. A green/red verdict must read across a noisy shop floor at a glance.
 
+## The default approach: an interactive prototype on a fake engine
+
+For any **non-trivial** UI, don't build the screen against the real, expensive engine
+(NVGate + measurement + export). Build a **clickable prototype driven by dummy data
+first**, get the user to sign off on it, *then* wire in the real engine. Done right the
+prototype **becomes** the shipped screen — it is not throwaway. Full rationale and rules:
+`docs/build-slicing.md`, Part B. In short:
+
+- **Put a seam between screen and engine (the "engine contract").** The UI only ever
+  calls a small fixed set of methods — e.g. `connect()`, `start_measurement()`,
+  `get_result()`, `judge()`, `export()`, `cancel()`. Write two implementations behind it:
+  a `FakeEngine` (simulated data, a faked few-second "measuring," a switch to force
+  pass/fail and to inject errors) now, and a `RealEngine` (talks to NVGate) later. The UI
+  can't tell them apart, so swapping engines ships the app **without rebuilding the UI**.
+- **Make the interaction real, not just the picture.** The point is to let the user
+  *exercise* every function they need — enter a serial number, run, see a result, force a
+  fail and see the red verdict, hit an error state, cancel, retest. Wire those on the fake.
+- **Simulate the constraints you already know, not a frictionless demo.** Bake known
+  latencies and ordering (a setting only applies after Run; a result is only available
+  after Save; can't cancel mid-run) into `FakeEngine`, pulling them from `DIRECTIVE.md` §9.
+  The user must approve an interaction that's actually buildable.
+- **Prototype in the shipping stack** (PySide6 / Streamlit / Tkinter), never a throwaway
+  design tool. Fake the async with a `QTimer` (Qt) or `time.sleep` + spinner (Streamlit).
+- **Run the sign-off gate.** Have the user click through and confirm every needed
+  interaction is present *before* the real engine is built — that's when comments are cheap.
+- **When to skip it:** a trivial app (one result, one threshold) — the real walking
+  skeleton is already interactive, so just build that. See `docs/build-slicing.md`, Part A.
+
 ## Branding (the logo convention — CLAUDE.md §10)
 
 Use the shared logo, don't invent one. Set `logo:` in `DIRECTIVE.md` (e.g. `logo: oros`)
@@ -75,7 +103,11 @@ headline and one for body; generous whitespace around the thing that matters mos
 
 - Implement real, working code in the app's `app/` folder. Keep all logic deterministic and
   out of the UI where possible — the UI shows state and triggers steps; the tested code
-  decides (CLAUDE.md §3).
+  decides (CLAUDE.md §3). The **engine contract** above is how you enforce this: the UI holds
+  no measurement or pass/fail logic, only calls to the contract.
+- If you built a `FakeEngine` prototype, verify it by exercising the interactions (run,
+  force a fail, trigger an error, cancel/retest) — a prototype counts as done only when the
+  user has clicked through and signed off, not when it merely renders.
 - Reuse anything relevant from `shared/oros_helpers/` and existing apps before writing new
   widgets.
 - Run it and confirm it launches and renders before handing back. If the change is part of a

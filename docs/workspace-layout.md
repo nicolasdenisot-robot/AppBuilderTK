@@ -20,6 +20,7 @@ Claude-NVGate/
 │   ├── nvdrive-cheatsheet.md     top ~30 commands with examples
 │   ├── algorithms.md             where to get calculations (turbomachinery, sound quality)
 │   ├── app-archetypes.md         app types → which example to copy
+│   ├── build-slicing.md          how to split a build into milestones + prototype the UI cheaply
 │   ├── workspace-layout.md       this file
 │   └── recipes/                  proven copy-adapt patterns
 ├── shared/

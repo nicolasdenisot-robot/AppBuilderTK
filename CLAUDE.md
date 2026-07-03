@@ -80,6 +80,9 @@ These are non-negotiable and come before the build process in section 5.
    before building** (no app is too small to plan; rule #2 / §5). **Checkpoint when about
    30% of context remains:** stop at the next slice boundary, don't ride it to empty
    (your reliability drops as context fills). The user can `/checkpoint <app>` anytime.
+   *How to choose the slice boundaries* (default: walking skeleton → thicken → UI, riskiest
+   integration first) and — for any app with a custom screen — how to prototype the UI so
+   feedback lands early and cheaply: `docs/build-slicing.md`.
    *How* to checkpoint and resume: §6 and the `/checkpoint` skill.
 
 ---
@@ -140,7 +143,7 @@ and let them pick** (rule #3). Capture the answers in the app's `DIRECTIVE.md`.
 | **2** | **Capability layer** | Live control / file access / both. Usually you can infer it — confirm in plain words. |
 | **3** | **Computation source** | When custom math is needed: NVGate-native (preferred) vs a Python library. See `docs/algorithms.md` and the Tier-1 rule below. |
 | **4** | **Where results appear** | **Always ask, never assume:** show results *in NVGate* (drive windows/layouts/markers — nothing to build, but operator needs NVGate open) vs a *custom UI* (needed when no NVGate is in front of the operator, or for a branded/simplified screen). |
-| **5** | **UI stack** *(only if custom UI)* | **Ask per app**, proposing options with pros/cons so the user can choose well — e.g. PySide6/Qt desktop (packages to `.exe`, best for operators), Streamlit (browser dashboard, fast to build), Tkinter (built-in, simplest, dated). Do not default. |
+| **5** | **UI stack** *(only if custom UI)* | **Ask per app**, proposing options with pros/cons so the user can choose well — e.g. PySide6/Qt desktop (packages to `.exe`, best for operators), Streamlit (browser dashboard, fast to build), Tkinter (built-in, simplest, dated). Do not default. **For any non-trivial UI, the default build order is an *interactive prototype on a fake engine* first — clickable, dummy data, with a sign-off gate — before the real engine (`docs/build-slicing.md`, Part B).** |
 | **6** | **Export form** | Two options — standalone `.exe` or `.bat` + Python source. **Always ask**, explain both with pros/cons, and let the user choose. Never default silently. See note below. |
 
 **Tier-1 computation rule:** If NVGate already computes it (FFT, 1/n-octave, order
@@ -278,6 +281,7 @@ Full reference (folder contents, README logic, frontmatter fields, update workfl
 | Understand / onboard an existing app (and write its DIRECTIVE.md) | `/explore-codebase <app>` (§5 "Improving an existing app") |
 | Scope a change to an existing app | `/scope-feature <app> <change>` (§5 "Improving an existing app") |
 | Design or refine an app's screen (UI) | `/frontend-design <app>` (§5 "Improving an existing app", §10 logos) |
+| Decide how to split a build into milestones, or prototype a UI cheaply | `docs/build-slicing.md` (rule #10) |
 | Save build progress mid-app so a fresh session can resume | `/checkpoint <app>` (rule #10, §6) |
 | Roll an app back to an earlier save point | `/restore <app>` (companion to `/checkpoint`) |
 | Automate a test sequence (run → measure → judge → export) | `docs/recipes/pass-fail.md`, `docs/recipes/run-get-result.md` |
