@@ -33,6 +33,7 @@ and send.
                              (optional; derived from app_name if absent)
     export_target: exe|source
     entry_point: app/main.py
+    logo: oros             → brand folder under shared/assets/logos/ (default: oros)
 
 Usage:
     python tools/export_app.py <app-name> [--target exe|source]

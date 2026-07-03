@@ -8,7 +8,7 @@ python tools/export_app.py <app-name> [--target exe|source]
 ```
 
 - Reads the app's `DIRECTIVE.md` frontmatter (`version`, `display_name`,
-  `export_target`, `entry_point`).
+  `export_target`, `entry_point`, `logo`).
 - Vendors `pynvdrive` + the `oros_helpers` package into the delivery folder.
 - Produces a versioned folder at `apps/<app-name>/dist/<app-name>-v<version>-<target>/`.
   The tool stops there — the user inspects the folder, then zips and sends it.
