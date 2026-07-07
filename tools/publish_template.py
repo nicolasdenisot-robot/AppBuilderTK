@@ -52,6 +52,9 @@ INCLUDE = [
     "tools/export_app.py",
     "tools/README.md",
     # NOTE: tools/publish_template.py is intentionally NOT shipped — it's yours.
+    # NOTE: workspace-overview-deck.html is intentionally NOT shipped as a file.
+    #       It is hosted as a public web page (see the "Workspace overview" link in
+    #       README.md) so recipients see the rendered deck, not GitHub's code view.
 ]
 
 # Names skipped anywhere during copy (defensive; INCLUDE already scopes things).

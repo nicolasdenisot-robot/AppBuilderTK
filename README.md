@@ -3,6 +3,9 @@
 Build your own custom NVGate / OROS analyzer applications — **without writing code
 yourself.** You describe what you want; Claude builds it.
 
+> **📊 Workspace overview deck** (a visual tour of what this is and what you can build):
+> <https://chaorandu-ai.github.io/oros-nvgate-app-builder-overview/>
+
 ## How to use this
 
 1. **Open this folder in Claude Code.**
