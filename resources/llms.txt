@@ -1,0 +1,169 @@
+# OROS NVGate Developer Framework
+
+> Generated 2026-08-25. Framework version: 17.00.002 113362-061272-240806-1502
+> This file tells an AI assistant what to read, in what order, and what to trust.
+
+## Layout
+
+    llms.txt        this file
+    AI/             machine-readable references, generated from the official manuals
+    Framework/      the official OROS Framework, byte for byte, never modified
+
+Paths below are relative to the folder holding this file.
+
+## Start here
+
+NVDrive is a **TCP/IP command language** for NVGate and OROS 3-series analyzers.
+Connect to host `127.0.0.1`, port `3000`. NVGate must be running and in connected
+mode before any command is sent.
+
+Two separate capability layers, do not confuse them:
+
+- **Live control** — the `pynvdrive` Python library, or raw NVDrive commands over TCP.
+  Requires NVGate to be running. Use it to start/stop measurements, change settings,
+  read live results, react to events.
+- **File access** — the `orostk.file` module and the C++ DLLs. Does not require
+  NVGate. Use it to read or write saved signals and results on disk.
+
+Two practical notes:
+
+- `pynvdrive` is ready to use at `Framework/Python/pynvdrive/pynvdrive/`, with 21
+  worked examples next to it in `Framework/Python/pynvdrive/examples/`.
+- `orostk` is **not** ready to use: it ships as installable archives in
+  `Framework/Python/NVFileManager/Packages/` (one per Python version, e.g.
+  `OROSPythonToolkit_Python312_x64_bdist.zip`). Install the one matching your
+  interpreter before importing it. Its own examples are in
+  `Framework/Python/NVFileManager/OROSPythonToolkit_examples.zip`.
+- `orostk` spans both layers: `orostk.file` is offline, but `orostk.nvdrive` is a
+  **live** client and carries the notification framework. Do not assume `orostk`
+  means offline.
+
+## Structured references — read these first
+
+These are machine-readable and are the fastest path to a correct answer.
+
+- `AI/HOWTO_NVDrive_from_Python.md` - **start here for writing code.** A short guide
+  with working `pynvdrive` examples: connect, run, read a setting, fetch a result,
+  react to the operator, and the traps that cost the most time. The reference files
+  below tell you what exists; this one tells you how it is done.
+
+- `AI/nvdrive_commands.json` — one record per NVDrive command: syntax, parameters
+  (marked required or optional), return value, error codes, examples, and the
+  `pynvdrive` block. **Check it before writing Python**: when `pynvdrive` is `null`,
+  no Python class exists and the command must be sent directly (a two-line call, see
+  the HOWTO section 7bis). When it is present it carries the import line, the class
+  name, the constructor arguments in order, and the attribute the reply lands on - so
+  you never have to guess a method name or a keyword.
+- `AI/nvdrive_errors.json` — every error code, its meaning, and the command that
+  produces it. Tell the two kinds apart by the **spacing**, not the length: consistency
+  codes come as three spaced groups (`188 001 000`), execution codes as one unspaced
+  run (`000008000`). Both are nine digits. The first group identifies the command, so
+  the same message can carry different codes: "Setting unknown" is `188 001 000` from
+  `GetSettingInfo` but `028 001 000` from `SetSettingValue`.
+- `AI/nvgate_notifications.json` — the 79 notifications NVGate can
+  send you when the operator changes something, each with its command id and the
+  typed properties that follow in the received block. **Read this before writing any
+  event-driven code**: `pynvdrive` has no wrapper for this family at all, so the
+  register commands must be sent raw.
+- `AI/nvdrive_result_ids.json` — the numbers that address a result: 20 module ids,
+  128 process ids, plus unit and operator codes. **Read this before trying to fetch a
+  result.** Its `quantity_map` goes straight from what you want to the address:
+  an averaged spectrum is module 10 (FFT1), process 2 (AVERAGE SPECTRUM); an overall
+  level is module 2 (MONITOR), process 10 (RMS). These tables are in the manual too,
+  but printed apart from their headings, so searching the Markdown for them misleads.
+- `AI/dll_api.json` — the 1251 exported entry points of the NVGate DLLs, with
+  typed parameters, taken from the public C++ headers. Use it when driving NVGate
+  from C++, C# or Visual Basic instead of Python.
+- Markdown mirrors of four of the five official manuals, for anything the structured
+  files do not cover. The fifth, `Framework/Matlab/MatDrive_Reference_Manual.pdf`,
+  covers the MATLAB toolbox and is not mirrored: this kit covers the Python and C++
+  routes. `<!-- page N -->` markers map back to the corresponding PDF:
+  `AI/NVDrive_Reference_Manual.md`, `AI/NVGate_Notification_Mechanism.md`,
+  `AI/DLL_NVDCommand_and_NVDResult_Reference_Manual.md`,
+  `AI/OR3x_Developer_Toolkit.md`.
+- `AI/nvgate_idn_catalog.json` - 756 setting identifiers, each with
+  both forms of the IDN, the label NVGate shows for it, and its type. This is how you
+  turn "the range of input 3" into something you can actually send. A submodule
+  ending in a number is one member of a family: the file lists `frontEnd.input1`, and
+  `frontEnd.input3.label` works exactly the same way, only the number changes.
+  That rule holds for the **text** form. The legacy numbering of family members is not
+  always regular, so do not compute a legacy triplet for member N: use the text form,
+  or ask NVGate with Shift + right-click.
+  Where NVGate has no name for a submodule it keeps a number and an index, as in
+  `dynamicOperating.674:1.label`; where it has none for a setting, the setting keeps
+  its number, as in `dynamicOperating.channel1.447`. Both forms are valid - the `name`
+  field tells you what they are ("Label", "Coef.").
+
+## Source of truth, in order
+
+1. The structured JSON files in `AI/`.
+2. `Framework/NVDrive_Reference_Manual.pdf` (386 pages) — the official specification.
+3. The working examples: `Framework/Python/pynvdrive/examples/` (21 scripts,
+   including `example_markers.py`, `example_getresult.py` and `example_setsettings.py`),
+   and `Framework/Visual/Examples/` (39 C++ files). Examples are often more
+   reliable than prose for getting a call right.
+4. The library sources: `Framework/Python/pynvdrive/pynvdrive/` (161 distinct
+   command classes), and `orostk` once you have installed it from `Packages/`.
+5. C++ headers: `Framework/Visual/include/` (14 public headers) — the real DLL
+   signatures, with Doxygen comments. The example projects carry further private
+   headers; the public API is the one under `Framework/Visual/include/`.
+
+## Setting identifiers (IDNs)
+
+A setting is addressed by an IDN. The modern form is text:
+
+    frontEnd.input1.label
+    recorder.track1.source
+    fft1.channel1.inputFilter
+
+The legacy form is a triplet of numbers (`1.3.1`), still accepted but limited to 32
+channels. Many commands take three parameters for the IDN; pass `""` for the ones you
+do not use, so the parameter count stays correct:
+
+    SetSettingValue frontEnd input3 label example
+    SetSettingValue frontEnd.input3.label "" "" example
+    SetSettingValue 1 3 1 example
+
+In NVGate, Shift + right-click on a setting reveals its IDN, in both forms.
+
+## Traps worth knowing
+
+- **A setting may not take effect immediately.** This is the single most common
+  false alarm: you write a setting, the command returns success, and nothing appears
+  to change. Some settings apply at once, others only once the analysis is restarted.
+  Restart the analysis before concluding that the command failed.
+- **Not every documented command has a Python wrapper.** 145 of the
+  manual's 309 command sections are wrapped by `pynvdrive`; the remaining
+  164 must be sent as raw commands over TCP.
+  Most of the marker family falls in that category: of the 43 commands in the Marker
+  category, **8 have a wrapper and 35 do not** - `AddHarmonicMarker`, `AddMaxMarker`
+  and `AddSideBandMarker` are among the 35. Check the field on the command you
+  actually want, never assume either way, and never invent a Python method name.
+  See `AI/HOWTO_NVDrive_from_Python.md` section 7 for how to send an unwrapped
+  command - it is a two-line call, not socket programming.
+- **Notifications are the only way to react to the operator**, and they need more
+  than a register command. Your own process must run a TCP server and tell NVGate to
+  connect back to it with `ConnectToTCPClient` - without that, you register
+  successfully and then wait forever. `orostk.nvdrive.notification_reader` does all of
+  this for you, once `orostk` is installed from `Packages/`; a runnable example is in
+  `Framework/Python/NVFileManager/OROSPythonToolkit_examples.zip`, folder
+  `example_notification/`. Decode what you
+  receive against `AI/nvgate_notifications.json`.
+- **What is visible depends on which plug-ins are active.** A setting can exist and
+  still be unreadable because its module is inactive. `GetSettingInfo` reports this in
+  its third and fifth returned strings.
+- **There is no `GetSettingList` command.** You cannot enumerate the settings of a
+  sub-module over NVDrive. `GetSubModuleList` returns sub-module IDNs, and
+  `GetSettingInfo` describes one setting at a time, but nothing lists them all.
+- **Prefer NVGate's own computation.** FFT, 1/n-octave, order tracking, FRF, overall
+  levels, waterfall and Campbell diagrams are all computed by NVGate. Drive it and
+  fetch the result rather than reimplementing the maths.
+
+## Do not rely on
+
+- `initasb.ini` and `process.ini` in the NVGate installation folder (not part of
+  this kit). Nothing in `AI/` is derived from them. Both open with a
+  comment stating they are no longer used. They still contain useful metadata, but
+  they are not maintained and must not be treated as a specification.
+- The generated HTML documentation trees as a primary source. They are complete but
+  very noisy to parse; the structured files above carry the same information.

@@ -1,0 +1,3797 @@
+{
+  "schema_version": "1.0",
+  "generated": "2026-08-24",
+  "source": "NVGate_Notification_Mechanism_Reference_Manual.pdf",
+  "source_pages": 112,
+  "nvgate_version": "17.00.002 (as declared by the shipped Framework)",
+  "notification_count": 79,
+  "note": "Catalogue of NVGate notifications, extracted from the Notification Mechanism reference manual. A notification is what NVGate sends you when the operator changes something: register for it with RegisterState / RegisterSetting / RegisterUINotification, then decode the block you receive. `command_id` identifies the notification in that block; `properties` describes the fields that follow, in order. Note that pynvdrive provides no Python wrapper for this family; the `orostk.nvdrive` package does, and your own process must run a TCP server that NVGate connects back to (see the HOWTO). Property fields: `type` is the data type prefixed by its numeric code, `name_id` the property identifier prefixed by its number, `value` either an example placeholder or the accepted values, `unit`, `hidden` and `const` the flags the manual prints. **`_alignment` is a warning, not data**: it marks a row whose columns could not be aligned with certainty because the source table merges cells irregularly. Treat those rows as indicative and check them against the manual mirror before relying on them. `enumtype` appears on enumerated properties and says **which list of values applies**; on its own it is just a number. Resolve it in `reference_tables.enumerated_property_types` - `enumtype` 18 is \"Applied mode\". Resolve the number in front of `type` in `reference_tables.property_types`, and the number in front of `name_id` in `reference_tables.property_identifiers`, where `used_in` says which commands that identifier belongs to (identifier 500 means \"Window caption\" in a Message Box, and nowhere else). `property_count` is what the manual declares; it disagrees with the rows actually printed on a handful of notifications, and is occasionally a range rather than a number. Trust the length of `properties`. The remaining fields are self-describing: `name` and `section` locate the notification in the manual, `manual_page` gives the page, `semantics` is what it means, `how_to_trigger` the command that turns it on, and `comment` any caveat the manual adds.",
+  "reference_tables": {
+    "property_types": {
+      "manual_table": "TABLE 1: Property Type Identifier",
+      "manual_pages": [
+        106,
+        106
+      ],
+      "entries": [
+        {
+          "id": 0,
+          "value": "String"
+        },
+        {
+          "id": 1,
+          "value": "Integer"
+        },
+        {
+          "id": 2,
+          "value": "Boolean"
+        },
+        {
+          "id": 3,
+          "value": "Float"
+        },
+        {
+          "id": 4,
+          "value": "Enumerated setting"
+        },
+        {
+          "id": 5,
+          "value": "Enumerated State"
+        },
+        {
+          "id": 6,
+          "value": "Filename"
+        },
+        {
+          "id": 7,
+          "value": "Constant"
+        },
+        {
+          "id": 8,
+          "value": "Boolean Constant"
+        },
+        {
+          "id": 9,
+          "value": "Enumerated User"
+        },
+        {
+          "id": 10,
+          "value": "Enumerated Unit"
+        },
+        {
+          "id": 11,
+          "value": "Integer Constant"
+        },
+        {
+          "id": 12,
+          "value": "Enumerated Alarm"
+        },
+        {
+          "id": 13,
+          "value": "String Constant"
+        },
+        {
+          "id": 14,
+          "value": "String or Constant"
+        },
+        {
+          "id": 15,
+          "value": "Float Constant"
+        },
+        {
+          "id": 16,
+          "value": "Scalar Constant"
+        },
+        {
+          "id": 17,
+          "value": "Scalar"
+        },
+        {
+          "id": 18,
+          "value": "Enumerated Magnitude"
+        }
+      ]
+    },
+    "enumerated_property_types": {
+      "manual_table": "TABLE 2: Enumerated Property Type Identifier",
+      "manual_pages": [
+        107,
+        107
+      ],
+      "entries": [
+        {
+          "id": 0,
+          "value": "Arrange Window type"
+        },
+        {
+          "id": 1,
+          "value": "Workspace Tab type"
+        },
+        {
+          "id": 2,
+          "value": "Dockable Window type"
+        },
+        {
+          "id": 3,
+          "value": "Toolbar type"
+        },
+        {
+          "id": 4,
+          "value": "Analyzer (player included)"
+        },
+        {
+          "id": 5,
+          "value": "Template"
+        },
+        {
+          "id": 6,
+          "value": "Analyzers that can save results"
+        },
+        {
+          "id": 7,
+          "value": "Result Type"
+        },
+        {
+          "id": 8,
+          "value": "Weigth operator type"
+        },
+        {
+          "id": 9,
+          "value": "Time operator type"
+        },
+        {
+          "id": 10,
+          "value": "Display unit operator"
+        },
+        {
+          "id": 11,
+          "value": "Measurement increment type"
+        },
+        {
+          "id": 12,
+          "value": "Analyzers on which input can be connected to"
+        },
+        {
+          "id": 13,
+          "value": "Analyzers that can display results"
+        },
+        {
+          "id": 14,
+          "value": "Analyzer states"
+        },
+        {
+          "id": 15,
+          "value": "Real Time Trigger"
+        },
+        {
+          "id": 16,
+          "value": "Save Mode"
+        },
+        {
+          "id": 17,
+          "value": "Condition on a simple alarm template"
+        },
+        {
+          "id": 18,
+          "value": "Applied mode"
+        },
+        {
+          "id": 19,
+          "value": "Applied mode action"
+        },
+        {
+          "id": 20,
+          "value": "Analyzers that can be a Waterfall source"
+        },
+        {
+          "id": 21,
+          "value": "Rough source Result (example: global level instead of DC, RMS, Skew ...)"
+        },
+        {
+          "id": 22,
+          "value": "Rough Source Waterfall result"
+        },
+        {
+          "id": 23,
+          "value": "Waterfall process"
+        },
+        {
+          "id": 24,
+          "value": "Time format print type"
+        },
+        {
+          "id": 25,
+          "value": "Scalar information type"
+        },
+        {
+          "id": 26,
+          "value": "Scalar change type"
+        },
+        {
+          "id": 27,
+          "value": "Enumerated information type"
+        },
+        {
+          "id": 28,
+          "value": "Enumerated change type"
+        },
+        {
+          "id": 29,
+          "value": "Operator type"
+        },
+        {
+          "id": 30,
+          "value": "Operator selection type"
+        }
+      ]
+    },
+    "property_identifiers": {
+      "manual_table": "TABLE 3: Property Identifier",
+      "manual_pages": [
+        108,
+        112
+      ],
+      "entries": [
+        {
+          "id": 100,
+          "value": "First name",
+          "used_in": "Used in Change User"
+        },
+        {
+          "id": 101,
+          "value": "Last name",
+          "used_in": "Used in Change User"
+        },
+        {
+          "id": 102,
+          "value": "Password",
+          "used_in": "Used in Change User"
+        },
+        {
+          "id": 200,
+          "value": "Macro name",
+          "used_in": "Used in Execute Macro"
+        },
+        {
+          "id": 300,
+          "value": "Iteration count",
+          "used_in": "Used in Loop For"
+        },
+        {
+          "id": 400,
+          "value": "Constant",
+          "used_in": "Used in Message Box - Set Macro Parameter"
+        },
+        {
+          "id": 500,
+          "value": "Window caption",
+          "used_in": "Used in Message Box"
+        },
+        {
+          "id": 501,
+          "value": "Prompt",
+          "used_in": "Used in Message Box"
+        },
+        {
+          "id": 502,
+          "value": "True button caption",
+          "used_in": "Used in Message Box"
+        },
+        {
+          "id": 503,
+          "value": "False button caption",
+          "used_in": "Used in Message Box"
+        },
+        {
+          "id": 600,
+          "value": "Comment",
+          "used_in": "Used in Set Macro Parameter"
+        },
+        {
+          "id": 800,
+          "value": "Layout name",
+          "used_in": "Used in Change Layout / New Layout / Add Window Result / Add Window Saved Result / Change Window Preferences"
+        },
+        {
+          "id": 801,
+          "value": "Send message",
+          "used_in": "Used in Change Layout"
+        },
+        {
+          "id": 900,
+          "value": "Workbook name",
+          "used_in": "Used in Load Workbook"
+        },
+        {
+          "id": 901,
+          "value": "Project name",
+          "used_in": "Used in Load Workbook / Add Window Saved Result / Remove Measurement / Save Project As / Download"
+        },
+        {
+          "id": 902,
+          "value": "Measurement name",
+          "used_in": "Used in Load Workbook / Add Window Saved Result / Remove Measurement / Save Project As / Download"
+        },
+        {
+          "id": 903,
+          "value": "Project base",
+          "used_in": "Used in Load Workbook / Add Window Saved Result / Remove Measurement / Save Project As / Download"
+        },
+        {
+          "id": 903,
+          "value": "Load configuration",
+          "used_in": "Used in Load Workbook"
+        },
+        {
+          "id": 904,
+          "value": "Load control panel",
+          "used_in": "Used in Load Workbook"
+        },
+        {
+          "id": 905,
+          "value": "Load layouts",
+          "used_in": "Used in Load Workbook"
+        },
+        {
+          "id": 906,
+          "value": "Load save setup",
+          "used_in": "Used in Load Workbook"
+        },
+        {
+          "id": 907,
+          "value": "Load print setup",
+          "used_in": "Used in Load Workbook"
+        },
+        {
+          "id": 908,
+          "value": "Keyword",
+          "used_in": "Used in Load Workbook"
+        },
+        {
+          "id": 909,
+          "value": "Measurement comment",
+          "used_in": "Used in Load Workbook"
+        },
+        {
+          "id": 910,
+          "value": "Saving",
+          "used_in": "Used in Load Workbook"
+        },
+        {
+          "id": 911,
+          "value": "Load directory",
+          "used_in": "Used in Load Workbook"
+        },
+        {
+          "id": 912,
+          "value": "What to load",
+          "used_in": "Used in Load Workbook"
+        },
+        {
+          "id": 913,
+          "value": "Save previous",
+          "used_in": "Used in Load Workbook"
+        },
+        {
+          "id": 914,
+          "value": "Is in player",
+          "used_in": "Used in Preview Signal"
+        },
+        {
+          "id": 915,
+          "value": "NB Response",
+          "used_in": "Used in Preview Signal"
+        },
+        {
+          "id": 1000,
+          "value": "Value",
+          "used_in": "Used in Change Boolean Setting - Change String Setting - Change Enumerated Setting - Change Scalar Setting - Change Signal File Setting"
+        },
+        {
+          "id": 1001,
+          "value": "Project value",
+          "used_in": "Used in Change Boolean Setting - Change String Setting - Change Enumerated Setting - Change Scalar Setting - Change Signal File Setting"
+        },
+        {
+          "id": 1002,
+          "value": "Measurement value",
+          "used_in": "Used in Change Boolean Setting - Change String Setting - Change Enumerated Setting - Change Scalar Setting - Change Signal File Setting"
+        },
+        {
+          "id": 1003,
+          "value": "Numerator 1",
+          "used_in": "Used in Change Boolean Setting - Change String Setting - Change Enumerated Setting - Change Scalar Setting - Change Signal File Setting"
+        },
+        {
+          "id": 1004,
+          "value": "Denominator 1",
+          "used_in": "Used in Change Boolean Setting - Change String Setting - Change Enumerated Setting - Change Scalar Setting - Change Signal File Setting"
+        },
+        {
+          "id": 1005,
+          "value": "Numerator 2",
+          "used_in": "Used in Change Boolean Setting - Change String Setting - Change Enumerated Setting - Change Scalar Setting - Change Signal File Setting"
+        },
+        {
+          "id": 1006,
+          "value": "Denominator 2",
+          "used_in": "Used in Change Boolean Setting - Change String Setting - Change Enumerated Setting - Change Scalar Setting - Change Signal File Setting"
+        },
+        {
+          "id": 1007,
+          "value": "IDN setting value",
+          "used_in": "Used in Change Boolean Setting - Change String Setting - Change Enumerated Setting - Change Scalar Setting - Change Signal File Setting"
+        },
+        {
+          "id": 1008,
+          "value": "IDN Slave",
+          "used_in": "Used in Change Boolean Setting - Change String Setting - Change Enumerated Setting - Change Scalar Setting - Change Signal File Setting"
+        },
+        {
+          "id": 1100,
+          "value": "Style",
+          "used_in": "Used in Arrange Windows"
+        },
+        {
+          "id": 1200,
+          "value": "Workspace",
+          "used_in": "Used in Select Workspace"
+        },
+        {
+          "id": 1300,
+          "value": "Show",
+          "used_in": "Used in Toggle Dockable Window - Toggle Toolbar - Toggle Module State"
+        },
+        {
+          "id": 1400,
+          "value": "Dockable Window",
+          "used_in": "Used in Toggle Dockable Window"
+        },
+        {
+          "id": 1500,
+          "value": "Toolbar",
+          "used_in": "Used in Toggle Toolbar"
+        },
+        {
+          "id": 1600,
+          "value": "Window refresh rate",
+          "used_in": "Used in Change Window Refresh Rate"
+        },
+        {
+          "id": 1700,
+          "value": "Current Unit",
+          "used_in": "Used in Set Unit To Magnitude"
+        },
+        {
+          "id": 1701,
+          "value": "Magnitude ID",
+          "used_in": "Used in Set Unit To Magnitude"
+        },
+        {
+          "id": 1800,
+          "value": "Module",
+          "used_in": "Used in Toggle Module State"
+        },
+        {
+          "id": 1900,
+          "value": "Template name",
+          "used_in": "Used in Select Report Template"
+        },
+        {
+          "id": 2000,
+          "value": "Time lap",
+          "used_in": "Used in Timer Loop"
+        },
+        {
+          "id": 2100,
+          "value": "Right operator affectation",
+          "used_in": "Used in Affectation"
+        },
+        {
+          "id": 2101,
+          "value": "Left operator affectation",
+          "used_in": "Used in Affectation"
+        },
+        {
+          "id": 2200,
+          "value": "Parameter",
+          "used_in": "Used in Incrementation"
+        },
+        {
+          "id": 2201,
+          "value": "Incrementation value",
+          "used_in": "Used in Incrementation"
+        },
+        {
+          "id": 2300,
+          "value": "Waiting time",
+          "used_in": "Used in Wait"
+        },
+        {
+          "id": 2400,
+          "value": "New layout become current",
+          "used_in": "Used in New Layout"
+        },
+        {
+          "id": 2501,
+          "value": "Save immediately",
+          "used_in": "Used in New Measurement Preference Parameter"
+        },
+        {
+          "id": 2502,
+          "value": "Skip confirmation",
+          "used_in": "Used in New Measurement Preference Parameter"
+        },
+        {
+          "id": 2503,
+          "value": "Save mode",
+          "used_in": "Used in New Measurement Preference Parameter"
+        },
+        {
+          "id": 2600,
+          "value": "Window name",
+          "used_in": "Used in Add Window Result - Add Window Saved Result - Change Window Preferences"
+        },
+        {
+          "id": 2601,
+          "value": "Analyzer",
+          "used_in": "Used in Add Window Result - Add Window Saved Result - Setup Add Result"
+        },
+        {
+          "id": 2602,
+          "value": "Process",
+          "used_in": "Used in Add Window Result - Add Window Saved Result - Setup Add Result"
+        },
+        {
+          "id": 2603,
+          "value": "Response",
+          "used_in": "Used in Add Window Result - Add Window Saved Result - Setup Add Result"
+        },
+        {
+          "id": 2604,
+          "value": "Reference",
+          "used_in": "Used in Add Window Result - Add Window Saved Result - Setup Add Result"
+        },
+        {
+          "id": 2605,
+          "value": "Weight operator",
+          "used_in": "Used in Add Window Result - Add Window Saved Result - Setup Add Result"
+        },
+        {
+          "id": 2606,
+          "value": "Time operator",
+          "used_in": "Used in Add Window Result - Add Window Saved Result - Setup Add Result"
+        },
+        {
+          "id": 2607,
+          "value": "Diplay Unit operator",
+          "used_in": "Used in Add Window Result - Add Window Saved Result - Setup Add Result"
+        },
+        {
+          "id": 2608,
+          "value": "Waterfall 2D",
+          "used_in": "Used in Add Window Result - Add Window Saved Result - Setup Add Result"
+        },
+        {
+          "id": 2700,
+          "value": "Measurement base name",
+          "used_in": "Used in Setup Parameters"
+        },
+        {
+          "id": 2701,
+          "value": "Increment",
+          "used_in": "Used in Setup Parameters"
+        },
+        {
+          "id": 2800,
+          "value": "Input",
+          "used_in": "Used in Connect Input"
+        },
+        {
+          "id": 2801,
+          "value": "Channel",
+          "used_in": "Used in Connect Input"
+        },
+        {
+          "id": 2802,
+          "value": "Player track",
+          "used_in": "Used in Connect Input"
+        },
+        {
+          "id": 2803,
+          "value": "Module source",
+          "used_in": "Used in Connect Input"
+        },
+        {
+          "id": 2900,
+          "value": "Project save as name",
+          "used_in": "Used in Save Project As"
+        },
+        {
+          "id": 3000,
+          "value": "Remove file from OR3X",
+          "used_in": "Used in Download"
+        },
+        {
+          "id": 3001,
+          "value": "Remove file from PC",
+          "used_in": "Used in Upload"
+        },
+        {
+          "id": 3100,
+          "value": "First",
+          "used_in": "Used in Change Force/Response Windows Setting"
+        },
+        {
+          "id": 3101,
+          "value": "End",
+          "used_in": "Used in Change Force/Response Windows Setting"
+        },
+        {
+          "id": 3102,
+          "value": "Start",
+          "used_in": "Used in Change Force/Response Windows Setting"
+        },
+        {
+          "id": 3103,
+          "value": "Stop",
+          "used_in": "Used in Change Force/Response Windows Setting"
+        },
+        {
+          "id": 3104,
+          "value": "X Left",
+          "used_in": "Used in Change Force/Response Windows Setting"
+        },
+        {
+          "id": 3105,
+          "value": "Y Left",
+          "used_in": "Used in Change Force/Response Windows Setting"
+        },
+        {
+          "id": 3106,
+          "value": "X right",
+          "used_in": "Used in Change Force/Response Windows Setting"
+        },
+        {
+          "id": 3107,
+          "value": "Y right",
+          "used_in": "Used in Change Force/Response Windows Setting"
+        },
+        {
+          "id": 3200,
+          "value": "Switch to post analysis",
+          "used_in": "Used in Post Analysis"
+        },
+        {
+          "id": 3300,
+          "value": "Applied mode",
+          "used_in": "Used in Applied Mode"
+        },
+        {
+          "id": 3301,
+          "value": "Applied mode change",
+          "used_in": "Used in Applied Mode"
+        },
+        {
+          "id": 3400,
+          "value": "Control Panel Tab name",
+          "used_in": "Used in Add To Control Panel"
+        },
+        {
+          "id": 3401,
+          "value": "Setting name",
+          "used_in": "Used in Add To Control Panel"
+        },
+        {
+          "id": 3402,
+          "value": "Setting IDN",
+          "used_in": "Used in Add To Control Panel"
+        },
+        {
+          "id": 3403,
+          "value": "Setting state",
+          "used_in": "Used in Add To Control Panel"
+        },
+        {
+          "id": 3404,
+          "value": "Setting active tab",
+          "used_in": "Used in Add To Control Panel"
+        },
+        {
+          "id": 4500,
+          "value": "Table Index",
+          "used_in": "Used in Change Table Setting"
+        },
+        {
+          "id": 4501,
+          "value": "Table boolean",
+          "used_in": "Used in Change Table Setting"
+        },
+        {
+          "id": 4502,
+          "value": "Table float 1",
+          "used_in": "Used in Change Table Setting"
+        },
+        {
+          "id": 4503,
+          "value": "Table float 2",
+          "used_in": "Used in Change Table Setting"
+        },
+        {
+          "id": 4504,
+          "value": "Waterfall module source",
+          "used_in": "Used in Change Table Setting"
+        },
+        {
+          "id": 4505,
+          "value": "Waterfall sub-module response",
+          "used_in": "Used in Change Table Setting"
+        },
+        {
+          "id": 4506,
+          "value": "Waterfall sub-module reference",
+          "used_in": "Used in Change Table Setting"
+        },
+        {
+          "id": 4507,
+          "value": "Waterfall process type",
+          "used_in": "Used in Change Table Setting"
+        },
+        {
+          "id": 4600,
+          "value": "Play sound",
+          "used_in": "Used in Send Trace"
+        },
+        {
+          "id": 4601,
+          "value": "Message",
+          "used_in": "Used in Send Trace"
+        },
+        {
+          "id": 4700,
+          "value": "String to add",
+          "used_in": "Used in Make String"
+        },
+        {
+          "id": 4701,
+          "value": "Add String",
+          "used_in": "Used in Make String"
+        },
+        {
+          "id": 4800,
+          "value": "Application name",
+          "used_in": "Used in Launch Link"
+        },
+        {
+          "id": 4801,
+          "value": "Wait end",
+          "used_in": "Used in Launch Link"
+        },
+        {
+          "id": 4900,
+          "value": "Macro parameter name",
+          "used_in": "Used in Set Exec Macro Param - Get Exec Macro Param"
+        },
+        {
+          "id": 4901,
+          "value": "Macro parameter value",
+          "used_in": "Used in Set Exec Macro Param - Get Exec Macro Param"
+        },
+        {
+          "id": 5000,
+          "value": "Time Format",
+          "used_in": "Used in Get Time"
+        },
+        {
+          "id": 5100,
+          "value": "Module identifier",
+          "used_in": "Used in Get Scalar Value"
+        },
+        {
+          "id": 5101,
+          "value": "Sub-module identifier",
+          "used_in": "Used in Get Scalar Value"
+        },
+        {
+          "id": 5102,
+          "value": "Setting identifier",
+          "used_in": "Used in Get Scalar Value"
+        },
+        {
+          "id": 5103,
+          "value": "Get scalar info",
+          "used_in": "Used in Get Scalar Value"
+        },
+        {
+          "id": 5200,
+          "value": "Set scalar action",
+          "used_in": "Used in Set Scalar Value"
+        },
+        {
+          "id": 5300,
+          "value": "Get enumerated information",
+          "used_in": "Used in Get Enumerated Value"
+        },
+        {
+          "id": 5400,
+          "value": "Set enumerated information",
+          "used_in": "Used in Set Enumerated Value"
+        },
+        {
+          "id": 5500,
+          "value": "Confirm name",
+          "used_in": "Used in Save Results"
+        },
+        {
+          "id": 5600,
+          "value": "Apply to layout",
+          "used_in": "Used in Autoscale XZ - Autoscale Y - Reset Zoom"
+        },
+        {
+          "id": 5700,
+          "value": "Operator type",
+          "used_in": "Used in Add Automatic Operator"
+        },
+        {
+          "id": 5701,
+          "value": "Operator auto type",
+          "used_in": "Used in Add Automatic Operator"
+        },
+        {
+          "id": 5702,
+          "value": "Operator name",
+          "used_in": "Used in Add Automatic Operator"
+        },
+        {
+          "id": 5703,
+          "value": "Frequency domain",
+          "used_in": "Used in Add Automatic Operator"
+        },
+        {
+          "id": 5704,
+          "value": "X step",
+          "used_in": "Used in Add Automatic Operator"
+        },
+        {
+          "id": 5800,
+          "value": "Activate",
+          "used_in": "Used in Enable AutoMemorize"
+        },
+        {
+          "id": 5900,
+          "value": "N command type",
+          "used_in": "Used in Exec Command"
+        },
+        {
+          "id": 6000,
+          "value": "Need to confirm",
+          "used_in": "Used in Save Measurement / Save Workbook / Save Project"
+        },
+        {
+          "id": 6001,
+          "value": "NB Workbook",
+          "used_in": "Used in Save Workbook"
+        },
+        {
+          "id": 6100,
+          "value": "Preference parameters",
+          "used_in": "Used in Change Window Preferences"
+        }
+      ]
+    }
+  },
+  "notifications": [
+    {
+      "name": "CHANGE USER",
+      "section": "3 USER INTERFACE COMMANDS",
+      "manual_page": 34,
+      "semantics": "Scan when the User is being changed.",
+      "how_to_trigger": "This command can be sent from the \"Home/User\" ribbon or \"Preferences/User\" ribbon.",
+      "comment": "",
+      "command_id": 1,
+      "property_count": 3,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "100 First Name",
+          "value": "\"First_Name\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "101 Last Name",
+          "value": "\"Last_Name\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "102 Password",
+          "value": "\"Password\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "APPLIED MODE",
+      "section": "3 USER INTERFACE COMMANDS",
+      "manual_page": 35,
+      "semantics": "Scan when the \"applied mode\" is being changed.",
+      "how_to_trigger": "This command can be sent with the activation or desactivation of the specialized modes: Rotating or Structural, in \"Preferences/General\" window.",
+      "comment": "",
+      "command_id": 0,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "9 User Enum",
+          "name_id": "3300 Mode",
+          "value": "1: Rotating 2: Structural -1: All",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "18"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "3301 Action",
+          "value": "0: Activate 1: Deactivate 2: Switch",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "19"
+        }
+      ]
+    },
+    {
+      "name": "POST ANALYSIS",
+      "section": "3 USER INTERFACE COMMANDS",
+      "manual_page": 36,
+      "semantics": "Scan when the analyzer is being switched to/from the post-analysis mode.",
+      "how_to_trigger": "This command can be sent from the \"Home/Go to result\" ribbon.",
+      "comment": "",
+      "command_id": 5,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "2 Boolean",
+          "name_id": "3200 Analysis Mode",
+          "value": "0: On-line 1: Post-analysis",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "SET UNIT TO MAGNITUDE",
+      "section": "3 USER INTERFACE COMMANDS",
+      "manual_page": 37,
+      "semantics": "Scan when the physical quantity is being modified.",
+      "how_to_trigger": "Use the \"SetUnit\" NVDrive command.",
+      "comment": "",
+      "command_id": 9,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "1 Integer",
+          "name_id": "1701 Magnitude ID",
+          "value": "\"MagitudeID\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "1700 Current Unit",
+          "value": "\"CurrentUnit\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "TOGGLE DOCKABLE WINDOW",
+      "section": "3 USER INTERFACE COMMANDS",
+      "manual_page": 37,
+      "semantics": "Scan when one of the \"View\" elements is being displayed or hidden.",
+      "how_to_trigger": "Click on one of the check boxes from the \"Preferences/View\" ribbon.",
+      "comment": "",
+      "command_id": 73,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "9 User Enum",
+          "name_id": "1400 Dockable Window",
+          "value": "33309: Analyzer Status 34047: Workspace 34048: Log Window 34057: Setting Grid",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "2"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "1300 Show",
+          "value": "0: hidden 1: displayed",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        }
+      ]
+    },
+    {
+      "name": "TOGGLE MODULE STATE",
+      "section": "3 USER INTERFACE COMMANDS",
+      "manual_page": 38,
+      "semantics": "Scan when the plug-in states are being displayed or hidden.",
+      "how_to_trigger": "Right-click on an active analysis plug-in and select/unselect the \"View States\" item.",
+      "comment": "",
+      "command_id": 74,
+      "property_count": 2,
+      "properties": []
+    },
+    {
+      "name": "WINDOW REFRESH RATE",
+      "section": "3 USER INTERFACE COMMANDS",
+      "manual_page": 39,
+      "semantics": "Scan when the user Refresh Rate preference is being modified.",
+      "how_to_trigger": "Open the dialog box with the \"Preference/General\" ribbon. Move the \"Windows refresh rate\" cursor to modify its value:",
+      "comment": "",
+      "command_id": 70,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "1 Integer",
+          "name_id": "1600 Window refresh rate",
+          "value": "'value' (range from 1 to 30)",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "NEW MEASUREMENT PREFERENCE PARAMETER",
+      "section": "3 USER INTERFACE COMMANDS",
+      "manual_page": 40,
+      "semantics": "Scan when a measurement preference to save measurement is being changed.",
+      "how_to_trigger": "Click on the \"General\" button from the \"Preferences / Preferences\" ribbon to open the \"Preferences\" dialog box. Change one of the save options from the \"Save\" tab:",
+      "comment": "",
+      "command_id": 42,
+      "property_count": 3,
+      "properties": [
+        {
+          "type": "9 User Enum",
+          "name_id": "2503 Save Mode",
+          "value": "0: Do not save 1: In Default Measurement 2: With name confirmation 3: Without name confirmation",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "16"
+        },
+        {
+          "type": "0 String",
+          "name_id": "908 Keyword",
+          "value": "\"keyword value\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "2504 Set preferences",
+          "value": "0: read preferences 1: set preferences",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        }
+      ]
+    },
+    {
+      "name": "CONNECT INPUT",
+      "section": "3 USER INTERFACE COMMANDS",
+      "manual_page": 42,
+      "semantics": "Scan when an input or a track is being connected to a module.",
+      "how_to_trigger": "Use \"ConnectInput\" NVDrive command. Either, this command can be sent when connecting inputs or tracks (in the post-analysis mode) to an analysis module. Select \"Show Results\" from the \"Home / Go to result\" ribbon.",
+      "comment": "",
+      "command_id": 2,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "2804 IDN source",
+          "value": "player.431:1 (example for player track 1)",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "0 String",
+          "name_id": "2805 IDN target",
+          "value": "fft1.channel1",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        }
+      ]
+    },
+    {
+      "name": "SELECT WATERFALL CHANNELS",
+      "section": "3 USER INTERFACE COMMANDS",
+      "manual_page": 42,
+      "semantics": "Scan when a channel is being connected to the waterfall module.",
+      "how_to_trigger": "",
+      "comment": "",
+      "command_id": 8,
+      "property_count": 4,
+      "properties": [
+        {
+          "type": "9 User Enum",
+          "name_id": "2601 Module ID",
+          "value": "Module ID*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "20"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "4505 Response",
+          "value": "Channel number",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "4506 Reference",
+          "value": "Reference channel number",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2602 Process Type",
+          "value": "Process ID*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "22"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "4508 Connection mode",
+          "value": "0: WtfConnectAndCreate, 1: WtfOnlyConnect, 2: WtfOnlyCreate, 3: WtfConnectThenCreate",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        }
+      ]
+    },
+    {
+      "name": "UNSELECT WATERFALL CHANNELS",
+      "section": "3 USER INTERFACE COMMANDS",
+      "manual_page": 44,
+      "semantics": "Scan when a channel is being disconnected from the waterfall module.",
+      "how_to_trigger": "To disconnect waterfall channels: Open the dialog box with the \"Analysis / Waterfall\" ribbon. Or, open this dialog box from the Analyzer Setting Browser by a right-click on \"Waterfall→ Channels\" and select the item \"Add/Remove\". Select items to be removed from the \"Waterfall\" or \"References & Profiles\" frames and click on the red-cross button.",
+      "comment": "",
+      "command_id": 101,
+      "property_count": 4,
+      "properties": [
+        {
+          "type": "9 User Enum",
+          "name_id": "2601 Module ID",
+          "value": "Module ID*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "20"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "4505 Response",
+          "value": "Channel number",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "4506 Reference",
+          "value": "Reference channel number",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2602 Process Type",
+          "value": "Process ID*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "22"
+        }
+      ]
+    },
+    {
+      "name": "EXEC COMMAND",
+      "section": "3.3 ACTION",
+      "manual_page": 46,
+      "semantics": "Scan when an analysis command is being executed.",
+      "how_to_trigger": "This command can be sent with the [Run / Pause / Stop / Trigger / Pause Player] and [Accept / Reject] buttons.",
+      "comment": "",
+      "command_id": 3,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "1 Integer",
+          "name_id": "5900 Command",
+          "value": "0 Run 1 Pause 2 Stop 3 Accept 4 Reject 5 Manual Trigger 6 Pause Player",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "CHANGE ACTION SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 46,
+      "semantics": "Scan when an action is performed (hidden).",
+      "how_to_trigger": "",
+      "comment": "",
+      "command_id": 55,
+      "property_count": null,
+      "properties": []
+    },
+    {
+      "name": "CHANGE ARMING ACTION SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 47,
+      "semantics": "Scan when the [Recorder Arming] button state is being changed.",
+      "how_to_trigger": "At least one input must be connected to a recorder track to activate the recorder module. Click on the Armed/Unarmed button from the \"Analysis / Record\" ribbon. Or from the Analyzer Setting Browser, select the \"Recorder → Trigger → Recorder\" setting and click on the button to change it to [Arm] or [Unarm].",
+      "comment": "",
+      "command_id": 56,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "1007 IDN Setting",
+          "value": "recorder.recTrigger.407",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "1000 Property value",
+          "value": "0: Unarmed 1: Armed",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "CHANGE AUTORANGE ACTION SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 48,
+      "semantics": "Scan when the [Autorange] action is being executed.",
+      "how_to_trigger": "Click on the [Autorange] button from the \"Acquisition / Inputs\" ribbon. Or from the Analyzer Setting Browser, select the \"Front-End → Auto-ranging → Autorange\" setting and click on the [Run] button to start the Autorange.",
+      "comment": "",
+      "command_id": 57,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "1007 IDN setting",
+          "value": "frontEnd.autoRanging.335",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "1000 Value",
+          "value": "0: not OK 1: OK",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "CHANGE ICP ACTION SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 49,
+      "semantics": "Scan when the ICP checking is being executed.",
+      "how_to_trigger": "At least one input must be of the ICP coupling type. From the Analyzer Setting Browser, select the \"Front-End → Input Settings → Check ICP\" setting and click on the [Run] button to start the ICP checking.",
+      "comment": "",
+      "command_id": 58,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "1007 IDN Setting",
+          "value": "frontEnd.inputSettings.353",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "CHANGE TEDS ACTION SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 50,
+      "semantics": "Scan when the ICP checking is being executed.",
+      "how_to_trigger": "At least one input must be of the ICP TEDS coupling type. From the Analyzer Setting Browser, select the \"Front-End → Input Settings → Detect TEDS\" setting and click on the [Run] button to start the TEDS checking. Or click on the \"detect TEDS\" button from the \"Acquisition / Transducers\" ribbon.",
+      "comment": "",
+      "command_id": 98,
+      "property_count": 3,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "1007 IDN Setting",
+          "value": "frontEnd.inputSettings.414",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "2008 IDN Input",
+          "value": "null (not used)",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "1009 Silent",
+          "value": "0: normal 1: silent",
+          "unit": "",
+          "hidden": "",
+          "const": ""
+        }
+      ]
+    },
+    {
+      "name": "ACTIVATE SUB-MODULE COLLECTION",
+      "section": "3.3 ACTION",
+      "manual_page": 51,
+      "semantics": "Scan when an item from a sub-module collection is being activated/desabled.",
+      "how_to_trigger": "From the Analyzer Setting Browser, select a sub-module setting and right-click the \"Add/Remove\" item to open a dialog box. The sub-module collection is recognizable by an icon. Example: Select the \"FFT 1→ Channels\" collection and open the Add/Remove dialog box. Then select channel3.",
+      "comment": "",
+      "command_id": 53,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "1007 IDN Setting",
+          "value": "fft1.channel3",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "1000 Property value",
+          "value": "0: Desable 1: Activate",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "CHANGE SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 51,
+      "semantics": "Scan when a setting is modified. Not used (hidden).",
+      "how_to_trigger": "",
+      "comment": "",
+      "command_id": 54,
+      "property_count": null,
+      "properties": []
+    },
+    {
+      "name": "CHANGE STRING SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 52,
+      "semantics": "Scan when the value of a string setting is being changed.",
+      "how_to_trigger": "From the Analyzer Setting Browser, select a string setting and assign a new string value. The string setting is recognizable by an icon. Example: Select the \"Front-End → Inputs → Input 1 → Label\" setting and write another label.",
+      "comment": "",
+      "command_id": 60,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "1007 IDN Setting",
+          "value": "frontEnd.input1.label",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "1000 Property value",
+          "value": "\"new value\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "CHANGE BOOLEAN SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 53,
+      "semantics": "Scan when the value of a boolean setting is being changed.",
+      "how_to_trigger": "From the Analyzer Setting Browser, select a boolean setting and switch it. The boolean setting is recognizable by an icon. Example: Select the \"Front-End → Inputs → Input 1 → Enable auto-range\" setting and tick/untick the box.",
+      "comment": "",
+      "command_id": 59,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "1007 IDN Setting",
+          "value": "frontEnd.input1.enableAutorange",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "1000 property value",
+          "value": "0: Off 1: On",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "CHANGE SCALAR SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 54,
+      "semantics": "Scan when the value of a scalar setting is being changed.",
+      "how_to_trigger": "From the Analyzer Setting Browser, select a scalar setting and modify its value. The scalar setting is recognizable by an icon. Example: Select the \"Front-End → Input Settings → Sensitivity\" setting assign a new scalar value.",
+      "comment": "",
+      "command_id": 64,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "1007 IDN Setting",
+          "value": "frontEnd.input1.sensitivity",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "3 Float",
+          "name_id": "1000 property value",
+          "value": "'new value'",
+          "unit": "(V)/(V)",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "CHANGE ENUMERATED SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 54,
+      "semantics": "Scan when the value of an enumerated setting is being changed.",
+      "how_to_trigger": "From the Analyzer Setting Browser, select an enumerated setting and select an item from the list. The enumerated setting is recognizable by an icon. Example: Select the \"Front-End → Input Settings → High Input sampling\" setting and select an item from the list.",
+      "comment": "",
+      "command_id": 61,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "1007 IDN Setting",
+          "value": "frontEnd.inputSettings.inputSampling",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "4 Enumerated",
+          "name_id": "1000 property value",
+          "value": "\"new value\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "CHANGE FORCE/RESPONSE WINDOWS SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 55,
+      "semantics": "Scan when one of the values of the Force or Response window setting is being changed.",
+      "how_to_trigger": "From the Analyzer Setting Browser, select the \"Time Windows → Force → Settings\" or the \"Time Windows → Response → Settings\" and change one of the window settings. The force/response window setting is recognizable by an icon.",
+      "comment": "",
+      "command_id": 62,
+      "property_count": 9,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "1007 IDN Setting",
+          "value": "window.328:1.226",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "3 Float",
+          "name_id": "3102 Start value",
+          "value": "'value'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "3 Float",
+          "name_id": "3103 Stop value",
+          "value": "'value'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "3 Float",
+          "name_id": "3100 First value",
+          "value": "'value'",
+          "unit": "",
+          "hidden": "1",
+          "const": "0"
+        },
+        {
+          "type": "3 Float",
+          "name_id": "3101 End value",
+          "value": "'value'",
+          "unit": "",
+          "hidden": "1",
+          "const": "0"
+        },
+        {
+          "type": "3 Float",
+          "name_id": "3106 X Right value",
+          "value": "'value'",
+          "unit": "",
+          "hidden": "1",
+          "const": "0"
+        },
+        {
+          "type": "3 Float",
+          "name_id": "3107 Y Right value",
+          "value": "'value'",
+          "unit": "",
+          "hidden": "1",
+          "const": "0"
+        },
+        {
+          "type": "3 Float",
+          "name_id": "3104 X Left value",
+          "value": "'value'",
+          "unit": "",
+          "hidden": "1",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "CHANGE FRACTIONAL TACH SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 56,
+      "semantics": "Scan when one of the values of the fractional tach ratio setting is being changed.",
+      "how_to_trigger": "It is activated with a NVDrive command: \"SetVirtualTachoSettingValue\".",
+      "comment": "",
+      "command_id": 67,
+      "property_count": 5,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "1007 IDN Setting",
+          "value": "tach.171:1.304",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "3 Float",
+          "name_id": "1003 Numerator1",
+          "value": "'value'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "3 Float",
+          "name_id": "1004 Denominator 1",
+          "value": "'value'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "3 Float",
+          "name_id": "1005 Numerator 2",
+          "value": "'value'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "3 Float",
+          "name_id": "1006 Denominator 2",
+          "value": "'value",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "CHANGE SIGNAL FILE SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 58,
+      "semantics": "Scan when the signal file loaded in the Player module is being changed.",
+      "how_to_trigger": "From the Analyzer Setting Browser, select the \"Player → Selected Record → Signal File\" setting select a signal file from a project. The signal file setting is recognizable by an icon.",
+      "comment": "",
+      "command_id": 65,
+      "property_count": 3,
+      "properties": [
+        {
+          "type": "0\nString",
+          "name_id": "1007\nIDN Setting",
+          "value": "player.90:1.233",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "0\nString",
+          "name_id": "1001\nProject name",
+          "value": "\"name of the\nproject\"",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "0\nString",
+          "name_id": "1002\nMeasure name",
+          "value": "\"name of the\nmeasure\"",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        }
+      ]
+    },
+    {
+      "name": "CHANGE MATRIX SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 58,
+      "semantics": "Scan when the value of a matrix setting is being changed.",
+      "how_to_trigger": "From the Analyzer Setting Browser, select a matrix setting and add/remove an item. The matrix setting is recognizable by an icon. Example: When 2 inputs are connected to the FFT1 module, select the \"FFT1→ FFT analysis → Cross Spectrum\" setting and add a matrix cross between channel 2 and channel 1.",
+      "comment": "",
+      "command_id": 63,
+      "property_count": "3 to 501",
+      "properties": [
+        {
+          "type": "0\nString",
+          "name_id": "1007\nIDN Setting",
+          "value": "fft1.363:1.205",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "0\nString",
+          "name_id": "3500\nMatrix couple 1",
+          "value": "fft1.channel2;fft1.channel1",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        }
+      ]
+    },
+    {
+      "name": "CHANGE TABLE SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 59,
+      "semantics": "Scan when one of the values of a line in a table setting is being changed.",
+      "how_to_trigger": "Use a NVDrive command: AddArrayLine (and NB Properties = 5). You can either select a Table setting and add a new line from the Analyzer Setting Browser (then NB Properties = 1). The table setting is recognizable by an icon. Example: Select the \"FFT 1 → Channels→ Channel 1→ Tracked Order\" setting and Click on the [Add] button.",
+      "comment": "",
+      "command_id": 66,
+      "property_count": 5,
+      "properties": [
+        {
+          "type": "0\nString",
+          "name_id": "1007\nIDN Setting",
+          "value": "fft1.channel1.251",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "1\nInteger",
+          "name_id": "4500\nTable index",
+          "value": "'value'",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "2\nBoolean",
+          "name_id": "4501\nTable boolean",
+          "value": "0: disable\n1: enable",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "3\nFloat",
+          "name_id": "4502\nTable float 1",
+          "value": "'first value'",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "3\nFloat",
+          "name_id": "4502\nTable float 2",
+          "value": "'second value'",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        }
+      ]
+    },
+    {
+      "name": "REMOVE LINE IN A TABLE SETTING",
+      "section": "3.3 ACTION",
+      "manual_page": 60,
+      "semantics": "Scan when a line is being removed from a table setting.",
+      "how_to_trigger": "From the Analyzer Setting Browser, select a Table setting and remove one of its lines. Example: Select the \"FFT 1 → Channels→ Channel 1→ Tracked Order\" setting, select an exiting item (or click on [Add] to add a line) and click on the [Remove] button.",
+      "comment": "",
+      "command_id": 68,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "1007 IDN Setting",
+          "value": "fft1.channel1.215",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "4500 Table index",
+          "value": "'index of the removed line' [1 .. nbLines]",
+          "unit": "",
+          "hidden": "",
+          "const": ""
+        }
+      ]
+    },
+    {
+      "name": "FULL SCREEN",
+      "section": "3.3 ACTION",
+      "manual_page": 61,
+      "semantics": "Scan when the Full Screen display mode is being switched.",
+      "how_to_trigger": "Click on the \"Full Screen\" button in the \"Dispplay / Arrangement\" ribbon to switch the Full Screen mode.",
+      "comment": "",
+      "command_id": 71,
+      "property_count": 0,
+      "properties": []
+    },
+    {
+      "name": "SELECT WORKSPACE",
+      "section": "3.3 ACTION",
+      "manual_page": 61,
+      "semantics": "Scan when the Workspace tab is being changed.",
+      "how_to_trigger": "Select the \"Analyzer Setting Brower / Control Panel / Project Manager\" tab from the Workspace.",
+      "comment": "",
+      "command_id": 72,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "9 User Enum",
+          "name_id": "1200 Workspace",
+          "value": "0: Analyzer Setting Browser 1: Control Panel 2: Project Manager",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "1"
+        }
+      ]
+    },
+    {
+      "name": "SELECT WINDOW",
+      "section": "3.3 ACTION",
+      "manual_page": 62,
+      "semantics": "Scan when a window is being selected.",
+      "how_to_trigger": "Click inside a window to select it.",
+      "comment": "",
+      "command_id": 90,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "0\nString",
+          "name_id": "2600\nWindow name",
+          "value": "\"name of the\nwindow\"",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        }
+      ]
+    },
+    {
+      "name": "CHANGE LAYOUT",
+      "section": "3.3 ACTION",
+      "manual_page": 62,
+      "semantics": "Scan when another layout is being selected.",
+      "how_to_trigger": "Select the layout from the \"Display / View\" ribbon. Or select the layout from the Project Manager.",
+      "comment": "",
+      "command_id": 36,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "0\nString",
+          "name_id": "800\nLayout\nName",
+          "value": "\"Name of the layout\"",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "2\nBoolean",
+          "name_id": "801\nSend\nMessage",
+          "value": "0: do not change\ncurrent layout\n1: change current\nlayout",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        }
+      ]
+    },
+    {
+      "name": "NEW LAYOUT",
+      "section": "3.3 ACTION",
+      "manual_page": 63,
+      "semantics": "Scan when a new layout is being created.",
+      "how_to_trigger": "Open the Add/Remove window dialog box. Click on the [Create a New Layout] button:",
+      "comment": "",
+      "command_id": 41,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "800 Layout Name",
+          "value": "\"Name of the layout\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "2400 Layout become current",
+          "value": "0: No 1: Yes",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "ADD WINDOW RESULT",
+      "section": "3.3 ACTION",
+      "manual_page": 64,
+      "semantics": "Scan when a trace is being added to a Window.",
+      "how_to_trigger": "When adding inputs, tick the [AutoDisplay] box:",
+      "comment": "",
+      "command_id": 79,
+      "property_count": 11,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "800 Layout name",
+          "value": "\"name of the layout\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "0 String",
+          "name_id": "2600 Window name",
+          "value": "\"name of the window\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2601 Analyzer displayer",
+          "value": "'module ID' *",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "13"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2602 Process",
+          "value": "'type of process'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "7"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2603 Response",
+          "value": "'response channel'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2604 Reference",
+          "value": "'reference channel'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2605 Weight operator",
+          "value": "'Type of weight operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "8"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2607 Display unit operator",
+          "value": "'Type of display unit operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "10"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2606 Time operator",
+          "value": "'Type of time operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "9"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "1100 Arrange Style",
+          "value": "-1 : Nothing 0: Tile Horizontally 1: Tile Vertically 2: Cascade 3: Automatic Tile 4: Grid",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "2608 WTF 2D",
+          "value": "0: No 1: Yes",
+          "unit": "",
+          "hidden": "1",
+          "const": "0",
+          "enumtype": ""
+        }
+      ]
+    },
+    {
+      "name": "ADD WINDOW WATERFALL RESULT",
+      "section": "3.3 ACTION",
+      "manual_page": 66,
+      "semantics": "Scan when a waterfall trace is being added to a Window.",
+      "how_to_trigger": "Use the corresponding NVDrive command.",
+      "comment": "",
+      "command_id": 81,
+      "property_count": 10,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "800 Layout name",
+          "value": "\"name of the layout\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "0 String",
+          "name_id": "2600 Window name",
+          "value": "\"name of the window\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2601 Analyzer displayer",
+          "value": "'module ID'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "13"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2602 Process",
+          "value": "'type of process'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "7"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2603 Response",
+          "value": "'response channel'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2604 Reference",
+          "value": "'reference channel'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2605 Weight operator",
+          "value": "'Type of weight operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "8"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2607 Display unit operator",
+          "value": "'Type of display unit operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "10"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2606 Time operator",
+          "value": "'Type of time operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "9"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "1100 Arrange Style",
+          "value": "0: Tile Horizontally 1: Tile Vertically 2: Cascade 3: Automatic Tile 4: Grid",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "0"
+        }
+      ]
+    },
+    {
+      "name": "ADD WINDOW SAVED RESULT",
+      "section": "3.3 ACTION",
+      "manual_page": 67,
+      "semantics": "Scan when a result trace saved in a measurement is being displayed.",
+      "how_to_trigger": "Select the \"Result\" item from a Measurement saved in the Project Manager or select only one of the traces from the \"Result\". Right-click to select the \"Display\" item.",
+      "comment": "",
+      "command_id": 80,
+      "property_count": 11,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "800 Layout name",
+          "value": "\"name of the layout\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "0 String",
+          "name_id": "2600 Window name",
+          "value": "\"name of the window\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "0 String",
+          "name_id": "901 Project name",
+          "value": "\"name of the project\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "0 String",
+          "name_id": "902 Measure name",
+          "value": "\"name of the measure\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2601 Analyzer displayer",
+          "value": "'module ID'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "13"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2602 Process",
+          "value": "'type of process'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "7"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2603 Response",
+          "value": "'response channel'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2604 Reference",
+          "value": "'reference channel'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2605 Weight operator",
+          "value": "'Type of weight operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "8"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2607 Display unit operator",
+          "value": "'Type of display unit operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "10"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2606 Time operator",
+          "value": "'Type of time operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "9"
+        }
+      ]
+    },
+    {
+      "name": "ARRANGE WINDOWS",
+      "section": "3.3 ACTION",
+      "manual_page": 68,
+      "semantics": "Scan when windows are being arranged.",
+      "how_to_trigger": "From the \"Display / Arrangement\" ribbon, select one of the arrange window items (Cascade, Tile Horizontally, Tile Vertically, Automatic Tile, Grid)",
+      "comment": "",
+      "command_id": 69,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "9 User Enum",
+          "name_id": "1100 Arrange Style",
+          "value": "0: Tile Horizontally 1: Tile Vertically 2: Cascade 3: Automatic Tile 4: Grid",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "0"
+        }
+      ]
+    },
+    {
+      "name": "AUTOSCALE XZ",
+      "section": "3.3 ACTION",
+      "manual_page": 69,
+      "semantics": "Scan when an Autoscale on X (or Z) is being performed on a Window.",
+      "how_to_trigger": "Select a Window. Click on the [X/Z Adjust] button from the \"Display / Scales\" ribbon",
+      "comment": "",
+      "command_id": 82,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "2 Boolean",
+          "name_id": "5600 Apply to ...",
+          "value": "0: Current Window 1: All window",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "AUTOSCALE Y",
+      "section": "3.3 ACTION",
+      "manual_page": 69,
+      "semantics": "Scan when an Autoscale on Y is being performed on a Window.",
+      "how_to_trigger": "Select a Window. Click on the [AutoScale] button from the \"Display / Scales\" ribbon",
+      "comment": "",
+      "command_id": 83,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "2 Boolean",
+          "name_id": "5600 Apply to ...",
+          "value": "0: Current Window 1: All window",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "RESET ZOOM",
+      "section": "3.3 ACTION",
+      "manual_page": 70,
+      "semantics": "Scan when a window zoom is being reset.",
+      "how_to_trigger": "Select a window. Click on the [Reset Scales] button from the \"Display / Scales\" ribbon.",
+      "comment": "",
+      "command_id": 89,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "2 Boolean",
+          "name_id": "5600 Apply to ...",
+          "value": "0: Current Window 1: All window",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "CASCADE VIEW",
+      "section": "3.3 ACTION",
+      "manual_page": 70,
+      "semantics": "Scan when a window is being switched to/from the \"Cascade View\" mode.",
+      "how_to_trigger": "Right-click on the left side of a window containing traces and select/unselect the \"Cascade View\" item.",
+      "comment": "",
+      "command_id": 84,
+      "property_count": 0,
+      "properties": []
+    },
+    {
+      "name": "TRACE ANALYSIS",
+      "section": "3.3 ACTION",
+      "manual_page": 70,
+      "semantics": "Scan when a module setting window is being displayed from a window trace.",
+      "how_to_trigger": "Right-click on the left side of a window containing trace and select the \"Analysis ...\" item. Or double-click on the left side of a window containing trace.",
+      "comment": "",
+      "command_id": 100,
+      "property_count": 0,
+      "properties": []
+    },
+    {
+      "name": "CHANGE WINDOW PREFERENCES",
+      "section": "3.3 ACTION",
+      "manual_page": 71,
+      "semantics": "Change window preferences.",
+      "how_to_trigger": "Internal command",
+      "comment": "",
+      "command_id": 111,
+      "property_count": 3,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "800 Layout name",
+          "value": "\"name of the layout\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "2600 Window name",
+          "value": "\"name of the window\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "6100 Parameters",
+          "value": "\"list of preference values to change\" Format: [key=value;]",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "OPEN PROJECT",
+      "section": "3.3 ACTION",
+      "manual_page": 72,
+      "semantics": "Open a project.",
+      "how_to_trigger": "Select a project from the Project Manager and right-click to select the \"open and load setup\" item. Or open the dialog box with the \"File → Project →Open\" menu and select a project.",
+      "comment": "",
+      "command_id": 107,
+      "property_count": 3,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "901 Project name",
+          "value": "\"Name of the Project\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "919 Workbook type",
+          "value": "0: Empty 1: Project 2: Model 3: Measurement 4: Current workbook 5: New Online 6: New Post analysis",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "900 Workbook name",
+          "value": "\"Name of the Workbook\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "LOAD PROJECT",
+      "section": "3.3 ACTION",
+      "manual_page": 72,
+      "semantics": "Scan when a project is being loaded.",
+      "how_to_trigger": "Use NVDrive command \"LoadProject\".",
+      "comment": "",
+      "command_id": 39,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "0\nString",
+          "name_id": "903\nDatabase\nPath",
+          "value": "\"Path of the\nprojects database\"",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "0\nString",
+          "name_id": "901\nProject\nName",
+          "value": "\"Name of the\nProject\"",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        }
+      ]
+    },
+    {
+      "name": "LOAD WORKBOOK",
+      "section": "3.3 ACTION",
+      "manual_page": 73,
+      "semantics": "Scan when a workbook is being loaded.",
+      "how_to_trigger": "Select a project from the Project Manager, select its workbook and right-click to select the \"Load\" item or the \"Partial Load\" item.",
+      "comment": "",
+      "command_id": 40,
+      "property_count": 11,
+      "properties": [
+        {
+          "type": "0\nString",
+          "name_id": "901\nProject Name",
+          "value": "\"Name of the\nProject\"",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "0\nString",
+          "name_id": "902\nMeasurement\nName",
+          "value": "\"Name of the\nMeasurement\"",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "2\nBoolean",
+          "name_id": "903\nLoad\nConfiguration",
+          "value": "0: No\n1: Yes",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "2\nBoolean",
+          "name_id": "904\nLoad Control\nPanel",
+          "value": "0: No\n1: Yes",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "2\nBoolean",
+          "name_id": "905\nLoad Layouts",
+          "value": "0: No\n1: Yes",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "2\nBoolean",
+          "name_id": "906\nLoad Save\nSetup",
+          "value": "0: No\n1: Yes",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "2\nBoolean",
+          "name_id": "907\nLoad Print\nSetup",
+          "value": "0: No\n1: Yes",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "2\nBoolean",
+          "name_id": "918\nLoad Alarm",
+          "value": "0: No\n1: Yes",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "2\nBoolean",
+          "name_id": "921\nLoad Mask",
+          "value": "0: No\n1: Yes",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "0\nString",
+          "name_id": "911\nProject Path",
+          "value": "\"Path of the\nProject\"",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        }
+      ]
+    },
+    {
+      "name": "EDIT MEASUREMENT",
+      "section": "3.3 ACTION",
+      "manual_page": 74,
+      "semantics": "Scan when a measurement is being loaded.",
+      "how_to_trigger": "Right-Click on a Measurement from the Project Manager. Select the \"Edit\" item.",
+      "comment": "",
+      "command_id": 38,
+      "property_count": 3,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "901 Project Name",
+          "value": "\"Name of the Project\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "902 Measure Name",
+          "value": "\"Name of the Measure\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "910 Save",
+          "value": "0: Do not save Current Workbook 1: Save Current Workbook",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "REMOVE PROJECT",
+      "section": "3.3 ACTION",
+      "manual_page": 74,
+      "semantics": "Scan when a project is being removed.",
+      "how_to_trigger": "Select the Project from the Project Manager. Right-Click and Select the \"Remove\" item.",
+      "comment": "",
+      "command_id": 44,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "0\nString",
+          "name_id": "901\nProject\nName",
+          "value": "\"Name of\nthe Project'",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        }
+      ]
+    },
+    {
+      "name": "RESET WORKBOOK",
+      "section": "3.3 ACTION",
+      "manual_page": 75,
+      "semantics": "Scan when a workbook is being reset.",
+      "how_to_trigger": "Select the \"Reset\" button from the \"Home / Setup\" ribbon.",
+      "comment": "",
+      "command_id": 45,
+      "property_count": 0,
+      "properties": []
+    },
+    {
+      "name": "REMOVE MEASUREMENT",
+      "section": "3.3 ACTION",
+      "manual_page": 75,
+      "semantics": "Scan when a measurement is being removed.",
+      "how_to_trigger": "Select the Measurement from the Project Manager. Right-Click and Select the \"Remove\" item.",
+      "comment": "",
+      "command_id": 43,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "901 Project Name",
+          "value": "\"Name of the Project'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "902 Measurement Name",
+          "value": "\"Name of the Measurement\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "SAVE PROJECT",
+      "section": "3.3 ACTION",
+      "manual_page": 76,
+      "semantics": "Scan when a project is being saved.",
+      "how_to_trigger": "Select \"File → Project → Save\" menu. Or select the current project from the Project Manager and right-click to select the \"Save\" item.",
+      "comment": "",
+      "command_id": 48,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "2 Boolean",
+          "name_id": "6000 Need to confirm",
+          "value": "0: No 1: Yes",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "SAVE PROJECT AS",
+      "section": "3.3 ACTION",
+      "manual_page": 76,
+      "semantics": "Scan when a project is being saved with a new name.",
+      "how_to_trigger": "Select \"File → Project → Save as\" menu. Or select the current project from the Project Manager and right-click to select the \"Save as\" item.",
+      "comment": "",
+      "command_id": 49,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "2900 Project Name",
+          "value": "\"New Project Name\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "SAVE WORKBOOK",
+      "section": "3.3 ACTION",
+      "manual_page": 77,
+      "semantics": "Scan when workbook(s) is (are) being saved.",
+      "how_to_trigger": "This command is no more available from the NVGate menu. Nevertheless, it can be called through the \"SaveWorkbook\" NVDrive command.",
+      "comment": "",
+      "command_id": 51,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "2 Boolean",
+          "name_id": "6000 Need to confirm",
+          "value": "0: No 1: Yes",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "6001 NB Workbook",
+          "value": "\"number of workbook\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "SAVE WORKBOOK AS MODEL",
+      "section": "3.3 ACTION",
+      "manual_page": 77,
+      "semantics": "Scan when workbook is being saved as a model.",
+      "how_to_trigger": "It can be called through the \"SaveWorkbookModel\" NVDrive command.",
+      "comment": "",
+      "command_id": 104,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "900 Workbook Name",
+          "value": "\"Name of the workbook model\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "1009 Silent",
+          "value": "0: normal 1: silent",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "917 Save signal",
+          "value": "0: do not save 1: save signal",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "920 Is autosave",
+          "value": "0: inactive autosave 1: active autosave",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "SAVE EDITED MEASUREMENT",
+      "section": "3.3 ACTION",
+      "manual_page": 78,
+      "semantics": "Scan when a measurement is being saved, while it is edited.",
+      "how_to_trigger": "Select a Measurement in the Project Manager. Right-click on the \"Edit\" item. Right-click on the \"Save\" item.",
+      "comment": "",
+      "command_id": 47,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "2\nBoolean",
+          "name_id": "6000\nNeed to\nconfirm",
+          "value": "0: No\n1: Yes",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        }
+      ]
+    },
+    {
+      "name": "SAVE MEASUREMENT",
+      "section": "3.3 ACTION",
+      "manual_page": 78,
+      "semantics": "Scan when a default measurement is being saved with a name in the Result mode.",
+      "how_to_trigger": "Set the \"Save Option\" to \"In Default Measurement\". Select result(s) to save. Run the analyzer. When the analyzer stops, the results are saved under « Default Measurement ». Right-click on this Default Measurement and select the « Save Measurement » item.",
+      "comment": "",
+      "command_id": 46,
+      "property_count": 3,
+      "properties": [
+        {
+          "type": "0\nString",
+          "name_id": "902\nMeasurement\nname",
+          "value": "\"Name of the\nMeasurement\"",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "0\nString",
+          "name_id": "908\nKeyword",
+          "value": "\"keyword_value\"",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        },
+        {
+          "type": "0\nString",
+          "name_id": "909\nMeasurement\ncomment",
+          "value": "\"comment_value\"",
+          "unit": "0",
+          "hidden": "0",
+          "_alignment": "by-order (irregular merge)"
+        }
+      ]
+    },
+    {
+      "name": "CHANGE PROJECT DATABASE",
+      "section": "3.3 ACTION",
+      "manual_page": 79,
+      "semantics": "Scan when the project database is being switched between Common and Private, by a user which is not the default user.",
+      "how_to_trigger": "Right click in the \"Project Manager\" space, and select \"Common Base\" or \"Private Base\".",
+      "comment": "",
+      "command_id": 97,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "2 Boolean",
+          "name_id": "1000 Property value",
+          "value": "0: switch to Private base 1: switch to Common base",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "DOWNLOAD",
+      "section": "3.3 ACTION",
+      "manual_page": 80,
+      "semantics": "Scan when a signal is being downloaded from the OR3X internal disk to the PC.",
+      "how_to_trigger": "Select a project containing a signal file from the Project Manager. Right-Click on the signal item and select \"Download\".",
+      "comment": "",
+      "command_id": 37,
+      "property_count": 3,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "901 Project Name",
+          "value": "\"Name of the Project\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "902 Measurement Name",
+          "value": "\"Name of the Measurement\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "3000 Remove from OR3X",
+          "value": "0: Do not remove file from OR3X 1: Remove file from OR3X",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "UPLOAD",
+      "section": "3.3 ACTION",
+      "manual_page": 81,
+      "semantics": "Scan when a signal is being uploaded from the PC to the OR3X internal disk.",
+      "how_to_trigger": "Select a project containing a signal file from the Project Manager. Right-Click on the signal item and select \"Upload\".",
+      "comment": "",
+      "command_id": 52,
+      "property_count": 3,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "901 Project Name",
+          "value": "\"Name of the Project\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "902 Measurement Name",
+          "value": "\"Name of the Measurement\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "3001 Remove from PC",
+          "value": "0: Do not remove file from PC 1: Remove file from PC",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "PREVIEW SIGNAL",
+      "section": "3.3 ACTION",
+      "manual_page": 82,
+      "semantics": "Scan when the recorded signal is being displayed.",
+      "how_to_trigger": "Select a signal from a project in the Project Manager. Right-click and select the \"Preview\" or \"Load and Preview\" item.",
+      "comment": "",
+      "command_id": 87,
+      "property_count": 6,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "800 Layout name",
+          "value": "\"name of the layout\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "2600 Window name",
+          "value": "\"name of the window\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "901 Project name",
+          "value": "\"name of the project\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "902 Measurement name",
+          "value": "\"name of the measurement\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "914 Loaded in Player",
+          "value": "0: No 1: Yes",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "915 Nb Response",
+          "value": "-1: all tracks are displayed 1: number of tracks displayed",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "SETUP ADD RESULT",
+      "section": "3.3 ACTION",
+      "manual_page": 83,
+      "semantics": "Scan when result(s) is (are) added to the Save Setup dialog box.",
+      "how_to_trigger": "Click on \"Save option\" button, in the \"Home / Save\" ribbon\". Select the \"Save Selection\" tab: Select the result(s) to be saved and add it (them) to the Result selection",
+      "comment": "",
+      "command_id": 91,
+      "property_count": 7,
+      "properties": [
+        {
+          "type": "9 User Enum",
+          "name_id": "2601 Analyzer saver",
+          "value": "'module ID'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "6"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2602 Process",
+          "value": "'type of process'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "7"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2603 Response",
+          "value": "'response channel'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2604 Reference",
+          "value": "'reference channel'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2605 Weight operator",
+          "value": "'Type of weight operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "8"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2607 Display unit operator",
+          "value": "'Type of display unit operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "10"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2606 Time operator",
+          "value": "'Type of time operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "9"
+        }
+      ]
+    },
+    {
+      "name": "SETUP PARAMETERS",
+      "section": "3.3 ACTION",
+      "manual_page": 85,
+      "semantics": "Scan when the Base Name and Auto-increment parameters are being changed in the Save Setup dialog box.",
+      "how_to_trigger": "Click on \"Save option\" button, in the \"Home / Save\" ribbon\". Select the \"Save Setup\" tab: Modify the \"Base Name\" and the \"Auto-increment\" parameter.",
+      "comment": "",
+      "command_id": 92,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "2700 Base measurement name",
+          "value": "\"name of the base\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2701 Increment",
+          "value": "0: Number 1: Date",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "11"
+        }
+      ]
+    },
+    {
+      "name": "SAVE RESULTS",
+      "section": "3.3 ACTION",
+      "manual_page": 86,
+      "semantics": "Scan when results are being saved.",
+      "how_to_trigger": "Results must be selected in the \"Result Setup\" dialog box. Click on the \"Save Measurement\" button to save Results.",
+      "comment": "",
+      "command_id": 50,
+      "property_count": 1,
+      "properties": [
+        {
+          "type": "2 Boolean",
+          "name_id": "5500 Need to confirm name",
+          "value": "0: No 1: Yes",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "REMOVE ALL RESULT",
+      "section": "3.3 ACTION",
+      "manual_page": 87,
+      "semantics": "Scan when all results are being removed from the Save Setup dialog box.",
+      "how_to_trigger": "Select the \"File → Setup\" menu. Select the \"Save Selection\" tab: Click on the [Reset all selected results] button.",
+      "comment": "",
+      "command_id": 93,
+      "property_count": 0,
+      "properties": []
+    },
+    {
+      "name": "REMOVE RESULT",
+      "section": "3.3 ACTION",
+      "manual_page": 88,
+      "semantics": "Scan when result(s) is (are) being removed from the Save Setup dialog box.",
+      "how_to_trigger": "Select the \"File → Setup\" menu. Select the \"Save Selection\" tab: Select the result(s) to be removed and click on the [Remove a result] button.",
+      "comment": "",
+      "command_id": 94,
+      "property_count": 7,
+      "properties": [
+        {
+          "type": "9 User Enum",
+          "name_id": "2601 Analyzer saver",
+          "value": "'module ID'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "6"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2602 Process",
+          "value": "'type of process'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "7"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2603 Response",
+          "value": "'response channel'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2604 Reference",
+          "value": "'reference channel'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        }
+      ]
+    },
+    {
+      "name": "ADD RESULT TO AUTOMEMORIZE",
+      "section": "3.3 ACTION",
+      "manual_page": 90,
+      "semantics": "Scan when a trace is being added to the window with the automemorize function.",
+      "how_to_trigger": "Right-click on the left side of a window displaying traces. Select the \"Automatic Memorization ...\" item: Select the trace(s) to be memorized.",
+      "comment": "",
+      "command_id": 78,
+      "property_count": 9,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "800 Layout name",
+          "value": "\"name of the layout\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "0 String",
+          "name_id": "2600 Window name",
+          "value": "\"name of the window\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2602 Process",
+          "value": "'type of process'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "7"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2601 Analyzer displayer",
+          "value": "'module ID'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "13"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2603 Response",
+          "value": "'response channel'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2604 Reference",
+          "value": "'reference channel'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2605 Weight operator",
+          "value": "'Type of weight operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "8"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2607 Display unit operator",
+          "value": "'Type of display unit operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "10"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2606 Time operator",
+          "value": "'Type of time operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "9"
+        }
+      ]
+    },
+    {
+      "name": "ENABLE AUTOMEMORIZE",
+      "section": "3.3 ACTION",
+      "manual_page": 92,
+      "semantics": "Scan when the \"Enable/Disabled\" parameter for the automemorize traces is being changed.",
+      "how_to_trigger": "Right-click on the left side of a window displaying traces. Select the \"Automatic Memorization ...\" item: Select the Enable or Disable Memorization choice.",
+      "comment": "",
+      "command_id": 85,
+      "property_count": 3,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "800 Layout name",
+          "value": "\"name of the layout\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "2600 Window name",
+          "value": "\"name of the window\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "5800 Activate",
+          "value": "0: Disable 1: Enable",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "MEMORIZE TRACE",
+      "section": "3.3 ACTION",
+      "manual_page": 93,
+      "semantics": "Scan when a trace is being memorized.",
+      "how_to_trigger": "Right-click on the left side of a window displaying traces. Select the \"Memorize Trace\" item.",
+      "comment": "",
+      "command_id": 86,
+      "property_count": 0,
+      "properties": []
+    },
+    {
+      "name": "REMOVE RESULT FROM AUTOMEMORIZE",
+      "section": "3.3 ACTION",
+      "manual_page": 94,
+      "semantics": "Scan when trace is being removed from the window with the automemorize function.",
+      "how_to_trigger": "Right-click on the left side of a window displaying traces. Select the \"Automatic Memorization ...\" item: Unselect the trace(s) to be removed.",
+      "comment": "",
+      "command_id": 88,
+      "property_count": 10,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "800 Layout name",
+          "value": "\"name of the layout\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "0 String",
+          "name_id": "2600 Window name",
+          "value": "\"name of the window\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2602 Process",
+          "value": "'type of process'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "7"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2601 Analyzer displayer",
+          "value": "'module ID'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "13"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2603 Response",
+          "value": "'response channel'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2604 Reference",
+          "value": "'reference channel'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2605 Weight operator",
+          "value": "'Type of weight operator'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "8"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2607 Display unit operator",
+          "value": "'Type of display unit operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "10"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2606 Time operator",
+          "value": "'Type of time operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "9"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "2608 WTF 2D",
+          "value": "0: No 1: Yes",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        }
+      ]
+    },
+    {
+      "name": "ADD AUTOMATIC OPERATOR",
+      "section": "3.3 ACTION",
+      "manual_page": 96,
+      "semantics": "Scan when a trace is being added to the window with the operator function (for memorized traces).",
+      "how_to_trigger": "Right-click on the left side of a window displaying traces. Select the \"Operators-Arithmetic Average...\" or \"Operators - Quadratric Average...\" item: In the \"Automatic\" frame, tick the [Add new traces to operand list] box and select either the \"All compatible traces\" or the \"Memorized traces\" item.",
+      "comment": "",
+      "command_id": 76,
+      "property_count": 14,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "800 Layout name",
+          "value": "\"name of the layout\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "0 String",
+          "name_id": "2600 Window name",
+          "value": "\"name of the window\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2602 Process",
+          "value": "'type of process'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "7"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2601 Analyzer displayer",
+          "value": "'module ID'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "13"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2603 Response",
+          "value": "'response channel'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2604 Reference",
+          "value": "'reference channel'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2605 Weight operator",
+          "value": "'Type of weight operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "8"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2607 Display unit operator",
+          "value": "'Type of display unit operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "10"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2606 Time operator",
+          "value": "'Type of time operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "9"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "5700 Operand type",
+          "value": "0 : arithmetic average 1 : quadratic average",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "29"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "5701 Operand selection type",
+          "value": "0 : memorized traces 1 : all compatible traces",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "30"
+        },
+        {
+          "type": "0 String",
+          "name_id": "5702 Operand name",
+          "value": "'name of the operand trace'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "5703 Frequency domain",
+          "value": "0: Real/Imag. (time) 1: Module (frequency)",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "3 Float",
+          "name_id": "5704 X Step",
+          "value": "'value of the step'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        }
+      ]
+    },
+    {
+      "name": "ADD AUTOMATIC OPERATOR SAVED RESULT",
+      "section": "3.3 ACTION",
+      "manual_page": 98,
+      "semantics": "Scan when a trace is being added to the window with the operator function (for memorized traces), for a saved result.",
+      "how_to_trigger": "Display saved result(s) from a measurement. Right-click on the left side of a window displaying traces. Select the \"Operators-Arithmetic Average...\" or \"Operators - Quadratric Average...\" item: In the \"Automatic\" frame, tick the [Add new traces to operand list] box and select either the \"All compatible traces\" or the \"Memorized traces\" item. . * These enumerated types are described in the NVDrive Reference Manual (Result Format and Description). The available module ID are the plugs-in that can display result.",
+      "comment": "",
+      "command_id": 77,
+      "property_count": 16,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "800 Layout name",
+          "value": "\"name of the layout\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "0 String",
+          "name_id": "2600 Window name",
+          "value": "\"name of the window\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "0 String",
+          "name_id": "901 Project Name",
+          "value": "\"name of the project\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "0 String",
+          "name_id": "902 Measurement Name",
+          "value": "\"name of the measurement\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2601 Analyzer displayer",
+          "value": "'module ID'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "6"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2602 Process",
+          "value": "'type of process'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "7"
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2603 Response",
+          "value": "'response channel'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "1 Integer",
+          "name_id": "2604 Reference",
+          "value": "'reference channel'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2605 Weight operator",
+          "value": "'Type of weight operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "8"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2607 Unit operator",
+          "value": "'Type of unit operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "10"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "2606 Time operator",
+          "value": "'Type of time operator'*",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "9"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "5700 Operand type",
+          "value": "0: arithmetic average 1: quadratic average",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "29"
+        },
+        {
+          "type": "9 User Enum",
+          "name_id": "5701 Operand auto type",
+          "value": "0: memorized traces 1: all compatible traces",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": "30"
+        },
+        {
+          "type": "0 String",
+          "name_id": "5702 Operand name",
+          "value": "'name of operand trace'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "5703 Frequency domain",
+          "value": "0: Real/Imag. (time) 1: Module (frequency)",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        },
+        {
+          "type": "3 Float",
+          "name_id": "5704 X Step",
+          "value": "'value of the step'",
+          "unit": "",
+          "hidden": "0",
+          "const": "0",
+          "enumtype": ""
+        }
+      ]
+    },
+    {
+      "name": "CLEAR MEMORY",
+      "section": "3.3 ACTION",
+      "manual_page": 100,
+      "semantics": "Scan when memorized trace(s) is (are) being cleared from a window.",
+      "how_to_trigger": "Right-click on the left side of a window displaying traces. Select the \"Clear Memory\" item.",
+      "comment": "",
+      "command_id": 99,
+      "property_count": 0,
+      "properties": []
+    },
+    {
+      "name": "REFRESH REPORT",
+      "section": "3.3 ACTION",
+      "manual_page": 101,
+      "semantics": "Refresh the report.",
+      "how_to_trigger": "Use the \"Refresh\" button in the \"Report / Active file\" ribbon.",
+      "comment": "",
+      "command_id": 108,
+      "property_count": 0,
+      "properties": []
+    },
+    {
+      "name": "PRINT REPORT",
+      "section": "3.3 ACTION",
+      "manual_page": 102,
+      "semantics": "Print the report.",
+      "how_to_trigger": "Use the \"Print\" button in the \"Report / Active file\" ribbon.",
+      "comment": "",
+      "command_id": 109,
+      "property_count": 0,
+      "properties": []
+    },
+    {
+      "name": "REFRESH AND PRINT REPORT",
+      "section": "3.3 ACTION",
+      "manual_page": 103,
+      "semantics": "Refresh and print the report.",
+      "how_to_trigger": "Use the \"Refresh and Print\" button in the \"Report\" tab.",
+      "comment": "",
+      "command_id": 110,
+      "property_count": 0,
+      "properties": []
+    },
+    {
+      "name": "ADD TO CONTROL PANEL",
+      "section": "3.3 ACTION",
+      "manual_page": 104,
+      "semantics": "Scan when an item (setting, state or macro) is being added to the Control Panel",
+      "how_to_trigger": "Right-Click on a setting from the Analyzer Setting Browser and select the \"Add to Control Panel\" item.",
+      "comment": "",
+      "command_id": 35,
+      "property_count": 5,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "3400 Tab Name",
+          "value": "\"name of the tab\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "3401 Setting Name",
+          "value": "\"name of the setting\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "0 String",
+          "name_id": "3402 Setting IDN",
+          "value": "\"idnA\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "3404 Tab Active",
+          "value": "0: FALSE 1:TRUE",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "3403 IsState",
+          "value": "0: other 1: state",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH LINK",
+      "section": "3.3 ACTION",
+      "manual_page": 105,
+      "semantics": "Scan when an application is being launched from NVGate.",
+      "how_to_trigger": "This command can be sent with the « execute » button from the \"Automation / Links\" ribbon .",
+      "comment": "",
+      "command_id": 4,
+      "property_count": 2,
+      "properties": [
+        {
+          "type": "0 String",
+          "name_id": "4800 Application launched",
+          "value": "\"AppName.exe\"",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        },
+        {
+          "type": "2 Boolean",
+          "name_id": "4801 Wait End",
+          "value": "0: do not wait the application to be launched. 1: wait the application to be launched.",
+          "unit": "",
+          "hidden": "0",
+          "const": "0"
+        }
+      ]
+    },
+    {
+      "name": "COMPLEX",
+      "section": "3.3 ACTION",
+      "manual_page": 105,
+      "semantics": "Not used (hidden). TABLES TABLE 1: Property Type Identifier TABLE 2: Enumerated Property Type Identifier TABLE 3: Property Identifier",
+      "how_to_trigger": "",
+      "comment": "",
+      "command_id": 96,
+      "property_count": null,
+      "properties": []
+    }
+  ]
+}

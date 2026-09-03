@@ -1,0 +1,757 @@
+﻿idn_text,idn_legacy,module,submodule,setting,name,type
+dynamicOperating.channel1.source,23.501.100,dynamicOperating,channel1,source,Source,enumerated
+dynamicOperating.channel1.inputFilter,23.501.46,dynamicOperating,channel1,inputFilter,Input filter,enumerated
+dynamicOperating.channel1.447,23.501.447,dynamicOperating,channel1,447,Coef.,scalar
+dynamicOperating.channel1.448,23.501.448,dynamicOperating,channel1,448,Offset,scalar
+dynamicOperating.channel1.449,23.501.449,dynamicOperating,channel1,449,Power,scalar
+dynamicOperating.674:1.label,23.674.1,dynamicOperating,674:1,label,Label,string
+dynamicOperating.674:1.450,23.674.450,dynamicOperating,674:1,450,Operator,enumerated
+dynamicOperating.674:1.451,23.674.451,dynamicOperating,674:1,451,Coef.,scalar
+dynamicOperating.674:1.452,23.674.452,dynamicOperating,674:1,452,Offset,scalar
+dynamicOperating.674:1.453,23.674.453,dynamicOperating,674:1,453,Power,scalar
+dynamicOperating.425:1.label,23.425.1,dynamicOperating,425:1,label,Label,string
+dynamicOperating.425:1.101,23.425.101,dynamicOperating,425:1,101,Source 1,enumerated
+dynamicOperating.425:1.474,23.425.474,dynamicOperating,425:1,474,Pulse / rev 1,scalar
+dynamicOperating.425:1.476,23.425.476,dynamicOperating,425:1,476,Missing teeth 1,scalar
+dynamicOperating.425:1.102,23.425.102,dynamicOperating,425:1,102,Source 2,enumerated
+dynamicOperating.425:1.475,23.425.475,dynamicOperating,425:1,475,Pulse / rev 2,scalar
+dynamicOperating.425:1.477,23.425.477,dynamicOperating,425:1,477,Missing teeth 2,scalar
+dynamicOperating.425:1.498,23.425.498,dynamicOperating,425:1,498,,scalar
+dynamicOperating.425:1.associatedTach,23.425.32,dynamicOperating,425:1,associatedTach,Associated tach,enumerated
+dynamicOperating.425:1.physicalQty,23.425.204,dynamicOperating,425:1,physicalQty,Physical qty.,enumerated
+dynamicOperating.425:1.451,23.425.451,dynamicOperating,425:1,451,Coef.,scalar
+dynamicOperating.425:1.452,23.425.452,dynamicOperating,425:1,452,Offset,scalar
+event.691:1.label,5.691.1,event,691:1,label,Label,string
+event.691:1.source,5.691.100,event,691:1,source,Source,enumerated
+event.691:1.inputFilter,5.691.46,event,691:1,inputFilter,Input filter,enumerated
+event.691:1.threshold,5.691.7,event,691:1,threshold,Threshold,scalar
+event.691:1.slope,5.691.27,event,691:1,slope,Slope,enumerated
+event.691:1.holdoff,5.691.8,event,691:1,holdoff,Hold off,scalar
+event.691:1.hysteresis,5.691.9,event,691:1,hysteresis,Hysteresis,scalar
+event.rpmEvent1.label,5.114.1,event,rpmEvent1,label,Label,string
+event.rpmEvent1.source,5.114.100,event,rpmEvent1,source,Source,enumerated
+event.rpmEvent1.6,5.114.6,event,rpmEvent1,6,Threshold velocity,scalar
+event.rpmEvent1.slope,5.114.27,event,rpmEvent1,slope,Slope,enumerated
+event.rpmEvent1.hysteresis,5.114.9,event,rpmEvent1,hysteresis,Hysteresis,scalar
+event.rpmEvent1.108,5.114.108,event,rpmEvent1,108,Interpolation,boolean
+event.rpmEvent1.tachAvrgNb,5.114.242,event,rpmEvent1,tachAvrgNb,Average size,scalar
+event.deltaRpmEvent1.label,5.125.1,event,deltaRpmEvent1,label,Label,string
+event.deltaRpmEvent1.source,5.125.100,event,deltaRpmEvent1,source,Source,enumerated
+event.deltaRpmEvent1.105,5.125.105,event,deltaRpmEvent1,105,Lower velocity,scalar
+event.deltaRpmEvent1.106,5.125.106,event,deltaRpmEvent1,106,Upper velocity,scalar
+event.deltaRpmEvent1.107,5.125.107,event,deltaRpmEvent1,107,Delta velocity,scalar
+event.deltaRpmEvent1.109,5.125.109,event,deltaRpmEvent1,109,Event number,scalar
+event.deltaRpmEvent1.31,5.125.31,event,deltaRpmEvent1,31,Slope,enumerated
+event.deltaRpmEvent1.108,5.125.108,event,deltaRpmEvent1,108,Interpolation,boolean
+event.deltaRpmEvent1.tachAvrgNb,5.125.242,event,deltaRpmEvent1,tachAvrgNb,Average size,scalar
+event.triggerEvent1.label,5.99.1,event,triggerEvent1,label,Label,string
+event.levelStateEvent1.label,5.120.1,event,levelStateEvent1,label,Label,string
+event.levelStateEvent1.source,5.120.100,event,levelStateEvent1,source,Source,enumerated
+event.levelStateEvent1.227,5.120.227,event,levelStateEvent1,227,Type,enumerated
+event.levelStateEvent1.threshold,5.120.7,event,levelStateEvent1,threshold,Threshold,scalar
+event.levelStateEvent1.348,5.120.348,event,levelStateEvent1,348,Status,enumerated
+event.levelStateEvent1.tachAvrgNb,5.120.242,event,levelStateEvent1,tachAvrgNb,Average size,scalar
+event.deltaLevelEvent1.label,5.107.1,event,deltaLevelEvent1,label,Label,string
+event.deltaLevelEvent1.source,5.107.100,event,deltaLevelEvent1,source,Source,enumerated
+event.deltaLevelEvent1.227,5.107.227,event,deltaLevelEvent1,227,Type,enumerated
+event.deltaLevelEvent1.28,5.107.28,event,deltaLevelEvent1,28,Lower value,scalar
+event.deltaLevelEvent1.29,5.107.29,event,deltaLevelEvent1,29,Upper value,scalar
+event.deltaLevelEvent1.30,5.107.30,event,deltaLevelEvent1,30,Delta value,scalar
+event.deltaLevelEvent1.109,5.107.109,event,deltaLevelEvent1,109,Event number,scalar
+event.deltaLevelEvent1.31,5.107.31,event,deltaLevelEvent1,31,Slope,enumerated
+event.deltaLevelEvent1.tachAvrgNb,5.107.242,event,deltaLevelEvent1,tachAvrgNb,Average size,scalar
+event.deltaTimeEvent1.label,5.158.1,event,deltaTimeEvent1,label,Label,string
+event.deltaTimeEvent1.40,5.158.40,event,deltaTimeEvent1,40,Period,scalar
+event.combinedEvent1.label,5.181.1,event,combinedEvent1,label,Label,string
+event.combinedEvent1.42,5.181.42,event,combinedEvent1,42,Event A,enumerated
+event.combinedEvent1.44,5.181.44,event,combinedEvent1,44,Operator,enumerated
+event.combinedEvent1.43,5.181.43,event,combinedEvent1,43,Event B,enumerated
+event.644:1.label,5.644.1,event,644:1,label,Label,string
+event.644:1.415,5.644.415,event,644:1,415,User event 1,action
+fft1.channel1.source,10.501.100,fft1,channel1,source,Source,enumerated
+fft2.channel1.source,11.501.100,fft2,channel1,source,Source,enumerated
+fft3.channel1.source,18.501.100,fft3,channel1,source,,enumerated
+fft4.channel1.source,19.501.100,fft4,channel1,source,,enumerated
+fft1.channel1.inputFilter,10.501.46,fft1,channel1,inputFilter,Input filter,enumerated
+fft2.channel1.inputFilter,11.501.46,fft2,channel1,inputFilter,Input filter,enumerated
+fft3.channel1.inputFilter,18.501.46,fft3,channel1,inputFilter,,enumerated
+fft4.channel1.inputFilter,19.501.46,fft4,channel1,inputFilter,,enumerated
+fft1.channel1.ordersTab,10.501.215,fft1,channel1,ordersTab,Tracked Order,table
+fft2.channel1.ordersTab,11.501.215,fft2,channel1,ordersTab,Tracked Order,table
+fft3.channel1.ordersTab,18.501.215,fft3,channel1,ordersTab,,table
+fft4.channel1.ordersTab,19.501.215,fft4,channel1,ordersTab,,table
+fft1.channel1.weightWin,10.501.82,fft1,channel1,weightWin,Weighting window,enumerated
+fft2.channel1.weightWin,11.501.82,fft2,channel1,weightWin,Weighting window,enumerated
+fft3.channel1.weightWin,18.501.82,fft3,channel1,weightWin,,enumerated
+fft4.channel1.weightWin,19.501.82,fft4,channel1,weightWin,,enumerated
+fft1.fftTrigger.start,10.89.19,fft1,fftTrigger,start,Start,enumerated
+fft2.fftTrigger.start,11.89.19,fft2,fftTrigger,start,Start,enumerated
+fft3.fftTrigger.start,18.89.19,fft3,fftTrigger,start,,enumerated
+fft4.fftTrigger.start,19.89.19,fft4,fftTrigger,start,,enumerated
+fft1.fftTrigger.stop,10.89.21,fft1,fftTrigger,stop,Stop,enumerated
+fft2.fftTrigger.stop,11.89.21,fft2,fftTrigger,stop,Stop,enumerated
+fft3.fftTrigger.stop,18.89.21,fft3,fftTrigger,stop,,enumerated
+fft4.fftTrigger.stop,19.89.21,fft4,fftTrigger,stop,,enumerated
+fft1.fftTrigger.trigger,10.89.83,fft1,fftTrigger,trigger,Trigger,enumerated
+fft2.fftTrigger.trigger,11.89.83,fft2,fftTrigger,trigger,Trigger,enumerated
+fft3.fftTrigger.trigger,18.89.83,fft3,fftTrigger,trigger,,enumerated
+fft4.fftTrigger.trigger,19.89.83,fft4,fftTrigger,trigger,,enumerated
+fft1.fftTrigger.restartCond,10.89.211,fft1,fftTrigger,restartCond,Repeat,enumerated
+fft2.fftTrigger.restartCond,11.89.211,fft2,fftTrigger,restartCond,Repeat,enumerated
+fft3.fftTrigger.restartCond,18.89.211,fft3,fftTrigger,restartCond,,enumerated
+fft4.fftTrigger.restartCond,19.89.211,fft4,fftTrigger,restartCond,,enumerated
+fft1.fftTrigger.startDelay,10.89.20,fft1,fftTrigger,startDelay,Start delay,scalar
+fft2.fftTrigger.startDelay,11.89.20,fft2,fftTrigger,startDelay,Start delay,scalar
+fft3.fftTrigger.startDelay,18.89.20,fft3,fftTrigger,startDelay,,scalar
+fft4.fftTrigger.startDelay,19.89.20,fft4,fftTrigger,startDelay,,scalar
+fft1.fftTrigger.408,10.89.408,fft1,fftTrigger,408,Start delay,scalar
+fft2.fftTrigger.408,11.89.408,fft2,fftTrigger,408,Start delay,scalar
+fft3.fftTrigger.408,18.89.408,fft3,fftTrigger,408,,scalar
+fft4.fftTrigger.408,19.89.408,fft4,fftTrigger,408,,scalar
+fft1.fftTrigger.acceptMmode,10.89.212,fft1,fftTrigger,acceptMmode,Accept mode,enumerated
+fft2.fftTrigger.acceptMmode,11.89.212,fft2,fftTrigger,acceptMmode,Accept mode,enumerated
+fft3.fftTrigger.acceptMmode,18.89.212,fft3,fftTrigger,acceptMmode,,enumerated
+fft4.fftTrigger.acceptMmode,19.89.212,fft4,fftTrigger,acceptMmode,,enumerated
+fft1.fftTrigger.363,10.89.363,fft1,fftTrigger,363,Trigger Frequency,scalar
+fft2.fftTrigger.363,11.89.363,fft2,fftTrigger,363,Trigger Frequency,scalar
+fft3.fftTrigger.363,18.89.363,fft3,fftTrigger,363,,scalar
+fft4.fftTrigger.363,19.89.363,fft4,fftTrigger,363,,scalar
+fft1.average.domain,10.361.84,fft1,average,domain,Domain,enumerated
+fft2.average.domain,11.361.84,fft2,average,domain,Domain,enumerated
+fft3.average.domain,18.361.84,fft3,average,domain,,enumerated
+fft4.average.domain,19.361.84,fft4,average,domain,,enumerated
+fft1.average.size,10.361.81,fft1,average,size,Size,scalar
+fft2.average.size,11.361.81,fft2,average,size,Size,scalar
+fft3.average.size,18.361.81,fft3,average,size,,scalar
+fft4.average.size,19.361.81,fft4,average,size,,scalar
+fft1.average.duration,10.361.295,fft1,average,duration,Duration,scalar
+fft2.average.duration,11.361.295,fft2,average,duration,Duration,scalar
+fft3.average.duration,18.361.295,fft3,average,duration,,scalar
+fft4.average.duration,19.361.295,fft4,average,duration,,scalar
+fft1.average.type,10.361.80,fft1,average,type,Type,enumerated
+fft2.average.type,11.361.80,fft2,average,type,Type,enumerated
+fft3.average.type,18.361.80,fft3,average,type,,enumerated
+fft4.average.type,19.361.80,fft4,average,type,,enumerated
+fft1.average.98,10.361.98,fft1,average,98,Reference channel,enumerated
+fft2.average.98,11.361.98,fft2,average,98,Reference channel,enumerated
+fft3.average.98,18.361.98,fft3,average,98,,enumerated
+fft4.average.98,19.361.98,fft4,average,98,,enumerated
+fft1.fftAnl.autoBandWidth,10.363.871,fft1,fftAnl,autoBandWidth,Autobandwidth,boolean
+fft2.fftAnl.autoBandWidth,11.363.871,fft2,fftAnl,autoBandWidth,Autobandwidth,boolean
+fft3.fftAnl.autoBandWidth,18.363.871,fft3,fftAnl,autoBandWidth,,boolean
+fft4.fftAnl.autoBandWidth,19.363.871,fft4,fftAnl,autoBandWidth,,boolean
+fft1.fftAnl.freqRange,10.363.79,fft1,fftAnl,freqRange,Range,scalar
+fft2.fftAnl.freqRange,11.363.79,fft2,fftAnl,freqRange,Range,scalar
+fft3.fftAnl.freqRange,18.363.79,fft3,fftAnl,freqRange,,scalar
+fft4.fftAnl.freqRange,19.363.79,fft4,fftAnl,freqRange,,scalar
+fft1.fftAnl.365,10.363.365,fft1,fftAnl,365,Resolution,scalar
+fft2.fftAnl.365,11.363.365,fft2,fftAnl,365,Resolution,scalar
+fft3.fftAnl.365,18.363.365,fft3,fftAnl,365,,scalar
+fft4.fftAnl.365,19.363.365,fft4,fftAnl,365,,scalar
+fft1.fftAnl.overlap,10.363.88,fft1,fftAnl,overlap,Overlap,scalar
+fft2.fftAnl.overlap,11.363.88,fft2,fftAnl,overlap,Overlap,scalar
+fft3.fftAnl.overlap,18.363.88,fft3,fftAnl,overlap,,scalar
+fft4.fftAnl.overlap,19.363.88,fft4,fftAnl,overlap,,scalar
+fft1.fftAnl.numberOfLines,10.363.89,fft1,fftAnl,numberOfLines,Number of lines,enumerated
+fft2.fftAnl.numberOfLines,11.363.89,fft2,fftAnl,numberOfLines,Number of lines,enumerated
+fft3.fftAnl.numberOfLines,18.363.89,fft3,fftAnl,numberOfLines,,enumerated
+fft4.fftAnl.numberOfLines,19.363.89,fft4,fftAnl,numberOfLines,,enumerated
+fft1.fftAnl.reverseCrossFct,10.363.493,fft1,fftAnl,reverseCrossFct,Reverse Cross fct,boolean
+fft2.fftAnl.reverseCrossFct,11.363.493,fft2,fftAnl,reverseCrossFct,Reverse Cross fct,boolean
+fft3.fftAnl.reverseCrossFct,18.363.493,fft3,fftAnl,reverseCrossFct,,boolean
+fft4.fftAnl.reverseCrossFct,19.363.493,fft4,fftAnl,reverseCrossFct,,boolean
+fft1.fftAnl.crossSpec,10.363.205,fft1,fftAnl,crossSpec,Cross spectrum,matrix
+fft2.fftAnl.crossSpec,11.363.205,fft2,fftAnl,crossSpec,Cross spectrum,matrix
+fft3.fftAnl.crossSpec,18.363.205,fft3,fftAnl,crossSpec,,matrix
+fft4.fftAnl.crossSpec,19.363.205,fft4,fftAnl,crossSpec,,matrix
+fft1.fftZoom.zoomFactor,10.362.85,fft1,fftZoom,zoomFactor,Factor,enumerated
+fft2.fftZoom.zoomFactor,11.362.85,fft2,fftZoom,zoomFactor,Factor,enumerated
+fft3.fftZoom.zoomFactor,18.362.85,fft3,fftZoom,zoomFactor,,enumerated
+fft4.fftZoom.zoomFactor,19.362.85,fft4,fftZoom,zoomFactor,,enumerated
+fft1.fftZoom.zoomCenter,10.362.86,fft1,fftZoom,zoomCenter,Center,scalar
+fft2.fftZoom.zoomCenter,11.362.86,fft2,fftZoom,zoomCenter,Center,scalar
+fft3.fftZoom.zoomCenter,18.362.86,fft3,fftZoom,zoomCenter,,scalar
+fft4.fftZoom.zoomCenter,19.362.86,fft4,fftZoom,zoomCenter,,scalar
+fft1.fftZoom.345,10.362.345,fft1,fftZoom,345,Min freq,scalar
+fft2.fftZoom.345,11.362.345,fft2,fftZoom,345,Min freq,scalar
+fft3.fftZoom.345,18.362.345,fft3,fftZoom,345,,scalar
+fft4.fftZoom.345,19.362.345,fft4,fftZoom,345,,scalar
+fft1.fftZoom.346,10.362.346,fft1,fftZoom,346,Max freq,scalar
+fft2.fftZoom.346,11.362.346,fft2,fftZoom,346,Max freq,scalar
+fft3.fftZoom.346,18.362.346,fft3,fftZoom,346,,scalar
+fft4.fftZoom.346,19.362.346,fft4,fftZoom,346,,scalar
+fft1.fftZoom.393,10.362.393,fft1,fftZoom,393,Zoom res,scalar
+fft2.fftZoom.393,11.362.393,fft2,fftZoom,393,Zoom res,scalar
+fft3.fftZoom.393,18.362.393,fft3,fftZoom,393,,scalar
+fft4.fftZoom.393,19.362.393,fft4,fftZoom,393,,scalar
+fft1.fftZoom.391,10.362.391,fft1,fftZoom,391,Envelope,boolean
+fft2.fftZoom.391,11.362.391,fft2,fftZoom,391,Envelope,boolean
+fft3.fftZoom.391,18.362.391,fft3,fftZoom,391,,boolean
+fft4.fftZoom.391,19.362.391,fft4,fftZoom,391,,boolean
+fft1.fftZoom.392,10.362.392,fft1,fftZoom,392,Env range,scalar
+fft2.fftZoom.392,11.362.392,fft2,fftZoom,392,Env range,scalar
+fft3.fftZoom.392,18.362.392,fft3,fftZoom,392,,scalar
+fft4.fftZoom.392,19.362.392,fft4,fftZoom,392,,scalar
+fft1.754:1.correlation,10.754.412,fft1,754:1,correlation,Correlation,boolean
+fft2.754:1.correlation,11.754.412,fft2,754:1,correlation,Correlation,boolean
+fft3.754:1.correlation,18.754.412,fft3,754:1,correlation,,boolean
+fft4.754:1.correlation,19.754.412,fft4,754:1,correlation,,boolean
+fft1.754:1.corrWeightWin,10.754.413,fft1,754:1,corrWeightWin,Weighting window,enumerated
+fft2.754:1.corrWeightWin,11.754.413,fft2,754:1,corrWeightWin,Weighting window,enumerated
+fft3.754:1.corrWeightWin,18.754.413,fft3,754:1,corrWeightWin,,enumerated
+fft4.754:1.corrWeightWin,19.754.413,fft4,754:1,corrWeightWin,,enumerated
+fft1.orderAnl.associatedTach,10.620.32,fft1,orderAnl,associatedTach,Associated tach,enumerated
+fft2.orderAnl.associatedTach,11.620.32,fft2,orderAnl,associatedTach,Associated tach,enumerated
+fft3.orderAnl.associatedTach,18.620.32,fft3,orderAnl,associatedTach,,enumerated
+fft4.orderAnl.associatedTach,19.620.32,fft4,orderAnl,associatedTach,,enumerated
+fft1.orderAnl.centerOnPk,10.620.245,fft1,orderAnl,centerOnPk,Center on peak,boolean
+fft2.orderAnl.centerOnPk,11.620.245,fft2,orderAnl,centerOnPk,Center on peak,boolean
+fft3.orderAnl.centerOnPk,18.620.245,fft3,orderAnl,centerOnPk,,boolean
+fft4.orderAnl.centerOnPk,19.620.245,fft4,orderAnl,centerOnPk,,boolean
+fft1.orderAnl.refreshMode,10.620.269,fft1,orderAnl,refreshMode,Refresh mode,enumerated
+fft2.orderAnl.refreshMode,11.620.269,fft2,orderAnl,refreshMode,Refresh mode,enumerated
+fft3.orderAnl.refreshMode,18.620.269,fft3,orderAnl,refreshMode,,enumerated
+fft4.orderAnl.refreshMode,19.620.269,fft4,orderAnl,refreshMode,,enumerated
+fft1.orderAnl.profileDuration,10.620.248,fft1,orderAnl,profileDuration,Duration profile,scalar
+fft2.orderAnl.profileDuration,11.620.248,fft2,orderAnl,profileDuration,Duration profile,scalar
+fft3.orderAnl.profileDuration,18.620.248,fft3,orderAnl,profileDuration,,scalar
+fft4.orderAnl.profileDuration,19.620.248,fft4,orderAnl,profileDuration,,scalar
+fft1.orderAnl.timeResolution,10.620.249,fft1,orderAnl,timeResolution,Time resolution,scalar
+fft2.orderAnl.timeResolution,11.620.249,fft2,orderAnl,timeResolution,Time resolution,scalar
+fft3.orderAnl.timeResolution,18.620.249,fft3,orderAnl,timeResolution,,scalar
+fft4.orderAnl.timeResolution,19.620.249,fft4,orderAnl,timeResolution,,scalar
+fft1.orderAnl.270,10.620.270,fft1,orderAnl,270,Max speed,scalar
+fft2.orderAnl.270,11.620.270,fft2,orderAnl,270,Max speed,scalar
+fft3.orderAnl.270,18.620.270,fft3,orderAnl,270,,scalar
+fft4.orderAnl.270,19.620.270,fft4,orderAnl,270,,scalar
+fft1.orderAnl.276,10.620.276,fft1,orderAnl,276,Min speed,scalar
+fft2.orderAnl.276,11.620.276,fft2,orderAnl,276,Min speed,scalar
+fft3.orderAnl.276,18.620.276,fft3,orderAnl,276,,scalar
+fft4.orderAnl.276,19.620.276,fft4,orderAnl,276,,scalar
+fft1.orderAnl.271,10.620.271,fft1,orderAnl,271,Speed resolution,scalar
+fft2.orderAnl.271,11.620.271,fft2,orderAnl,271,Speed resolution,scalar
+fft3.orderAnl.271,18.620.271,fft3,orderAnl,271,,scalar
+fft4.orderAnl.271,19.620.271,fft4,orderAnl,271,,scalar
+fft1.orderAnl.phaseChRef,10.620.210,fft1,orderAnl,phaseChRef,Orders Phase ref,enumerated
+fft2.orderAnl.phaseChRef,11.620.210,fft2,orderAnl,phaseChRef,Orders Phase ref,enumerated
+fft3.orderAnl.phaseChRef,18.620.210,fft3,orderAnl,phaseChRef,,enumerated
+fft4.orderAnl.phaseChRef,19.620.210,fft4,orderAnl,phaseChRef,,enumerated
+fft1.overallAnl.bandPowerTrk,10.340.246,fft1,overallAnl,bandPowerTrk,Band power tracking,boolean
+fft2.overallAnl.bandPowerTrk,11.340.246,fft2,overallAnl,bandPowerTrk,Band power tracking,boolean
+fft3.overallAnl.bandPowerTrk,18.340.246,fft3,overallAnl,bandPowerTrk,,boolean
+fft4.overallAnl.bandPowerTrk,19.340.246,fft4,overallAnl,bandPowerTrk,,boolean
+fft1.overallAnl.lowerFreq,10.340.52,fft1,overallAnl,lowerFreq,Lower frequency,scalar
+fft2.overallAnl.lowerFreq,11.340.52,fft2,overallAnl,lowerFreq,Lower frequency,scalar
+fft3.overallAnl.lowerFreq,18.340.52,fft3,overallAnl,lowerFreq,,scalar
+fft4.overallAnl.lowerFreq,19.340.52,fft4,overallAnl,lowerFreq,,scalar
+fft1.overallAnl.upperFreq,10.340.53,fft1,overallAnl,upperFreq,Upper frequency,scalar
+fft2.overallAnl.upperFreq,11.340.53,fft2,overallAnl,upperFreq,Upper frequency,scalar
+fft3.overallAnl.upperFreq,18.340.53,fft3,overallAnl,upperFreq,,scalar
+fft4.overallAnl.upperFreq,19.340.53,fft4,overallAnl,upperFreq,,scalar
+filter.hlpFilter1.label,8.273.1,filter,hlpFilter1,label,Label,string
+filter.hlpFilter1.62,8.273.62,filter,hlpFilter1,62,Type,enumerated
+filter.hlpFilter1.designType,8.273.881,filter,hlpFilter1,designType,Design Type,enumerated
+filter.hlpFilter1.63,8.273.63,filter,hlpFilter1,63,Filter order,scalar
+filter.hlpFilter1.146,8.273.146,filter,hlpFilter1,146,Applied to,enumerated
+filter.hlpFilter1.64,8.273.64,filter,hlpFilter1,64,Cut-off frequency,scalar
+filter.hlpFilter1.207,8.273.207,filter,hlpFilter1,207,By-pass,boolean
+filter.bandFilter1.label,8.295.1,filter,bandFilter1,label,Label,string
+filter.bandFilter1.62,8.295.62,filter,bandFilter1,62,Type,enumerated
+filter.bandFilter1.designType,8.295.881,filter,bandFilter1,designType,Design Type,enumerated
+filter.bandFilter1.63,8.295.63,filter,bandFilter1,63,Filter order,scalar
+filter.bandFilter1.146,8.295.146,filter,bandFilter1,146,Applied to,enumerated
+filter.bandFilter1.65,8.295.65,filter,bandFilter1,65,Low cut-off frequency,scalar
+filter.bandFilter1.66,8.295.66,filter,bandFilter1,66,High cut-off frequency,scalar
+filter.bandFilter1.207,8.295.207,filter,bandFilter1,207,By-pass,boolean
+filter.integratorFilter1.label,8.284.1,filter,integratorFilter1,label,Label,string
+filter.integratorFilter1.62,8.284.62,filter,integratorFilter1,62,Type,enumerated
+filter.integratorFilter1.146,8.284.146,filter,integratorFilter1,146,Applied to,enumerated
+filter.integratorFilter1.61,8.284.61,filter,integratorFilter1,61,HP cut-off frequency,scalar
+filter.integratorFilter1.207,8.284.207,filter,integratorFilter1,207,By-pass,boolean
+filter.diffFilter1.label,8.95.1,filter,diffFilter1,label,Label,string
+filter.diffFilter1.146,8.95.146,filter,diffFilter1,146,Applied to,enumerated
+filter.diffFilter1.207,8.95.207,filter,diffFilter1,207,By-pass,boolean
+filter.diffFilter1.avDuration,8.95.26,filter,diffFilter1,avDuration,Avg. duration,scalar
+frontEnd.inputSettings.inputSampling,1.338.189,frontEnd,inputSettings,inputSampling,High input sampling,enumerated
+frontEnd.inputSettings.868,1.338.868,frontEnd,inputSettings,868,Low input sampling,enumerated
+frontEnd.inputSettings.dcSampling,1.338.264,frontEnd,inputSettings,dcSampling,DC input sampling,enumerated
+frontEnd.inputSettings.272,1.338.272,frontEnd,inputSettings,272,DC profile duration,scalar
+frontEnd.inputSettings.258,1.338.258,frontEnd,inputSettings,258,Inputs 1-8 200 V,boolean
+frontEnd.inputSettings.259,1.338.259,frontEnd,inputSettings,259,Inputs 9-16 200 V,boolean
+frontEnd.inputSettings.260,1.338.260,frontEnd,inputSettings,260,Inputs 17-24 200 V,boolean
+frontEnd.inputSettings.261,1.338.261,frontEnd,inputSettings,261,Inputs 25-32 200 V,boolean
+frontEnd.inputSettings.icpCurrent,1.338.428,frontEnd,inputSettings,icpCurrent,ICP current,enumerated
+frontEnd.inputSettings.353,1.338.353,frontEnd,inputSettings,353,Check ICP,action
+frontEnd.inputSettings.414,1.338.414,frontEnd,inputSettings,414,Detect TEDS,action
+frontEnd.inputSettings.77,1.338.77,frontEnd,inputSettings,77,Bridge Auto-zero,action
+frontEnd.canSettings.baudRate,1.77.35,frontEnd,canSettings,baudRate,Baud rate,enumerated
+frontEnd.remoteCtrl.134,1.891.134,frontEnd,remoteCtrl,134,Node name,string
+frontEnd.remoteCtrl.142,1.891.142,frontEnd,remoteCtrl,142,Selected tach,enumerated
+frontEnd.remoteCtrl.143,1.891.143,frontEnd,remoteCtrl,143,User field 1,string
+frontEnd.remoteCtrl.144,1.891.144,frontEnd,remoteCtrl,144,User field 2,string
+frontEnd.autoRanging.335,1.499.335,frontEnd,autoRanging,335,Auto-range,action
+frontEnd.autoRanging.aRangePkDetection,1.499.337,frontEnd,autoRanging,aRangePkDetection,Peak detection on,enumerated
+frontEnd.autoRanging.aRangeMargin,1.499.331,frontEnd,autoRanging,aRangeMargin,Margin,enumerated
+frontEnd.autoRanging.aRangeDuration,1.499.332,frontEnd,autoRanging,aRangeDuration,Duration,scalar
+frontEnd.autoRanging.333,1.499.333,frontEnd,autoRanging,333,Peak slope,enumerated
+frontEnd.autoRanging.334,1.499.334,frontEnd,autoRanging,334,Number of peaks,scalar
+frontEnd.autoRanging.112,1.499.112,frontEnd,autoRanging,112,Edge detection,enumerated
+frontEnd.outputSettings.310,1.631.310,frontEnd,outputSettings,310,Transition time,scalar
+frontEnd.outputSettings.313,1.631.313,frontEnd,outputSettings,313,Mute all,boolean
+frontEnd.outputSettings.311,1.631.311,frontEnd,outputSettings,311,Emergency Stop,action
+frontEnd.input1.label,1.1.1,frontEnd,input1,label,Label,string
+frontEnd.input1.inputType,1.1.427,frontEnd,input1,inputType,Input type,enumerated
+frontEnd.input1.component,1.1.297,frontEnd,input1,component,Component,string
+frontEnd.input1.node,1.1.255,frontEnd,input1,node,Node,string
+frontEnd.input1.direction,1.1.256,frontEnd,input1,direction,Direction,enumerated
+frontEnd.input1.nodeType,1.1.257,frontEnd,input1,nodeType,Type,enumerated
+frontEnd.input1.physicalQty,1.1.204,frontEnd,input1,physicalQty,Physical qty.,enumerated
+frontEnd.input1.sensitivity,1.1.202,frontEnd,input1,sensitivity,Sensitivity,scalar
+frontEnd.input1.rangePk,1.1.3,frontEnd,input1,rangePk,Range pk,scalar
+frontEnd.input1.863,1.1.863,frontEnd,input1,863,Redress,enumerated
+frontEnd.input1.extGain,1.1.358,frontEnd,input1,extGain,External Gain,scalar
+frontEnd.input1.polarity,1.1.111,frontEnd,input1,polarity,Polarity,enumerated
+frontEnd.input1.offset,1.1.203,frontEnd,input1,offset,Offset comp.,scalar
+frontEnd.input1.coupling,1.1.4,frontEnd,input1,coupling,Coupling,enumerated
+frontEnd.input1.869,1.1.869,frontEnd,input1,869,Sampling,enumerated
+frontEnd.input1.gaugeType,1.1.429,frontEnd,input1,gaugeType,Gauge type,enumerated
+frontEnd.input1.bridgeResistance,1.1.430,frontEnd,input1,bridgeResistance,Bridge resistance,enumerated
+frontEnd.input1.bridgeGain,1.1.434,frontEnd,input1,bridgeGain,Bridge gain,enumerated
+frontEnd.input1.bridgeOffset,1.1.432,frontEnd,input1,bridgeOffset,Bridge offset comp,scalar
+frontEnd.input1.inputFilter,1.1.46,frontEnd,input1,inputFilter,Input filter,enumerated
+frontEnd.input1.enableAutorange,1.1.336,frontEnd,input1,enableAutorange,Enable auto-range,boolean
+frontEnd.input1.enableBridgeAutoZero,1.1.78,frontEnd,input1,enableBridgeAutoZero,Enable bridge auto-zero,boolean
+frontEnd.dcInput1.label,1.33.1,frontEnd,dcInput1,label,Label,string
+frontEnd.dcInput1.dcInputType,1.33.462,frontEnd,dcInput1,dcInputType,Input type,enumerated
+frontEnd.dcInput1.physicalQty,1.33.204,frontEnd,dcInput1,physicalQty,Physical qty.,enumerated
+frontEnd.dcInput1.sensitivity,1.33.202,frontEnd,dcInput1,sensitivity,Sensitivity,scalar
+frontEnd.dcInput1.rangePk,1.33.3,frontEnd,dcInput1,rangePk,Range pk,scalar
+frontEnd.dcInput1.extGain,1.33.358,frontEnd,dcInput1,extGain,External Gain,scalar
+frontEnd.dcInput1.polarity,1.33.111,frontEnd,dcInput1,polarity,Polarity,enumerated
+frontEnd.dcInput1.offset,1.33.203,frontEnd,dcInput1,offset,Offset comp.,scalar
+frontEnd.dcInput1.enableAutorange,1.33.336,frontEnd,dcInput1,enableAutorange,Enable auto-range,boolean
+frontEnd.dcInput1.probe,1.33.463,frontEnd,dcInput1,probe,Probe,enumerated
+frontEnd.dcInput1.479,1.33.479,frontEnd,dcInput1,479,Range,string
+frontEnd.dcInput1.thermoCurrent,1.33.478,frontEnd,dcInput1,thermoCurrent,Current,enumerated
+frontEnd.dcInput1.182,1.33.182,frontEnd,dcInput1,182,Tach,boolean
+frontEnd.dcInput1.410,1.33.410,frontEnd,dcInput1,410,Rotation,enumerated
+frontEnd.dcInput1.tachAvrgNb,1.33.242,frontEnd,dcInput1,tachAvrgNb,Average size,scalar
+frontEnd.dcInput1.270,1.33.270,frontEnd,dcInput1,270,Max speed,scalar
+frontEnd.dcInput1.276,1.33.276,frontEnd,dcInput1,276,Min speed,scalar
+frontEnd.auxDcInput1.label,1.291.1,frontEnd,auxDcInput1,label,Label,string
+frontEnd.auxDcInput1.physicalQty,1.291.204,frontEnd,auxDcInput1,physicalQty,Physical qty.,enumerated
+frontEnd.auxDcInput1.sensitivity,1.291.202,frontEnd,auxDcInput1,sensitivity,Sensitivity,scalar
+frontEnd.auxDcInput1.rangePk,1.291.3,frontEnd,auxDcInput1,rangePk,Range pk,scalar
+frontEnd.auxDcInput1.extGain,1.291.358,frontEnd,auxDcInput1,extGain,External Gain,scalar
+frontEnd.auxDcInput1.polarity,1.291.111,frontEnd,auxDcInput1,polarity,Polarity,enumerated
+frontEnd.auxDcInput1.offset,1.291.203,frontEnd,auxDcInput1,offset,Offset comp.,scalar
+frontEnd.auxDcInput1.enableAutorange,1.291.336,frontEnd,auxDcInput1,enableAutorange,Enable auto-range,boolean
+frontEnd.auxDcInput1.182,1.291.182,frontEnd,auxDcInput1,182,Tach,boolean
+frontEnd.auxDcInput1.410,1.291.410,frontEnd,auxDcInput1,410,Rotation,enumerated
+frontEnd.auxDcInput1.tachAvrgNb,1.291.242,frontEnd,auxDcInput1,tachAvrgNb,Average size,scalar
+frontEnd.auxDcInput1.270,1.291.270,frontEnd,auxDcInput1,270,Max speed,scalar
+frontEnd.auxDcInput1.276,1.291.276,frontEnd,auxDcInput1,276,Min speed,scalar
+frontEnd.canBus1.label,1.533.1,frontEnd,canBus1,label,Label,string
+frontEnd.canBus1.messageName,1.533.45,frontEnd,canBus1,messageName,Message name,string
+frontEnd.canBus1.firstBitPos,1.533.51,frontEnd,canBus1,firstBitPos,First bit position,scalar
+frontEnd.canBus1.dataLength,1.533.54,frontEnd,canBus1,dataLength,Data length,scalar
+frontEnd.canBus1.dataFormat,1.533.55,frontEnd,canBus1,dataFormat,Data format,enumerated
+frontEnd.canBus1.byteOrder,1.533.56,frontEnd,canBus1,byteOrder,Byte order,enumerated
+frontEnd.canBus1.physicalQty,1.533.204,frontEnd,canBus1,physicalQty,Physical qty.,enumerated
+frontEnd.canBus1.canUnit,1.533.87,frontEnd,canBus1,canUnit,Unit,enumerated
+frontEnd.canBus1.73,1.533.73,frontEnd,canBus1,73,Scaling factor (LSB),scalar
+frontEnd.canBus1.74,1.533.74,frontEnd,canBus1,74,Offset,scalar
+frontEnd.canBus1.75,1.533.75,frontEnd,canBus1,75,Max value,scalar
+frontEnd.canBus1.76,1.533.76,frontEnd,canBus1,76,Min value,scalar
+frontEnd.canBus1.182,1.533.182,frontEnd,canBus1,182,Tach,boolean
+frontEnd.canBus1.410,1.533.410,frontEnd,canBus1,410,Rotation,enumerated
+frontEnd.canBus1.tachAvrgNb,1.533.242,frontEnd,canBus1,tachAvrgNb,Average size,scalar
+frontEnd.canBus1.270,1.533.270,frontEnd,canBus1,270,Max speed,scalar
+frontEnd.canBus1.276,1.533.276,frontEnd,canBus1,276,Min speed,scalar
+frontEnd.extSync1.label,1.66.1,frontEnd,extSync1,label,Label,string
+frontEnd.extSync1.preset,1.66.976,frontEnd,extSync1,preset,Transducer,enumerated
+frontEnd.extSync1.threshold,1.66.7,frontEnd,extSync1,threshold,Threshold,scalar
+frontEnd.extSync1.slope,1.66.27,frontEnd,extSync1,slope,Slope,enumerated
+frontEnd.extSync1.holdoff,1.66.8,frontEnd,extSync1,holdoff,Hold off,scalar
+frontEnd.extSync1.hysteresis,1.66.9,frontEnd,extSync1,hysteresis,Hysteresis,scalar
+frontEnd.extSync1.predivider,1.66.10,frontEnd,extSync1,predivider,Pre-divider,scalar
+frontEnd.extSync1.postMultiplier,1.66.213,frontEnd,extSync1,postMultiplier,Post-multiplier,scalar
+frontEnd.extSync1.multiplierHoldoff,1.66.214,frontEnd,extSync1,multiplierHoldoff,Multiplier holdoff,scalar
+frontEnd.extSync1.physicalQty,1.66.204,frontEnd,extSync1,physicalQty,Physical qty.,enumerated
+frontEnd.extSync1.sensitivity,1.66.202,frontEnd,extSync1,sensitivity,Sensitivity,scalar
+frontEnd.extSync1.rangePk,1.66.3,frontEnd,extSync1,rangePk,Range pk,scalar
+frontEnd.extSync1.extGain,1.66.358,frontEnd,extSync1,extGain,External Gain,scalar
+frontEnd.extSync1.offset,1.66.203,frontEnd,extSync1,offset,Offset comp.,scalar
+frontEnd.extSync1.coupling,1.66.4,frontEnd,extSync1,coupling,Coupling,enumerated
+frontEnd.extSync1.extSyncMode,1.66.420,frontEnd,extSync1,extSyncMode,Mode,enumerated
+frontEnd.extSync1.470,1.66.470,frontEnd,extSync1,470,Phase ref,enumerated
+frontEnd.extSync1.holdOffPercent,1.66.290,frontEnd,extSync1,holdOffPercent,Hold off (% period),scalar
+frontEnd.extSync1.tachPerRev,1.66.241,frontEnd,extSync1,tachPerRev,Pulse / rev,scalar
+frontEnd.extSync1.410,1.66.410,frontEnd,extSync1,410,Rotation,enumerated
+frontEnd.extSync1.tachAvrgNb,1.66.242,frontEnd,extSync1,tachAvrgNb,Average size,scalar
+frontEnd.extSync1.270,1.66.270,frontEnd,extSync1,270,Max speed,scalar
+frontEnd.extSync1.276,1.66.276,frontEnd,extSync1,276,Min speed,scalar
+frontEnd.extSync1.421,1.66.421,frontEnd,extSync1,421,Missing teeth,scalar
+frontEnd.extSync1.60,1.66.60,frontEnd,extSync1,60,Accepted speed variation (±),scalar
+frontEnd.extSync1.inputFilter,1.66.46,frontEnd,extSync1,inputFilter,Input filter,enumerated
+frontEnd.auxExtSync1.label,1.68.1,frontEnd,auxExtSync1,label,Label,string
+frontEnd.auxExtSync1.preset,1.68.976,frontEnd,auxExtSync1,preset,Transducer,enumerated
+frontEnd.auxExtSync1.threshold,1.68.7,frontEnd,auxExtSync1,threshold,Threshold,scalar
+frontEnd.auxExtSync1.slope,1.68.27,frontEnd,auxExtSync1,slope,Slope,enumerated
+frontEnd.auxExtSync1.holdoff,1.68.8,frontEnd,auxExtSync1,holdoff,Hold off,scalar
+frontEnd.auxExtSync1.hysteresis,1.68.9,frontEnd,auxExtSync1,hysteresis,Hysteresis,scalar
+frontEnd.auxExtSync1.predivider,1.68.10,frontEnd,auxExtSync1,predivider,Pre-divider,scalar
+frontEnd.auxExtSync1.postMultiplier,1.68.213,frontEnd,auxExtSync1,postMultiplier,Post-multiplier,scalar
+frontEnd.auxExtSync1.multiplierHoldoff,1.68.214,frontEnd,auxExtSync1,multiplierHoldoff,Multiplier holdoff,scalar
+frontEnd.auxExtSync1.physicalQty,1.68.204,frontEnd,auxExtSync1,physicalQty,Physical qty.,enumerated
+frontEnd.auxExtSync1.sensitivity,1.68.202,frontEnd,auxExtSync1,sensitivity,Sensitivity,scalar
+frontEnd.auxExtSync1.rangePk,1.68.3,frontEnd,auxExtSync1,rangePk,Range pk,scalar
+frontEnd.auxExtSync1.extGain,1.68.358,frontEnd,auxExtSync1,extGain,External Gain,scalar
+frontEnd.auxExtSync1.offset,1.68.203,frontEnd,auxExtSync1,offset,Offset comp.,scalar
+frontEnd.auxExtSync1.coupling,1.68.4,frontEnd,auxExtSync1,coupling,Coupling,enumerated
+frontEnd.auxExtSync1.extSyncMode,1.68.420,frontEnd,auxExtSync1,extSyncMode,Mode,enumerated
+frontEnd.auxExtSync1.470,1.68.470,frontEnd,auxExtSync1,470,Phase ref,enumerated
+frontEnd.auxExtSync1.holdOffPercent,1.68.290,frontEnd,auxExtSync1,holdOffPercent,Hold off (% period),scalar
+frontEnd.auxExtSync1.tachPerRev,1.68.241,frontEnd,auxExtSync1,tachPerRev,Pulse / rev,scalar
+frontEnd.auxExtSync1.410,1.68.410,frontEnd,auxExtSync1,410,Rotation,enumerated
+frontEnd.auxExtSync1.tachAvrgNb,1.68.242,frontEnd,auxExtSync1,tachAvrgNb,Average size,scalar
+frontEnd.auxExtSync1.270,1.68.270,frontEnd,auxExtSync1,270,Max speed,scalar
+frontEnd.auxExtSync1.276,1.68.276,frontEnd,auxExtSync1,276,Min speed,scalar
+frontEnd.auxExtSync1.421,1.68.421,frontEnd,auxExtSync1,421,Missing teeth,scalar
+frontEnd.auxExtSync1.60,1.68.60,frontEnd,auxExtSync1,60,Accepted speed variation (±),scalar
+frontEnd.auxExtSync1.inputFilter,1.68.46,frontEnd,auxExtSync1,inputFilter,Input filter,enumerated
+frontEnd.output1.label,1.72.1,frontEnd,output1,label,Label,string
+frontEnd.output1.source,1.72.100,frontEnd,output1,source,Source,enumerated
+frontEnd.output1.359,1.72.359,frontEnd,output1,359,Applied filter,enumerated
+frontEnd.output1.186,1.72.186,frontEnd,output1,186,Clipping,scalar
+frontEnd.output1.230,1.72.230,frontEnd,output1,230,Gain,scalar
+frontEnd.output1.231,1.72.231,frontEnd,output1,231,Impedance,enumerated
+frontEnd.output1.314,1.72.314,frontEnd,output1,314,Synchronization,enumerated
+frontEnd.output1.315,1.72.315,frontEnd,output1,315,Transition control,boolean
+frontEnd.auxOutput1.label,1.287.1,frontEnd,auxOutput1,label,Label,string
+frontEnd.auxOutput1.source,1.287.100,frontEnd,auxOutput1,source,Source,enumerated
+frontEnd.auxOutput1.359,1.287.359,frontEnd,auxOutput1,359,Applied filter,enumerated
+frontEnd.auxOutput1.186,1.287.186,frontEnd,auxOutput1,186,Clipping,scalar
+frontEnd.auxOutput1.230,1.287.230,frontEnd,auxOutput1,230,Gain,scalar
+frontEnd.auxOutput1.231,1.287.231,frontEnd,auxOutput1,231,Impedance,enumerated
+frontEnd.auxOutput1.314,1.287.314,frontEnd,auxOutput1,314,Synchronization,enumerated
+frontEnd.auxOutput1.315,1.287.315,frontEnd,auxOutput1,315,Transition control,boolean
+frontEnd.expander1.xpType,1.84.431,frontEnd,expander1,xpType,Type,enumerated
+frontEnd.expander1.bridgeMaxCurrent,1.84.433,frontEnd,expander1,bridgeMaxCurrent,Bridge max current,enumerated
+frontEnd.expander1.bridgeVoltage,1.84.441,frontEnd,expander1,bridgeVoltage,Bridge voltage,scalar
+frontEnd.expander1.compensation,1.84.465,frontEnd,expander1,compensation,Cold compensation,boolean
+generator.sineGene1.48,7.225.48,generator,sineGene1,48,Frequency,scalar
+generator.sineGene1.49,7.225.49,generator,sineGene1,49,Peak level,scalar
+generator.sineGene1.187,7.225.187,generator,sineGene1,187,RMS level,scalar
+generator.multiSineGene1.lowerFreq,7.243.52,generator,multiSineGene1,lowerFreq,Lower frequency,scalar
+generator.multiSineGene1.upperFreq,7.243.53,generator,multiSineGene1,upperFreq,Upper frequency,scalar
+generator.multiSineGene1.187,7.243.187,generator,multiSineGene1,187,RMS level,scalar
+generator.multiSineGene1.188,7.243.188,generator,multiSineGene1,188,Resolution,scalar
+generator.multiSineGene1.13,7.243.13,generator,multiSineGene1,13,Lines number,scalar
+generator.multiSineGene1.59,7.243.59,generator,multiSineGene1,59,Phase,enumerated
+generator.randomNoiseGene1.lowerFreq,7.249.52,generator,randomNoiseGene1,lowerFreq,Lower frequency,scalar
+generator.randomNoiseGene1.upperFreq,7.249.53,generator,randomNoiseGene1,upperFreq,Upper frequency,scalar
+generator.randomNoiseGene1.187,7.249.187,generator,randomNoiseGene1,187,RMS level,scalar
+generator.randomNoiseGene1.40,7.249.40,generator,randomNoiseGene1,40,Period,scalar
+generator.randomNoiseGene1.362,7.249.362,generator,randomNoiseGene1,362,Burst,scalar
+generator.randomNoiseGene1.250,7.249.250,generator,randomNoiseGene1,250,Type,enumerated
+generator.chirpGene1.lowerFreq,7.261.52,generator,chirpGene1,lowerFreq,Lower frequency,scalar
+generator.chirpGene1.upperFreq,7.261.53,generator,chirpGene1,upperFreq,Upper frequency,scalar
+generator.chirpGene1.187,7.261.187,generator,chirpGene1,187,RMS level,scalar
+generator.chirpGene1.114,7.261.114,generator,chirpGene1,114,Size,enumerated
+generator.chirpGene1.362,7.261.362,generator,chirpGene1,362,Burst,scalar
+generator.advancedSineSettings.317,7.209.317,generator,advancedSineSettings,317,Mode,enumerated
+generator.advancedSineSettings.314,7.209.314,generator,advancedSineSettings,314,Synchronization,enumerated
+generator.advancedSineSettings.318,7.209.318,generator,advancedSineSettings,318,Pause,boolean
+generator.advancedSineSettings.49,7.209.49,generator,advancedSineSettings,49,Peak level,scalar
+generator.advancedSineSettings.339,7.209.339,generator,advancedSineSettings,339,Start frequency,scalar
+generator.advancedSineSettings.340,7.209.340,generator,advancedSineSettings,340,Stop frequency,scalar
+generator.advancedSineSettings.319,7.209.319,generator,advancedSineSettings,319,Target Frequency,scalar
+generator.advancedSineSettings.320,7.209.320,generator,advancedSineSettings,320,Sweep variation,enumerated
+generator.advancedSineSettings.321,7.209.321,generator,advancedSineSettings,321,Sweep speed,scalar
+generator.advancedSineSettings.349,7.209.349,generator,advancedSineSettings,349,Sweep speed,scalar
+generator.advancedSineSettings.324,7.209.324,generator,advancedSineSettings,324,Sweep type,enumerated
+generator.advancedSineSettings.341,7.209.341,generator,advancedSineSettings,341,Stabilization time,scalar
+generator.advancedSineSettings.325,7.209.325,generator,advancedSineSettings,325,Amplitude variation,scalar
+generator.advancedSineSettings.326,7.209.326,generator,advancedSineSettings,326,Phase speed,scalar
+generator.advancedSineSettings.327,7.209.327,generator,advancedSineSettings,327,Step,scalar
+generator.advancedSineSettings.328,7.209.328,generator,advancedSineSettings,328,New Step,enumerated
+generator.advancedSineGene1.gain,7.210.5,generator,advancedSineGene1,gain,Gain,scalar
+generator.advancedSineGene1.329,7.210.329,generator,advancedSineGene1,329,Phase offset,scalar
+generator.synchroGene.active,7.208.2,generator,synchroGene,active,Active,boolean
+generator.synchroGene.396,7.208.396,generator,synchroGene,396,Generator Mode,boolean
+cpb.channel1.source,12.501.100,cpb,channel1,source,Source,enumerated
+cpb.cpbTrigger.start,12.621.19,cpb,cpbTrigger,start,Start,enumerated
+cpb.cpbTrigger.stop,12.621.21,cpb,cpbTrigger,stop,Stop,enumerated
+cpb.cpbTrigger.restartCond,12.621.211,cpb,cpbTrigger,restartCond,Repeat,enumerated
+cpb.cpbAverage.type,12.358.80,cpb,cpbAverage,type,Type,enumerated
+cpb.cpbAverage.avDuration,12.358.26,cpb,cpbAverage,avDuration,Avg. duration,scalar
+cpb.cpbAverage.157,12.358.157,cpb,cpbAverage,157,Short duration,scalar
+cpb.cpbAverage.154,12.358.154,cpb,cpbAverage,154,Exponential time constant,scalar
+cpb.495:1.autoBandWidth,12.495.871,cpb,495:1,autoBandWidth,Autobandwidth,boolean
+cpb.495:1.197,12.495.197,cpb,495:1,197,Lower central freq.,scalar
+cpb.495:1.198,12.495.198,cpb,495:1,198,Upper central freq.,scalar
+cpb.495:1.199,12.495.199,cpb,495:1,199,Mode,enumerated
+cpb.495:1.382,12.495.382,cpb,495:1,382,Overall weighting,enumerated
+cpb.495:1.overallMode,12.495.885,cpb,495:1,overallMode,Mode,enumerated
+cpb.495:1.65,12.495.65,cpb,495:1,65,Low cut-off frequency,scalar
+cpb.495:1.66,12.495.66,cpb,495:1,66,High cut-off frequency,scalar
+cpb.495:1.385,12.495.385,cpb,495:1,385,Overall range,string
+processing.torsion1.label,15.137.1,processing,torsion1,label,Label,string
+processing.torsion1.source,15.137.100,processing,torsion1,source,Source,enumerated
+processing.torsion1.inputFilter,15.137.46,processing,torsion1,inputFilter,Input filter,enumerated
+processing.torsion1.tachPerRev,15.137.241,processing,torsion1,tachPerRev,Pulse / rev,scalar
+processing.torsion1.tachAvrgNb,15.137.242,processing,torsion1,tachAvrgNb,Average size,scalar
+processing.torsion1.270,15.137.270,processing,torsion1,270,Max speed,scalar
+processing.torsion1.421,15.137.421,processing,torsion1,421,Missing teeth,scalar
+processing.torsion1.60,15.137.60,processing,torsion1,60,Accepted speed variation (±),scalar
+processing.torsion1.445,15.137.445,processing,torsion1,445,Tach,boolean
+processing.torsion1.472,15.137.472,processing,torsion1,472,Sampling pulse,boolean
+soa1.channel1.source,14.501.100,soa1,channel1,source,Source,enumerated
+soa2.channel1.source,17.501.100,soa2,channel1,source,,enumerated
+soa3.channel1.source,26.501.100,soa3,channel1,source,,enumerated
+soa4.channel1.source,27.501.100,soa4,channel1,source,,enumerated
+soa1.channel1.inputFilter,14.501.46,soa1,channel1,inputFilter,Input filter,enumerated
+soa2.channel1.inputFilter,17.501.46,soa2,channel1,inputFilter,,enumerated
+soa3.channel1.inputFilter,26.501.46,soa3,channel1,inputFilter,,enumerated
+soa4.channel1.inputFilter,27.501.46,soa4,channel1,inputFilter,,enumerated
+soa1.channel1.442,14.501.442,soa1,channel1,442,Phase shift,scalar
+soa2.channel1.442,17.501.442,soa2,channel1,442,,scalar
+soa3.channel1.442,26.501.442,soa3,channel1,442,,scalar
+soa4.channel1.442,27.501.442,soa4,channel1,442,,scalar
+soa1.channel1.ordersTab,14.501.215,soa1,channel1,ordersTab,Tracked Order,table
+soa2.channel1.ordersTab,17.501.215,soa2,channel1,ordersTab,,table
+soa3.channel1.ordersTab,26.501.215,soa3,channel1,ordersTab,,table
+soa4.channel1.ordersTab,27.501.215,soa4,channel1,ordersTab,,table
+soa1.channel1.weightWin,14.501.82,soa1,channel1,weightWin,Weighting window,enumerated
+soa2.channel1.weightWin,17.501.82,soa2,channel1,weightWin,,enumerated
+soa3.channel1.weightWin,26.501.82,soa3,channel1,weightWin,,enumerated
+soa4.channel1.weightWin,27.501.82,soa4,channel1,weightWin,,enumerated
+soa1.resamplingTach.associatedTach,14.200.32,soa1,resamplingTach,associatedTach,Associated tach,enumerated
+soa2.resamplingTach.associatedTach,17.200.32,soa2,resamplingTach,associatedTach,,enumerated
+soa3.resamplingTach.associatedTach,26.200.32,soa3,resamplingTach,associatedTach,,enumerated
+soa4.resamplingTach.associatedTach,27.200.32,soa4,resamplingTach,associatedTach,,enumerated
+soa1.resamplingTach.phaseRef,14.200.278,soa1,resamplingTach,phaseRef,Phase reference,enumerated
+soa2.resamplingTach.phaseRef,17.200.278,soa2,resamplingTach,phaseRef,,enumerated
+soa3.resamplingTach.phaseRef,26.200.278,soa3,resamplingTach,phaseRef,,enumerated
+soa4.resamplingTach.phaseRef,27.200.278,soa4,resamplingTach,phaseRef,,enumerated
+soa1.resamplingTach.acceptedSpeedVar,14.200.279,soa1,resamplingTach,acceptedSpeedVar,Accepted speed variation,scalar
+soa2.resamplingTach.acceptedSpeedVar,17.200.279,soa2,resamplingTach,acceptedSpeedVar,,scalar
+soa3.resamplingTach.acceptedSpeedVar,26.200.279,soa3,resamplingTach,acceptedSpeedVar,,scalar
+soa4.resamplingTach.acceptedSpeedVar,27.200.279,soa4,resamplingTach,acceptedSpeedVar,,scalar
+soa1.resamplingTach.angResamplingTach,14.200.471,soa1,resamplingTach,angResamplingTach,Sampling pulse,enumerated
+soa2.resamplingTach.angResamplingTach,17.200.471,soa2,resamplingTach,angResamplingTach,,enumerated
+soa3.resamplingTach.angResamplingTach,26.200.471,soa3,resamplingTach,angResamplingTach,,enumerated
+soa4.resamplingTach.angResamplingTach,27.200.471,soa4,resamplingTach,angResamplingTach,,enumerated
+soa1.soaTrigger.start,14.689.19,soa1,soaTrigger,start,Start,enumerated
+soa2.soaTrigger.start,17.689.19,soa2,soaTrigger,start,,enumerated
+soa3.soaTrigger.start,26.689.19,soa3,soaTrigger,start,,enumerated
+soa4.soaTrigger.start,27.689.19,soa4,soaTrigger,start,,enumerated
+soa1.soaTrigger.stop,14.689.21,soa1,soaTrigger,stop,Stop,enumerated
+soa2.soaTrigger.stop,17.689.21,soa2,soaTrigger,stop,,enumerated
+soa3.soaTrigger.stop,26.689.21,soa3,soaTrigger,stop,,enumerated
+soa4.soaTrigger.stop,27.689.21,soa4,soaTrigger,stop,,enumerated
+soa1.soaTrigger.trigger,14.689.83,soa1,soaTrigger,trigger,Trigger,enumerated
+soa2.soaTrigger.trigger,17.689.83,soa2,soaTrigger,trigger,,enumerated
+soa3.soaTrigger.trigger,26.689.83,soa3,soaTrigger,trigger,,enumerated
+soa4.soaTrigger.trigger,27.689.83,soa4,soaTrigger,trigger,,enumerated
+soa1.soaTrigger.restartCond,14.689.211,soa1,soaTrigger,restartCond,Repeat,enumerated
+soa2.soaTrigger.restartCond,17.689.211,soa2,soaTrigger,restartCond,,enumerated
+soa3.soaTrigger.restartCond,26.689.211,soa3,soaTrigger,restartCond,,enumerated
+soa4.soaTrigger.restartCond,27.689.211,soa4,soaTrigger,restartCond,,enumerated
+soa1.soaTrigger.startRevDelay,14.689.289,soa1,soaTrigger,startRevDelay,Trigger delay,scalar
+soa2.soaTrigger.startRevDelay,17.689.289,soa2,soaTrigger,startRevDelay,,scalar
+soa3.soaTrigger.startRevDelay,26.689.289,soa3,soaTrigger,startRevDelay,,scalar
+soa4.soaTrigger.startRevDelay,27.689.289,soa4,soaTrigger,startRevDelay,,scalar
+soa1.soaTrigger.acceptMmode,14.689.212,soa1,soaTrigger,acceptMmode,Accept mode,enumerated
+soa2.soaTrigger.acceptMmode,17.689.212,soa2,soaTrigger,acceptMmode,,enumerated
+soa3.soaTrigger.acceptMmode,26.689.212,soa3,soaTrigger,acceptMmode,,enumerated
+soa4.soaTrigger.acceptMmode,27.689.212,soa4,soaTrigger,acceptMmode,,enumerated
+soa1.soaTrigger.tachPerRev,14.689.241,soa1,soaTrigger,tachPerRev,Pulse / rev,scalar
+soa2.soaTrigger.tachPerRev,17.689.241,soa2,soaTrigger,tachPerRev,,scalar
+soa3.soaTrigger.tachPerRev,26.689.241,soa3,soaTrigger,tachPerRev,,scalar
+soa4.soaTrigger.tachPerRev,27.689.241,soa4,soaTrigger,tachPerRev,,scalar
+soa1.average.domain,14.361.84,soa1,average,domain,Domain,enumerated
+soa2.average.domain,17.361.84,soa2,average,domain,,enumerated
+soa3.average.domain,26.361.84,soa3,average,domain,,enumerated
+soa4.average.domain,27.361.84,soa4,average,domain,,enumerated
+soa1.average.size,14.361.81,soa1,average,size,Size,scalar
+soa2.average.size,17.361.81,soa2,average,size,,scalar
+soa3.average.size,26.361.81,soa3,average,size,,scalar
+soa4.average.size,27.361.81,soa4,average,size,,scalar
+soa1.average.type,14.361.80,soa1,average,type,Type,enumerated
+soa2.average.type,17.361.80,soa2,average,type,,enumerated
+soa3.average.type,26.361.80,soa3,average,type,,enumerated
+soa4.average.type,27.361.80,soa4,average,type,,enumerated
+soa1.average.98,14.361.98,soa1,average,98,Reference channel,enumerated
+soa2.average.98,17.361.98,soa2,average,98,,enumerated
+soa3.average.98,26.361.98,soa3,average,98,,enumerated
+soa4.average.98,27.361.98,soa4,average,98,,enumerated
+soa1.orderFFT.orderMaxSpeed,14.663.287,soa1,orderFFT,orderMaxSpeed,Max speed,scalar
+soa2.orderFFT.orderMaxSpeed,17.663.287,soa2,orderFFT,orderMaxSpeed,,scalar
+soa3.orderFFT.orderMaxSpeed,26.663.287,soa3,orderFFT,orderMaxSpeed,,scalar
+soa4.orderFFT.orderMaxSpeed,27.663.287,soa4,orderFFT,orderMaxSpeed,,scalar
+soa1.orderFFT.orderMinSpeed,14.663.288,soa1,orderFFT,orderMinSpeed,Min speed,scalar
+soa2.orderFFT.orderMinSpeed,17.663.288,soa2,orderFFT,orderMinSpeed,,scalar
+soa3.orderFFT.orderMinSpeed,26.663.288,soa3,orderFFT,orderMinSpeed,,scalar
+soa4.orderFFT.orderMinSpeed,27.663.288,soa4,orderFFT,orderMinSpeed,,scalar
+soa1.orderFFT.maxOrder,14.663.281,soa1,orderFFT,maxOrder,Max order,enumerated
+soa2.orderFFT.maxOrder,17.663.281,soa2,orderFFT,maxOrder,,enumerated
+soa3.orderFFT.maxOrder,26.663.281,soa3,orderFFT,maxOrder,,enumerated
+soa4.orderFFT.maxOrder,27.663.281,soa4,orderFFT,maxOrder,,enumerated
+soa1.orderFFT.deltaOrder,14.663.282,soa1,orderFFT,deltaOrder,Order resolution,enumerated
+soa2.orderFFT.deltaOrder,17.663.282,soa2,orderFFT,deltaOrder,,enumerated
+soa3.orderFFT.deltaOrder,26.663.282,soa3,orderFFT,deltaOrder,,enumerated
+soa4.orderFFT.deltaOrder,27.663.282,soa4,orderFFT,deltaOrder,,enumerated
+soa1.orderFFT.revOverlap,14.663.113,soa1,orderFFT,revOverlap,Overlap,scalar
+soa2.orderFFT.revOverlap,17.663.113,soa2,orderFFT,revOverlap,,scalar
+soa3.orderFFT.revOverlap,26.663.113,soa3,orderFFT,revOverlap,,scalar
+soa4.orderFFT.revOverlap,27.663.113,soa4,orderFFT,revOverlap,,scalar
+soa1.orderFFT.angOverlap,14.663.262,soa1,orderFFT,angOverlap,Angular overlap,scalar
+soa2.orderFFT.angOverlap,17.663.262,soa2,orderFFT,angOverlap,,scalar
+soa3.orderFFT.angOverlap,26.663.262,soa3,orderFFT,angOverlap,,scalar
+soa4.orderFFT.angOverlap,27.663.262,soa4,orderFFT,angOverlap,,scalar
+soa1.orderFFT.upperFreq,14.663.53,soa1,orderFFT,upperFreq,Upper frequency,scalar
+soa2.orderFFT.upperFreq,17.663.53,soa2,orderFFT,upperFreq,,scalar
+soa3.orderFFT.upperFreq,26.663.53,soa3,orderFFT,upperFreq,,scalar
+soa4.orderFFT.upperFreq,27.663.53,soa4,orderFFT,upperFreq,,scalar
+soa1.orderFFT.numberOfLines,14.663.89,soa1,orderFFT,numberOfLines,Number of lines,enumerated
+soa2.orderFFT.numberOfLines,17.663.89,soa2,orderFFT,numberOfLines,,enumerated
+soa3.orderFFT.numberOfLines,26.663.89,soa3,orderFFT,numberOfLines,,enumerated
+soa4.orderFFT.numberOfLines,27.663.89,soa4,orderFFT,numberOfLines,,enumerated
+soa1.orderFFT.phaseRefCos,14.663.283,soa1,orderFFT,phaseRefCos,Phase Ref,enumerated
+soa2.orderFFT.phaseRefCos,17.663.283,soa2,orderFFT,phaseRefCos,,enumerated
+soa3.orderFFT.phaseRefCos,26.663.283,soa3,orderFFT,phaseRefCos,,enumerated
+soa4.orderFFT.phaseRefCos,27.663.283,soa4,orderFFT,phaseRefCos,,enumerated
+soa1.orderFFT.reverseCrossFct,14.663.493,soa1,orderFFT,reverseCrossFct,Reverse Cross fct,boolean
+soa2.orderFFT.reverseCrossFct,17.663.493,soa2,orderFFT,reverseCrossFct,,boolean
+soa3.orderFFT.reverseCrossFct,26.663.493,soa3,orderFFT,reverseCrossFct,,boolean
+soa4.orderFFT.reverseCrossFct,27.663.493,soa4,orderFFT,reverseCrossFct,,boolean
+soa1.orderFFT.crossSpec,14.663.205,soa1,orderFFT,crossSpec,Cross spectrum,matrix
+soa2.orderFFT.crossSpec,17.663.205,soa2,orderFFT,crossSpec,,matrix
+soa3.orderFFT.crossSpec,26.663.205,soa3,orderFFT,crossSpec,,matrix
+soa4.orderFFT.crossSpec,27.663.205,soa4,orderFFT,crossSpec,,matrix
+soa1.orderFFT.phaseChRef,14.663.210,soa1,orderFFT,phaseChRef,Orders Phase ref,enumerated
+soa2.orderFFT.phaseChRef,17.663.210,soa2,orderFFT,phaseChRef,,enumerated
+soa3.orderFFT.phaseChRef,26.663.210,soa3,orderFFT,phaseChRef,,enumerated
+soa4.orderFFT.phaseChRef,27.663.210,soa4,orderFFT,phaseChRef,,enumerated
+soa1.overallAnl.bandPowerTrk,14.340.246,soa1,overallAnl,bandPowerTrk,Band power tracking,boolean
+soa2.overallAnl.bandPowerTrk,17.340.246,soa2,overallAnl,bandPowerTrk,,boolean
+soa3.overallAnl.bandPowerTrk,26.340.246,soa3,overallAnl,bandPowerTrk,,boolean
+soa4.overallAnl.bandPowerTrk,27.340.246,soa4,overallAnl,bandPowerTrk,,boolean
+soa1.overallAnl.upperOrder,14.340.291,soa1,overallAnl,upperOrder,Upper order,scalar
+soa2.overallAnl.upperOrder,17.340.291,soa2,overallAnl,upperOrder,,scalar
+soa3.overallAnl.upperOrder,26.340.291,soa3,overallAnl,upperOrder,,scalar
+soa4.overallAnl.upperOrder,27.340.291,soa4,overallAnl,upperOrder,,scalar
+soa1.overallAnl.lowerOrder,14.340.292,soa1,overallAnl,lowerOrder,Lower order,scalar
+soa2.overallAnl.lowerOrder,17.340.292,soa2,overallAnl,lowerOrder,,scalar
+soa3.overallAnl.lowerOrder,26.340.292,soa3,overallAnl,lowerOrder,,scalar
+soa4.overallAnl.lowerOrder,27.340.292,soa4,overallAnl,lowerOrder,,scalar
+soa1.754:1.correlation,14.754.412,soa1,754:1,correlation,Correlation,boolean
+soa2.754:1.correlation,17.754.412,soa2,754:1,correlation,,boolean
+soa3.754:1.correlation,26.754.412,soa3,754:1,correlation,,boolean
+soa4.754:1.correlation,27.754.412,soa4,754:1,correlation,,boolean
+soa1.754:1.corrWeightWin,14.754.413,soa1,754:1,corrWeightWin,Weighting window,enumerated
+soa2.754:1.corrWeightWin,17.754.413,soa2,754:1,corrWeightWin,,enumerated
+soa3.754:1.corrWeightWin,26.754.413,soa3,754:1,corrWeightWin,,enumerated
+soa4.754:1.corrWeightWin,27.754.413,soa4,754:1,corrWeightWin,,enumerated
+tach.analogTachCh1.label,6.731.1,tach,analogTachCh1,label,Label,string
+tach.analogTachCh1.source,6.731.100,tach,analogTachCh1,source,Source,enumerated
+tach.analogTachCh1.inputFilter,6.731.46,tach,analogTachCh1,inputFilter,Input filter,enumerated
+tach.analogTachCh1.threshold,6.731.7,tach,analogTachCh1,threshold,Threshold,scalar
+tach.analogTachCh1.slope,6.731.27,tach,analogTachCh1,slope,Slope,enumerated
+tach.analogTachCh1.holdoff,6.731.8,tach,analogTachCh1,holdoff,Hold off,scalar
+tach.analogTachCh1.holdOffPercent,6.731.290,tach,analogTachCh1,holdOffPercent,Hold off (% period),scalar
+tach.analogTachCh1.hysteresis,6.731.9,tach,analogTachCh1,hysteresis,Hysteresis,scalar
+tach.analogTachCh1.tachPerRev,6.731.241,tach,analogTachCh1,tachPerRev,Pulse / rev,scalar
+tach.analogTachCh1.410,6.731.410,tach,analogTachCh1,410,Rotation,enumerated
+tach.analogTachCh1.tachAvrgNb,6.731.242,tach,analogTachCh1,tachAvrgNb,Average size,scalar
+tach.analogTachCh1.270,6.731.270,tach,analogTachCh1,270,Max speed,scalar
+tach.analogTachCh1.276,6.731.276,tach,analogTachCh1,276,Min speed,scalar
+tach.digitalTach1.label,6.192.1,tach,digitalTach1,label,Label,string
+tach.digitalTach1.source,6.192.100,tach,digitalTach1,source,Source,enumerated
+tach.digitalTach1.tachPerRev,6.192.241,tach,digitalTach1,tachPerRev,Pulse / rev,scalar
+tach.digitalTach1.410,6.192.410,tach,digitalTach1,410,Rotation,enumerated
+tach.digitalTach1.tachAvrgNb,6.192.242,tach,digitalTach1,tachAvrgNb,Average size,scalar
+tach.digitalTach1.holdoff,6.192.8,tach,digitalTach1,holdoff,Hold off,scalar
+tach.digitalTach1.holdOffPercent,6.192.290,tach,digitalTach1,holdOffPercent,Hold off (% period),scalar
+tach.digitalTach1.270,6.192.270,tach,digitalTach1,270,Max speed,scalar
+tach.digitalTach1.276,6.192.276,tach,digitalTach1,276,Min speed,scalar
+tach.digitalTach1.421,6.192.421,tach,digitalTach1,421,Missing teeth,scalar
+tach.virtualTach1.label,6.171.1,tach,virtualTach1,label,Label,string
+tach.virtualTach1.source,6.171.100,tach,virtualTach1,source,Source,enumerated
+tach.virtualTach1.300,6.171.300,tach,virtualTach1,300,Output Gear 1,scalar
+tach.virtualTach1.299,6.171.299,tach,virtualTach1,299,Input Gear 2,scalar
+tach.virtualTach1.301,6.171.301,tach,virtualTach1,301,Output Gear 2,scalar
+tach.virtualTach1.302,6.171.302,tach,virtualTach1,302,Tach ratio,scalar
+tach.virtualTach1.410,6.171.410,tach,virtualTach1,410,Rotation,enumerated
+tach.virtualTach1.tachAvrgNb,6.171.242,tach,virtualTach1,tachAvrgNb,Average size,scalar
+tach.virtualTach1.270,6.171.270,tach,virtualTach1,270,Max speed,scalar
+tach.virtualTach1.276,6.171.276,tach,virtualTach1,276,Min speed,scalar
+tach.combinedTach1.label,6.653.1,tach,combinedTach1,label,Label,string
+tach.combinedTach1.101,6.653.101,tach,combinedTach1,101,Source 1,enumerated
+tach.combinedTach1.102,6.653.102,tach,combinedTach1,102,Source 2,enumerated
+tach.combinedTach1.410,6.653.410,tach,combinedTach1,410,Rotation,enumerated
+tach.combinedTach1.tachAvrgNb,6.653.242,tach,combinedTach1,tachAvrgNb,Average size,scalar
+tach.combinedTach1.270,6.653.270,tach,combinedTach1,270,Max speed,scalar
+tach.combinedTach1.276,6.653.276,tach,combinedTach1,276,Min speed,scalar
+tach.simulatedTach1.label,6.601.1,tach,simulatedTach1,label,Label,string
+tach.simulatedTach1.410,6.601.410,tach,simulatedTach1,410,Rotation,enumerated
+tach.simulatedTach1.145,6.601.145,tach,simulatedTach1,145,Tach speed,scalar
+tach.simulatedTach1.270,6.601.270,tach,simulatedTach1,270,Max speed,scalar
+tach.simulatedTach1.276,6.601.276,tach,simulatedTach1,276,Min speed,scalar
+tach.dcTach1.label,6.605.1,tach,dcTach1,label,Label,string
+tach.dcTach1.source,6.605.100,tach,dcTach1,source,Source,enumerated
+tach.dcTach1.410,6.605.410,tach,dcTach1,410,Rotation,enumerated
+tach.dcTach1.tachAvrgNb,6.605.242,tach,dcTach1,tachAvrgNb,Average size,scalar
+tach.dcTach1.270,6.605.270,tach,dcTach1,270,Max speed,scalar
+tach.dcTach1.276,6.605.276,tach,dcTach1,276,Min speed,scalar
+tach.angularResamplingTach1.label,6.201.1,tach,angularResamplingTach1,label,Label,string
+tach.angularResamplingTach1.source,6.201.100,tach,angularResamplingTach1,source,Source,enumerated
+tach.angularResamplingTach1.tachPerRev,6.201.241,tach,angularResamplingTach1,tachPerRev,Pulse / rev,scalar
+tach.angularResamplingTach1.470,6.201.470,tach,angularResamplingTach1,470,Phase ref,enumerated
+tach.angularResamplingTach1.270,6.201.270,tach,angularResamplingTach1,270,Max speed,scalar
+tach.angularResamplingTach1.421,6.201.421,tach,angularResamplingTach1,421,Missing teeth,scalar
+tach.dcProfile.profileDuration,6.598.248,tach,dcProfile,profileDuration,Duration profile,scalar
+tach.dcProfile.273,6.598.273,tach,dcProfile,273,Min resolution,scalar
+tda.channel1.source,22.501.100,tda,channel1,source,Source,enumerated
+tda.channel1.inputFilter,22.501.46,tda,channel1,inputFilter,Input filter,enumerated
+tda.channel1.23,22.501.23,tda,channel1,23,Duration,scalar
+tda.channel1.223,22.501.223,tda,channel1,223,Time Base,scalar
+tda.614:1.autoBandWidth,22.614.871,tda,614:1,autoBandWidth,Autobandwidth,boolean
+tda.tdaAverage.avDuration,22.893.26,tda,tdaAverage,avDuration,Avg. duration,scalar
+tda.tdaAverage.type,22.893.80,tda,tdaAverage,type,Type,enumerated
+tda.tdaTrigger.314,22.892.314,tda,tdaTrigger,314,Synchronization,enumerated
+tda.tdaTrigger.start,22.892.19,tda,tdaTrigger,start,Start,enumerated
+tda.tdaTrigger.stop,22.892.21,tda,tdaTrigger,stop,Stop,enumerated
+tda.tdaTrigger.restartCond,22.892.211,tda,tdaTrigger,restartCond,Repeat,enumerated
+tda.tdaTrigger.startDelay,22.892.20,tda,tdaTrigger,startDelay,Start delay,scalar
+window.328:1.226,9.328.226,window,328:1,226,Settings,window-tuning
+window.329:1.226,9.329.226,window,329:1,226,Settings,window-tuning
+window.329:1.110,9.329.110,window,329:1,110,Exp. coef.,scalar
+parametricOperating.channel1.source,24.501.100,parametricOperating,channel1,source,Source,enumerated
+parametricOperating.709:1.label,24.709.1,parametricOperating,709:1,label,Label,string
+parametricOperating.709:1.physicalQty,24.709.204,parametricOperating,709:1,physicalQty,Physical qty.,enumerated
+parametricOperating.709:1.457,24.709.457,parametricOperating,709:1,457,Valid,boolean
+parametricOperating.709:1.458,24.709.458,parametricOperating,709:1,458,Min output,scalar
+parametricOperating.709:1.459,24.709.459,parametricOperating,709:1,459,Max output,scalar
+recorder.track1.source,3.365.100,recorder,track1,source,Source,enumerated
+recorder.track1.14,3.365.14,recorder,track1,14,Signal bandwidth,enumerated
+recorder.bandwiths.autoBandWidth,3.76.871,recorder,bandwiths,autoBandWidth,Autobandwidth,boolean
+recorder.bandwiths.11,3.76.11,recorder,bandwiths,11,Sampling 1,scalar
+recorder.bandwiths.191,3.76.191,recorder,bandwiths,191,Bandwidth 1,scalar
+recorder.bandwiths.12,3.76.12,recorder,bandwiths,12,Sampling 2,scalar
+recorder.bandwiths.192,3.76.192,recorder,bandwiths,192,Bandwidth 2,scalar
+recorder.recTrigger.407,3.624.407,recorder,recTrigger,407,Recorder,action
+recorder.recTrigger.start,3.624.19,recorder,recTrigger,start,Start,enumerated
+recorder.recTrigger.stop,3.624.21,recorder,recTrigger,stop,Stop,enumerated
+recorder.recTrigger.startDelay,3.624.20,recorder,recTrigger,startDelay,Start delay,scalar
+recorder.recTrigger.stopDelay,3.624.22,recorder,recTrigger,stopDelay,Stop delay,scalar
+recorder.recMode.873,3.626.873,recorder,recMode,873,Automatic,enumerated
+recorder.recMode.localisation,3.626.200,recorder,recMode,localisation,Record,enumerated
+recorder.recMode.mode,3.626.17,recorder,recMode,mode,Mode,enumerated
+recorder.recMode.23,3.626.23,recorder,recMode,23,Duration,scalar
+recorder.recMode.maxDuration,3.626.316,recorder,recMode,maxDuration,Max Duration,scalar
+recorder.recMode.partLength,3.626.974,recorder,recMode,partLength,Part file length,enumerated
+recorder.recMode.18,3.626.18,recorder,recMode,18,Number of records,scalar
+recorder.recMode.16,3.626.16,recorder,recMode,16,Format,enumerated

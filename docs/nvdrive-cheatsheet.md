@@ -1,8 +1,17 @@
 # NVDrive cheat-sheet (most-used commands)
 
-For everyday work use this, not the 386-page PDF. Full reference:
-`resources/Framework/NVDrive_Reference_Manual.pdf`. The Python command classes live
+For everyday work use this, not the 386-page PDF. The Python command classes live
 in `resources/Framework/Python/pynvdrive/pynvdrive/commands/`.
+
+**For anything this page doesn't cover, look it up — don't guess.**
+`resources/AI/nvdrive_commands.json` has all 309 commands with their parameters,
+error codes, and the exact Python import/class/arguments where one exists. **145
+commands have a Python class; 164 do not** — when its `pynvdrive` field is `null`,
+send the command raw instead (`resources/AI/HOWTO_NVDrive_from_Python.md` §7bis).
+Setting identifiers: `nvgate_idn_catalog.json`. Result addresses:
+`nvdrive_result_ids.json`. Error codes: `nvdrive_errors.json`. Full reference:
+`resources/Framework/NVDrive_Reference_Manual.pdf` (mirrored as
+`resources/AI/NVDrive_Reference_Manual.md`).
 
 ## Connect
 ```python

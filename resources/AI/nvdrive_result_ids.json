@@ -1,0 +1,946 @@
+{
+  "schema_version": "1.0",
+  "generated": "2026-08-24",
+  "source": "NVDrive_Reference_Manual.pdf, section 3.10",
+  "nvgate_version": "17.00.002 (as declared by the shipped Framework)",
+  "note": "The numeric identifiers that address a result. A result is addressed by four numbers: module id, process id, channel number, reference channel number - passed in that order to CreateResultEx and then GetResultEx. `modules` maps a plug-in name to its module id, `processes` maps a measurement to its process id, and `units`, `time_operators` and `weighting_operators` are the codes used when a command asks for a display unit, an integration operator or a frequency weighting. `quantity_map` is a shortcut for the common cases: it answers 'which module and process give me a spectrum' without reading the tables. Do not guess an address: `GetResultList` tells you what exists right now on the connected analyzer, and it is always the safer route.",
+  "counts": {
+    "modules": 20,
+    "time_operators": 5,
+    "units": 8,
+    "weighting_operators": 19,
+    "processes": 128
+  },
+  "modules": [
+    {
+      "name": "FRONT END",
+      "id": 1
+    },
+    {
+      "name": "MONITOR",
+      "id": 2
+    },
+    {
+      "name": "RECORDER",
+      "id": 3
+    },
+    {
+      "name": "PLAYER",
+      "id": 4
+    },
+    {
+      "name": "EVENT",
+      "id": 5
+    },
+    {
+      "name": "TACHOMETER",
+      "id": 6
+    },
+    {
+      "name": "GENERATOR",
+      "id": 7
+    },
+    {
+      "name": "FILTER",
+      "id": 8
+    },
+    {
+      "name": "WEIGTING WINDOW",
+      "id": 9
+    },
+    {
+      "name": "FFT1",
+      "id": 10
+    },
+    {
+      "name": "FFT2",
+      "id": 11
+    },
+    {
+      "name": "FFT3",
+      "id": 18
+    },
+    {
+      "name": "FFT4",
+      "id": 19
+    },
+    {
+      "name": "TIME DOMAIN ANALYSIS",
+      "id": 22
+    },
+    {
+      "name": "1/N OCTAVE",
+      "id": 12
+    },
+    {
+      "name": "OVERALL ACOUSTIC",
+      "id": 21
+    },
+    {
+      "name": "SYNCHRONOUS ORDER 1",
+      "id": 14
+    },
+    {
+      "name": "SYNCHRONOUS ORDER 2",
+      "id": 17
+    },
+    {
+      "name": "WATERFALL",
+      "id": 16
+    },
+    {
+      "name": "TCP",
+      "id": 498
+    }
+  ],
+  "time_operators": [
+    {
+      "name": "Normal",
+      "id": 0
+    },
+    {
+      "name": "dt integration",
+      "id": 1
+    },
+    {
+      "name": "dt² double integration",
+      "id": 2
+    },
+    {
+      "name": "1/dt differentiation",
+      "id": 3
+    },
+    {
+      "name": "1/dt² double differentiation",
+      "id": 4
+    }
+  ],
+  "units": [
+    {
+      "name": "Normal",
+      "id": 0
+    },
+    {
+      "name": "RMS Root mean square",
+      "id": 1
+    },
+    {
+      "name": "Peak",
+      "id": 2
+    },
+    {
+      "name": "Peak-Peak",
+      "id": 3
+    },
+    {
+      "name": "EU² engineering unit squared",
+      "id": 4
+    },
+    {
+      "name": "PSD Power spectral density",
+      "id": 5
+    },
+    {
+      "name": "ESD Energetic spectral density",
+      "id": 6
+    },
+    {
+      "name": "RMS-PSD root mean squared Energetic spectral density",
+      "id": 7
+    }
+  ],
+  "weighting_operators": [
+    {
+      "name": "No Weighting",
+      "id": 0
+    },
+    {
+      "name": "A",
+      "id": 1
+    },
+    {
+      "name": "B",
+      "id": 2
+    },
+    {
+      "name": "C",
+      "id": 3
+    },
+    {
+      "name": "D",
+      "id": 4
+    },
+    {
+      "name": "1/A",
+      "id": 5
+    },
+    {
+      "name": "1/(A*D)",
+      "id": 6
+    },
+    {
+      "name": "A*D",
+      "id": 7
+    },
+    {
+      "name": "A*D 200-500Hz",
+      "id": 8
+    },
+    {
+      "name": "Wc (ISO 2631-1)",
+      "id": 9
+    },
+    {
+      "name": "Wd (ISO 2631-1)",
+      "id": 10
+    },
+    {
+      "name": "Wk (ISO 2631-1)",
+      "id": 11
+    },
+    {
+      "name": "Wb (ISO 2631-4)",
+      "id": 12
+    },
+    {
+      "name": "We (ISO 2631-1)",
+      "id": 15
+    },
+    {
+      "name": "Wf (ISO 2631-1)",
+      "id": 16
+    },
+    {
+      "name": "Wg (BSI 6841)",
+      "id": 17
+    },
+    {
+      "name": "Wh (ISO 5349-1)",
+      "id": 18
+    },
+    {
+      "name": "Wj (ISO 2631-1)",
+      "id": 19
+    },
+    {
+      "name": "Wm (ISO 2631-2)",
+      "id": 20
+    }
+  ],
+  "processes": [
+    {
+      "name": "INSTANT TRIGGER",
+      "id": 1,
+      "description": "Front end instantaneous time bloc"
+    },
+    {
+      "name": "AVERAGED TRIGGER",
+      "id": 3,
+      "description": "Front end averaged time bloc"
+    },
+    {
+      "name": "GAP",
+      "id": 8,
+      "description": "Shaft centerline"
+    },
+    {
+      "name": "DC",
+      "id": 9,
+      "description": "Monitor averaged DC value"
+    },
+    {
+      "name": "RMS",
+      "id": 10,
+      "description": "Monitor Averaged and filtered RMS value"
+    },
+    {
+      "name": "RMS FRONT END",
+      "id": 220,
+      "description": "Front end RMS value"
+    },
+    {
+      "name": "SKEW",
+      "id": 12,
+      "description": "Monitor Averaged and filtered"
+    },
+    {
+      "name": "KURTOSIS",
+      "id": 13,
+      "description": "Monitor Averaged and filtered"
+    },
+    {
+      "name": "MAX",
+      "id": 14,
+      "description": "Monitor Averaged and filtered"
+    },
+    {
+      "name": "MIN",
+      "id": 15,
+      "description": "Monitor Averaged and filtered"
+    },
+    {
+      "name": "SCALAR PROFILE",
+      "id": 43,
+      "description": "Scalar Time profile"
+    },
+    {
+      "name": "AVERAGE SPECTRUM",
+      "id": 2,
+      "description": "FFTx Averaged spectrum"
+    },
+    {
+      "name": "INSTANT SPECTRUM",
+      "id": 4,
+      "description": "FFTx Instantaneous spectrum"
+    },
+    {
+      "name": "INSTANT CROSS SPECTRUM",
+      "id": 5,
+      "description": "FFTx Instantaneous cross spectrum"
+    },
+    {
+      "name": "AVERAGE CROSS SPECTRUM",
+      "id": 6,
+      "description": "FFTx Averaged cross spectrum"
+    },
+    {
+      "name": "SPECTRUM",
+      "id": 17,
+      "description": "FFTx time domain averaged Spectrum"
+    },
+    {
+      "name": "WEIGHTED",
+      "id": 20,
+      "description": "FFTx Weighted time bloc"
+    },
+    {
+      "name": "TRIGGERED",
+      "id": 21,
+      "description": "FFTx Triggered time bloc"
+    },
+    {
+      "name": "FRF H1",
+      "id": 31,
+      "description": "FFTx averaged H1 frequency response function"
+    },
+    {
+      "name": "FRF H2",
+      "id": 32,
+      "description": "FFTx averaged H2 frequency response function"
+    },
+    {
+      "name": "COHERENCE",
+      "id": 33,
+      "description": "FFTx coherence function"
+    },
+    {
+      "name": "LISSAJOUX",
+      "id": 16,
+      "description": "Lissajoux"
+    },
+    {
+      "name": "CEPSTRUM",
+      "id": 221,
+      "description": "Cepstrum"
+    },
+    {
+      "name": "CEPSTRUM ZOOM",
+      "id": 222,
+      "description": "Zoomed Cepstrum"
+    },
+    {
+      "name": "AUTO CORR INST",
+      "id": 223,
+      "description": "Instantaneous auto-correlation"
+    },
+    {
+      "name": "AUTO CORR AVG",
+      "id": 224,
+      "description": "Averaged instantaneous auto-correlation"
+    },
+    {
+      "name": "AUTO CORRELATION",
+      "id": 225,
+      "description": "Auto-correlation"
+    },
+    {
+      "name": "CROSS CORR INST",
+      "id": 226,
+      "description": "Instantaneous cross-correlation"
+    },
+    {
+      "name": "CROSS CORR AVG",
+      "id": 227,
+      "description": "Averaged instantaneous cross-correlation"
+    },
+    {
+      "name": "CROSS CORRELATION",
+      "id": 228,
+      "description": "Cross-correlation"
+    },
+    {
+      "name": "PEAK LEVEL",
+      "id": 250,
+      "description": "Peak level"
+    },
+    {
+      "name": "PEAK LEVEL",
+      "id": 251,
+      "description": "Peak-Peak level"
+    },
+    {
+      "name": "PEAK FACTOR LEVEL",
+      "id": 252,
+      "description": "Peak factor level"
+    },
+    {
+      "name": "1/N OCTAVE",
+      "id": 18,
+      "description": "1/n Octave instantaneous spectrum"
+    },
+    {
+      "name": "AVERAGE 1/N OCTAVE",
+      "id": 24,
+      "description": "1/n Octave averaged spectrum"
+    },
+    {
+      "name": "AVERAGE 1/N OCTAVE MIN",
+      "id": 132,
+      "description": "Min of 1/n Octave spectrum"
+    },
+    {
+      "name": "AVERAGE 1/N OCTAVE MAX",
+      "id": 133,
+      "description": "Max of 1/n Octave spectrum"
+    },
+    {
+      "name": "ANGULAR SPEED",
+      "id": 42,
+      "description": "RPM speed from input based tacho"
+    },
+    {
+      "name": "DIGIT ANGULAR SPEED",
+      "id": 75,
+      "description": "RPM speed from ext. sync. Based tach"
+    },
+    {
+      "name": "VIRTUAL ANGULAR SPEED",
+      "id": 88,
+      "description": "RPM speed from fractional tach"
+    },
+    {
+      "name": "DIGIT PROFILE",
+      "id": 76,
+      "description": "RPM Profile from ext. sync. Based tach"
+    },
+    {
+      "name": "SCALAR RPM PROFILE",
+      "id": 77,
+      "description": "RPM Profile from input-based tach"
+    },
+    {
+      "name": "VIRTUAL RPM PROFILE",
+      "id": 89,
+      "description": "RPM Profile from fractional tach"
+    },
+    {
+      "name": "SIMULATED ANGULAR SPEED",
+      "id": 253,
+      "description": "RPM Speed from simulated Tach"
+    },
+    {
+      "name": "SIMULATED PROFILE",
+      "id": 254,
+      "description": "RPM Speed profile from simulated Tach"
+    },
+    {
+      "name": "TACH DC ANGULAR SPEED",
+      "id": 255,
+      "description": "RPM Speed from DC Tach"
+    },
+    {
+      "name": "TACH DC PROFILE",
+      "id": 256,
+      "description": "RPM Speed profile from DC Tach"
+    },
+    {
+      "name": "CBT ORDER 1",
+      "id": 109,
+      "description": "Constant Band Tracking order 1 profile"
+    },
+    {
+      "name": "CBT ORDER 2",
+      "id": 110,
+      "description": "Constant Band Tracking order 2 profile"
+    },
+    {
+      "name": "CBT ORDER 3",
+      "id": 111,
+      "description": "Constant Band Tracking order 3 profile"
+    },
+    {
+      "name": "CBT ORDER 4",
+      "id": 112,
+      "description": "Constant Band Tracking order 4 profile"
+    },
+    {
+      "name": "CBT ORDER 5",
+      "id": 113,
+      "description": "Constant Band Tracking order 5 profile"
+    },
+    {
+      "name": "CBT ORDER 6",
+      "id": 114,
+      "description": "Constant Band Tracking order 6 profile"
+    },
+    {
+      "name": "CBT ORDER 7",
+      "id": 115,
+      "description": "Constant Band Tracking order 7 profile"
+    },
+    {
+      "name": "CBT ORDER 8",
+      "id": 116,
+      "description": "Constant Band Tracking order 8 profile"
+    },
+    {
+      "name": "FFT OVERALL BAND TRACKING",
+      "id": 117,
+      "description": "Overall band tracking profile"
+    },
+    {
+      "name": "ORDER 1",
+      "id": 100,
+      "description": "Constant Band Tracking order 1 (SOA, FFT)"
+    },
+    {
+      "name": "ORDER 2",
+      "id": 101,
+      "description": "Constant Band Tracking order 2 (SOA, FFT)"
+    },
+    {
+      "name": "ORDER 3",
+      "id": 102,
+      "description": "Constant Band Tracking order 3 (SOA, FFT)"
+    },
+    {
+      "name": "ORDER 4",
+      "id": 103,
+      "description": "Constant Band Tracking order 4 (SOA, FFT)"
+    },
+    {
+      "name": "ORDER 5",
+      "id": 104,
+      "description": "Constant Band Tracking order 5 (SOA, FFT)"
+    },
+    {
+      "name": "ORDER 6",
+      "id": 105,
+      "description": "Constant Band Tracking order 6 (SOA, FFT)"
+    },
+    {
+      "name": "ORDER 7",
+      "id": 106,
+      "description": "Constant Band Tracking order 7 (SOA, FFT)"
+    },
+    {
+      "name": "ORDER 8",
+      "id": 107,
+      "description": "Constant Band Tracking order 8 (SOA, FFT)"
+    },
+    {
+      "name": "OVERALL LEVEL",
+      "id": 108,
+      "description": "Overall level (SOA, FFT)"
+    },
+    {
+      "name": "PRE FILTERING",
+      "id": 19,
+      "description": "Filtered signal (SOA, FFT)"
+    },
+    {
+      "name": "ORDER INSTANT SPECTRUM",
+      "id": 80,
+      "description": "Synchronous Order x Instantaneous spectrum"
+    },
+    {
+      "name": "ORDER AVERAGE SPECTRUM",
+      "id": 81,
+      "description": "Synchronous Order x Averaged spectrum"
+    },
+    {
+      "name": "ORDER SPECTRUM",
+      "id": 82,
+      "description": "Synchronous Order x time domain averaged Spectrum"
+    },
+    {
+      "name": "SOA TRIGGER BLOCK",
+      "id": 83,
+      "description": "Synchronous Order x Trigger block"
+    },
+    {
+      "name": "SOA WEIGHTED BLOCK",
+      "id": 87,
+      "description": "Synchronous Order x Weighted block"
+    },
+    {
+      "name": "SOA AVERAGED SIGNAL",
+      "id": 86,
+      "description": "Synchronous Order x Averaged signal (time averaging)"
+    },
+    {
+      "name": "ZOOM INSTANT SPECTRUM",
+      "id": 90,
+      "description": "FFTx zoomed instant spectrum"
+    },
+    {
+      "name": "ZOOM AVERAGE SPECTRUM",
+      "id": 91,
+      "description": "FFTx averaged zoomed spectrum"
+    },
+    {
+      "name": "ZOOM CROSS SPECTRUM",
+      "id": 170,
+      "description": "FFTx zoomed cross spectrum"
+    },
+    {
+      "name": "AVERAGE ZOOM CROSS SPECTRUM",
+      "id": 171,
+      "description": "FFTx averaged zoomed cross spectrum"
+    },
+    {
+      "name": "ZOOM FRF H1",
+      "id": 172,
+      "description": "FFTx zoomed averaged H1 frequency response function"
+    },
+    {
+      "name": "ZOOM FRF H2",
+      "id": 173,
+      "description": "FFTx zoomed averaged H2 frequency response function"
+    },
+    {
+      "name": "COHERENCE",
+      "id": 174,
+      "description": "FFTx zoomed coherence function"
+    },
+    {
+      "name": "TRIGGER ENV",
+      "id": 197,
+      "description": "Envelope trigger block"
+    },
+    {
+      "name": "AVG SPECTRUM ENV",
+      "id": 198,
+      "description": "Envelope spectrum"
+    },
+    {
+      "name": "WEIGHT WINDOW ENV",
+      "id": 200,
+      "description": "Weighted envelope trigger block"
+    },
+    {
+      "name": "OCTAVE OVERALL LIN",
+      "id": 193,
+      "description": "1/n Octave Global level"
+    },
+    {
+      "name": "OCTAVE OVERALL WEIGHTED",
+      "id": 194,
+      "description": "1/n Octave Global level weighted"
+    },
+    {
+      "name": "OVA SHORT LPK",
+      "id": 47,
+      "description": "Short Leq for peak detector"
+    },
+    {
+      "name": "OVA INSTANT LEQ 1",
+      "id": 48,
+      "description": "Instant Leq for detector 1"
+    },
+    {
+      "name": "OVA INSTANT LEQ 2",
+      "id": 49,
+      "description": "Instant Leq for detector 2"
+    },
+    {
+      "name": "OVA INSTANT LEQ 3",
+      "id": 50,
+      "description": "Instant Leq for detector 3"
+    },
+    {
+      "name": "OVA SHORT LEQ 1",
+      "id": 51,
+      "description": "Short Leq for detector 1"
+    },
+    {
+      "name": "OVA SHORT LEQ 2",
+      "id": 52,
+      "description": "Short Leq for detector 2"
+    },
+    {
+      "name": "OVA SHORT LEQ 3",
+      "id": 53,
+      "description": "Short Leq for detector 3"
+    },
+    {
+      "name": "OVA LEQ 1",
+      "id": 54,
+      "description": "Leq for detector 1"
+    },
+    {
+      "name": "OVA LEQ 2",
+      "id": 55,
+      "description": "Leq for detector 2"
+    },
+    {
+      "name": "OVA LEQ 3",
+      "id": 56,
+      "description": "Leq for detector 3"
+    },
+    {
+      "name": "OVA MAX LPK",
+      "id": 201,
+      "description": "Max Leq for peak detector"
+    },
+    {
+      "name": "OVA MIN LPK",
+      "id": 202,
+      "description": "Min Leq for peak detector"
+    },
+    {
+      "name": "OVA MAX LEQ 1",
+      "id": 203,
+      "description": "Max Leq for detector 1"
+    },
+    {
+      "name": "OVA MAX LEQ 2",
+      "id": 204,
+      "description": "Max Leq for detector 2"
+    },
+    {
+      "name": "OVA MAX LEQ 3",
+      "id": 205,
+      "description": "Max Leq for detector 3"
+    },
+    {
+      "name": "OVA MIN LEQ 1",
+      "id": 206,
+      "description": "Min Leq for detector 1"
+    },
+    {
+      "name": "OVA MIN LEQ 2",
+      "id": 207,
+      "description": "Min Leq for detector 2"
+    },
+    {
+      "name": "OVA MIN LEQ 3",
+      "id": 208,
+      "description": "Min Leq for detector 3"
+    },
+    {
+      "name": "PREVIEW SIGNAL (*)",
+      "id": 191,
+      "description": "Preview signal"
+    },
+    {
+      "name": "COMPRESSED SIGNAL (*)",
+      "id": 25,
+      "description": "Player signal"
+    },
+    {
+      "name": "COMPRESSED MONITORING SIGNAL (*)",
+      "id": 30,
+      "description": "Recorder signal"
+    },
+    {
+      "name": "NVD TIME",
+      "id": 175,
+      "description": "Time signal created thru NVDrive®"
+    },
+    {
+      "name": "NVD ROTATION",
+      "id": 176,
+      "description": "Rotation signal created thru NVDrive®"
+    },
+    {
+      "name": "NVD REAL SPECTRUM",
+      "id": 177,
+      "description": "Real spectrum created thru NVDrive®"
+    },
+    {
+      "name": "NVD COMPLEX SPECTRUM",
+      "id": 178,
+      "description": "Complex spectrum created thru NVDrive®"
+    },
+    {
+      "name": "NVD REAL ORDER SPECTRUM",
+      "id": 179,
+      "description": "Real order spectrum created thru NVDrive®"
+    },
+    {
+      "name": "NVD COMPLEX ORDER SPECTRUM",
+      "id": 180,
+      "description": "Complex order spectrum created thru NVDrive®"
+    },
+    {
+      "name": "NVD COHERENCE",
+      "id": 181,
+      "description": "Coherence created thru NVDrive®"
+    },
+    {
+      "name": "NVD SCALAR",
+      "id": 182,
+      "description": "Scalar created thru NVDrive®"
+    },
+    {
+      "name": "NVD NTH OCTAVE",
+      "id": 183,
+      "description": "Nth Octave created thru NVDrive®"
+    },
+    {
+      "name": "NVD REAL PROFILE",
+      "id": 185,
+      "description": "Real Profile created thru NVDrive®"
+    },
+    {
+      "name": "NVD COMPLEX PROFILE",
+      "id": 186,
+      "description": "Complex Profile created thru NVDrive®"
+    },
+    {
+      "name": "NVD REAL WTF SPECTRUM",
+      "id": 187,
+      "description": "Real waterfall spectrum created thru NVDrive®"
+    },
+    {
+      "name": "NVD COMPLEX WTF SPECTRUM",
+      "id": 192,
+      "description": "Complex waterfall spectrum created thru NVDrive®"
+    },
+    {
+      "name": "NVD WTF TIME",
+      "id": 189,
+      "description": "Waterfall Time signal created thru NVDrive®"
+    },
+    {
+      "name": "NVD WTF OCTAVE",
+      "id": 188,
+      "description": "Waterfall Nth Octave created thru NVDrive®"
+    },
+    {
+      "name": "NVD CEPSTRUM",
+      "id": 300,
+      "description": "Cepstrum created thru NVDrive®"
+    },
+    {
+      "name": "NVD AUTO CORR INST",
+      "id": 301,
+      "description": "Instantaneous auto-correlation created thru NVDrive®"
+    },
+    {
+      "name": "NVD AUTO CORR AVG",
+      "id": 302,
+      "description": "Averaged instantaneous auto-correlation created thru NVDrive®"
+    },
+    {
+      "name": "NVD AUTO CORRELATION",
+      "id": 303,
+      "description": "Auto-correlation created thru NVDrive®"
+    },
+    {
+      "name": "NVD CROSS CORR INST",
+      "id": 304,
+      "description": "Instantaneous cross-correlation created thru NVDrive®"
+    },
+    {
+      "name": "NVD CROSS CORR AVG",
+      "id": 305,
+      "description": "Averaged instantaneous cross-correlation created thru NVDrive®"
+    },
+    {
+      "name": "NVD CROSS CORRELATION",
+      "id": 306,
+      "description": "Cross-correlation created thru NVDrive®"
+    },
+    {
+      "name": "NVD_GAP",
+      "id": 309,
+      "description": "Shaft centerline thru NVDrive®"
+    }
+  ],
+  "quantity_map": [
+    {
+      "quantity": "averaged spectrum",
+      "module": {
+        "name": "FFT1",
+        "id": 10
+      },
+      "process": {
+        "name": "AVERAGE SPECTRUM",
+        "id": 2
+      },
+      "note": "The usual FFT spectrum, averaged over several blocks. FFT2, FFT3 and FFT4 are the other analysis modules, with their own module ids."
+    },
+    {
+      "quantity": "instantaneous spectrum",
+      "module": {
+        "name": "FFT1",
+        "id": 10
+      },
+      "process": {
+        "name": "INSTANT SPECTRUM",
+        "id": 4
+      },
+      "note": "One FFT block, not averaged."
+    },
+    {
+      "quantity": "time waveform",
+      "module": {
+        "name": "FRONT END",
+        "id": 1
+      },
+      "process": {
+        "name": "INSTANT TRIGGER",
+        "id": 1
+      },
+      "note": "The raw time block from an input."
+    },
+    {
+      "quantity": "overall level",
+      "module": {
+        "name": "MONITOR",
+        "id": 2
+      },
+      "process": {
+        "name": "RMS",
+        "id": 10
+      },
+      "note": "Broadband RMS level of an input, as shown on the monitor bargraph."
+    },
+    {
+      "quantity": "1/n octave spectrum",
+      "module": {
+        "name": "1/N OCTAVE",
+        "id": 12
+      },
+      "process": {
+        "name": "AVERAGE SPECTRUM",
+        "id": 2
+      },
+      "note": "Constant-percentage-bandwidth spectrum."
+    },
+    {
+      "quantity": "order spectrum",
+      "module": {
+        "name": "SYNCHRONOUS ORDER 1",
+        "id": 14
+      },
+      "process": {
+        "name": "AVERAGE SPECTRUM",
+        "id": 2
+      },
+      "note": "Order analysis: use a synchronous order module, not FFT."
+    }
+  ]
+}

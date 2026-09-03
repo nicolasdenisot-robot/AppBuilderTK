@@ -14,8 +14,16 @@ Claude-NVGate/
 │   │   ├── NVDrive_Reference_Manual.pdf  (live control, 386 pages)
 │   │   ├── OR3x_Developer_Toolkit.pdf    (toolkit overview)
 │   │   └── Python/pynvdrive/             (the live-control library you import)
-│   └── manuals-text/        ← plain-text mirror of the PDFs (committed; read THESE,
-│                              since PDFs may not render — e.g. NVDrive_Reference_Manual.txt)
+│   ├── AI/                   ← machine-readable reference kit (committed; USE THIS, not the PDFs)
+│   │   ├── HOWTO_NVDrive_from_Python.md   start here to write code
+│   │   ├── nvdrive_commands.json          309 commands + their pynvdrive class (145 have one)
+│   │   ├── nvgate_idn_catalog.json        756 setting identifiers
+│   │   ├── nvdrive_result_ids.json        module/process numbers that address a result
+│   │   ├── nvdrive_errors.json            949 error codes
+│   │   ├── nvgate_notifications.json      79 notifications + lookup tables
+│   │   ├── dll_api.json                   1251 DLL entry points (file-access layer)
+│   │   └── *.md                           4 manual mirrors, 694 pages, with page markers
+│   └── llms.txt              ← map of the kit: what to read, in what order, what to trust
 ├── docs/                     ← distilled guidance — READ THIS, not the 386-page PDF
 │   ├── nvdrive-cheatsheet.md     top ~30 commands with examples
 │   ├── algorithms.md             where to get calculations (turbomachinery, sound quality)

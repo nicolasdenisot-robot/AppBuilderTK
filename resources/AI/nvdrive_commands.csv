@@ -1,0 +1,310 @@
+﻿name,category,section,page,parameters,n_parameters,n_errors,pynvdrive_wrapper,semantics
+GetErrorMessage,Part list of interpretation / syntax errors,2.4.1,20,<header>,1,2,,Returns the description in English of a header (the header format is defined in section 2.3.2 - Server → Client).
+ExecMacro,Actions,3.1.1,21,<macro name> <constant1 name> <value1> <constant2 name> <value2>,5,5,actions/execmacro.py,Used to start the execution of a macro.
+Run,Actions,3.1.2,22,,0,2,actions/run.py,"If no measurement is in the process of acquisition, start a new measurement. The new measurement is in the ""run"" mode. If a measurement is in the process of acquisition: - If it is in the « pause » mode, reinitialize then restart the measurement. - If it is in the « run » mode, reinitialize then res"
+Stop,Actions,3.1.3,23,,0,1,actions/stop.py,"Permanently stops the measurement in the process of acquisition (only one measurement is possible at a time), which can be in the « run » or « pause » mode. In this case there is no longer any measurement in the process of acquisition. If no measurement is in the process of acquisition, the consiste"
+Pause,Actions,3.1.4,24,,0,1,actions/pause.py,"If a measurement is in the process of acquisition: - If the measurement is in the « run » mode, interrupt the measurement. It then moves to the ""pause"" mode. - If the measurement is in the ""pause"" mode, continue the measurement which moves to the ""run"" mode. If no measurement is in the process of ac"
+PlayByStep,Actions,3.1.5,25,[Action],1,1,actions/playbystep.py,"Play by steps, available only in post-analysis, when the file is played by step. The command starts a new step or pauses the current step."
+Accept,Actions,3.1.6,26,,0,0,actions/accept.py,Do accept the signal blocks in the FFT plug-in.
+Reject,Actions,3.1.7,27,,0,0,actions/reject.py,Do reject the signal blocks in the FFT plug-in.
+ManualTrigger,Actions,3.1.8,28,,0,0,actions/manualtrigger.py,Set on the manual trigger.
+ShutDown,Actions,3.1.9,29,[Save],1,0,actions/shutdown.py,Allows the user to close the server application.
+StandAlone,Actions,3.1.10,30,,0,3,actions/standalone.py,Allows the user to close the application in standalone mode.
+AbortStandAlone,Actions,3.1.11,31,<project name>,1,2,actions/abortstandalone.py,Allows the user to abort the standalone session for a specific project.
+Autorange,Actions,3.1.12,32,[DoAutorange] [Master or Slave],2,2,actions/autorange.py,Do or stop the auto range according to the NVGate settings.
+CheckICP,Actions,3.1.13,33,[Master or Slave],1,5,actions/checkicp.py,Do the check ICP on the channels whose coupling is ICP.
+CheckTEDS,Actions,3.1.14,34,[Master or Slave] [Input] [Silent],3,3,actions/checkteds.py,Do the check TEDS on the channels whose coupling is ICP TEDS.
+EmergencyStop,Actions,3.1.15,35,,0,2,actions/emergencystop.py,"Do the ""emergency stop"" action, which cut all the output signals."
+EditCalibration,Actions,3.1.16,36,,0,3,actions/editcalibration.py,"Edit the calibration's dialog box, and wait for the user to click on ""OK"" or ""Cancel""."
+RefreshState,Actions,3.1.17,37,,0,0,actions/refreshstate.py,Refresh all NVGate status.
+FormatDisk,Actions,3.1.18,38,,0,1,actions/formatdisk.py,Format OR3x internal disk.
+GetWindowTraces,Marker,3.2.1,39,<window name>,1,2,marker/getwindowtraces.py,Allows the user to retrieve the name of the results displayed in a window.
+GetWindowDisplayZone,Marker,3.2.2,40,<window name>,1,1,marker/getwindowdisplayzone.py,Allows the user to retrieve the identifiers of the type of the window display zones. Those display zones are very useful to handle markers.
+GetMarkerList,Marker,3.2.3,41,<window name> [display zone type],2,2,marker/getmarkerlist.py,Allows the user to retrieve the markers defined in a display zone of a window.
+AddFreeMarker,Marker,3.2.4,43,<window name> <position> [display zone type] [interpolation type] [label] [trace application] [Module number] [Process number] [Channel number] [Reference channel number] [Display current position] [color] [Style line] [Hide string note],14,6,marker/addfreemarker.py,Allows the user to add a free marker on a trace.
+AddPeakMarker,Marker,3.2.5,45,<window name> [threshold] [Absolute threshold] [Max peak number] [display zone type] [interpolation type] [trace application] [Module number] [Process number] [Channel number] [Reference channel number] [ValueSortedByFrequency] [DampingRatio] [color] [Style line],15,6,,Allows the user to add a peak marker on a trace.
+AddMaxMarker,Marker,3.2.6,46,<window name> [threshold] [Absolute threshold] [Max peak number] [display zone type] [interpolation type] [trace application] [Module number] [Process number] [Channel number] [Reference channel number] [ValueSortedByFrequency] [DampingRatio] [color] [Style line],15,6,,Allows the user to add a max marker on a trace.
+AddPowerBandMarker,Marker,3.2.7,47,<window name> <Start position> <Delta> [display zone type] [trace application] [Module number] [Process number] [Channel number] [Reference channel number] [color] [Style line],11,6,,Allows the user to add a power band marker on a trace.
+AddSideBandMarker,Marker,3.2.8,48,<window name> <Start position> <Delta> [Number of bands] [display zone type] [trace application] [Module number] [Process number] [Channel number] [Reference channel number] [color] [Style line],12,6,,Allows the user to add a side band marker on a trace.
+AddHarmonicMarker,Marker,3.2.9,49,<window name> <Start position> [Number of harmonics] [display zone type] [trace application] [Module number] [Process number] [Channel number] [Reference channel number] [color] [Style line],11,6,,Allows the user to add a harmonic marker on a trace.
+AddRecordMarker,Marker,3.2.10,50,,0,1,,Allows the user to add a record marker (during recording).
+AddPeriodMarker,Marker,3.2.11,51,<window name> <Start position> [Number of periods] [Period duration] [Display zone type] [Trace application] [Module number] [Process number] [Channel number] [Reference channel number] [color] [Style line],12,5,,Allows the user to add a period marker on a trace.
+AddKinematicMarker,Marker,3.2.12,52,<window name> <position> <kinematic marker type> <kinematic marker number> [Display zone type] [Interpolation type] [Trace application] [Module number] [Process number] [Channel number] [Reference channel number] [color] [Style line],13,7,,Allows the user to add a kinematic marker on a trace.
+AddNOctaveMarker,Marker,3.2.13,53,<window name> [trace application] [Module number] [Process number] [Channel number],5,4,,Allows the user to add a 1/N octave marker on a trace.
+GetNumberOfRecordMarker,Marker,3.2.14,54,,0,0,,Returns the number of record markers in the current displayed signal.
+SetRecordMarkerLabel,Marker,3.2.15,55,<window name> <marker number> <label>,3,2,,Allows the user to put a label to a record marker.
+RemoveMarker,Marker,3.2.16,56,<window name> [display zone type] [marker type] [marker number],4,4,,Allows the user to remove a marker.
+DisplayMarkerProperties,Marker,3.2.17,57,<window name> <display zone type> <marker type> <marker number>,4,4,,Displays the given marker properties dialog.
+DuplicateMarkerInMultigraphWindow,Marker,3.2.18,58,<window name> <marker type> <marker number>,3,4,,Duplicate the given marker in the other areas of the window (displayed in a multigraph mode).
+SetFreeMarkerParameters,Marker,3.2.19,59,<window name> <display zone type> <marker number> [position] [interpolation type] [label] [color] [Style line] [Hide tag note],9,5,,Allows the user to modify the parameters of a free marker.
+GetFreeMarkerParameters,Marker,3.2.20,60,<window name> <display zone type> <marker number>,3,3,marker/getfreemarkerparameters.py,Allows the user to get the parameters of a free marker.
+SetPeakMarkerParameters,Marker,3.2.21,61,<window name> <display zone type> <marker number> [threshold] [Absolute threshold] [Max peak number] [interpolation type] [ValueSortedByFrequency],8,5,,Allows the user to modify the parameters of a peak marker.
+GetPeakMarkerParameters,Marker,3.2.22,62,<window name> <display zone type> <marker number>,3,3,marker/getpeakmarkerparameters.py,Allows the user to get the parameters of a peak marker.
+SetMaxMarkerParameters,Marker,3.2.23,63,<window name> <display zone type> <marker number> [threshold] [Absolute threshold] [Max peak number] [interpolation type] [ValueSortedByFrequency],8,5,,Allows the user to modify the parameters of a max marker.
+GetMaxMarkerParameters,Marker,3.2.24,64,<window name> <display zone type> <marker number>,3,3,,Allows the user to get the parameters of a max marker.
+GetRecordMarkerParameters,Marker,3.2.25,65,<window name> <display zone type> <marker number>,3,3,,Allows the user to get the parameters of a record marker.
+SetPowerBandMarkerParameters,Marker,3.2.26,66,<window name> <display zone type> <marker number> [Start position] [Delta] [color] [Style line],7,5,,Allows the user to modify the parameters of a power band marker.
+GetPowerBandMarkerParameters,Marker,3.2.27,67,<window name> <display zone type> <marker number>,3,3,,Allows the user to get the parameters of a power band marker.
+SetSideBandMarkerParameters,Marker,3.2.28,68,<window name> <display zone type> <marker number> [Start position] [Delta] [Number of bands] [color] [Style line],8,6,,Allows the user to modify the parameters of a side band marker.
+GetSideBandMarkerParameters,Marker,3.2.29,69,<window name> <display zone type> <marker number>,3,3,,Allows the user to get the parameters of a side band marker.
+SetHarmonicMarkerParameters,Marker,3.2.30,70,<window name> <display zone type> <marker number> [Start position] [Number of harmonics] [color] [Style line],7,5,,Allows the user to modify the parameters of a harmonic marker.
+SetHarmonicMarkerVisibility,Marker,3.2.31,71,<window name> <display zone type> <marker number> <Harmonic number> [Show/Hide],5,4,,Allows the user to modify the visibility of a harmonic of a harmonic marker.
+GetHarmonicMarkerParameters,Marker,3.2.32,72,<window name> <display zone type> <marker number>,3,3,,Allows the user to get the parameters of a harmonic marker.
+SetPeriodMarkerParameters,Marker,3.2.33,73,<window name> <display zone type> <marker number> [Start position] [Number of periods] [Period duration] [color] [Style line],8,5,,Allows the user to modify the parameters of a period marker.
+SetPeriodMarkerVisibility,Marker,3.2.34,74,<window name> <display zone type> <marker number> <Period number> [Show/Hide],5,4,,Allows the user to modify the visibility of a harmonic of a harmonic marker.
+SetKinematicMarkerParameters,Marker,3.2.35,75,<window name> <display zone type> <marker number> [position] [color] [Style line],6,4,,Allows the user to modify the parameters of a kinematic marker.
+GetPeriodMarkerParameters,Marker,3.2.36,76,<window name> <display zone type> <marker number>,3,3,,Allows the user to get the parameters of a period marker.
+GetFreeMarkerValue,Marker,3.2.37,77,<window name> <display zone type> [marker number] [Get details],4,4,marker/getfreemarkervalue.py,Allows the user to get the values of free markers defined in a display zone of a window.
+GetPeakMarkerValue,Marker,3.2.38,79,<window name> <display zone type> [marker number] [Get details],4,4,marker/getpeakmarkervalue.py,Allows the user to get the values of peak markers defined in a display zone of a window.
+GetMaxMarkerValue,Marker,3.2.39,82,<window name> <display zone type> [marker number] [Get details],4,4,,Allows the user to get the values of max markers defined in a display zone of a window.
+GetPowerBandMarkerValue,Marker,3.2.40,83,<window name> <display zone type> [marker number] [Get details],4,4,,Allows the user to get the values of power band markers defined in a display zone of a window.
+GetSideBandMarkerValue,Marker,3.2.41,84,<window name> <display zone type> [marker number] [Get details],4,4,,Allows the user to get the values of side band markers defined in a display zone of a window.
+GetHarmonicMarkerValue,Marker,3.2.42,86,<window name> <display zone type> [marker number] [Get details],4,4,,Allows the user to get the values of harmonic markers defined in a display zone of a window.
+GetPeriodMarkerValue,Marker,3.2.43,88,<window name> <display zone type> [marker number] [Get details],4,4,,Allows the user to get the values of period markers defined in a display zone of a window.
+AddWindowResult,Graphics,3.3.1,90,<layout name> <window name> <Module number> <Process number> <Channel number> [Reference channel number] [Weighting operator] [Time operator] [Display unit] [ArrangeWindow] [Maximize / minimize] [2D_Waterfall] [ExistingResultIsAnError],13,15,graphics/addwindowresult.py,Creates a result window (not 3D waterfall result).
+AddWindowPlayerResult,Graphics,3.3.2,92,<layout name> <Window name> <Project name> <Measurement name> [Nothing] [Track] [ArrangeWindow] [Maximize / minimize],8,4,graphics/addwindowplayerresult.py,Creates a preview window containing signal file track(s).
+AddWindowSavedResult,Graphics,3.3.3,93,<layout name> <window name> <project name> <measurement name> <Module number> <Process number> <Channel number> [Reference channel number] [Weighting operator] [Time operator] [Display unit] [ArrangeWindow] [Maximize / minimize] [Waterfall / No waterfall],14,10,graphics/addwindowsavedresult.py,Creates a new result window / Add a file result to an already existing window.
+AddWindowWtfResult,Graphics,3.3.4,95,<layout name> <window name> <Module number> <Process number> <Channel number> [Reference channel number] [Weighting operator] [Time operator] [Display unit] [ArrangeWindow] [Maximize / minimize],11,13,graphics/addwindowwtfresult.py,Creates a 3D waterfall result window.
+AddWindowZoomedSignal,Graphics,3.3.5,96,<layout name> <Window name> <Track nb> <Begin> <End> [Project name] [Measurement name],7,10,graphics/addwindowzoomedsignal.py,Creates a window displaying a track being recorded or a track from a measurement. This command is available since NVGate V17.00.
+RenameWindow,Graphics,3.3.6,97,<layout name> <window name> <new window name>,3,3,,Allows the user to rename a window.
+SetLayout,Graphics,3.3.7,98,<layout name>,1,1,graphics/setlayout.py,Allows the user to activate a workbook layout for the current project.
+NewLayout,Graphics,3.3.8,99,<layout name> [BecomeCurrent flag],2,2,,Creates a new layout
+RemoveLayout,Graphics,3.3.9,100,<layout name>,1,3,graphics/removelayout.py,Creates a new layout
+RenameLayout,Graphics,3.3.10,101,<current layout name> <new layout name>,2,3,,Rename an existing layout
+GetLayoutList,Graphics,3.3.11,102,,0,0,graphics/getlayoutlist.py,Retrieves the list of the layouts of the current project
+GetCurrentLayout,Graphics,3.3.12,103,,0,1,graphics/getcurrentlayout.py,Retrieves the name of the current Layout.
+MaskAllToolbar,Graphics,3.3.13,104,[DontMaskToolbar] [DontMaskDockableWindow],2,0,,Masks all the toolbars and dockable windows of NVGate.
+SetActiveWindow,Graphics,3.3.14,105,<layout name> <window name>,2,2,,Allows the user to activate a window from a layout for the current project.
+GetActiveWindow,Graphics,3.3.15,106,,0,0,graphics/getactivewindow.py,Return the name of the active result window.
+GetWindowList,Graphics,3.3.16,107,<Module number> <Process number> <Channel number> [Reference channel number],4,5,,Return names of result windows containing a given result.
+GetWindowNameList,Graphics,3.3.17,108,[Layout name],1,2,graphics/getwindownamelist.py,Return names of all windows of the selected layout.
+GetWindowTraces,Graphics,3.3.18,109,<Window name>,1,2,marker/getwindowtraces.py,Return the list of all traces of the selected window.
+GetMeasurementWindowTrace,Graphics,3.3.19,110,<Layout name> <Window name> <trace index>,3,4,graphics/getmeasurementwindowtrace.py,Return project and measurement associated to a specified window trace.
+CloseWindow,Graphics,3.3.20,111,<layout name> <window name>,2,2,graphics/closewindow.py,Close a result window.
+CloseAllWindows,Graphics,3.3.21,112,<layout name>,1,1,graphics/closeallwindows.py,Close all result windows of a layout.
+Autoscale,Graphics,3.3.22,113,<layout name> <window name> [axis],3,3,,Autoscale on Y axis or referenced axis of a result window.
+AutoscaleAllWnd,Graphics,3.3.23,114,<layout name> [axis],2,2,graphics/autoscaleallwnd.py,Autoscale on Y axis or referenced axis of all windows of a layout.
+ChangeSpectralWeighting,Graphics,3.3.24,115,<layout name> <window name> <weighting>,3,4,,Change the spectral weighting of a result in a window.
+ChangeDisplayMode,Graphics,3.3.25,116,<layout name> <window name> <mode>,3,3,graphics/changedisplaymode.py,Change the display mode of a window.
+GetDisplayMode,Graphics,3.3.26,117,<Layout name> <Window name>,2,2,,Get the current display mode of a window.
+GetDisplayModeList,Graphics,3.3.27,118,<Layout name> <Window name>,2,2,,Get the display mode available list of a window.
+ArrangeWindows,Graphics,3.3.28,119,<Tile Style>,1,1,,Execute a tile of the windows of the current layout.
+GroupByMagnitude,Graphics,3.3.29,120,<Layout name> <Window name> <Grouped>,3,2,,Enables to display curves grouped by magnitude when displayed in multi-trace mode.
+OpenCloseInfoTrace,Graphics,3.3.30,121,<window name> <open flag>,2,1,,Open or close the info trace of the selected window.
+MemorizeTrace,Graphics,3.3.31,122,<layout name> <window name>,2,2,graphics/memorizetrace.py,Memorize the active trace of a result window.
+RemoveTrace,Graphics,3.3.32,123,<window name> <trace number>,2,2,graphics/removetrace.py,Remove a trace of a result window in the current layout.
+ClearMemory,Graphics,3.3.33,124,<layout name> <window name>,2,2,,Clear all memorized traces of a result window.
+CascadeView,Graphics,3.3.34,125,<layout name> <window name>,2,2,,Activate cascade view or return to usual view.
+AddResultAutoMemorize,Graphics,3.3.35,126,<layout name> <window name> <Module number> <Process number> <Channel number> [Reference channel number] [Weighting operator] [Time operator] [Display unit] [2D_Waterfall],10,14,,Add an existing result of a window to be AutoMemorize
+RemoveResultAutoMemorize,Graphics,3.3.36,127,<layout name> <window name> <Module number> <Process number> <Channel number> [Reference channel number] [Weighting operator] [Time operator] [Display unit] [2D_Waterfall],10,14,,Remove an existing result of a window in AutoMemorize
+EnableAutoMemorize,Graphics,3.3.37,128,<layout name> <window name> [enable],3,3,,Add (enable) or remove (disable) a window from the list of windows to memorize on a stop event.
+AddAutoOperator,Graphics,3.3.38,129,<Layout name> <Window name> <Module number> <Process number> <Channel number> [Reference channel number] [Weighting operator] [Time operator] [Display unit] [2D_Waterfall] [Average type] [Automatic selection type] [Operator Name] [Frequency domain] [Step],15,14,graphics/addautooperator.py,Add an automatic operator referenced by an existing result in a window.
+GetReferenceList,Graphics,3.3.39,132,<layout name> <window name> [display zone type],3,3,graphics/getreferencelist.py,Get the references list of a window with referenced result.
+SetReference,Graphics,3.3.40,133,<layout name> <window name> <selected reference name> [display zone type],4,4,graphics/setreference.py,Select the reference for the specified window with referenced result.
+GetCurrentReference,Graphics,3.3.41,134,<layout name> <window name> [display zone type],3,5,graphics/getcurrentreference.py,Get the current reference for the specified window with referenced result.
+SetCursorPosition,Graphics,3.3.42,135,<Layout name> <Window name> <Value> [Axis Type] [Cursor number] [Switch Layout] [Cursor Start Stop Player],7,7,,Position the cursor in specified window.
+GetCursorInfo,Graphics,3.3.43,136,<Layout name> <Window name>,2,2,graphics/getcursorinfo.py,Get the cursor information from the specified window.
+CopyData,Graphics,3.3.44,137,<Layout name> <Window name> <Display zone>,3,4,graphics/copydata.py,Copy the data of the active trace from the selected window in the ClipBoard.
+CopyDataAllTraces,Graphics,3.3.45,138,<Layout name> <Window name> <Display zone>,3,4,graphics/copydataalltraces.py,Copy the data of all traces in a specified window in the ClipBoard.
+CopyBitmap,Graphics,3.3.46,139,<Layout name> <Window name>,2,3,,Copy the selected window as a bitmap in the ClipBoard.
+CopyGraph,Graphics,3.3.47,140,<Layout name> <Window name>,2,3,,Copy the selected window as a WMF picture in the ClipBoard.
+SelectWaterfallWindowView,Graphics,3.3.48,141,<Layout name> <Window name> <View>,3,4,,Select the view of a waterfall display
+GetScaleInfo,Graphics,3.3.49,142,<window name> [display zone type] [axis] [bGraduationInfo] [trace number],5,5,,Retrieves information about the selected scale.
+SetScaleType,Graphics,3.3.50,144,<window name> <type> [display zone type] [axis],4,5,,"Set the type (lin, log or dB) of the selected scale."
+SetScaleValues,Graphics,3.3.51,145,<window name> <min> <max> [display zone type] [axis] [lock],6,7,,Set the min and max values of the selected scale.
+SendScaleCommand,Graphics,3.3.52,146,<window name> <axis> <Command> [display zone type],4,5,,Send a command to the scale. These commands are usually sent by the buttons of the toolbars.
+GetAvailableScale,Graphics,3.3.53,147,<window name> [display zone type] [axis],3,4,,Retrieves available scale for the selected axis of a window's area.
+SetScaleTimeType,Graphics,3.3.54,148,<window name> <type> [save as user preference],3,4,graphics/setscaletimetype.py,"Set the type (Absolute, Relative or Auto) of the selected scale."
+IsScaleTimeInRelative,Graphics,3.3.55,149,<window name>,1,2,,Return the time type of the selected window (Absolute or Relative) .
+GetWindowPosition,Graphics,3.3.56,150,<layout name> <window name>,2,2,,Return the position of a window .
+SetWindowPosition,Graphics,3.3.57,151,<layout name> <window name> <left> <right> <top> <bottom>,6,5,,Set the position of a window .
+GetRotationPreferences,Graphics,3.3.58,152,<layout name> <window name>,2,3,,Get the preferences relative to rotation for a window.
+SetRotationPreferences,Graphics,3.3.59,153,<layout name> <window name> <direction> <X orientation> <Y orientation>,5,6,,Set the preferences relative to rotation for a window.
+SetViewmeterLevels,Graphics,3.3.60,154,<layout name> <window name> <low level> <high level> <alarm level> [display low level] [display high level] [display alarm level] [display min] [display memory] [display max],11,6,,"Set the alarm, low and high levels for a viewmeter window and configure the display of many levels (low, high, alarm, min, memory, max)."
+PinWindow,Graphics,3.3.61,155,<layout name> <window name> <status>,3,2,,"Set the ""always on top"" status of a window."
+GetPinStatus,Graphics,3.3.62,156,<layout name> <window name>,2,2,,"Retrieve the ""always on top"" status of a window."
+SetTachometerPosition,Graphics,3.3.63,157,<layout name> <window name> <value>,3,3,,Set the tachometer position preference for a window.
+GetTachometerPosition,Graphics,3.3.64,158,<layout name> <window name>,2,3,,Get the tachometer position preference for a window.
+AddResultTemplateToWindow,Graphics,3.3.65,159,<layout name> <window name> <project name> <result template name>,4,5,,Add a result template to an existing window.
+SetPhasePreference,Graphics,3.3.66,160,<layout name> <window name> <phase unit>,3,3,,Set the preferences relative to rotation for a window.
+SetGraduationDirection,Graphics,3.3.67,161,<layout name> <window name> <direction>,3,4,,Set the graduation direction for a window with such a concept.
+GetGraduationDirection,Graphics,3.3.68,162,<layout name> <window name>,2,3,,Get the graduation direction for a window with such a concept.
+GetActiveTrace,Graphics,3.3.69,163,<layout name> <window name>,2,4,graphics/getactivetrace.py,Get the active trace for a window.
+SetActiveTrace,Graphics,3.3.70,164,<layout name> <window name> <trace index>,3,4,graphics/setactivetrace.py,Set the active trace for a window.
+ChangeWindowPreferences,Graphics,3.3.71,165,<layout name> <window name> <parameters>,3,4,,Change window preferences.
+LoadProject,Project Manager,3.4.1,166,<project name> [project database name] [Save],3,5,project/loadproject.py,"Allows the user to load a project and its last saved workbook. You can also use ""OpenProject""."
+NewProject,Project Manager,3.4.2,167,<Project name> [Access allowed] [Workbook] [Workbook Model],4,4,,Allows the user to create a new current project with a new name.
+OpenProject,Project Manager,3.4.3,168,<project name> <workbook type> <workbook name> [Save],4,5,project/openproject.py,Allows the user to open a project from the project database and load a specific workbook.
+SaveProject,Project Manager,3.4.4,169,[Ask question] [Access allowed],2,2,,Allows the user to save the current project.
+SaveProjectAs,Project Manager,3.4.5,170,<Project name> [Access allowed],2,5,,Allows the user to save the current project with a new name.
+RemoveProject,Project Manager,3.4.6,171,<Project name>,1,5,,Allows the user to remove a project
+ImportProject,Project Manager,3.4.7,172,<Project name> <Directory>,2,3,,Import a project in the projects base.
+GetProjectList,Project Manager,3.4.8,173,,0,1,project/getprojectlist.py,Retrieves the list of project names
+GetCurrentProjectName,Project Manager,3.4.9,174,,0,0,project/getcurrentprojectname.py,Retrieves the name of the current project.
+GetProjectProperties,Project Manager,3.4.10,175,<Project name>,1,1,,Retrieves the properties of the selected project.
+GetProjectUserPropertiesList,Project Manager,3.4.11,176,<Project name>,1,1,project/getprojectuserpropertieslist.py,"Retrieves the user properties of the selected project (since NVGate V15). This commande is necessary to get the identifier of a user property, which is needed by the DeleteProjectUserProperty or ModifyProjectUserProperty commands."
+GetMeasurementUserPropertiesList,Project Manager,3.4.12,177,<Project name> <Measurement name>,2,2,project/getmeasurementuserpropertieslist.py,Retrieves the user properties of the selected measurement (since NVGate V15)
+AddProjectUserProperty,Project Manager,3.4.13,178,<Project name> <Property title> <Property value>,3,2,project/addprojectuserproperty.py,Add a user property (text type) to the selected project (since NVGate V15).
+AddMeasurementUserProperty,Project Manager,3.4.14,179,<Project name> <Measurement name> <Property title> <Property value>,4,3,project/addmeasurementuserproperty.py,Add a user property (text type) to the selected measurement of the project (since NVGate V15).
+ModifyProjectUserProperty,Project Manager,3.4.15,180,<Project name> <Property identifier> <Property value>,3,3,project/modifyprojectuserproperty.py,Modify the value of a user property (text type) into the selected project (since NVGate V15).
+ModifyMeasurementUserProperty,Project Manager,3.4.16,181,<Project name> <Measurement name> <Property identifier> <Property value>,4,4,project/modifymeasurementuserproperty.py,Modify the value of a user property (text type) into the selected measurement (since NVGate V15).
+DeleteProjectUserProperty,Project Manager,3.4.17,182,<Project name> <Property identifier>,2,2,project/deleteprojectuserproperty.py,Remove a user property from the selected project (since NVGate V15).
+DeleteMeasurementUserProperty,Project Manager,3.4.18,183,<Project name> <Measurement name> <Property identifier>,3,3,project/deletemeasurementuserproperty.py,Remove a user property from the selected measurement (since NVGate V15).
+LoadWorkbook,Project Manager,3.4.19,184,<project name> [measurement name] [Save] [Settings] [ControlPanel] [Layouts] [Setup] [PrintSetup],8,3,project/loadworkbook.py,Allows the user to load a project or measurement workbook.
+LoadWorkbookModel,Project Manager,3.4.20,185,<Workbook name> [Path] [Save] [Settings] [ControlPanel] [Layouts] [Setup] [PrintSetup],8,3,project/loadworkbookmodel.py,Allows the user to load a workbook of the workbook library.
+SaveWorkbook,Project Manager,3.4.21,186,,0,2,project/saveworkbook.py,Allows the user to save the current workbook.
+SaveWorkbookModel,Project Manager,3.4.22,187,<Workbook Model name>,1,1,project/saveworkbookmodel.py,Allows the user to save the current workbook as a model.
+DeleteModel,Project Manager,3.4.23,188,<Relative Path> <Workbook Model name>,2,2,project/deletemodel.py,Delete the specified model. This model cannot be this which has just been loaded.
+ReloadCurrentWorkbook,Project Manager,3.4.24,189,,0,1,,Allows the user to reload the saved workbook of the current project.
+ResetWorkbook,Project Manager,3.4.25,190,,0,0,project/resetworkbook.py,Reset everything in NVGate: - Settings of the analyzer are set to their default value - Windows are destroyed - Control panel and Save setup are emptied
+LoadMeasurement,Project Manager,3.4.26,191,<project name> <measurement name> [Save],3,3,,Allows the user to load a measurement.
+UnloadCurrentMeasurement,Project Manager,3.4.27,192,[Confirmation] [Save],2,1,,Allows the user to unload the current measurement.
+RemoveMeasurement,Project Manager,3.4.28,193,[Project name] [Measurement name],2,1,,Allows the user to remove project's measurements.
+GetMeasureList,Project Manager,3.4.29,194,<project name>,1,2,project/getmeasurelist.py,Retrieves the list of measurement names of a given project.
+GetItemPMTree,Project Manager,3.4.30,195,<project> <measurement>,2,1,project/getitempmtree.py,"Returns the items displayed in the project manager, to mirror the same presentation."
+RefreshPM,Project Manager,3.4.31,197,,0,0,project/refreshpm.py,Refresh the Project Manager.
+GetDatabasePath,Project Manager,3.4.32,198,,0,0,project/getdatabasepath.py,Retrieves the path of the project database. This path is defined with the Environment application. The value of the path is stored in the NVGate.ini file.
+SwitchBasePath,Project Manager,3.4.33,199,<SwitchToCommonBase>,1,2,,Switch between common and private base
+RemoveSignalFromAnalyzer,Project Manager,3.4.34,200,<Project name> <Measurement name>,2,5,,This command removes a signal from the disk of the analyzer.
+AppliedMode,General configuration,3.5.1,201,[mode] [action],2,2,,"Allows to change the applied mode (rotating, structural...)"
+AddToControlPanel,General configuration,3.5.2,202,<Module num> <Sub-module num> <Setting num> [TabActive] [IsStatus] [Tab name] [Name],7,1,,Add a setting or a status in the control panel
+ResetControlPanel,General configuration,3.5.3,203,[application] [TabName],2,2,,Removes part of or entire control panel
+WorkspaceTab,General configuration,3.5.4,204,<Tab>,1,1,,Selection of 1 of the 3 tabs of the workspace
+SetUser,General configuration,3.5.5,205,<user last name> [user first name] [password],3,2,,Lets you load a known user (and its preferences).
+SetSilent,General configuration,3.5.6,206,[nSilent],1,1,configuration/setsilent.py,This command avoids getting error or warning message box. Command such as EditCalibration remains active. This mode can be activated when NVGate is launched with the parameter - silentex
+AdministratorMode,General configuration,3.5.7,207,<Mode on/off> [User last name] [User first name] [Password],4,5,,"Lets you change mode between restricted mode and administrator mode, if the current user is a restricted user."
+SetSaveOption,General configuration,3.5.8,208,[SaveMode flag] [Keyword] [AcquisitionSave flag] [ManualSave flag],4,3,configuration/setsaveoption.py,Sets the preferences relating to creation of a new measurement.
+SetNewMeasurementParameters,General configuration,3.5.9,209,[SaveImmediately flag] [SkipConfirmation flag] [Keyword],3,1,,Sets the preferences relating to creation of a new measurement. Warning: Use the SetSaveOption command instead of this command in the NVGate 1.30 and later.
+GetMagnitudeList,General configuration,3.5.10,210,,0,0,configuration/getmagnitudelist.py,Return the list of magnitudes used in NVGate.
+GetUnitList,General configuration,3.5.11,211,<Magnitude name>,1,1,configuration/getunitlist.py,Return the list of units corresponding to the selected magnitude in NVGate.
+SetUnit,General configuration,3.5.12,212,<Magnitude identifier> <Unit identifier>,2,2,,Sets the unit which is used for a given magnitude.
+GetCurrentUnit,General configuration,3.5.13,213,<Magnitude name>,1,2,configuration/getcurrentunit.py,Return the current unit of a magnitude
+GetUnitInfo,General configuration,3.5.14,214,<Magnitude name> <Unit name>,2,2,configuration/getunitinfo.py,Retrieves the information from a given unit.
+GetMagnitudeInfo,General configuration,3.5.15,216,<Magnitude key>,1,2,configuration/getmagnitudeinfo.py,"Retrieves the information about a magnitude (Name, name and label of the current unit) ."
+SetPreferedWtfReference,General configuration,3.5.16,217,<Magnitude identifier>,1,2,,Sets the preference (choosing magnitude) for the reference of waterfall or profiles.
+GetPreferedWtfReference,General configuration,3.5.17,218,,0,0,,Returns the preference (chosen magnitude) for the reference of waterfall or profiles.
+GetPermission,General configuration,3.5.18,219,<Application name>,1,1,,"Indicates whether an external application is authorized to be run, according to the NVGate key (hardware or dongle)."
+ChangeMode,General configuration,3.5.19,220,<Mode>,1,3,,Switch between on-line and post-analysis mode.
+GetAnalyzerModes,General configuration,3.5.20,221,,0,0,configuration/getanalyzermodes.py,Returns the analyzer's modes.
+GetUserList,General configuration,3.5.21,222,,0,0,,Retrieves the list of users.
+GetCurrentUserName,General configuration,3.5.22,223,,0,0,,Retrieves the current user name.
+GetPreferenceGeneral,General configuration,3.5.23,224,,0,0,,"Retrieves the user preferences specified in the ""general"" tab."
+SetPreferenceGeneral,General configuration,3.5.24,225,<Preference Identifier> <Preference value>,2,2,,"Set a user preference specified in the ""general"" tab."
+GetFanInfo,General configuration,3.5.25,226,,0,2,,Retrieves the information about fan and hardware temperature.
+SetFanStatus,General configuration,3.5.26,227,<status>,1,3,,Set the status of the fan (on / off / automatic).
+SetFanSpeed,General configuration,3.5.27,228,<speed>,1,5,,"Set the speed of the fan (The status of the fan must be ""On"")."
+GetMacroList,General configuration,3.5.28,229,,0,0,configuration/getmacrolist.py,Get the list of macros.
+GetCurrentNVGatePath,General configuration,3.5.29,230,,0,0,configuration/getcurrentnvgatepath.py,Get the path folder of current NVGate.exe
+SetBandState,General configuration,3.5.30,231,<action>,1,1,,Open or close the band (at the top of the NVGate main window).
+LogWarning,General configuration,3.5.31,232,<message>,1,1,configuration/logwarning.py,Display a message in log window warning tab.
+GetSettingValues,Settings and States configuration,3.6.5,238,<Module num> <Sub-module num> <Setting num>,3,2,settingsstates/getsettingvalues.py,Returns the possible values of a setting
+GetSettingValue,Settings and States configuration,3.6.6,239,<Module num> <Sub-module num> <Setting num> [Line num] [Column num],5,3,settingsstates/getsettingvalue.py,Returns the setting value
+SetSignalFileSettingValue,Settings and States configuration,3.6.7,241,<Module num> <Sub-module num> <Setting num> [Project name] [Measurement name] [PerformCheck],6,8,,Assigns a value to a signal file type setting.
+SetSettingValue,Settings and States configuration,3.6.8,242,<Module num> <Sub-module num> <Setting num> <Value>,4,8,settingsstates/setsettingvalue.py,"Assigns a value to a simple type (Boolean, string, scalar), enumerated type (enumerated), matrix type setting, action type, actionbis type or multisources type."
+GetSettingInfo,Settings and States configuration,3.6.9,244,<Module num> <Sub-module num> <Setting num>,3,1,,Returns various information about a setting
+GetSubModuleList,Settings and States configuration,3.6.10,245,<Sub-module string>,1,1,settingsstates/getsubmodulelist.py,Returns idn string list of a specified collection.
+GetSignalFileSettingValues,Settings and States configuration,3.6.11,246,<Module num> <Sub-module num> <Setting num>,3,2,,Retrieve the list of available measures that could be affected to a signal file type setting.
+SetVirtualTachoSettingValue,Settings and States configuration,3.6.12,247,<Tach number> <Numerator1> <Denominator1> <Numerator2> <Denominator2>,5,2,,Assigns the 4 values which determine the tach ratio setting.
+SetForceSettings,Settings and States configuration,3.6.13,248,[Window start] [Window stop],2,2,,Modify settings of response setting.
+SetResponseSettings,Settings and States configuration,3.6.14,249,[Window stop] [Flat top start] [Flat top stop] [Decreasing point X-coordinate] [Decreasing point Y-coordinate],5,2,,Modify settings of response setting.
+SetDualExponentialSettings,Settings and States configuration,3.6.15,250,[Window start] [Window stop] [Flat top start] [Flat top stop] [Decreasing point X-coordinate] [Decreasing point Y-coordinate] [Rising point X-coordinate] [Rising point Y-coordinate],8,2,,Modify settings of response setting.
+AddArrayLine,Settings and States configuration,3.6.16,251,<Module num> <Sub-module num> <Setting num> <Line number> <State value> <Order number> [Bandwidth],7,8,,Add a new line to the selected array.
+ModifyArrayLine,Settings and States configuration,3.6.17,252,<Module num> <Sub-module num> <Setting num> <Line number> <State value> <Order number> [Bandwidth],7,6,,Modify a specified line to the selected array.
+RemoveArrayLine,Settings and States configuration,3.6.18,253,<Module num> <Sub-module num> <Setting num> <Line number>,4,5,,Remove a line of the selected array.
+EditSetting,Settings and States configuration,3.6.19,254,<Module num> <Sub-module num> <Setting num> [EditCollection],4,4,,"Edit in a dialog, the specified setting's properties."
+SetToDefault,Settings and States configuration,3.6.20,255,<Module num> <Sub-module num> <Setting num>,3,2,settingsstates/settodefault.py,"Set the specified element to its default value. The element may be a setting, a sub- module or a module. In the case of module or sub-module, all the settings of this element are set to their default value."
+SetToDefaultCollection,Settings and States configuration,3.6.21,256,<Module num> <Sub-module num>,2,1,,"Set the specified element to its default value. The element may be a setting, a sub- module or a module. In the case of module or sub-module, all the settings of this element are set to their default value."
+GetInputInfo,Settings and States configuration,3.6.22,257,<Sub-module num>,1,1,,"Get information about front end inputs (dynamic inputs, DC inputs, Ext Sync...)."
+ConnectInput,Settings and States configuration,3.6.23,258,<Input number> <Module number> <Channel number>,3,6,settingsstates/connectinput.py,"Connects a front-end input (or player track, in post-analysis mode) to an analyzer channel."
+DisconnectInput,Settings and States configuration,3.6.24,259,[Input number],1,4,settingsstates/disconnectinput.py,"Disconnect a front-end input in on-line mode, a player track in post-analysis mode."
+SelectWtfChannels,Settings and States configuration,3.6.25,260,<Process number> <Module number> <Response channel number> [Reference channel number],4,7,settingsstates/selectwtfchannels.py,Connect the selected result to a waterfall channel.
+UnSelectWtfChannels,Settings and States configuration,3.6.26,262,<Process number> <Module number> <Response channel number> [Reference channel number],4,9,settingsstates/unselectwtfchannels.py,Disconnect the selected result from a waterfall channel.
+GetTEDSContentOnInput,Settings and States configuration,3.6.27,263,<input number>,1,4,,Retrieve the data buffer included in the TEDS transducer of the specified input.
+GetTEDSContent,Settings and States configuration,3.6.28,264,<transducer identifier>,1,3,,Retrieve the data buffer included in the specified TEDS transducer.
+GetTransducerList,Settings and States configuration,3.6.29,265,[Transducer type number],1,0,settingsstates/gettransducerlist.py,Retrieves the list of identifiers of transducers of a given type.
+GetTransducerInfo,Settings and States configuration,3.6.30,266,<transducer identifier> [Version],2,1,settingsstates/gettransducerinfo.py,Retrieves the information from a given transducer.
+AddCalibration,Settings and States configuration,3.6.31,268,<Transducer Identifier> <Sensitivity> <Offset> <Calibration type> <Input name> [User name] [Calibrator name],7,4,settingsstates/addcalibration.py,Add new values for calibration.
+SetTransducerAppliedSensitivity,Settings and States configuration,3.6.32,269,<Transducer Identifier> <Factory/Current>,2,1,settingsstates/settransducerappliedsensitivity.py,Specify the applied sensitivity (factory or last calibration).
+GetEvent,Settings and States configuration,3.6.33,270,<Event name>,1,1,,"Informs you whether an event has appeared since its last consultation or since the start of the connection if this event has not yet been consulted. Event state is memorized on the server. An event is reset to ""not appeared"" as from when the user consults its value with GetEvent."
+ResetEvents,Settings and States configuration,3.6.34,271,,0,0,,Initializes all the events to « not appeared ».
+GetStatus,Settings and States configuration,3.6.35,272,,0,0,settingsstates/getstatus.py,Returns the application status.
+GetGeneralAnalyzerState,Settings and States configuration,3.6.36,273,,0,0,settingsstates/getgeneralanalyzerstate.py,Returns the state of NVGate analyzer.
+GetAnalyzerState,Settings and States configuration,3.6.37,274,<Module number> [State name],2,2,settingsstates/getanalyzerstate.py,Returns the state of the selected plug-in.
+ExportTransducerDB,Settings and States configuration,3.6.38,275,<file>,1,0,settingsstates/exporttransducerdb.py,Exports a transducer database file to a text file.
+MergeTransducerDB,Settings and States configuration,3.6.39,276,<file> <operation>,2,1,settingsstates/mergetransducerdb.py,Merges a transducer database file (CDB or TXT) into NVGate's transducer database.
+GetStateValue,Settings and States configuration,3.6.40,277,<Module num> <Sub-module num> <State num>,3,1,,Returns a state value
+WizardBegin,Settings and States configuration,3.6.41,278,,0,1,settingsstates/wizardbegin.py,"Warning : This command is deprecated. Please consider using TransactionBegin instead. This command and the command ""WizardEnd"" can be used to speed up the setting of the analyzer. When connecting inputs to analyzer plug-ins and/or changing the settings, this command avoid sending the new configurati"
+WizardEnd,Settings and States configuration,3.6.42,279,,0,2,settingsstates/wizardend.py,"Warning : This command is deprecated. Please consider using TransactionEnd instead. The command ""WizardBegin"" and this command can be used to speed up the setting of the analyzer. After connecting inputs to analyzer plug-ins and/or changing the settings, this command allows sending the new configura"
+TransactionBegin,Settings and States configuration,3.6.43,280,,0,1,settingsstates/transactionbegin.py,"This command and the command ""TransactionEnd"" can be used to speed up the setting of the analyzer. When connecting inputs to analyzer plug-ins and/or changing the settings, this command avoid sending the new configuration to the hardware after each modification. TransactionBegin must be called befor"
+TransactionEnd,Settings and States configuration,3.6.44,281,,0,2,settingsstates/transactionend.py,"The command ""TransactionBegin"" and this command can be used to speed up the setting of the analyzer. After connecting inputs to analyzer plug-ins and/or changing the settings, this command allows sending the new configuration to the hardware. TransactionBegin must be called before sending the first "
+WaitGUI,Settings and States configuration,3.6.45,282,,0,1,actions/waitgui.py,"The command ""WaitGUI"" waits for the user interface to be available, then returns."
+IsResultWaterfallisable,Signal and result management,3.7.2,284,<Module ID> <Process ID>,2,0,,Return if the selected process can be added to the waterfall module.
+GetSignalProperties,Signal and result management,3.7.3,285,<Project name> <Measurement name>,2,2,signalresult/getsignalproperties.py,Retrieves the properties of the selected signal.
+GetRecordDate,Signal and result management,3.7.4,286,<Record Number>,1,4,,Return the start date of a record of the signal file loaded in player.
+ChangeSignalDate,Signal and result management,3.7.5,287,<Project Name> <Measurement Name> <Year> <Month> <Day> <Hour> <Minute> <Second>,8,6,,Change the start date of a signal in a measurement of a project. The signal must not be loaded in the player.
+Download,Signal and result management,3.7.6,288,<Project name> <Measure name> [Remove file from OR3x],3,5,,Download signal file from OR3x to PC.
+Upload,Signal and result management,3.7.7,289,<Project name> <Measure name> [Remove file from PC],3,5,,Upload signal file from PC to OR3x.
+ImportFile,Signal and result management,3.7.8,290,<ImportType> <File> <Directory> [Project] [Delete],5,6,signalresult/importfile.py,Import or convert signal or result file.
+Export,Signal and result management,3.7.9,291,<ExportType> <Project> <Measurement> <ExportDirectory> [FileName] [Option1],6,5,signalresult/export.py,Export results or signal in standard format.
+AddResultToSetup,Signal and result management,3.7.10,293,<Module number> <Process number> <Channel number> [Reference channel number] [Weighting operator] [Time operator] [Display unit] [IsWaterfall],8,12,signalresult/addresulttosetup.py,Adds a result to the save setup list
+RemoveSetupResult,Signal and result management,3.7.11,294,<Module number> <Process number> <Channel number> [Reference channel number] [Weighting operator] [Time operator] [Display unit] [IsWaterfall],8,12,signalresult/removesetupresult.py,Removes a result from the save setup list
+ClearSetupList,Signal and result management,3.7.12,295,,0,0,,Clears the save setup result list
+SetSetupParameters,Signal and result management,3.7.13,296,[Measurement database name] [Increment type],2,2,signalresult/setsetupparameters.py,Sets the parameters [Measurement database name] and [Increment type] of the save setup.
+SetAutomaticExportSetup,Signal and result management,3.7.14,297,<ExportType> <ExportDirectory>,2,1,,Enable automatic export of the next saved results into the specified format <ExportType>. The exported files will be created in the specified directory.
+SetNoAutomaticExport,Signal and result management,3.7.15,298,,0,0,,Disable automatic export of results.
+AddToResultSelection,Signal and result management,3.7.16,299,<Layout name> <Window name>,2,2,,Add the results of a window in the selection of the save setup.
+RemoveToResultSelection,Signal and result management,3.7.17,300,<Layout name> <Window name>,2,2,,Remove the results of a window in the selection of the save setup.
+SaveResults,Signal and result management,3.7.18,301,[Confirm name] [ReturnMeasurementName],2,6,signalresult/saveresults.py,Save the results that have been selected in the Save Setup in a new measurement
+GetResultList,Signal and result management,3.7.19,302,,0,0,signalresult/getresultlist.py,Allows the user to retrieve the list of available results. This list corresponds to the displayed signals and results.
+GetWTFResultList,Signal and result management,3.7.20,303,,0,0,signalresult/getwtfresultlist.py,Allows the user to retrieve the list of available waterfall results. This list corresponds to the displayed signals and results.
+GetResultCaption,Signal and result management,3.7.21,304,<Module number> <Process number> <Channel number> [Reference channel number],4,6,signalresult/getresultcaption.py,"Allows the user to retrieve the name of an available result, from the description of this result."
+GetSavedResultList,Signal and result management,3.7.22,305,<measurement name> [project name],2,1,signalresult/getsavedresultlist.py,Returns the list of result descriptions saved in a project measurement.
+GetSavedResultCaption,Signal and result management,3.7.23,306,<project name> <measurement name> <Module number> <Process number> <Channel number> [Reference channel number] [Waterfall / No Waterfall],7,5,,Allows the user to retrieve the name of a result saved in a project measurement.
+CreateResultEx,Signal and result management,3.7.24,307,<Module number> <Process number> <Channel number> [Reference channel number] [Waterfall Flag],5,10,signalresult/createresultex.py,Prepare a result to be retrieved with the command GetResultEx.
+GetResultEx,Signal and result management,3.7.25,308,<Module number> <Process number> <Channel number> [Reference channel number] [Waterfall Flag],5,7,signalresult/getresultex.py,"Allows the user to retrieve a result, which has been created thanks to the CreateResultEx command."
+GetSavedResultEx,Signal and result management,3.7.26,310,<project name> <measurement name> <Module number> <Process number> <Channel number> [Reference channel number] [Waterfall Flag],7,6,,Allows the user to retrieve a result saved in a project measurement.
+DeleteResultEx,Signal and result management,3.7.27,311,<Module number> <Process number> <Channel number> [Reference channel number] [Waterfall Flag],5,6,signalresult/deleteresultex.py,Delete a result created with the command CreateResultEx.
+DeleteAllResultEx,Signal and result management,3.7.28,312,,0,0,signalresult/deleteallresultex.py,Delete all the results created with the command CreateResultEx.
+GetResult,Signal and result management,3.7.29,313,<Module number> <Process number> <Channel number> [Reference channel number] [GetGlobalLevel Flag] [GetPondGlobalLevel Flag] [Version number],7,7,signalresult/getresult.py,"Allows the user to retrieve a result, which is displayed in a window. Warning: Use the 3.7.25 - GetResultEx command instead of this command in the NVGate 3.10 and later."
+GetWTFResult,Signal and result management,3.7.30,315,<Module number> <Process number> <Channel number> [Reference channel number] [GetGlobalLevel Flag] [GetPondGlobalLevel Flag] [Version number] [Start Index] [Wanted Size],9,7,signalresult/getwtfresult.py,"Allows the user to retrieve a waterfall result, which is displayed in a window. Warning: Use the 3.7.25 - GetResultEx command instead of this command in the NVGate 3.10 and later."
+GetSavedResult,Signal and result management,3.7.31,317,<project name> <measurement name> <Module number> <Process number> <Channel number> [Reference channel number] [GetGlobalLevel flag] [GetPondGlobalLevel flag] [Version number],9,5,,Allows the user to retrieve a result saved in a project measurement. Attention: Use the 3.7.26 - GetSavedResultEx command instead of this command in the NVGate 3.10 and later.
+CreateTCPResultChannel,Signal and result management,3.7.32,318,<Binary Param>,1,2,signalresult/createtcpresultchannel.py,Allows the user to create a TCP channel to send result into NVGate
+RemoveTCPResultChannel,Signal and result management,3.7.33,319,<TCP channel id>,1,3,signalresult/removetcpresultchannel.py,Allows the user to remove a TCP channel.
+NewDataForTCPResultChannel,Signal and result management,3.7.34,320,<Binary Param>,1,2,signalresult/newdatafortcpresultchannel.py,Allows the user to modify the data of a TCP channel to send result into NVGate. For SCAL block: Value (4 bytes) = Scalar value For XREF block: Data (Size*4 bytes) = Reference values For CVEC block: Data (Size*2*4 bytes) = Complex values (list of pairs) For RVEC block: Data (Size*4 bytes) = Real valu
+AddDataToTCPResultChannel,Signal and result management,3.7.35,321,<Binary Param>,1,2,signalresult/adddatatotcpresultchannel.py,"Allows the user to add new data at the end of a TCP Result Channel (only for profile 2D type, for the other result types this command do the same as NewDataForTCPResultChannel command)."
+SetTCPResultChannel,Signal and result management,3.7.36,322,<Binary Param>,1,2,signalresult/settcpresultchannel.py,"Allows the user to modify the parameters (as name and others) and data of a TCP channel. This action includes the ""NewDataForTCPResultChannel"" action."
+GetTCPResultChannelList,Signal and result management,3.7.37,323,,0,1,signalresult/gettcpresultchannellist.py,"Returns the list of all the TCP result channel, with their description"
+GetTCPResult,Signal and result management,3.7.38,324,<TCP channel ID>,1,2,signalresult/gettcpresult.py,"Allows the user to retrieve a result, which has been created thanks to the CreateTCPResultChannel command"
+ChangeTCPResultName,Signal and result management,3.7.39,325,<TCP channel ID> <ResultName>,2,2,signalresult/changetcpresultname.py,Change result name of a TCP result.
+CreateResultRecordSignal,Signal and result management,3.7.40,326,<Track number>,1,3,signalresult/createresultrecordsignal.py,Prepare the signal from the recorder to be retrieved as a signal result with the command GetResultRecordSignalBlock or GetResultRecordSignalZoom.
+DeleteResultRecordSignal,Signal and result management,3.7.41,327,<Track number>,1,3,signalresult/deleteresultrecordsignal.py,Delete a signal result created with CreateResultRecordSignal.
+DeleteAllResultRecordSignal,Signal and result management,3.7.42,328,,0,2,signalresult/deleteallresultrecordsignal.py,Delete all the signal results created with CreateResultRecordSignal.
+GetResultRecordSignalBlock,Signal and result management,3.7.43,329,<Track number> <Sample number> <Size> <Details> [Record number],5,4,signalresult/getresultrecordsignalblock.py,"Allows the user to retrieve a signal result, which has been created thanks to the CreateResultRecordSignal command."
+GetResultRecordSignalZoom,Signal and result management,3.7.44,330,<Track number> <t0> <t1> <Size> <Details> [Record number],6,4,signalresult/getresultrecordsignalzoom.py,"Allows the user to retrieve a part of zoomed signal, which has been created thanks to the CreateResultRecordSignal command."
+PrintReport,Reports,3.8.1,331,<Template name> [ReturnFileName] [AutoCloseQuery],3,4,reports/printreport.py,Prints a report.
+ReportRefreshPrint,Reports,3.8.1,332,<doRefresh> <doPrint>,2,0,reports/reportrefreshprint.py,Trigger the Refresh and/or Print report command.
+ReportGetInteractiveDocumentList,Reports,3.8.2,333,,0,1,reports/reportgetinteractivedocumentlist.py,"Search and return the list of documents that are selectable for an interactive report. After calling this command, the first document in the list is the current interactive report document."
+ReportSelectInteractiveDocument,Reports,3.8.3,334,<documentIndex>,1,2,reports/reportselectinteractivedocument.py,Select an interactive report document. Beware that you should call ReportGetInteractiveDocumentList before calling this command so that NVGate searches for currently open documents.
+ConnectToTCPClient,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.1,335,<IP address> <Port number>,2,1,,Creates a TCP socket connection between NVGate and the NVDrive® client application. This application must have a TCP server running on the specified port. The call of this command is necessary to use NVGate's notification system. Each NVDrive® client application should only send this command once.
+DisconnectFromTCPClient,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.2,336,,0,1,,Disconnect NVGate from the NVDrive® client application.
+RegisterState,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.3,337,<Module number> <Sub-module number> <State number>,3,2,,"Allows an NVDrive® client application to be notified when the specified state changed. The application must be connected with NVGate thru ""ConnectToTCPClient"" before using this function. Due to refreshing state period inside NVGate, some changes may not be received."
+UnregisterState,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.4,338,<Module number> <Sub-module number> <State number>,3,2,,Unregister the specified state from the notification system.
+RegisterSetting,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.5,339,<Module number> <Sub-module number> <Setting number>,3,2,,"Allows an NVDrive® client application to be notified when the specified setting changed. The application must be connected with NVGate thru ""ConnectToTCPClient"" before using this function."
+UnregisterSetting,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.6,340,<Module number> <Sub-module number> <Setting number>,3,2,,Unregister the specified setting from the notification system.
+RegisterUINotification,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.7,341,<UI Notification> [Mode],2,2,,"Allows an NVDrive® client application to be notified when the specified User Interface Notification changed. The application must be connected with NVGate thru ""ConnectToTCPClient"" before using this function."
+ExecUINotification,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.8,342,,0,1,,"Allows an NVDrive® client application to execute a User Interface Notification if it has not been executed before (i.e., if the [Mode] parameter of the ""RegisterUINotification"" command is set to 1). The application must be connected with NVGate thru ""ConnectToTCPClient"" before using this function."
+UnregisterUINotification,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.9,343,<UINotification number>,1,2,,Unregister the specified User Interface Notification from the notification system.
+RegisterCommand,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.10,344,<Command number>,1,2,,"Allows an NVDrive® client application to be notified when the specified command is sent. The application must be connected with NVGate thru ""ConnectToTCPClient"" before using this function."
+UnregisterCommand,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.11,345,<Command number>,1,2,,Unregister the specified Command from the notification system.
+RegisterNewResult,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.12,346,<Module ID>,1,2,,"Allows an NVDrive® client application to be notified when new results from the specified Module are available for transfer. New results are not computed for transfer until the command UnblockNewResult is sent (see next page). The application must be connected with NVGate thru ""ConnectToTCPClient"" be"
+UnblockNewResult,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.13,347,<Module ID>,1,2,,"Allows an NVDrive® client application unblocks new results transfer from the specified Module. The application must be connected with NVGate thru ""ConnectToTCPClient"" before using this function."
+UnregisterNewResult,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.14,348,<Module Id>,1,2,,Unregister the new results computed from the specified Module from the notification system.
+RegisterNewMeasurement,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.15,349,,0,1,,"Allows an NVDrive® client application to be notified when a new measurement is created in the current project. The application must be connected with NVGate thru ""ConnectToTCPClient"" before using this function."
+UnregisterNewMeasurement,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",3.9.16,350,,0,1,,"Unregister the ""new measurement"" event from the notification system."
+AddCurrentSetup,Recorder setup (option),3.11.1,371,[config name],1,0,,"Used to generate and upload a configuration on the analyzer. Only Front-end, Recorder, and Event are present in this configuration."
+RemoveRecorderSetup,Recorder setup (option),3.11.2,371,<config name>,1,5,,Remove a configuration on the analyzer.
+GetRecorderSetupList,Recorder setup (option),3.11.3,372,,0,2,,Get the list of recorder setup names that are present on the analyzer.
+GetDefaultRecorderSetup,Recorder setup (option),3.11.4,373,,0,0,,Get the name of the configuration present on the analyzer that will be loaded by default.
+SetDefaultRecorderSetup,Recorder setup (option),3.11.5,373,<config name>,1,4,,Affects the name of the default recorder configuration on the analyzer.
+ExportRecorderConfigAsText,Recorder setup (option),3.11.6,374,<config name> <txt path>,2,3,,Export a recorder configuration in a text file.
+ImportRecorderConfigInASB,Recorder setup (option),3.11.7,375,<config name>,1,5,,Import a recorder configuration in the Analyzer setting browser of NVGate. Returns the currently selected EV/HV measurement selected as current measurement for Spatiogram calculation.

@@ -2,8 +2,16 @@
 
 **Goal:** have an app respond when the operator changes a setting/state, presses a
 control, or saves — instead of polling. **Layer:** live control. **Archetype:** 6.
-**Reference:** NVDrive manual §3.9, and the Visual C++ `Notifications` example in
-`OR3x_Developer_Toolkit.pdf`.
+**Reference:** `resources/AI/nvgate_notifications.json` — all 79 notifications, the
+properties each one sends, and the three lookup tables that turn those properties from
+bare numbers into meanings. Full manual mirrored at
+`resources/AI/NVGate_Notification_Mechanism.md` (112 pages). Also NVDrive manual §3.9
+and the Visual C++ `Notifications` example in `OR3x_Developer_Toolkit.pdf`.
+
+> **No Python wrapper exists for this family.** `pynvdrive` has no class for the
+> Register* commands — send them raw, or use `orostk.nvdrive`, which does wrap them.
+> Your process must run a TCP server that NVGate connects back to. See
+> `resources/AI/HOWTO_NVDrive_from_Python.md` §7.
 
 ## How it works
 NVGate can push events to a client that has **registered** for them:

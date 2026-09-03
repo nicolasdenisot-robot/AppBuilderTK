@@ -1,0 +1,34 @@
+OROS NVGate - AI-readable developer files
+
+Package version   : 1.7
+Generated         : 2026-08-25
+Framework version : 17.00.002 113362-061272-240806-1502
+
+Contents:
+  dll_api.json                         928405 bytes
+  DLL_NVDCommand_and_NVDResult_Reference_Manual.md   185640 bytes
+  HOWTO_NVDrive_from_Python.md          17632 bytes
+  nvdrive_commands.csv                  60617 bytes
+  nvdrive_commands.json                869942 bytes
+  nvdrive_errors.csv                   113650 bytes
+  nvdrive_errors.json                  479324 bytes
+  NVDrive_Reference_Manual.md          403332 bytes
+  nvdrive_result_ids.json               20878 bytes
+  nvgate_idn_catalog.csv                58920 bytes
+  nvgate_idn_catalog.json              175922 bytes
+  NVGate_Notification_Mechanism.md     127705 bytes
+  nvgate_notifications.json            114872 bytes
+  OR3x_Developer_Toolkit.md             24802 bytes
+
+All files in this package are in English, with one deliberate exception:
+a few descriptions in dll_api.json reproduce French comments found in the
+official C++ headers. They are kept verbatim rather than silently rewritten.
+
+Sources, all converted automatically from the official Framework:
+  NVDrive_Reference_Manual.pdf                              386 pages
+  NVGate_Notification_Mechanism_Reference_Manual.pdf        112 pages
+  DLL_NVDCommand_and_DLL_NVDResult_Reference_Manual.pdf     159 pages
+  OR3x_Developer_Toolkit.pdf                                 37 pages
+  Visual/include/*.h            14 headers, 6 of which declare functions
+
+Where a converted file and its source disagree, the source prevails.

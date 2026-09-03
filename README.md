@@ -65,8 +65,10 @@ to it from OROS). Add it once:
 
 That's it — the apps and helpers expect the SDK at that path.
 
-> The plain-text versions of the manuals already in `resources/manuals-text/` are
-> part of this repo, so Claude can read them even before you add the SDK.
+> OROS's machine-readable reference kit is already in `resources/AI/` — every NVDrive
+> command, setting, error code and notification as structured data, plus searchable
+> versions of four manuals. It's part of this repo, so Claude can look things up
+> even before you add the SDK, and doesn't have to guess.
 
 ## Building something big — saving progress and going back
 

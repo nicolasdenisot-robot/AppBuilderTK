@@ -48,8 +48,12 @@ These are non-negotiable and come before the build process in section 5.
    `myproject_2026-06-21`) and leave the original untouched. If a destructive
    change seems unavoidable, **stop and ask first.** Likewise, never modify
    `resources/Framework/` (READ-ONLY SDK reference) without explicit confirmation.
-6. **Reuse before you write.** Check `shared/oros_helpers/`, `shared/assets/`,
-   and `docs/recipes/` first; only write new code if nothing fits (section 6).
+6. **Reuse before you write — and look it up before you guess.** Check
+   `shared/oros_helpers/`, `shared/assets/`, and `docs/recipes/` first; only write new
+   code if nothing fits (section 6). And **never invent an NVDrive command name, a
+   Python class, a setting identifier or a result address** — every one of them is
+   listed in `resources/AI/` (§4). Looking it up costs seconds; a guess costs a failed
+   run on a live analyzer.
 7. **When an app works end-to-end, create `README.md` in the app folder.**
    Write it in plain language — no Python, no jargon. The content depends on the
    app: adapt it to who will use it and what they need to know. Do this automatically
@@ -114,12 +118,42 @@ Concretely:
 A place to **build OROS / NVGate applications**, develop them with shared tooling,
 and then **export each one as a self-contained app** the user can ship.
 
-The pieces: **`resources/`** (OROS SDK + manuals — read **`manuals-text/`**, not the
-PDFs), **`docs/`** (distilled guidance + `recipes/` — read these, **not the 386-page
+The pieces: **`resources/`** (OROS SDK + the **`AI/`** reference kit — every command,
+setting, error and notification as structured data; read **that**, not the PDFs),
+**`docs/`** (distilled guidance + `recipes/` — read these, **not the 386-page
 PDF**), **`shared/`** (reusable `oros_helpers/` + brand `assets/logos/`), **`apps/`**
 (one self-contained folder per app; clone `_template/` to start), and
 **`tools/export_app.py`** (bundles an app into a standalone deliverable). Full annotated
 tree — and what each subfolder is for — in `docs/workspace-layout.md`.
+
+### The AI reference kit (`resources/AI/`) — look it up, never guess
+
+OROS ships the manuals as structured data, so nothing about NVDrive has to be
+recalled from memory. **Consult it before writing any NVDrive code** (rule #6):
+
+| Question | File |
+|----------|------|
+| How do I write this in Python at all? | `HOWTO_NVDrive_from_Python.md` — **start here** |
+| What are this command's parameters, and does a Python class exist for it? | `nvdrive_commands.json` |
+| What is the identifier (IDN) for this setting, and what type is it? | `nvgate_idn_catalog.json` |
+| Which module/process numbers address the result I want? | `nvdrive_result_ids.json` |
+| What does this error code mean? | `nvdrive_errors.json` |
+| What does this notification send me? | `nvgate_notifications.json` |
+| What does this DLL function take? (file-access layer) | `dll_api.json` |
+| Anything else in the manuals | the four `*.md` mirrors (694 pages, page markers back to the PDF) |
+
+Three things to hold onto:
+
+- **145 of the 309 commands have a `pynvdrive` class; 164 do not.** When `pynvdrive`
+  is `null` in `nvdrive_commands.json`, there is no Python class — send the command
+  raw (HOWTO §7bis). **Never invent a method name.** Most of the marker family and
+  every notification-registration command falls in this group.
+- **Look things up; do not read these files whole.** Several approach a megabyte —
+  opening one entirely burns the context you need to build the app. Grep for the name,
+  or load the JSON and filter.
+- **The official PDFs in `Framework/` remain the reference.** Where the kit and the
+  PDF disagree, the PDF wins. If a lookup contradicts what the analyzer actually does,
+  trust the analyzer and record it in the app's "Lessons learned" (§6).
 
 ### Two capability layers
 
@@ -290,7 +324,12 @@ Full reference (folder contents, README logic, frontmatter fields, update workfl
 | React when the operator changes/saves something | `docs/recipes/notifications.md` |
 | Rotating-machinery / turbomachinery or sound-quality math | `docs/algorithms.md` |
 | Understand which app type this is | `docs/app-archetypes.md` |
-| Any NVDrive command detail not in the cheatsheet | `resources/manuals-text/NVDrive_Reference_Manual.txt` (searchable text mirror of the PDF) |
+| Write any NVDrive code (connect, run, read a setting, fetch a result) | `resources/AI/HOWTO_NVDrive_from_Python.md` (§4) |
+| Any NVDrive command detail not in the cheatsheet — parameters, errors, whether a Python class exists | `resources/AI/nvdrive_commands.json` (§4) |
+| The identifier (IDN) of a setting | `resources/AI/nvgate_idn_catalog.json` |
+| The module/process numbers that address a result | `resources/AI/nvdrive_result_ids.json` |
+| What an NVDrive error code means | `resources/AI/nvdrive_errors.json` |
+| Anything else in the manuals (694 pages, searchable) | the four `*.md` mirrors in `resources/AI/` |
 
 ---
 

@@ -1,0 +1,6827 @@
+{
+  "schema_version": "1.0",
+  "generated": "2026-08-25",
+  "source": "OROS setting creator sources + OrosIdn.dll + a running NVGate",
+  "nvgate_version": "17.00.002 (as declared by the shipped Framework)",
+  "setting_count": 756,
+  "settings_with_display_name": 554,
+  "setting_name_aliases": {
+    "label": [
+      "name"
+    ],
+    "active": [
+      "state"
+    ],
+    "xpType": [
+      "expanderType"
+    ]
+  },
+  "modules": 20,
+  "note": "Catalogue of NVGate setting identifiers (IDNs), one record per setting. Each record carries both forms of the identifier: `idn_text` (`frontEnd.input3.label`, the modern form) and `idn_legacy` (`1.3.1`, still accepted and used by older programs). `module`, `submodule` and `setting` are the three parts of `idn_text`, split for convenience. `name` is the label NVGate shows for that setting in the Analyzer Setting Browser; it is null where the setting could not be queried because its plug-in was inactive when this file was produced. `type` tells you how to format the value you send. Where NVGate has no text name for a component, that component keeps its number: a submodule becomes a number and an index (`dynamicOperating.674:1.label`), a setting keeps its number (`dynamicOperating.channel1.447`). Those identifiers are just as valid - both forms were checked against a running analyzer - only less readable, which is what `name` is for. Settings that are never exposed to users are not listed at all. **A submodule ending in a number is one member of a numbered family**: the catalogue lists `frontEnd.input1`, and `frontEnd.input3.label` addresses the third input in exactly the same way - only the number changes. How many members exist depends on your hardware and licence, so ask the analyzer rather than assume: `GetSubModuleList frontEnd.input1` returns the full list. The same holds for `fft1.channel1`, `recorder.track1` and every other numbered collection. `setting_name_aliases` in this header lists the few settings that accept a second spelling: `frontEnd.input1.name` works as well as `frontEnd.input1.label`. Older code often uses the alternative. Note that a setting does not always take effect the moment you write it: some apply at once, others only once the analysis is restarted. If a write succeeds and nothing appears to change, restart the analysis before concluding the command failed. To confirm anything here, press Shift + right-click on the setting in NVGate: it shows both forms of its identifier.",
+  "settings": [
+    {
+      "idn_text": "dynamicOperating.channel1.source",
+      "idn_legacy": "23.501.100",
+      "module": "dynamicOperating",
+      "submodule": "channel1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "dynamicOperating.channel1.inputFilter",
+      "idn_legacy": "23.501.46",
+      "module": "dynamicOperating",
+      "submodule": "channel1",
+      "setting": "inputFilter",
+      "name": "Input filter",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "dynamicOperating.channel1.447",
+      "idn_legacy": "23.501.447",
+      "module": "dynamicOperating",
+      "submodule": "channel1",
+      "setting": "447",
+      "name": "Coef.",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "dynamicOperating.channel1.448",
+      "idn_legacy": "23.501.448",
+      "module": "dynamicOperating",
+      "submodule": "channel1",
+      "setting": "448",
+      "name": "Offset",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "dynamicOperating.channel1.449",
+      "idn_legacy": "23.501.449",
+      "module": "dynamicOperating",
+      "submodule": "channel1",
+      "setting": "449",
+      "name": "Power",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "dynamicOperating.674:1.label",
+      "idn_legacy": "23.674.1",
+      "module": "dynamicOperating",
+      "submodule": "674:1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "dynamicOperating.674:1.450",
+      "idn_legacy": "23.674.450",
+      "module": "dynamicOperating",
+      "submodule": "674:1",
+      "setting": "450",
+      "name": "Operator",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "dynamicOperating.674:1.451",
+      "idn_legacy": "23.674.451",
+      "module": "dynamicOperating",
+      "submodule": "674:1",
+      "setting": "451",
+      "name": "Coef.",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "dynamicOperating.674:1.452",
+      "idn_legacy": "23.674.452",
+      "module": "dynamicOperating",
+      "submodule": "674:1",
+      "setting": "452",
+      "name": "Offset",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "dynamicOperating.674:1.453",
+      "idn_legacy": "23.674.453",
+      "module": "dynamicOperating",
+      "submodule": "674:1",
+      "setting": "453",
+      "name": "Power",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "dynamicOperating.425:1.label",
+      "idn_legacy": "23.425.1",
+      "module": "dynamicOperating",
+      "submodule": "425:1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "dynamicOperating.425:1.101",
+      "idn_legacy": "23.425.101",
+      "module": "dynamicOperating",
+      "submodule": "425:1",
+      "setting": "101",
+      "name": "Source 1",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "dynamicOperating.425:1.474",
+      "idn_legacy": "23.425.474",
+      "module": "dynamicOperating",
+      "submodule": "425:1",
+      "setting": "474",
+      "name": "Pulse / rev 1",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "dynamicOperating.425:1.476",
+      "idn_legacy": "23.425.476",
+      "module": "dynamicOperating",
+      "submodule": "425:1",
+      "setting": "476",
+      "name": "Missing teeth 1",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "dynamicOperating.425:1.102",
+      "idn_legacy": "23.425.102",
+      "module": "dynamicOperating",
+      "submodule": "425:1",
+      "setting": "102",
+      "name": "Source 2",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "dynamicOperating.425:1.475",
+      "idn_legacy": "23.425.475",
+      "module": "dynamicOperating",
+      "submodule": "425:1",
+      "setting": "475",
+      "name": "Pulse / rev 2",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "dynamicOperating.425:1.477",
+      "idn_legacy": "23.425.477",
+      "module": "dynamicOperating",
+      "submodule": "425:1",
+      "setting": "477",
+      "name": "Missing teeth 2",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "dynamicOperating.425:1.498",
+      "idn_legacy": "23.425.498",
+      "module": "dynamicOperating",
+      "submodule": "425:1",
+      "setting": "498",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "dynamicOperating.425:1.associatedTach",
+      "idn_legacy": "23.425.32",
+      "module": "dynamicOperating",
+      "submodule": "425:1",
+      "setting": "associatedTach",
+      "name": "Associated tach",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "dynamicOperating.425:1.physicalQty",
+      "idn_legacy": "23.425.204",
+      "module": "dynamicOperating",
+      "submodule": "425:1",
+      "setting": "physicalQty",
+      "name": "Physical qty.",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "dynamicOperating.425:1.451",
+      "idn_legacy": "23.425.451",
+      "module": "dynamicOperating",
+      "submodule": "425:1",
+      "setting": "451",
+      "name": "Coef.",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "dynamicOperating.425:1.452",
+      "idn_legacy": "23.425.452",
+      "module": "dynamicOperating",
+      "submodule": "425:1",
+      "setting": "452",
+      "name": "Offset",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.691:1.label",
+      "idn_legacy": "5.691.1",
+      "module": "event",
+      "submodule": "691:1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "event.691:1.source",
+      "idn_legacy": "5.691.100",
+      "module": "event",
+      "submodule": "691:1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.691:1.inputFilter",
+      "idn_legacy": "5.691.46",
+      "module": "event",
+      "submodule": "691:1",
+      "setting": "inputFilter",
+      "name": "Input filter",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.691:1.threshold",
+      "idn_legacy": "5.691.7",
+      "module": "event",
+      "submodule": "691:1",
+      "setting": "threshold",
+      "name": "Threshold",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.691:1.slope",
+      "idn_legacy": "5.691.27",
+      "module": "event",
+      "submodule": "691:1",
+      "setting": "slope",
+      "name": "Slope",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.691:1.holdoff",
+      "idn_legacy": "5.691.8",
+      "module": "event",
+      "submodule": "691:1",
+      "setting": "holdoff",
+      "name": "Hold off",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.691:1.hysteresis",
+      "idn_legacy": "5.691.9",
+      "module": "event",
+      "submodule": "691:1",
+      "setting": "hysteresis",
+      "name": "Hysteresis",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.rpmEvent1.label",
+      "idn_legacy": "5.114.1",
+      "module": "event",
+      "submodule": "rpmEvent1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "event.rpmEvent1.source",
+      "idn_legacy": "5.114.100",
+      "module": "event",
+      "submodule": "rpmEvent1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.rpmEvent1.6",
+      "idn_legacy": "5.114.6",
+      "module": "event",
+      "submodule": "rpmEvent1",
+      "setting": "6",
+      "name": "Threshold velocity",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.rpmEvent1.slope",
+      "idn_legacy": "5.114.27",
+      "module": "event",
+      "submodule": "rpmEvent1",
+      "setting": "slope",
+      "name": "Slope",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.rpmEvent1.hysteresis",
+      "idn_legacy": "5.114.9",
+      "module": "event",
+      "submodule": "rpmEvent1",
+      "setting": "hysteresis",
+      "name": "Hysteresis",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.rpmEvent1.108",
+      "idn_legacy": "5.114.108",
+      "module": "event",
+      "submodule": "rpmEvent1",
+      "setting": "108",
+      "name": "Interpolation",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "event.rpmEvent1.tachAvrgNb",
+      "idn_legacy": "5.114.242",
+      "module": "event",
+      "submodule": "rpmEvent1",
+      "setting": "tachAvrgNb",
+      "name": "Average size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.deltaRpmEvent1.label",
+      "idn_legacy": "5.125.1",
+      "module": "event",
+      "submodule": "deltaRpmEvent1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "event.deltaRpmEvent1.source",
+      "idn_legacy": "5.125.100",
+      "module": "event",
+      "submodule": "deltaRpmEvent1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.deltaRpmEvent1.105",
+      "idn_legacy": "5.125.105",
+      "module": "event",
+      "submodule": "deltaRpmEvent1",
+      "setting": "105",
+      "name": "Lower velocity",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.deltaRpmEvent1.106",
+      "idn_legacy": "5.125.106",
+      "module": "event",
+      "submodule": "deltaRpmEvent1",
+      "setting": "106",
+      "name": "Upper velocity",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.deltaRpmEvent1.107",
+      "idn_legacy": "5.125.107",
+      "module": "event",
+      "submodule": "deltaRpmEvent1",
+      "setting": "107",
+      "name": "Delta velocity",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.deltaRpmEvent1.109",
+      "idn_legacy": "5.125.109",
+      "module": "event",
+      "submodule": "deltaRpmEvent1",
+      "setting": "109",
+      "name": "Event number",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.deltaRpmEvent1.31",
+      "idn_legacy": "5.125.31",
+      "module": "event",
+      "submodule": "deltaRpmEvent1",
+      "setting": "31",
+      "name": "Slope",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.deltaRpmEvent1.108",
+      "idn_legacy": "5.125.108",
+      "module": "event",
+      "submodule": "deltaRpmEvent1",
+      "setting": "108",
+      "name": "Interpolation",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "event.deltaRpmEvent1.tachAvrgNb",
+      "idn_legacy": "5.125.242",
+      "module": "event",
+      "submodule": "deltaRpmEvent1",
+      "setting": "tachAvrgNb",
+      "name": "Average size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.triggerEvent1.label",
+      "idn_legacy": "5.99.1",
+      "module": "event",
+      "submodule": "triggerEvent1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "event.levelStateEvent1.label",
+      "idn_legacy": "5.120.1",
+      "module": "event",
+      "submodule": "levelStateEvent1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "event.levelStateEvent1.source",
+      "idn_legacy": "5.120.100",
+      "module": "event",
+      "submodule": "levelStateEvent1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.levelStateEvent1.227",
+      "idn_legacy": "5.120.227",
+      "module": "event",
+      "submodule": "levelStateEvent1",
+      "setting": "227",
+      "name": "Type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.levelStateEvent1.threshold",
+      "idn_legacy": "5.120.7",
+      "module": "event",
+      "submodule": "levelStateEvent1",
+      "setting": "threshold",
+      "name": "Threshold",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.levelStateEvent1.348",
+      "idn_legacy": "5.120.348",
+      "module": "event",
+      "submodule": "levelStateEvent1",
+      "setting": "348",
+      "name": "Status",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.levelStateEvent1.tachAvrgNb",
+      "idn_legacy": "5.120.242",
+      "module": "event",
+      "submodule": "levelStateEvent1",
+      "setting": "tachAvrgNb",
+      "name": "Average size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.deltaLevelEvent1.label",
+      "idn_legacy": "5.107.1",
+      "module": "event",
+      "submodule": "deltaLevelEvent1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "event.deltaLevelEvent1.source",
+      "idn_legacy": "5.107.100",
+      "module": "event",
+      "submodule": "deltaLevelEvent1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.deltaLevelEvent1.227",
+      "idn_legacy": "5.107.227",
+      "module": "event",
+      "submodule": "deltaLevelEvent1",
+      "setting": "227",
+      "name": "Type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.deltaLevelEvent1.28",
+      "idn_legacy": "5.107.28",
+      "module": "event",
+      "submodule": "deltaLevelEvent1",
+      "setting": "28",
+      "name": "Lower value",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.deltaLevelEvent1.29",
+      "idn_legacy": "5.107.29",
+      "module": "event",
+      "submodule": "deltaLevelEvent1",
+      "setting": "29",
+      "name": "Upper value",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.deltaLevelEvent1.30",
+      "idn_legacy": "5.107.30",
+      "module": "event",
+      "submodule": "deltaLevelEvent1",
+      "setting": "30",
+      "name": "Delta value",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.deltaLevelEvent1.109",
+      "idn_legacy": "5.107.109",
+      "module": "event",
+      "submodule": "deltaLevelEvent1",
+      "setting": "109",
+      "name": "Event number",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.deltaLevelEvent1.31",
+      "idn_legacy": "5.107.31",
+      "module": "event",
+      "submodule": "deltaLevelEvent1",
+      "setting": "31",
+      "name": "Slope",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.deltaLevelEvent1.tachAvrgNb",
+      "idn_legacy": "5.107.242",
+      "module": "event",
+      "submodule": "deltaLevelEvent1",
+      "setting": "tachAvrgNb",
+      "name": "Average size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.deltaTimeEvent1.label",
+      "idn_legacy": "5.158.1",
+      "module": "event",
+      "submodule": "deltaTimeEvent1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "event.deltaTimeEvent1.40",
+      "idn_legacy": "5.158.40",
+      "module": "event",
+      "submodule": "deltaTimeEvent1",
+      "setting": "40",
+      "name": "Period",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "event.combinedEvent1.label",
+      "idn_legacy": "5.181.1",
+      "module": "event",
+      "submodule": "combinedEvent1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "event.combinedEvent1.42",
+      "idn_legacy": "5.181.42",
+      "module": "event",
+      "submodule": "combinedEvent1",
+      "setting": "42",
+      "name": "Event A",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.combinedEvent1.44",
+      "idn_legacy": "5.181.44",
+      "module": "event",
+      "submodule": "combinedEvent1",
+      "setting": "44",
+      "name": "Operator",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.combinedEvent1.43",
+      "idn_legacy": "5.181.43",
+      "module": "event",
+      "submodule": "combinedEvent1",
+      "setting": "43",
+      "name": "Event B",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "event.644:1.label",
+      "idn_legacy": "5.644.1",
+      "module": "event",
+      "submodule": "644:1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "event.644:1.415",
+      "idn_legacy": "5.644.415",
+      "module": "event",
+      "submodule": "644:1",
+      "setting": "415",
+      "name": "User event 1",
+      "type": "action"
+    },
+    {
+      "idn_text": "fft1.channel1.source",
+      "idn_legacy": "10.501.100",
+      "module": "fft1",
+      "submodule": "channel1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.channel1.source",
+      "idn_legacy": "11.501.100",
+      "module": "fft2",
+      "submodule": "channel1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.channel1.source",
+      "idn_legacy": "18.501.100",
+      "module": "fft3",
+      "submodule": "channel1",
+      "setting": "source",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.channel1.source",
+      "idn_legacy": "19.501.100",
+      "module": "fft4",
+      "submodule": "channel1",
+      "setting": "source",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.channel1.inputFilter",
+      "idn_legacy": "10.501.46",
+      "module": "fft1",
+      "submodule": "channel1",
+      "setting": "inputFilter",
+      "name": "Input filter",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.channel1.inputFilter",
+      "idn_legacy": "11.501.46",
+      "module": "fft2",
+      "submodule": "channel1",
+      "setting": "inputFilter",
+      "name": "Input filter",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.channel1.inputFilter",
+      "idn_legacy": "18.501.46",
+      "module": "fft3",
+      "submodule": "channel1",
+      "setting": "inputFilter",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.channel1.inputFilter",
+      "idn_legacy": "19.501.46",
+      "module": "fft4",
+      "submodule": "channel1",
+      "setting": "inputFilter",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.channel1.ordersTab",
+      "idn_legacy": "10.501.215",
+      "module": "fft1",
+      "submodule": "channel1",
+      "setting": "ordersTab",
+      "name": "Tracked Order",
+      "type": "table"
+    },
+    {
+      "idn_text": "fft2.channel1.ordersTab",
+      "idn_legacy": "11.501.215",
+      "module": "fft2",
+      "submodule": "channel1",
+      "setting": "ordersTab",
+      "name": "Tracked Order",
+      "type": "table"
+    },
+    {
+      "idn_text": "fft3.channel1.ordersTab",
+      "idn_legacy": "18.501.215",
+      "module": "fft3",
+      "submodule": "channel1",
+      "setting": "ordersTab",
+      "name": null,
+      "type": "table"
+    },
+    {
+      "idn_text": "fft4.channel1.ordersTab",
+      "idn_legacy": "19.501.215",
+      "module": "fft4",
+      "submodule": "channel1",
+      "setting": "ordersTab",
+      "name": null,
+      "type": "table"
+    },
+    {
+      "idn_text": "fft1.channel1.weightWin",
+      "idn_legacy": "10.501.82",
+      "module": "fft1",
+      "submodule": "channel1",
+      "setting": "weightWin",
+      "name": "Weighting window",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.channel1.weightWin",
+      "idn_legacy": "11.501.82",
+      "module": "fft2",
+      "submodule": "channel1",
+      "setting": "weightWin",
+      "name": "Weighting window",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.channel1.weightWin",
+      "idn_legacy": "18.501.82",
+      "module": "fft3",
+      "submodule": "channel1",
+      "setting": "weightWin",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.channel1.weightWin",
+      "idn_legacy": "19.501.82",
+      "module": "fft4",
+      "submodule": "channel1",
+      "setting": "weightWin",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.fftTrigger.start",
+      "idn_legacy": "10.89.19",
+      "module": "fft1",
+      "submodule": "fftTrigger",
+      "setting": "start",
+      "name": "Start",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.fftTrigger.start",
+      "idn_legacy": "11.89.19",
+      "module": "fft2",
+      "submodule": "fftTrigger",
+      "setting": "start",
+      "name": "Start",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.fftTrigger.start",
+      "idn_legacy": "18.89.19",
+      "module": "fft3",
+      "submodule": "fftTrigger",
+      "setting": "start",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.fftTrigger.start",
+      "idn_legacy": "19.89.19",
+      "module": "fft4",
+      "submodule": "fftTrigger",
+      "setting": "start",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.fftTrigger.stop",
+      "idn_legacy": "10.89.21",
+      "module": "fft1",
+      "submodule": "fftTrigger",
+      "setting": "stop",
+      "name": "Stop",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.fftTrigger.stop",
+      "idn_legacy": "11.89.21",
+      "module": "fft2",
+      "submodule": "fftTrigger",
+      "setting": "stop",
+      "name": "Stop",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.fftTrigger.stop",
+      "idn_legacy": "18.89.21",
+      "module": "fft3",
+      "submodule": "fftTrigger",
+      "setting": "stop",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.fftTrigger.stop",
+      "idn_legacy": "19.89.21",
+      "module": "fft4",
+      "submodule": "fftTrigger",
+      "setting": "stop",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.fftTrigger.trigger",
+      "idn_legacy": "10.89.83",
+      "module": "fft1",
+      "submodule": "fftTrigger",
+      "setting": "trigger",
+      "name": "Trigger",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.fftTrigger.trigger",
+      "idn_legacy": "11.89.83",
+      "module": "fft2",
+      "submodule": "fftTrigger",
+      "setting": "trigger",
+      "name": "Trigger",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.fftTrigger.trigger",
+      "idn_legacy": "18.89.83",
+      "module": "fft3",
+      "submodule": "fftTrigger",
+      "setting": "trigger",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.fftTrigger.trigger",
+      "idn_legacy": "19.89.83",
+      "module": "fft4",
+      "submodule": "fftTrigger",
+      "setting": "trigger",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.fftTrigger.restartCond",
+      "idn_legacy": "10.89.211",
+      "module": "fft1",
+      "submodule": "fftTrigger",
+      "setting": "restartCond",
+      "name": "Repeat",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.fftTrigger.restartCond",
+      "idn_legacy": "11.89.211",
+      "module": "fft2",
+      "submodule": "fftTrigger",
+      "setting": "restartCond",
+      "name": "Repeat",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.fftTrigger.restartCond",
+      "idn_legacy": "18.89.211",
+      "module": "fft3",
+      "submodule": "fftTrigger",
+      "setting": "restartCond",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.fftTrigger.restartCond",
+      "idn_legacy": "19.89.211",
+      "module": "fft4",
+      "submodule": "fftTrigger",
+      "setting": "restartCond",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.fftTrigger.startDelay",
+      "idn_legacy": "10.89.20",
+      "module": "fft1",
+      "submodule": "fftTrigger",
+      "setting": "startDelay",
+      "name": "Start delay",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.fftTrigger.startDelay",
+      "idn_legacy": "11.89.20",
+      "module": "fft2",
+      "submodule": "fftTrigger",
+      "setting": "startDelay",
+      "name": "Start delay",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.fftTrigger.startDelay",
+      "idn_legacy": "18.89.20",
+      "module": "fft3",
+      "submodule": "fftTrigger",
+      "setting": "startDelay",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.fftTrigger.startDelay",
+      "idn_legacy": "19.89.20",
+      "module": "fft4",
+      "submodule": "fftTrigger",
+      "setting": "startDelay",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.fftTrigger.408",
+      "idn_legacy": "10.89.408",
+      "module": "fft1",
+      "submodule": "fftTrigger",
+      "setting": "408",
+      "name": "Start delay",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.fftTrigger.408",
+      "idn_legacy": "11.89.408",
+      "module": "fft2",
+      "submodule": "fftTrigger",
+      "setting": "408",
+      "name": "Start delay",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.fftTrigger.408",
+      "idn_legacy": "18.89.408",
+      "module": "fft3",
+      "submodule": "fftTrigger",
+      "setting": "408",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.fftTrigger.408",
+      "idn_legacy": "19.89.408",
+      "module": "fft4",
+      "submodule": "fftTrigger",
+      "setting": "408",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.fftTrigger.acceptMmode",
+      "idn_legacy": "10.89.212",
+      "module": "fft1",
+      "submodule": "fftTrigger",
+      "setting": "acceptMmode",
+      "name": "Accept mode",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.fftTrigger.acceptMmode",
+      "idn_legacy": "11.89.212",
+      "module": "fft2",
+      "submodule": "fftTrigger",
+      "setting": "acceptMmode",
+      "name": "Accept mode",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.fftTrigger.acceptMmode",
+      "idn_legacy": "18.89.212",
+      "module": "fft3",
+      "submodule": "fftTrigger",
+      "setting": "acceptMmode",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.fftTrigger.acceptMmode",
+      "idn_legacy": "19.89.212",
+      "module": "fft4",
+      "submodule": "fftTrigger",
+      "setting": "acceptMmode",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.fftTrigger.363",
+      "idn_legacy": "10.89.363",
+      "module": "fft1",
+      "submodule": "fftTrigger",
+      "setting": "363",
+      "name": "Trigger Frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.fftTrigger.363",
+      "idn_legacy": "11.89.363",
+      "module": "fft2",
+      "submodule": "fftTrigger",
+      "setting": "363",
+      "name": "Trigger Frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.fftTrigger.363",
+      "idn_legacy": "18.89.363",
+      "module": "fft3",
+      "submodule": "fftTrigger",
+      "setting": "363",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.fftTrigger.363",
+      "idn_legacy": "19.89.363",
+      "module": "fft4",
+      "submodule": "fftTrigger",
+      "setting": "363",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.average.domain",
+      "idn_legacy": "10.361.84",
+      "module": "fft1",
+      "submodule": "average",
+      "setting": "domain",
+      "name": "Domain",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.average.domain",
+      "idn_legacy": "11.361.84",
+      "module": "fft2",
+      "submodule": "average",
+      "setting": "domain",
+      "name": "Domain",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.average.domain",
+      "idn_legacy": "18.361.84",
+      "module": "fft3",
+      "submodule": "average",
+      "setting": "domain",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.average.domain",
+      "idn_legacy": "19.361.84",
+      "module": "fft4",
+      "submodule": "average",
+      "setting": "domain",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.average.size",
+      "idn_legacy": "10.361.81",
+      "module": "fft1",
+      "submodule": "average",
+      "setting": "size",
+      "name": "Size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.average.size",
+      "idn_legacy": "11.361.81",
+      "module": "fft2",
+      "submodule": "average",
+      "setting": "size",
+      "name": "Size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.average.size",
+      "idn_legacy": "18.361.81",
+      "module": "fft3",
+      "submodule": "average",
+      "setting": "size",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.average.size",
+      "idn_legacy": "19.361.81",
+      "module": "fft4",
+      "submodule": "average",
+      "setting": "size",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.average.duration",
+      "idn_legacy": "10.361.295",
+      "module": "fft1",
+      "submodule": "average",
+      "setting": "duration",
+      "name": "Duration",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.average.duration",
+      "idn_legacy": "11.361.295",
+      "module": "fft2",
+      "submodule": "average",
+      "setting": "duration",
+      "name": "Duration",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.average.duration",
+      "idn_legacy": "18.361.295",
+      "module": "fft3",
+      "submodule": "average",
+      "setting": "duration",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.average.duration",
+      "idn_legacy": "19.361.295",
+      "module": "fft4",
+      "submodule": "average",
+      "setting": "duration",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.average.type",
+      "idn_legacy": "10.361.80",
+      "module": "fft1",
+      "submodule": "average",
+      "setting": "type",
+      "name": "Type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.average.type",
+      "idn_legacy": "11.361.80",
+      "module": "fft2",
+      "submodule": "average",
+      "setting": "type",
+      "name": "Type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.average.type",
+      "idn_legacy": "18.361.80",
+      "module": "fft3",
+      "submodule": "average",
+      "setting": "type",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.average.type",
+      "idn_legacy": "19.361.80",
+      "module": "fft4",
+      "submodule": "average",
+      "setting": "type",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.average.98",
+      "idn_legacy": "10.361.98",
+      "module": "fft1",
+      "submodule": "average",
+      "setting": "98",
+      "name": "Reference channel",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.average.98",
+      "idn_legacy": "11.361.98",
+      "module": "fft2",
+      "submodule": "average",
+      "setting": "98",
+      "name": "Reference channel",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.average.98",
+      "idn_legacy": "18.361.98",
+      "module": "fft3",
+      "submodule": "average",
+      "setting": "98",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.average.98",
+      "idn_legacy": "19.361.98",
+      "module": "fft4",
+      "submodule": "average",
+      "setting": "98",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.fftAnl.autoBandWidth",
+      "idn_legacy": "10.363.871",
+      "module": "fft1",
+      "submodule": "fftAnl",
+      "setting": "autoBandWidth",
+      "name": "Autobandwidth",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft2.fftAnl.autoBandWidth",
+      "idn_legacy": "11.363.871",
+      "module": "fft2",
+      "submodule": "fftAnl",
+      "setting": "autoBandWidth",
+      "name": "Autobandwidth",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft3.fftAnl.autoBandWidth",
+      "idn_legacy": "18.363.871",
+      "module": "fft3",
+      "submodule": "fftAnl",
+      "setting": "autoBandWidth",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft4.fftAnl.autoBandWidth",
+      "idn_legacy": "19.363.871",
+      "module": "fft4",
+      "submodule": "fftAnl",
+      "setting": "autoBandWidth",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft1.fftAnl.freqRange",
+      "idn_legacy": "10.363.79",
+      "module": "fft1",
+      "submodule": "fftAnl",
+      "setting": "freqRange",
+      "name": "Range",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.fftAnl.freqRange",
+      "idn_legacy": "11.363.79",
+      "module": "fft2",
+      "submodule": "fftAnl",
+      "setting": "freqRange",
+      "name": "Range",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.fftAnl.freqRange",
+      "idn_legacy": "18.363.79",
+      "module": "fft3",
+      "submodule": "fftAnl",
+      "setting": "freqRange",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.fftAnl.freqRange",
+      "idn_legacy": "19.363.79",
+      "module": "fft4",
+      "submodule": "fftAnl",
+      "setting": "freqRange",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.fftAnl.365",
+      "idn_legacy": "10.363.365",
+      "module": "fft1",
+      "submodule": "fftAnl",
+      "setting": "365",
+      "name": "Resolution",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.fftAnl.365",
+      "idn_legacy": "11.363.365",
+      "module": "fft2",
+      "submodule": "fftAnl",
+      "setting": "365",
+      "name": "Resolution",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.fftAnl.365",
+      "idn_legacy": "18.363.365",
+      "module": "fft3",
+      "submodule": "fftAnl",
+      "setting": "365",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.fftAnl.365",
+      "idn_legacy": "19.363.365",
+      "module": "fft4",
+      "submodule": "fftAnl",
+      "setting": "365",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.fftAnl.overlap",
+      "idn_legacy": "10.363.88",
+      "module": "fft1",
+      "submodule": "fftAnl",
+      "setting": "overlap",
+      "name": "Overlap",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.fftAnl.overlap",
+      "idn_legacy": "11.363.88",
+      "module": "fft2",
+      "submodule": "fftAnl",
+      "setting": "overlap",
+      "name": "Overlap",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.fftAnl.overlap",
+      "idn_legacy": "18.363.88",
+      "module": "fft3",
+      "submodule": "fftAnl",
+      "setting": "overlap",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.fftAnl.overlap",
+      "idn_legacy": "19.363.88",
+      "module": "fft4",
+      "submodule": "fftAnl",
+      "setting": "overlap",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.fftAnl.numberOfLines",
+      "idn_legacy": "10.363.89",
+      "module": "fft1",
+      "submodule": "fftAnl",
+      "setting": "numberOfLines",
+      "name": "Number of lines",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.fftAnl.numberOfLines",
+      "idn_legacy": "11.363.89",
+      "module": "fft2",
+      "submodule": "fftAnl",
+      "setting": "numberOfLines",
+      "name": "Number of lines",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.fftAnl.numberOfLines",
+      "idn_legacy": "18.363.89",
+      "module": "fft3",
+      "submodule": "fftAnl",
+      "setting": "numberOfLines",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.fftAnl.numberOfLines",
+      "idn_legacy": "19.363.89",
+      "module": "fft4",
+      "submodule": "fftAnl",
+      "setting": "numberOfLines",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.fftAnl.reverseCrossFct",
+      "idn_legacy": "10.363.493",
+      "module": "fft1",
+      "submodule": "fftAnl",
+      "setting": "reverseCrossFct",
+      "name": "Reverse Cross fct",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft2.fftAnl.reverseCrossFct",
+      "idn_legacy": "11.363.493",
+      "module": "fft2",
+      "submodule": "fftAnl",
+      "setting": "reverseCrossFct",
+      "name": "Reverse Cross fct",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft3.fftAnl.reverseCrossFct",
+      "idn_legacy": "18.363.493",
+      "module": "fft3",
+      "submodule": "fftAnl",
+      "setting": "reverseCrossFct",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft4.fftAnl.reverseCrossFct",
+      "idn_legacy": "19.363.493",
+      "module": "fft4",
+      "submodule": "fftAnl",
+      "setting": "reverseCrossFct",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft1.fftAnl.crossSpec",
+      "idn_legacy": "10.363.205",
+      "module": "fft1",
+      "submodule": "fftAnl",
+      "setting": "crossSpec",
+      "name": "Cross spectrum",
+      "type": "matrix"
+    },
+    {
+      "idn_text": "fft2.fftAnl.crossSpec",
+      "idn_legacy": "11.363.205",
+      "module": "fft2",
+      "submodule": "fftAnl",
+      "setting": "crossSpec",
+      "name": "Cross spectrum",
+      "type": "matrix"
+    },
+    {
+      "idn_text": "fft3.fftAnl.crossSpec",
+      "idn_legacy": "18.363.205",
+      "module": "fft3",
+      "submodule": "fftAnl",
+      "setting": "crossSpec",
+      "name": null,
+      "type": "matrix"
+    },
+    {
+      "idn_text": "fft4.fftAnl.crossSpec",
+      "idn_legacy": "19.363.205",
+      "module": "fft4",
+      "submodule": "fftAnl",
+      "setting": "crossSpec",
+      "name": null,
+      "type": "matrix"
+    },
+    {
+      "idn_text": "fft1.fftZoom.zoomFactor",
+      "idn_legacy": "10.362.85",
+      "module": "fft1",
+      "submodule": "fftZoom",
+      "setting": "zoomFactor",
+      "name": "Factor",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.fftZoom.zoomFactor",
+      "idn_legacy": "11.362.85",
+      "module": "fft2",
+      "submodule": "fftZoom",
+      "setting": "zoomFactor",
+      "name": "Factor",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.fftZoom.zoomFactor",
+      "idn_legacy": "18.362.85",
+      "module": "fft3",
+      "submodule": "fftZoom",
+      "setting": "zoomFactor",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.fftZoom.zoomFactor",
+      "idn_legacy": "19.362.85",
+      "module": "fft4",
+      "submodule": "fftZoom",
+      "setting": "zoomFactor",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.fftZoom.zoomCenter",
+      "idn_legacy": "10.362.86",
+      "module": "fft1",
+      "submodule": "fftZoom",
+      "setting": "zoomCenter",
+      "name": "Center",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.fftZoom.zoomCenter",
+      "idn_legacy": "11.362.86",
+      "module": "fft2",
+      "submodule": "fftZoom",
+      "setting": "zoomCenter",
+      "name": "Center",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.fftZoom.zoomCenter",
+      "idn_legacy": "18.362.86",
+      "module": "fft3",
+      "submodule": "fftZoom",
+      "setting": "zoomCenter",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.fftZoom.zoomCenter",
+      "idn_legacy": "19.362.86",
+      "module": "fft4",
+      "submodule": "fftZoom",
+      "setting": "zoomCenter",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.fftZoom.345",
+      "idn_legacy": "10.362.345",
+      "module": "fft1",
+      "submodule": "fftZoom",
+      "setting": "345",
+      "name": "Min freq",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.fftZoom.345",
+      "idn_legacy": "11.362.345",
+      "module": "fft2",
+      "submodule": "fftZoom",
+      "setting": "345",
+      "name": "Min freq",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.fftZoom.345",
+      "idn_legacy": "18.362.345",
+      "module": "fft3",
+      "submodule": "fftZoom",
+      "setting": "345",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.fftZoom.345",
+      "idn_legacy": "19.362.345",
+      "module": "fft4",
+      "submodule": "fftZoom",
+      "setting": "345",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.fftZoom.346",
+      "idn_legacy": "10.362.346",
+      "module": "fft1",
+      "submodule": "fftZoom",
+      "setting": "346",
+      "name": "Max freq",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.fftZoom.346",
+      "idn_legacy": "11.362.346",
+      "module": "fft2",
+      "submodule": "fftZoom",
+      "setting": "346",
+      "name": "Max freq",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.fftZoom.346",
+      "idn_legacy": "18.362.346",
+      "module": "fft3",
+      "submodule": "fftZoom",
+      "setting": "346",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.fftZoom.346",
+      "idn_legacy": "19.362.346",
+      "module": "fft4",
+      "submodule": "fftZoom",
+      "setting": "346",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.fftZoom.393",
+      "idn_legacy": "10.362.393",
+      "module": "fft1",
+      "submodule": "fftZoom",
+      "setting": "393",
+      "name": "Zoom res",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.fftZoom.393",
+      "idn_legacy": "11.362.393",
+      "module": "fft2",
+      "submodule": "fftZoom",
+      "setting": "393",
+      "name": "Zoom res",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.fftZoom.393",
+      "idn_legacy": "18.362.393",
+      "module": "fft3",
+      "submodule": "fftZoom",
+      "setting": "393",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.fftZoom.393",
+      "idn_legacy": "19.362.393",
+      "module": "fft4",
+      "submodule": "fftZoom",
+      "setting": "393",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.fftZoom.391",
+      "idn_legacy": "10.362.391",
+      "module": "fft1",
+      "submodule": "fftZoom",
+      "setting": "391",
+      "name": "Envelope",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft2.fftZoom.391",
+      "idn_legacy": "11.362.391",
+      "module": "fft2",
+      "submodule": "fftZoom",
+      "setting": "391",
+      "name": "Envelope",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft3.fftZoom.391",
+      "idn_legacy": "18.362.391",
+      "module": "fft3",
+      "submodule": "fftZoom",
+      "setting": "391",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft4.fftZoom.391",
+      "idn_legacy": "19.362.391",
+      "module": "fft4",
+      "submodule": "fftZoom",
+      "setting": "391",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft1.fftZoom.392",
+      "idn_legacy": "10.362.392",
+      "module": "fft1",
+      "submodule": "fftZoom",
+      "setting": "392",
+      "name": "Env range",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.fftZoom.392",
+      "idn_legacy": "11.362.392",
+      "module": "fft2",
+      "submodule": "fftZoom",
+      "setting": "392",
+      "name": "Env range",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.fftZoom.392",
+      "idn_legacy": "18.362.392",
+      "module": "fft3",
+      "submodule": "fftZoom",
+      "setting": "392",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.fftZoom.392",
+      "idn_legacy": "19.362.392",
+      "module": "fft4",
+      "submodule": "fftZoom",
+      "setting": "392",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.754:1.correlation",
+      "idn_legacy": "10.754.412",
+      "module": "fft1",
+      "submodule": "754:1",
+      "setting": "correlation",
+      "name": "Correlation",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft2.754:1.correlation",
+      "idn_legacy": "11.754.412",
+      "module": "fft2",
+      "submodule": "754:1",
+      "setting": "correlation",
+      "name": "Correlation",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft3.754:1.correlation",
+      "idn_legacy": "18.754.412",
+      "module": "fft3",
+      "submodule": "754:1",
+      "setting": "correlation",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft4.754:1.correlation",
+      "idn_legacy": "19.754.412",
+      "module": "fft4",
+      "submodule": "754:1",
+      "setting": "correlation",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft1.754:1.corrWeightWin",
+      "idn_legacy": "10.754.413",
+      "module": "fft1",
+      "submodule": "754:1",
+      "setting": "corrWeightWin",
+      "name": "Weighting window",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.754:1.corrWeightWin",
+      "idn_legacy": "11.754.413",
+      "module": "fft2",
+      "submodule": "754:1",
+      "setting": "corrWeightWin",
+      "name": "Weighting window",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.754:1.corrWeightWin",
+      "idn_legacy": "18.754.413",
+      "module": "fft3",
+      "submodule": "754:1",
+      "setting": "corrWeightWin",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.754:1.corrWeightWin",
+      "idn_legacy": "19.754.413",
+      "module": "fft4",
+      "submodule": "754:1",
+      "setting": "corrWeightWin",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.orderAnl.associatedTach",
+      "idn_legacy": "10.620.32",
+      "module": "fft1",
+      "submodule": "orderAnl",
+      "setting": "associatedTach",
+      "name": "Associated tach",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.orderAnl.associatedTach",
+      "idn_legacy": "11.620.32",
+      "module": "fft2",
+      "submodule": "orderAnl",
+      "setting": "associatedTach",
+      "name": "Associated tach",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.orderAnl.associatedTach",
+      "idn_legacy": "18.620.32",
+      "module": "fft3",
+      "submodule": "orderAnl",
+      "setting": "associatedTach",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.orderAnl.associatedTach",
+      "idn_legacy": "19.620.32",
+      "module": "fft4",
+      "submodule": "orderAnl",
+      "setting": "associatedTach",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.orderAnl.centerOnPk",
+      "idn_legacy": "10.620.245",
+      "module": "fft1",
+      "submodule": "orderAnl",
+      "setting": "centerOnPk",
+      "name": "Center on peak",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft2.orderAnl.centerOnPk",
+      "idn_legacy": "11.620.245",
+      "module": "fft2",
+      "submodule": "orderAnl",
+      "setting": "centerOnPk",
+      "name": "Center on peak",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft3.orderAnl.centerOnPk",
+      "idn_legacy": "18.620.245",
+      "module": "fft3",
+      "submodule": "orderAnl",
+      "setting": "centerOnPk",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft4.orderAnl.centerOnPk",
+      "idn_legacy": "19.620.245",
+      "module": "fft4",
+      "submodule": "orderAnl",
+      "setting": "centerOnPk",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft1.orderAnl.refreshMode",
+      "idn_legacy": "10.620.269",
+      "module": "fft1",
+      "submodule": "orderAnl",
+      "setting": "refreshMode",
+      "name": "Refresh mode",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.orderAnl.refreshMode",
+      "idn_legacy": "11.620.269",
+      "module": "fft2",
+      "submodule": "orderAnl",
+      "setting": "refreshMode",
+      "name": "Refresh mode",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.orderAnl.refreshMode",
+      "idn_legacy": "18.620.269",
+      "module": "fft3",
+      "submodule": "orderAnl",
+      "setting": "refreshMode",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.orderAnl.refreshMode",
+      "idn_legacy": "19.620.269",
+      "module": "fft4",
+      "submodule": "orderAnl",
+      "setting": "refreshMode",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.orderAnl.profileDuration",
+      "idn_legacy": "10.620.248",
+      "module": "fft1",
+      "submodule": "orderAnl",
+      "setting": "profileDuration",
+      "name": "Duration profile",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.orderAnl.profileDuration",
+      "idn_legacy": "11.620.248",
+      "module": "fft2",
+      "submodule": "orderAnl",
+      "setting": "profileDuration",
+      "name": "Duration profile",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.orderAnl.profileDuration",
+      "idn_legacy": "18.620.248",
+      "module": "fft3",
+      "submodule": "orderAnl",
+      "setting": "profileDuration",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.orderAnl.profileDuration",
+      "idn_legacy": "19.620.248",
+      "module": "fft4",
+      "submodule": "orderAnl",
+      "setting": "profileDuration",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.orderAnl.timeResolution",
+      "idn_legacy": "10.620.249",
+      "module": "fft1",
+      "submodule": "orderAnl",
+      "setting": "timeResolution",
+      "name": "Time resolution",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.orderAnl.timeResolution",
+      "idn_legacy": "11.620.249",
+      "module": "fft2",
+      "submodule": "orderAnl",
+      "setting": "timeResolution",
+      "name": "Time resolution",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.orderAnl.timeResolution",
+      "idn_legacy": "18.620.249",
+      "module": "fft3",
+      "submodule": "orderAnl",
+      "setting": "timeResolution",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.orderAnl.timeResolution",
+      "idn_legacy": "19.620.249",
+      "module": "fft4",
+      "submodule": "orderAnl",
+      "setting": "timeResolution",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.orderAnl.270",
+      "idn_legacy": "10.620.270",
+      "module": "fft1",
+      "submodule": "orderAnl",
+      "setting": "270",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.orderAnl.270",
+      "idn_legacy": "11.620.270",
+      "module": "fft2",
+      "submodule": "orderAnl",
+      "setting": "270",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.orderAnl.270",
+      "idn_legacy": "18.620.270",
+      "module": "fft3",
+      "submodule": "orderAnl",
+      "setting": "270",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.orderAnl.270",
+      "idn_legacy": "19.620.270",
+      "module": "fft4",
+      "submodule": "orderAnl",
+      "setting": "270",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.orderAnl.276",
+      "idn_legacy": "10.620.276",
+      "module": "fft1",
+      "submodule": "orderAnl",
+      "setting": "276",
+      "name": "Min speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.orderAnl.276",
+      "idn_legacy": "11.620.276",
+      "module": "fft2",
+      "submodule": "orderAnl",
+      "setting": "276",
+      "name": "Min speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.orderAnl.276",
+      "idn_legacy": "18.620.276",
+      "module": "fft3",
+      "submodule": "orderAnl",
+      "setting": "276",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.orderAnl.276",
+      "idn_legacy": "19.620.276",
+      "module": "fft4",
+      "submodule": "orderAnl",
+      "setting": "276",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.orderAnl.271",
+      "idn_legacy": "10.620.271",
+      "module": "fft1",
+      "submodule": "orderAnl",
+      "setting": "271",
+      "name": "Speed resolution",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.orderAnl.271",
+      "idn_legacy": "11.620.271",
+      "module": "fft2",
+      "submodule": "orderAnl",
+      "setting": "271",
+      "name": "Speed resolution",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.orderAnl.271",
+      "idn_legacy": "18.620.271",
+      "module": "fft3",
+      "submodule": "orderAnl",
+      "setting": "271",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.orderAnl.271",
+      "idn_legacy": "19.620.271",
+      "module": "fft4",
+      "submodule": "orderAnl",
+      "setting": "271",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.orderAnl.phaseChRef",
+      "idn_legacy": "10.620.210",
+      "module": "fft1",
+      "submodule": "orderAnl",
+      "setting": "phaseChRef",
+      "name": "Orders Phase ref",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft2.orderAnl.phaseChRef",
+      "idn_legacy": "11.620.210",
+      "module": "fft2",
+      "submodule": "orderAnl",
+      "setting": "phaseChRef",
+      "name": "Orders Phase ref",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft3.orderAnl.phaseChRef",
+      "idn_legacy": "18.620.210",
+      "module": "fft3",
+      "submodule": "orderAnl",
+      "setting": "phaseChRef",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft4.orderAnl.phaseChRef",
+      "idn_legacy": "19.620.210",
+      "module": "fft4",
+      "submodule": "orderAnl",
+      "setting": "phaseChRef",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "fft1.overallAnl.bandPowerTrk",
+      "idn_legacy": "10.340.246",
+      "module": "fft1",
+      "submodule": "overallAnl",
+      "setting": "bandPowerTrk",
+      "name": "Band power tracking",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft2.overallAnl.bandPowerTrk",
+      "idn_legacy": "11.340.246",
+      "module": "fft2",
+      "submodule": "overallAnl",
+      "setting": "bandPowerTrk",
+      "name": "Band power tracking",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft3.overallAnl.bandPowerTrk",
+      "idn_legacy": "18.340.246",
+      "module": "fft3",
+      "submodule": "overallAnl",
+      "setting": "bandPowerTrk",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft4.overallAnl.bandPowerTrk",
+      "idn_legacy": "19.340.246",
+      "module": "fft4",
+      "submodule": "overallAnl",
+      "setting": "bandPowerTrk",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "fft1.overallAnl.lowerFreq",
+      "idn_legacy": "10.340.52",
+      "module": "fft1",
+      "submodule": "overallAnl",
+      "setting": "lowerFreq",
+      "name": "Lower frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.overallAnl.lowerFreq",
+      "idn_legacy": "11.340.52",
+      "module": "fft2",
+      "submodule": "overallAnl",
+      "setting": "lowerFreq",
+      "name": "Lower frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.overallAnl.lowerFreq",
+      "idn_legacy": "18.340.52",
+      "module": "fft3",
+      "submodule": "overallAnl",
+      "setting": "lowerFreq",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.overallAnl.lowerFreq",
+      "idn_legacy": "19.340.52",
+      "module": "fft4",
+      "submodule": "overallAnl",
+      "setting": "lowerFreq",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft1.overallAnl.upperFreq",
+      "idn_legacy": "10.340.53",
+      "module": "fft1",
+      "submodule": "overallAnl",
+      "setting": "upperFreq",
+      "name": "Upper frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft2.overallAnl.upperFreq",
+      "idn_legacy": "11.340.53",
+      "module": "fft2",
+      "submodule": "overallAnl",
+      "setting": "upperFreq",
+      "name": "Upper frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft3.overallAnl.upperFreq",
+      "idn_legacy": "18.340.53",
+      "module": "fft3",
+      "submodule": "overallAnl",
+      "setting": "upperFreq",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "fft4.overallAnl.upperFreq",
+      "idn_legacy": "19.340.53",
+      "module": "fft4",
+      "submodule": "overallAnl",
+      "setting": "upperFreq",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "filter.hlpFilter1.label",
+      "idn_legacy": "8.273.1",
+      "module": "filter",
+      "submodule": "hlpFilter1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "filter.hlpFilter1.62",
+      "idn_legacy": "8.273.62",
+      "module": "filter",
+      "submodule": "hlpFilter1",
+      "setting": "62",
+      "name": "Type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "filter.hlpFilter1.designType",
+      "idn_legacy": "8.273.881",
+      "module": "filter",
+      "submodule": "hlpFilter1",
+      "setting": "designType",
+      "name": "Design Type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "filter.hlpFilter1.63",
+      "idn_legacy": "8.273.63",
+      "module": "filter",
+      "submodule": "hlpFilter1",
+      "setting": "63",
+      "name": "Filter order",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "filter.hlpFilter1.146",
+      "idn_legacy": "8.273.146",
+      "module": "filter",
+      "submodule": "hlpFilter1",
+      "setting": "146",
+      "name": "Applied to",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "filter.hlpFilter1.64",
+      "idn_legacy": "8.273.64",
+      "module": "filter",
+      "submodule": "hlpFilter1",
+      "setting": "64",
+      "name": "Cut-off frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "filter.hlpFilter1.207",
+      "idn_legacy": "8.273.207",
+      "module": "filter",
+      "submodule": "hlpFilter1",
+      "setting": "207",
+      "name": "By-pass",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "filter.bandFilter1.label",
+      "idn_legacy": "8.295.1",
+      "module": "filter",
+      "submodule": "bandFilter1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "filter.bandFilter1.62",
+      "idn_legacy": "8.295.62",
+      "module": "filter",
+      "submodule": "bandFilter1",
+      "setting": "62",
+      "name": "Type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "filter.bandFilter1.designType",
+      "idn_legacy": "8.295.881",
+      "module": "filter",
+      "submodule": "bandFilter1",
+      "setting": "designType",
+      "name": "Design Type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "filter.bandFilter1.63",
+      "idn_legacy": "8.295.63",
+      "module": "filter",
+      "submodule": "bandFilter1",
+      "setting": "63",
+      "name": "Filter order",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "filter.bandFilter1.146",
+      "idn_legacy": "8.295.146",
+      "module": "filter",
+      "submodule": "bandFilter1",
+      "setting": "146",
+      "name": "Applied to",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "filter.bandFilter1.65",
+      "idn_legacy": "8.295.65",
+      "module": "filter",
+      "submodule": "bandFilter1",
+      "setting": "65",
+      "name": "Low cut-off frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "filter.bandFilter1.66",
+      "idn_legacy": "8.295.66",
+      "module": "filter",
+      "submodule": "bandFilter1",
+      "setting": "66",
+      "name": "High cut-off frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "filter.bandFilter1.207",
+      "idn_legacy": "8.295.207",
+      "module": "filter",
+      "submodule": "bandFilter1",
+      "setting": "207",
+      "name": "By-pass",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "filter.integratorFilter1.label",
+      "idn_legacy": "8.284.1",
+      "module": "filter",
+      "submodule": "integratorFilter1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "filter.integratorFilter1.62",
+      "idn_legacy": "8.284.62",
+      "module": "filter",
+      "submodule": "integratorFilter1",
+      "setting": "62",
+      "name": "Type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "filter.integratorFilter1.146",
+      "idn_legacy": "8.284.146",
+      "module": "filter",
+      "submodule": "integratorFilter1",
+      "setting": "146",
+      "name": "Applied to",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "filter.integratorFilter1.61",
+      "idn_legacy": "8.284.61",
+      "module": "filter",
+      "submodule": "integratorFilter1",
+      "setting": "61",
+      "name": "HP cut-off frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "filter.integratorFilter1.207",
+      "idn_legacy": "8.284.207",
+      "module": "filter",
+      "submodule": "integratorFilter1",
+      "setting": "207",
+      "name": "By-pass",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "filter.diffFilter1.label",
+      "idn_legacy": "8.95.1",
+      "module": "filter",
+      "submodule": "diffFilter1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "filter.diffFilter1.146",
+      "idn_legacy": "8.95.146",
+      "module": "filter",
+      "submodule": "diffFilter1",
+      "setting": "146",
+      "name": "Applied to",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "filter.diffFilter1.207",
+      "idn_legacy": "8.95.207",
+      "module": "filter",
+      "submodule": "diffFilter1",
+      "setting": "207",
+      "name": "By-pass",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "filter.diffFilter1.avDuration",
+      "idn_legacy": "8.95.26",
+      "module": "filter",
+      "submodule": "diffFilter1",
+      "setting": "avDuration",
+      "name": "Avg. duration",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.inputSettings.inputSampling",
+      "idn_legacy": "1.338.189",
+      "module": "frontEnd",
+      "submodule": "inputSettings",
+      "setting": "inputSampling",
+      "name": "High input sampling",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.inputSettings.868",
+      "idn_legacy": "1.338.868",
+      "module": "frontEnd",
+      "submodule": "inputSettings",
+      "setting": "868",
+      "name": "Low input sampling",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.inputSettings.dcSampling",
+      "idn_legacy": "1.338.264",
+      "module": "frontEnd",
+      "submodule": "inputSettings",
+      "setting": "dcSampling",
+      "name": "DC input sampling",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.inputSettings.272",
+      "idn_legacy": "1.338.272",
+      "module": "frontEnd",
+      "submodule": "inputSettings",
+      "setting": "272",
+      "name": "DC profile duration",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.inputSettings.258",
+      "idn_legacy": "1.338.258",
+      "module": "frontEnd",
+      "submodule": "inputSettings",
+      "setting": "258",
+      "name": "Inputs 1-8 200 V",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "frontEnd.inputSettings.259",
+      "idn_legacy": "1.338.259",
+      "module": "frontEnd",
+      "submodule": "inputSettings",
+      "setting": "259",
+      "name": "Inputs 9-16 200 V",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "frontEnd.inputSettings.260",
+      "idn_legacy": "1.338.260",
+      "module": "frontEnd",
+      "submodule": "inputSettings",
+      "setting": "260",
+      "name": "Inputs 17-24 200 V",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "frontEnd.inputSettings.261",
+      "idn_legacy": "1.338.261",
+      "module": "frontEnd",
+      "submodule": "inputSettings",
+      "setting": "261",
+      "name": "Inputs 25-32 200 V",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "frontEnd.inputSettings.icpCurrent",
+      "idn_legacy": "1.338.428",
+      "module": "frontEnd",
+      "submodule": "inputSettings",
+      "setting": "icpCurrent",
+      "name": "ICP current",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.inputSettings.353",
+      "idn_legacy": "1.338.353",
+      "module": "frontEnd",
+      "submodule": "inputSettings",
+      "setting": "353",
+      "name": "Check ICP",
+      "type": "action"
+    },
+    {
+      "idn_text": "frontEnd.inputSettings.414",
+      "idn_legacy": "1.338.414",
+      "module": "frontEnd",
+      "submodule": "inputSettings",
+      "setting": "414",
+      "name": "Detect TEDS",
+      "type": "action"
+    },
+    {
+      "idn_text": "frontEnd.inputSettings.77",
+      "idn_legacy": "1.338.77",
+      "module": "frontEnd",
+      "submodule": "inputSettings",
+      "setting": "77",
+      "name": "Bridge Auto-zero",
+      "type": "action"
+    },
+    {
+      "idn_text": "frontEnd.canSettings.baudRate",
+      "idn_legacy": "1.77.35",
+      "module": "frontEnd",
+      "submodule": "canSettings",
+      "setting": "baudRate",
+      "name": "Baud rate",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.remoteCtrl.134",
+      "idn_legacy": "1.891.134",
+      "module": "frontEnd",
+      "submodule": "remoteCtrl",
+      "setting": "134",
+      "name": "Node name",
+      "type": "string"
+    },
+    {
+      "idn_text": "frontEnd.remoteCtrl.142",
+      "idn_legacy": "1.891.142",
+      "module": "frontEnd",
+      "submodule": "remoteCtrl",
+      "setting": "142",
+      "name": "Selected tach",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.remoteCtrl.143",
+      "idn_legacy": "1.891.143",
+      "module": "frontEnd",
+      "submodule": "remoteCtrl",
+      "setting": "143",
+      "name": "User field 1",
+      "type": "string"
+    },
+    {
+      "idn_text": "frontEnd.remoteCtrl.144",
+      "idn_legacy": "1.891.144",
+      "module": "frontEnd",
+      "submodule": "remoteCtrl",
+      "setting": "144",
+      "name": "User field 2",
+      "type": "string"
+    },
+    {
+      "idn_text": "frontEnd.autoRanging.335",
+      "idn_legacy": "1.499.335",
+      "module": "frontEnd",
+      "submodule": "autoRanging",
+      "setting": "335",
+      "name": "Auto-range",
+      "type": "action"
+    },
+    {
+      "idn_text": "frontEnd.autoRanging.aRangePkDetection",
+      "idn_legacy": "1.499.337",
+      "module": "frontEnd",
+      "submodule": "autoRanging",
+      "setting": "aRangePkDetection",
+      "name": "Peak detection on",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.autoRanging.aRangeMargin",
+      "idn_legacy": "1.499.331",
+      "module": "frontEnd",
+      "submodule": "autoRanging",
+      "setting": "aRangeMargin",
+      "name": "Margin",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.autoRanging.aRangeDuration",
+      "idn_legacy": "1.499.332",
+      "module": "frontEnd",
+      "submodule": "autoRanging",
+      "setting": "aRangeDuration",
+      "name": "Duration",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.autoRanging.333",
+      "idn_legacy": "1.499.333",
+      "module": "frontEnd",
+      "submodule": "autoRanging",
+      "setting": "333",
+      "name": "Peak slope",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.autoRanging.334",
+      "idn_legacy": "1.499.334",
+      "module": "frontEnd",
+      "submodule": "autoRanging",
+      "setting": "334",
+      "name": "Number of peaks",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.autoRanging.112",
+      "idn_legacy": "1.499.112",
+      "module": "frontEnd",
+      "submodule": "autoRanging",
+      "setting": "112",
+      "name": "Edge detection",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.outputSettings.310",
+      "idn_legacy": "1.631.310",
+      "module": "frontEnd",
+      "submodule": "outputSettings",
+      "setting": "310",
+      "name": "Transition time",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.outputSettings.313",
+      "idn_legacy": "1.631.313",
+      "module": "frontEnd",
+      "submodule": "outputSettings",
+      "setting": "313",
+      "name": "Mute all",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "frontEnd.outputSettings.311",
+      "idn_legacy": "1.631.311",
+      "module": "frontEnd",
+      "submodule": "outputSettings",
+      "setting": "311",
+      "name": "Emergency Stop",
+      "type": "action"
+    },
+    {
+      "idn_text": "frontEnd.input1.label",
+      "idn_legacy": "1.1.1",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "frontEnd.input1.inputType",
+      "idn_legacy": "1.1.427",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "inputType",
+      "name": "Input type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.input1.component",
+      "idn_legacy": "1.1.297",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "component",
+      "name": "Component",
+      "type": "string"
+    },
+    {
+      "idn_text": "frontEnd.input1.node",
+      "idn_legacy": "1.1.255",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "node",
+      "name": "Node",
+      "type": "string"
+    },
+    {
+      "idn_text": "frontEnd.input1.direction",
+      "idn_legacy": "1.1.256",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "direction",
+      "name": "Direction",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.input1.nodeType",
+      "idn_legacy": "1.1.257",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "nodeType",
+      "name": "Type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.input1.physicalQty",
+      "idn_legacy": "1.1.204",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "physicalQty",
+      "name": "Physical qty.",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.input1.sensitivity",
+      "idn_legacy": "1.1.202",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "sensitivity",
+      "name": "Sensitivity",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.input1.rangePk",
+      "idn_legacy": "1.1.3",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "rangePk",
+      "name": "Range pk",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.input1.863",
+      "idn_legacy": "1.1.863",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "863",
+      "name": "Redress",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.input1.extGain",
+      "idn_legacy": "1.1.358",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "extGain",
+      "name": "External Gain",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.input1.polarity",
+      "idn_legacy": "1.1.111",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "polarity",
+      "name": "Polarity",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.input1.offset",
+      "idn_legacy": "1.1.203",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "offset",
+      "name": "Offset comp.",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.input1.coupling",
+      "idn_legacy": "1.1.4",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "coupling",
+      "name": "Coupling",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.input1.869",
+      "idn_legacy": "1.1.869",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "869",
+      "name": "Sampling",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.input1.gaugeType",
+      "idn_legacy": "1.1.429",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "gaugeType",
+      "name": "Gauge type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.input1.bridgeResistance",
+      "idn_legacy": "1.1.430",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "bridgeResistance",
+      "name": "Bridge resistance",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.input1.bridgeGain",
+      "idn_legacy": "1.1.434",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "bridgeGain",
+      "name": "Bridge gain",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.input1.bridgeOffset",
+      "idn_legacy": "1.1.432",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "bridgeOffset",
+      "name": "Bridge offset comp",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.input1.inputFilter",
+      "idn_legacy": "1.1.46",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "inputFilter",
+      "name": "Input filter",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.input1.enableAutorange",
+      "idn_legacy": "1.1.336",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "enableAutorange",
+      "name": "Enable auto-range",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "frontEnd.input1.enableBridgeAutoZero",
+      "idn_legacy": "1.1.78",
+      "module": "frontEnd",
+      "submodule": "input1",
+      "setting": "enableBridgeAutoZero",
+      "name": "Enable bridge auto-zero",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.label",
+      "idn_legacy": "1.33.1",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.dcInputType",
+      "idn_legacy": "1.33.462",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "dcInputType",
+      "name": "Input type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.physicalQty",
+      "idn_legacy": "1.33.204",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "physicalQty",
+      "name": "Physical qty.",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.sensitivity",
+      "idn_legacy": "1.33.202",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "sensitivity",
+      "name": "Sensitivity",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.rangePk",
+      "idn_legacy": "1.33.3",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "rangePk",
+      "name": "Range pk",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.extGain",
+      "idn_legacy": "1.33.358",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "extGain",
+      "name": "External Gain",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.polarity",
+      "idn_legacy": "1.33.111",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "polarity",
+      "name": "Polarity",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.offset",
+      "idn_legacy": "1.33.203",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "offset",
+      "name": "Offset comp.",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.enableAutorange",
+      "idn_legacy": "1.33.336",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "enableAutorange",
+      "name": "Enable auto-range",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.probe",
+      "idn_legacy": "1.33.463",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "probe",
+      "name": "Probe",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.479",
+      "idn_legacy": "1.33.479",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "479",
+      "name": "Range",
+      "type": "string"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.thermoCurrent",
+      "idn_legacy": "1.33.478",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "thermoCurrent",
+      "name": "Current",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.182",
+      "idn_legacy": "1.33.182",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "182",
+      "name": "Tach",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.410",
+      "idn_legacy": "1.33.410",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "410",
+      "name": "Rotation",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.tachAvrgNb",
+      "idn_legacy": "1.33.242",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "tachAvrgNb",
+      "name": "Average size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.270",
+      "idn_legacy": "1.33.270",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "270",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.dcInput1.276",
+      "idn_legacy": "1.33.276",
+      "module": "frontEnd",
+      "submodule": "dcInput1",
+      "setting": "276",
+      "name": "Min speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxDcInput1.label",
+      "idn_legacy": "1.291.1",
+      "module": "frontEnd",
+      "submodule": "auxDcInput1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "frontEnd.auxDcInput1.physicalQty",
+      "idn_legacy": "1.291.204",
+      "module": "frontEnd",
+      "submodule": "auxDcInput1",
+      "setting": "physicalQty",
+      "name": "Physical qty.",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.auxDcInput1.sensitivity",
+      "idn_legacy": "1.291.202",
+      "module": "frontEnd",
+      "submodule": "auxDcInput1",
+      "setting": "sensitivity",
+      "name": "Sensitivity",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxDcInput1.rangePk",
+      "idn_legacy": "1.291.3",
+      "module": "frontEnd",
+      "submodule": "auxDcInput1",
+      "setting": "rangePk",
+      "name": "Range pk",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxDcInput1.extGain",
+      "idn_legacy": "1.291.358",
+      "module": "frontEnd",
+      "submodule": "auxDcInput1",
+      "setting": "extGain",
+      "name": "External Gain",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxDcInput1.polarity",
+      "idn_legacy": "1.291.111",
+      "module": "frontEnd",
+      "submodule": "auxDcInput1",
+      "setting": "polarity",
+      "name": "Polarity",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.auxDcInput1.offset",
+      "idn_legacy": "1.291.203",
+      "module": "frontEnd",
+      "submodule": "auxDcInput1",
+      "setting": "offset",
+      "name": "Offset comp.",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxDcInput1.enableAutorange",
+      "idn_legacy": "1.291.336",
+      "module": "frontEnd",
+      "submodule": "auxDcInput1",
+      "setting": "enableAutorange",
+      "name": "Enable auto-range",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "frontEnd.auxDcInput1.182",
+      "idn_legacy": "1.291.182",
+      "module": "frontEnd",
+      "submodule": "auxDcInput1",
+      "setting": "182",
+      "name": "Tach",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "frontEnd.auxDcInput1.410",
+      "idn_legacy": "1.291.410",
+      "module": "frontEnd",
+      "submodule": "auxDcInput1",
+      "setting": "410",
+      "name": "Rotation",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.auxDcInput1.tachAvrgNb",
+      "idn_legacy": "1.291.242",
+      "module": "frontEnd",
+      "submodule": "auxDcInput1",
+      "setting": "tachAvrgNb",
+      "name": "Average size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxDcInput1.270",
+      "idn_legacy": "1.291.270",
+      "module": "frontEnd",
+      "submodule": "auxDcInput1",
+      "setting": "270",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxDcInput1.276",
+      "idn_legacy": "1.291.276",
+      "module": "frontEnd",
+      "submodule": "auxDcInput1",
+      "setting": "276",
+      "name": "Min speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.label",
+      "idn_legacy": "1.533.1",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.messageName",
+      "idn_legacy": "1.533.45",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "messageName",
+      "name": "Message name",
+      "type": "string"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.firstBitPos",
+      "idn_legacy": "1.533.51",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "firstBitPos",
+      "name": "First bit position",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.dataLength",
+      "idn_legacy": "1.533.54",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "dataLength",
+      "name": "Data length",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.dataFormat",
+      "idn_legacy": "1.533.55",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "dataFormat",
+      "name": "Data format",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.byteOrder",
+      "idn_legacy": "1.533.56",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "byteOrder",
+      "name": "Byte order",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.physicalQty",
+      "idn_legacy": "1.533.204",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "physicalQty",
+      "name": "Physical qty.",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.canUnit",
+      "idn_legacy": "1.533.87",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "canUnit",
+      "name": "Unit",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.73",
+      "idn_legacy": "1.533.73",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "73",
+      "name": "Scaling factor (LSB)",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.74",
+      "idn_legacy": "1.533.74",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "74",
+      "name": "Offset",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.75",
+      "idn_legacy": "1.533.75",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "75",
+      "name": "Max value",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.76",
+      "idn_legacy": "1.533.76",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "76",
+      "name": "Min value",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.182",
+      "idn_legacy": "1.533.182",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "182",
+      "name": "Tach",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.410",
+      "idn_legacy": "1.533.410",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "410",
+      "name": "Rotation",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.tachAvrgNb",
+      "idn_legacy": "1.533.242",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "tachAvrgNb",
+      "name": "Average size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.270",
+      "idn_legacy": "1.533.270",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "270",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.canBus1.276",
+      "idn_legacy": "1.533.276",
+      "module": "frontEnd",
+      "submodule": "canBus1",
+      "setting": "276",
+      "name": "Min speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.label",
+      "idn_legacy": "1.66.1",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.preset",
+      "idn_legacy": "1.66.976",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "preset",
+      "name": "Transducer",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.threshold",
+      "idn_legacy": "1.66.7",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "threshold",
+      "name": "Threshold",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.slope",
+      "idn_legacy": "1.66.27",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "slope",
+      "name": "Slope",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.holdoff",
+      "idn_legacy": "1.66.8",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "holdoff",
+      "name": "Hold off",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.hysteresis",
+      "idn_legacy": "1.66.9",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "hysteresis",
+      "name": "Hysteresis",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.predivider",
+      "idn_legacy": "1.66.10",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "predivider",
+      "name": "Pre-divider",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.postMultiplier",
+      "idn_legacy": "1.66.213",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "postMultiplier",
+      "name": "Post-multiplier",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.multiplierHoldoff",
+      "idn_legacy": "1.66.214",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "multiplierHoldoff",
+      "name": "Multiplier holdoff",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.physicalQty",
+      "idn_legacy": "1.66.204",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "physicalQty",
+      "name": "Physical qty.",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.sensitivity",
+      "idn_legacy": "1.66.202",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "sensitivity",
+      "name": "Sensitivity",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.rangePk",
+      "idn_legacy": "1.66.3",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "rangePk",
+      "name": "Range pk",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.extGain",
+      "idn_legacy": "1.66.358",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "extGain",
+      "name": "External Gain",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.offset",
+      "idn_legacy": "1.66.203",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "offset",
+      "name": "Offset comp.",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.coupling",
+      "idn_legacy": "1.66.4",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "coupling",
+      "name": "Coupling",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.extSyncMode",
+      "idn_legacy": "1.66.420",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "extSyncMode",
+      "name": "Mode",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.470",
+      "idn_legacy": "1.66.470",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "470",
+      "name": "Phase ref",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.holdOffPercent",
+      "idn_legacy": "1.66.290",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "holdOffPercent",
+      "name": "Hold off (% period)",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.tachPerRev",
+      "idn_legacy": "1.66.241",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "tachPerRev",
+      "name": "Pulse / rev",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.410",
+      "idn_legacy": "1.66.410",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "410",
+      "name": "Rotation",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.tachAvrgNb",
+      "idn_legacy": "1.66.242",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "tachAvrgNb",
+      "name": "Average size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.270",
+      "idn_legacy": "1.66.270",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "270",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.276",
+      "idn_legacy": "1.66.276",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "276",
+      "name": "Min speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.421",
+      "idn_legacy": "1.66.421",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "421",
+      "name": "Missing teeth",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.60",
+      "idn_legacy": "1.66.60",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "60",
+      "name": "Accepted speed variation (±)",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.extSync1.inputFilter",
+      "idn_legacy": "1.66.46",
+      "module": "frontEnd",
+      "submodule": "extSync1",
+      "setting": "inputFilter",
+      "name": "Input filter",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.label",
+      "idn_legacy": "1.68.1",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.preset",
+      "idn_legacy": "1.68.976",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "preset",
+      "name": "Transducer",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.threshold",
+      "idn_legacy": "1.68.7",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "threshold",
+      "name": "Threshold",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.slope",
+      "idn_legacy": "1.68.27",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "slope",
+      "name": "Slope",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.holdoff",
+      "idn_legacy": "1.68.8",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "holdoff",
+      "name": "Hold off",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.hysteresis",
+      "idn_legacy": "1.68.9",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "hysteresis",
+      "name": "Hysteresis",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.predivider",
+      "idn_legacy": "1.68.10",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "predivider",
+      "name": "Pre-divider",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.postMultiplier",
+      "idn_legacy": "1.68.213",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "postMultiplier",
+      "name": "Post-multiplier",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.multiplierHoldoff",
+      "idn_legacy": "1.68.214",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "multiplierHoldoff",
+      "name": "Multiplier holdoff",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.physicalQty",
+      "idn_legacy": "1.68.204",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "physicalQty",
+      "name": "Physical qty.",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.sensitivity",
+      "idn_legacy": "1.68.202",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "sensitivity",
+      "name": "Sensitivity",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.rangePk",
+      "idn_legacy": "1.68.3",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "rangePk",
+      "name": "Range pk",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.extGain",
+      "idn_legacy": "1.68.358",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "extGain",
+      "name": "External Gain",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.offset",
+      "idn_legacy": "1.68.203",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "offset",
+      "name": "Offset comp.",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.coupling",
+      "idn_legacy": "1.68.4",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "coupling",
+      "name": "Coupling",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.extSyncMode",
+      "idn_legacy": "1.68.420",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "extSyncMode",
+      "name": "Mode",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.470",
+      "idn_legacy": "1.68.470",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "470",
+      "name": "Phase ref",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.holdOffPercent",
+      "idn_legacy": "1.68.290",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "holdOffPercent",
+      "name": "Hold off (% period)",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.tachPerRev",
+      "idn_legacy": "1.68.241",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "tachPerRev",
+      "name": "Pulse / rev",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.410",
+      "idn_legacy": "1.68.410",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "410",
+      "name": "Rotation",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.tachAvrgNb",
+      "idn_legacy": "1.68.242",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "tachAvrgNb",
+      "name": "Average size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.270",
+      "idn_legacy": "1.68.270",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "270",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.276",
+      "idn_legacy": "1.68.276",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "276",
+      "name": "Min speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.421",
+      "idn_legacy": "1.68.421",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "421",
+      "name": "Missing teeth",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.60",
+      "idn_legacy": "1.68.60",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "60",
+      "name": "Accepted speed variation (±)",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxExtSync1.inputFilter",
+      "idn_legacy": "1.68.46",
+      "module": "frontEnd",
+      "submodule": "auxExtSync1",
+      "setting": "inputFilter",
+      "name": "Input filter",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.output1.label",
+      "idn_legacy": "1.72.1",
+      "module": "frontEnd",
+      "submodule": "output1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "frontEnd.output1.source",
+      "idn_legacy": "1.72.100",
+      "module": "frontEnd",
+      "submodule": "output1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.output1.359",
+      "idn_legacy": "1.72.359",
+      "module": "frontEnd",
+      "submodule": "output1",
+      "setting": "359",
+      "name": "Applied filter",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.output1.186",
+      "idn_legacy": "1.72.186",
+      "module": "frontEnd",
+      "submodule": "output1",
+      "setting": "186",
+      "name": "Clipping",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.output1.230",
+      "idn_legacy": "1.72.230",
+      "module": "frontEnd",
+      "submodule": "output1",
+      "setting": "230",
+      "name": "Gain",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.output1.231",
+      "idn_legacy": "1.72.231",
+      "module": "frontEnd",
+      "submodule": "output1",
+      "setting": "231",
+      "name": "Impedance",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.output1.314",
+      "idn_legacy": "1.72.314",
+      "module": "frontEnd",
+      "submodule": "output1",
+      "setting": "314",
+      "name": "Synchronization",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.output1.315",
+      "idn_legacy": "1.72.315",
+      "module": "frontEnd",
+      "submodule": "output1",
+      "setting": "315",
+      "name": "Transition control",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "frontEnd.auxOutput1.label",
+      "idn_legacy": "1.287.1",
+      "module": "frontEnd",
+      "submodule": "auxOutput1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "frontEnd.auxOutput1.source",
+      "idn_legacy": "1.287.100",
+      "module": "frontEnd",
+      "submodule": "auxOutput1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.auxOutput1.359",
+      "idn_legacy": "1.287.359",
+      "module": "frontEnd",
+      "submodule": "auxOutput1",
+      "setting": "359",
+      "name": "Applied filter",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.auxOutput1.186",
+      "idn_legacy": "1.287.186",
+      "module": "frontEnd",
+      "submodule": "auxOutput1",
+      "setting": "186",
+      "name": "Clipping",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxOutput1.230",
+      "idn_legacy": "1.287.230",
+      "module": "frontEnd",
+      "submodule": "auxOutput1",
+      "setting": "230",
+      "name": "Gain",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.auxOutput1.231",
+      "idn_legacy": "1.287.231",
+      "module": "frontEnd",
+      "submodule": "auxOutput1",
+      "setting": "231",
+      "name": "Impedance",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.auxOutput1.314",
+      "idn_legacy": "1.287.314",
+      "module": "frontEnd",
+      "submodule": "auxOutput1",
+      "setting": "314",
+      "name": "Synchronization",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.auxOutput1.315",
+      "idn_legacy": "1.287.315",
+      "module": "frontEnd",
+      "submodule": "auxOutput1",
+      "setting": "315",
+      "name": "Transition control",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "frontEnd.expander1.xpType",
+      "idn_legacy": "1.84.431",
+      "module": "frontEnd",
+      "submodule": "expander1",
+      "setting": "xpType",
+      "name": "Type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.expander1.bridgeMaxCurrent",
+      "idn_legacy": "1.84.433",
+      "module": "frontEnd",
+      "submodule": "expander1",
+      "setting": "bridgeMaxCurrent",
+      "name": "Bridge max current",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "frontEnd.expander1.bridgeVoltage",
+      "idn_legacy": "1.84.441",
+      "module": "frontEnd",
+      "submodule": "expander1",
+      "setting": "bridgeVoltage",
+      "name": "Bridge voltage",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "frontEnd.expander1.compensation",
+      "idn_legacy": "1.84.465",
+      "module": "frontEnd",
+      "submodule": "expander1",
+      "setting": "compensation",
+      "name": "Cold compensation",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "generator.sineGene1.48",
+      "idn_legacy": "7.225.48",
+      "module": "generator",
+      "submodule": "sineGene1",
+      "setting": "48",
+      "name": "Frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.sineGene1.49",
+      "idn_legacy": "7.225.49",
+      "module": "generator",
+      "submodule": "sineGene1",
+      "setting": "49",
+      "name": "Peak level",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.sineGene1.187",
+      "idn_legacy": "7.225.187",
+      "module": "generator",
+      "submodule": "sineGene1",
+      "setting": "187",
+      "name": "RMS level",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.multiSineGene1.lowerFreq",
+      "idn_legacy": "7.243.52",
+      "module": "generator",
+      "submodule": "multiSineGene1",
+      "setting": "lowerFreq",
+      "name": "Lower frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.multiSineGene1.upperFreq",
+      "idn_legacy": "7.243.53",
+      "module": "generator",
+      "submodule": "multiSineGene1",
+      "setting": "upperFreq",
+      "name": "Upper frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.multiSineGene1.187",
+      "idn_legacy": "7.243.187",
+      "module": "generator",
+      "submodule": "multiSineGene1",
+      "setting": "187",
+      "name": "RMS level",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.multiSineGene1.188",
+      "idn_legacy": "7.243.188",
+      "module": "generator",
+      "submodule": "multiSineGene1",
+      "setting": "188",
+      "name": "Resolution",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.multiSineGene1.13",
+      "idn_legacy": "7.243.13",
+      "module": "generator",
+      "submodule": "multiSineGene1",
+      "setting": "13",
+      "name": "Lines number",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.multiSineGene1.59",
+      "idn_legacy": "7.243.59",
+      "module": "generator",
+      "submodule": "multiSineGene1",
+      "setting": "59",
+      "name": "Phase",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "generator.randomNoiseGene1.lowerFreq",
+      "idn_legacy": "7.249.52",
+      "module": "generator",
+      "submodule": "randomNoiseGene1",
+      "setting": "lowerFreq",
+      "name": "Lower frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.randomNoiseGene1.upperFreq",
+      "idn_legacy": "7.249.53",
+      "module": "generator",
+      "submodule": "randomNoiseGene1",
+      "setting": "upperFreq",
+      "name": "Upper frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.randomNoiseGene1.187",
+      "idn_legacy": "7.249.187",
+      "module": "generator",
+      "submodule": "randomNoiseGene1",
+      "setting": "187",
+      "name": "RMS level",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.randomNoiseGene1.40",
+      "idn_legacy": "7.249.40",
+      "module": "generator",
+      "submodule": "randomNoiseGene1",
+      "setting": "40",
+      "name": "Period",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.randomNoiseGene1.362",
+      "idn_legacy": "7.249.362",
+      "module": "generator",
+      "submodule": "randomNoiseGene1",
+      "setting": "362",
+      "name": "Burst",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.randomNoiseGene1.250",
+      "idn_legacy": "7.249.250",
+      "module": "generator",
+      "submodule": "randomNoiseGene1",
+      "setting": "250",
+      "name": "Type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "generator.chirpGene1.lowerFreq",
+      "idn_legacy": "7.261.52",
+      "module": "generator",
+      "submodule": "chirpGene1",
+      "setting": "lowerFreq",
+      "name": "Lower frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.chirpGene1.upperFreq",
+      "idn_legacy": "7.261.53",
+      "module": "generator",
+      "submodule": "chirpGene1",
+      "setting": "upperFreq",
+      "name": "Upper frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.chirpGene1.187",
+      "idn_legacy": "7.261.187",
+      "module": "generator",
+      "submodule": "chirpGene1",
+      "setting": "187",
+      "name": "RMS level",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.chirpGene1.114",
+      "idn_legacy": "7.261.114",
+      "module": "generator",
+      "submodule": "chirpGene1",
+      "setting": "114",
+      "name": "Size",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "generator.chirpGene1.362",
+      "idn_legacy": "7.261.362",
+      "module": "generator",
+      "submodule": "chirpGene1",
+      "setting": "362",
+      "name": "Burst",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.317",
+      "idn_legacy": "7.209.317",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "317",
+      "name": "Mode",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.314",
+      "idn_legacy": "7.209.314",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "314",
+      "name": "Synchronization",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.318",
+      "idn_legacy": "7.209.318",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "318",
+      "name": "Pause",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.49",
+      "idn_legacy": "7.209.49",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "49",
+      "name": "Peak level",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.339",
+      "idn_legacy": "7.209.339",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "339",
+      "name": "Start frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.340",
+      "idn_legacy": "7.209.340",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "340",
+      "name": "Stop frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.319",
+      "idn_legacy": "7.209.319",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "319",
+      "name": "Target Frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.320",
+      "idn_legacy": "7.209.320",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "320",
+      "name": "Sweep variation",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.321",
+      "idn_legacy": "7.209.321",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "321",
+      "name": "Sweep speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.349",
+      "idn_legacy": "7.209.349",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "349",
+      "name": "Sweep speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.324",
+      "idn_legacy": "7.209.324",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "324",
+      "name": "Sweep type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.341",
+      "idn_legacy": "7.209.341",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "341",
+      "name": "Stabilization time",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.325",
+      "idn_legacy": "7.209.325",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "325",
+      "name": "Amplitude variation",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.326",
+      "idn_legacy": "7.209.326",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "326",
+      "name": "Phase speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.327",
+      "idn_legacy": "7.209.327",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "327",
+      "name": "Step",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.advancedSineSettings.328",
+      "idn_legacy": "7.209.328",
+      "module": "generator",
+      "submodule": "advancedSineSettings",
+      "setting": "328",
+      "name": "New Step",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "generator.advancedSineGene1.gain",
+      "idn_legacy": "7.210.5",
+      "module": "generator",
+      "submodule": "advancedSineGene1",
+      "setting": "gain",
+      "name": "Gain",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.advancedSineGene1.329",
+      "idn_legacy": "7.210.329",
+      "module": "generator",
+      "submodule": "advancedSineGene1",
+      "setting": "329",
+      "name": "Phase offset",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "generator.synchroGene.active",
+      "idn_legacy": "7.208.2",
+      "module": "generator",
+      "submodule": "synchroGene",
+      "setting": "active",
+      "name": "Active",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "generator.synchroGene.396",
+      "idn_legacy": "7.208.396",
+      "module": "generator",
+      "submodule": "synchroGene",
+      "setting": "396",
+      "name": "Generator Mode",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "cpb.channel1.source",
+      "idn_legacy": "12.501.100",
+      "module": "cpb",
+      "submodule": "channel1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "cpb.cpbTrigger.start",
+      "idn_legacy": "12.621.19",
+      "module": "cpb",
+      "submodule": "cpbTrigger",
+      "setting": "start",
+      "name": "Start",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "cpb.cpbTrigger.stop",
+      "idn_legacy": "12.621.21",
+      "module": "cpb",
+      "submodule": "cpbTrigger",
+      "setting": "stop",
+      "name": "Stop",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "cpb.cpbTrigger.restartCond",
+      "idn_legacy": "12.621.211",
+      "module": "cpb",
+      "submodule": "cpbTrigger",
+      "setting": "restartCond",
+      "name": "Repeat",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "cpb.cpbAverage.type",
+      "idn_legacy": "12.358.80",
+      "module": "cpb",
+      "submodule": "cpbAverage",
+      "setting": "type",
+      "name": "Type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "cpb.cpbAverage.avDuration",
+      "idn_legacy": "12.358.26",
+      "module": "cpb",
+      "submodule": "cpbAverage",
+      "setting": "avDuration",
+      "name": "Avg. duration",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "cpb.cpbAverage.157",
+      "idn_legacy": "12.358.157",
+      "module": "cpb",
+      "submodule": "cpbAverage",
+      "setting": "157",
+      "name": "Short duration",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "cpb.cpbAverage.154",
+      "idn_legacy": "12.358.154",
+      "module": "cpb",
+      "submodule": "cpbAverage",
+      "setting": "154",
+      "name": "Exponential time constant",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "cpb.495:1.autoBandWidth",
+      "idn_legacy": "12.495.871",
+      "module": "cpb",
+      "submodule": "495:1",
+      "setting": "autoBandWidth",
+      "name": "Autobandwidth",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "cpb.495:1.197",
+      "idn_legacy": "12.495.197",
+      "module": "cpb",
+      "submodule": "495:1",
+      "setting": "197",
+      "name": "Lower central freq.",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "cpb.495:1.198",
+      "idn_legacy": "12.495.198",
+      "module": "cpb",
+      "submodule": "495:1",
+      "setting": "198",
+      "name": "Upper central freq.",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "cpb.495:1.199",
+      "idn_legacy": "12.495.199",
+      "module": "cpb",
+      "submodule": "495:1",
+      "setting": "199",
+      "name": "Mode",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "cpb.495:1.382",
+      "idn_legacy": "12.495.382",
+      "module": "cpb",
+      "submodule": "495:1",
+      "setting": "382",
+      "name": "Overall weighting",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "cpb.495:1.overallMode",
+      "idn_legacy": "12.495.885",
+      "module": "cpb",
+      "submodule": "495:1",
+      "setting": "overallMode",
+      "name": "Mode",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "cpb.495:1.65",
+      "idn_legacy": "12.495.65",
+      "module": "cpb",
+      "submodule": "495:1",
+      "setting": "65",
+      "name": "Low cut-off frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "cpb.495:1.66",
+      "idn_legacy": "12.495.66",
+      "module": "cpb",
+      "submodule": "495:1",
+      "setting": "66",
+      "name": "High cut-off frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "cpb.495:1.385",
+      "idn_legacy": "12.495.385",
+      "module": "cpb",
+      "submodule": "495:1",
+      "setting": "385",
+      "name": "Overall range",
+      "type": "string"
+    },
+    {
+      "idn_text": "processing.torsion1.label",
+      "idn_legacy": "15.137.1",
+      "module": "processing",
+      "submodule": "torsion1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "processing.torsion1.source",
+      "idn_legacy": "15.137.100",
+      "module": "processing",
+      "submodule": "torsion1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "processing.torsion1.inputFilter",
+      "idn_legacy": "15.137.46",
+      "module": "processing",
+      "submodule": "torsion1",
+      "setting": "inputFilter",
+      "name": "Input filter",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "processing.torsion1.tachPerRev",
+      "idn_legacy": "15.137.241",
+      "module": "processing",
+      "submodule": "torsion1",
+      "setting": "tachPerRev",
+      "name": "Pulse / rev",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "processing.torsion1.tachAvrgNb",
+      "idn_legacy": "15.137.242",
+      "module": "processing",
+      "submodule": "torsion1",
+      "setting": "tachAvrgNb",
+      "name": "Average size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "processing.torsion1.270",
+      "idn_legacy": "15.137.270",
+      "module": "processing",
+      "submodule": "torsion1",
+      "setting": "270",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "processing.torsion1.421",
+      "idn_legacy": "15.137.421",
+      "module": "processing",
+      "submodule": "torsion1",
+      "setting": "421",
+      "name": "Missing teeth",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "processing.torsion1.60",
+      "idn_legacy": "15.137.60",
+      "module": "processing",
+      "submodule": "torsion1",
+      "setting": "60",
+      "name": "Accepted speed variation (±)",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "processing.torsion1.445",
+      "idn_legacy": "15.137.445",
+      "module": "processing",
+      "submodule": "torsion1",
+      "setting": "445",
+      "name": "Tach",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "processing.torsion1.472",
+      "idn_legacy": "15.137.472",
+      "module": "processing",
+      "submodule": "torsion1",
+      "setting": "472",
+      "name": "Sampling pulse",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "soa1.channel1.source",
+      "idn_legacy": "14.501.100",
+      "module": "soa1",
+      "submodule": "channel1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.channel1.source",
+      "idn_legacy": "17.501.100",
+      "module": "soa2",
+      "submodule": "channel1",
+      "setting": "source",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.channel1.source",
+      "idn_legacy": "26.501.100",
+      "module": "soa3",
+      "submodule": "channel1",
+      "setting": "source",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.channel1.source",
+      "idn_legacy": "27.501.100",
+      "module": "soa4",
+      "submodule": "channel1",
+      "setting": "source",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.channel1.inputFilter",
+      "idn_legacy": "14.501.46",
+      "module": "soa1",
+      "submodule": "channel1",
+      "setting": "inputFilter",
+      "name": "Input filter",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.channel1.inputFilter",
+      "idn_legacy": "17.501.46",
+      "module": "soa2",
+      "submodule": "channel1",
+      "setting": "inputFilter",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.channel1.inputFilter",
+      "idn_legacy": "26.501.46",
+      "module": "soa3",
+      "submodule": "channel1",
+      "setting": "inputFilter",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.channel1.inputFilter",
+      "idn_legacy": "27.501.46",
+      "module": "soa4",
+      "submodule": "channel1",
+      "setting": "inputFilter",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.channel1.442",
+      "idn_legacy": "14.501.442",
+      "module": "soa1",
+      "submodule": "channel1",
+      "setting": "442",
+      "name": "Phase shift",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa2.channel1.442",
+      "idn_legacy": "17.501.442",
+      "module": "soa2",
+      "submodule": "channel1",
+      "setting": "442",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa3.channel1.442",
+      "idn_legacy": "26.501.442",
+      "module": "soa3",
+      "submodule": "channel1",
+      "setting": "442",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa4.channel1.442",
+      "idn_legacy": "27.501.442",
+      "module": "soa4",
+      "submodule": "channel1",
+      "setting": "442",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa1.channel1.ordersTab",
+      "idn_legacy": "14.501.215",
+      "module": "soa1",
+      "submodule": "channel1",
+      "setting": "ordersTab",
+      "name": "Tracked Order",
+      "type": "table"
+    },
+    {
+      "idn_text": "soa2.channel1.ordersTab",
+      "idn_legacy": "17.501.215",
+      "module": "soa2",
+      "submodule": "channel1",
+      "setting": "ordersTab",
+      "name": null,
+      "type": "table"
+    },
+    {
+      "idn_text": "soa3.channel1.ordersTab",
+      "idn_legacy": "26.501.215",
+      "module": "soa3",
+      "submodule": "channel1",
+      "setting": "ordersTab",
+      "name": null,
+      "type": "table"
+    },
+    {
+      "idn_text": "soa4.channel1.ordersTab",
+      "idn_legacy": "27.501.215",
+      "module": "soa4",
+      "submodule": "channel1",
+      "setting": "ordersTab",
+      "name": null,
+      "type": "table"
+    },
+    {
+      "idn_text": "soa1.channel1.weightWin",
+      "idn_legacy": "14.501.82",
+      "module": "soa1",
+      "submodule": "channel1",
+      "setting": "weightWin",
+      "name": "Weighting window",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.channel1.weightWin",
+      "idn_legacy": "17.501.82",
+      "module": "soa2",
+      "submodule": "channel1",
+      "setting": "weightWin",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.channel1.weightWin",
+      "idn_legacy": "26.501.82",
+      "module": "soa3",
+      "submodule": "channel1",
+      "setting": "weightWin",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.channel1.weightWin",
+      "idn_legacy": "27.501.82",
+      "module": "soa4",
+      "submodule": "channel1",
+      "setting": "weightWin",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.resamplingTach.associatedTach",
+      "idn_legacy": "14.200.32",
+      "module": "soa1",
+      "submodule": "resamplingTach",
+      "setting": "associatedTach",
+      "name": "Associated tach",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.resamplingTach.associatedTach",
+      "idn_legacy": "17.200.32",
+      "module": "soa2",
+      "submodule": "resamplingTach",
+      "setting": "associatedTach",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.resamplingTach.associatedTach",
+      "idn_legacy": "26.200.32",
+      "module": "soa3",
+      "submodule": "resamplingTach",
+      "setting": "associatedTach",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.resamplingTach.associatedTach",
+      "idn_legacy": "27.200.32",
+      "module": "soa4",
+      "submodule": "resamplingTach",
+      "setting": "associatedTach",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.resamplingTach.phaseRef",
+      "idn_legacy": "14.200.278",
+      "module": "soa1",
+      "submodule": "resamplingTach",
+      "setting": "phaseRef",
+      "name": "Phase reference",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.resamplingTach.phaseRef",
+      "idn_legacy": "17.200.278",
+      "module": "soa2",
+      "submodule": "resamplingTach",
+      "setting": "phaseRef",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.resamplingTach.phaseRef",
+      "idn_legacy": "26.200.278",
+      "module": "soa3",
+      "submodule": "resamplingTach",
+      "setting": "phaseRef",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.resamplingTach.phaseRef",
+      "idn_legacy": "27.200.278",
+      "module": "soa4",
+      "submodule": "resamplingTach",
+      "setting": "phaseRef",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.resamplingTach.acceptedSpeedVar",
+      "idn_legacy": "14.200.279",
+      "module": "soa1",
+      "submodule": "resamplingTach",
+      "setting": "acceptedSpeedVar",
+      "name": "Accepted speed variation",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa2.resamplingTach.acceptedSpeedVar",
+      "idn_legacy": "17.200.279",
+      "module": "soa2",
+      "submodule": "resamplingTach",
+      "setting": "acceptedSpeedVar",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa3.resamplingTach.acceptedSpeedVar",
+      "idn_legacy": "26.200.279",
+      "module": "soa3",
+      "submodule": "resamplingTach",
+      "setting": "acceptedSpeedVar",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa4.resamplingTach.acceptedSpeedVar",
+      "idn_legacy": "27.200.279",
+      "module": "soa4",
+      "submodule": "resamplingTach",
+      "setting": "acceptedSpeedVar",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa1.resamplingTach.angResamplingTach",
+      "idn_legacy": "14.200.471",
+      "module": "soa1",
+      "submodule": "resamplingTach",
+      "setting": "angResamplingTach",
+      "name": "Sampling pulse",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.resamplingTach.angResamplingTach",
+      "idn_legacy": "17.200.471",
+      "module": "soa2",
+      "submodule": "resamplingTach",
+      "setting": "angResamplingTach",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.resamplingTach.angResamplingTach",
+      "idn_legacy": "26.200.471",
+      "module": "soa3",
+      "submodule": "resamplingTach",
+      "setting": "angResamplingTach",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.resamplingTach.angResamplingTach",
+      "idn_legacy": "27.200.471",
+      "module": "soa4",
+      "submodule": "resamplingTach",
+      "setting": "angResamplingTach",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.soaTrigger.start",
+      "idn_legacy": "14.689.19",
+      "module": "soa1",
+      "submodule": "soaTrigger",
+      "setting": "start",
+      "name": "Start",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.soaTrigger.start",
+      "idn_legacy": "17.689.19",
+      "module": "soa2",
+      "submodule": "soaTrigger",
+      "setting": "start",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.soaTrigger.start",
+      "idn_legacy": "26.689.19",
+      "module": "soa3",
+      "submodule": "soaTrigger",
+      "setting": "start",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.soaTrigger.start",
+      "idn_legacy": "27.689.19",
+      "module": "soa4",
+      "submodule": "soaTrigger",
+      "setting": "start",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.soaTrigger.stop",
+      "idn_legacy": "14.689.21",
+      "module": "soa1",
+      "submodule": "soaTrigger",
+      "setting": "stop",
+      "name": "Stop",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.soaTrigger.stop",
+      "idn_legacy": "17.689.21",
+      "module": "soa2",
+      "submodule": "soaTrigger",
+      "setting": "stop",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.soaTrigger.stop",
+      "idn_legacy": "26.689.21",
+      "module": "soa3",
+      "submodule": "soaTrigger",
+      "setting": "stop",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.soaTrigger.stop",
+      "idn_legacy": "27.689.21",
+      "module": "soa4",
+      "submodule": "soaTrigger",
+      "setting": "stop",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.soaTrigger.trigger",
+      "idn_legacy": "14.689.83",
+      "module": "soa1",
+      "submodule": "soaTrigger",
+      "setting": "trigger",
+      "name": "Trigger",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.soaTrigger.trigger",
+      "idn_legacy": "17.689.83",
+      "module": "soa2",
+      "submodule": "soaTrigger",
+      "setting": "trigger",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.soaTrigger.trigger",
+      "idn_legacy": "26.689.83",
+      "module": "soa3",
+      "submodule": "soaTrigger",
+      "setting": "trigger",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.soaTrigger.trigger",
+      "idn_legacy": "27.689.83",
+      "module": "soa4",
+      "submodule": "soaTrigger",
+      "setting": "trigger",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.soaTrigger.restartCond",
+      "idn_legacy": "14.689.211",
+      "module": "soa1",
+      "submodule": "soaTrigger",
+      "setting": "restartCond",
+      "name": "Repeat",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.soaTrigger.restartCond",
+      "idn_legacy": "17.689.211",
+      "module": "soa2",
+      "submodule": "soaTrigger",
+      "setting": "restartCond",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.soaTrigger.restartCond",
+      "idn_legacy": "26.689.211",
+      "module": "soa3",
+      "submodule": "soaTrigger",
+      "setting": "restartCond",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.soaTrigger.restartCond",
+      "idn_legacy": "27.689.211",
+      "module": "soa4",
+      "submodule": "soaTrigger",
+      "setting": "restartCond",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.soaTrigger.startRevDelay",
+      "idn_legacy": "14.689.289",
+      "module": "soa1",
+      "submodule": "soaTrigger",
+      "setting": "startRevDelay",
+      "name": "Trigger delay",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa2.soaTrigger.startRevDelay",
+      "idn_legacy": "17.689.289",
+      "module": "soa2",
+      "submodule": "soaTrigger",
+      "setting": "startRevDelay",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa3.soaTrigger.startRevDelay",
+      "idn_legacy": "26.689.289",
+      "module": "soa3",
+      "submodule": "soaTrigger",
+      "setting": "startRevDelay",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa4.soaTrigger.startRevDelay",
+      "idn_legacy": "27.689.289",
+      "module": "soa4",
+      "submodule": "soaTrigger",
+      "setting": "startRevDelay",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa1.soaTrigger.acceptMmode",
+      "idn_legacy": "14.689.212",
+      "module": "soa1",
+      "submodule": "soaTrigger",
+      "setting": "acceptMmode",
+      "name": "Accept mode",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.soaTrigger.acceptMmode",
+      "idn_legacy": "17.689.212",
+      "module": "soa2",
+      "submodule": "soaTrigger",
+      "setting": "acceptMmode",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.soaTrigger.acceptMmode",
+      "idn_legacy": "26.689.212",
+      "module": "soa3",
+      "submodule": "soaTrigger",
+      "setting": "acceptMmode",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.soaTrigger.acceptMmode",
+      "idn_legacy": "27.689.212",
+      "module": "soa4",
+      "submodule": "soaTrigger",
+      "setting": "acceptMmode",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.soaTrigger.tachPerRev",
+      "idn_legacy": "14.689.241",
+      "module": "soa1",
+      "submodule": "soaTrigger",
+      "setting": "tachPerRev",
+      "name": "Pulse / rev",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa2.soaTrigger.tachPerRev",
+      "idn_legacy": "17.689.241",
+      "module": "soa2",
+      "submodule": "soaTrigger",
+      "setting": "tachPerRev",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa3.soaTrigger.tachPerRev",
+      "idn_legacy": "26.689.241",
+      "module": "soa3",
+      "submodule": "soaTrigger",
+      "setting": "tachPerRev",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa4.soaTrigger.tachPerRev",
+      "idn_legacy": "27.689.241",
+      "module": "soa4",
+      "submodule": "soaTrigger",
+      "setting": "tachPerRev",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa1.average.domain",
+      "idn_legacy": "14.361.84",
+      "module": "soa1",
+      "submodule": "average",
+      "setting": "domain",
+      "name": "Domain",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.average.domain",
+      "idn_legacy": "17.361.84",
+      "module": "soa2",
+      "submodule": "average",
+      "setting": "domain",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.average.domain",
+      "idn_legacy": "26.361.84",
+      "module": "soa3",
+      "submodule": "average",
+      "setting": "domain",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.average.domain",
+      "idn_legacy": "27.361.84",
+      "module": "soa4",
+      "submodule": "average",
+      "setting": "domain",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.average.size",
+      "idn_legacy": "14.361.81",
+      "module": "soa1",
+      "submodule": "average",
+      "setting": "size",
+      "name": "Size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa2.average.size",
+      "idn_legacy": "17.361.81",
+      "module": "soa2",
+      "submodule": "average",
+      "setting": "size",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa3.average.size",
+      "idn_legacy": "26.361.81",
+      "module": "soa3",
+      "submodule": "average",
+      "setting": "size",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa4.average.size",
+      "idn_legacy": "27.361.81",
+      "module": "soa4",
+      "submodule": "average",
+      "setting": "size",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa1.average.type",
+      "idn_legacy": "14.361.80",
+      "module": "soa1",
+      "submodule": "average",
+      "setting": "type",
+      "name": "Type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.average.type",
+      "idn_legacy": "17.361.80",
+      "module": "soa2",
+      "submodule": "average",
+      "setting": "type",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.average.type",
+      "idn_legacy": "26.361.80",
+      "module": "soa3",
+      "submodule": "average",
+      "setting": "type",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.average.type",
+      "idn_legacy": "27.361.80",
+      "module": "soa4",
+      "submodule": "average",
+      "setting": "type",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.average.98",
+      "idn_legacy": "14.361.98",
+      "module": "soa1",
+      "submodule": "average",
+      "setting": "98",
+      "name": "Reference channel",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.average.98",
+      "idn_legacy": "17.361.98",
+      "module": "soa2",
+      "submodule": "average",
+      "setting": "98",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.average.98",
+      "idn_legacy": "26.361.98",
+      "module": "soa3",
+      "submodule": "average",
+      "setting": "98",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.average.98",
+      "idn_legacy": "27.361.98",
+      "module": "soa4",
+      "submodule": "average",
+      "setting": "98",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.orderFFT.orderMaxSpeed",
+      "idn_legacy": "14.663.287",
+      "module": "soa1",
+      "submodule": "orderFFT",
+      "setting": "orderMaxSpeed",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa2.orderFFT.orderMaxSpeed",
+      "idn_legacy": "17.663.287",
+      "module": "soa2",
+      "submodule": "orderFFT",
+      "setting": "orderMaxSpeed",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa3.orderFFT.orderMaxSpeed",
+      "idn_legacy": "26.663.287",
+      "module": "soa3",
+      "submodule": "orderFFT",
+      "setting": "orderMaxSpeed",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa4.orderFFT.orderMaxSpeed",
+      "idn_legacy": "27.663.287",
+      "module": "soa4",
+      "submodule": "orderFFT",
+      "setting": "orderMaxSpeed",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa1.orderFFT.orderMinSpeed",
+      "idn_legacy": "14.663.288",
+      "module": "soa1",
+      "submodule": "orderFFT",
+      "setting": "orderMinSpeed",
+      "name": "Min speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa2.orderFFT.orderMinSpeed",
+      "idn_legacy": "17.663.288",
+      "module": "soa2",
+      "submodule": "orderFFT",
+      "setting": "orderMinSpeed",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa3.orderFFT.orderMinSpeed",
+      "idn_legacy": "26.663.288",
+      "module": "soa3",
+      "submodule": "orderFFT",
+      "setting": "orderMinSpeed",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa4.orderFFT.orderMinSpeed",
+      "idn_legacy": "27.663.288",
+      "module": "soa4",
+      "submodule": "orderFFT",
+      "setting": "orderMinSpeed",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa1.orderFFT.maxOrder",
+      "idn_legacy": "14.663.281",
+      "module": "soa1",
+      "submodule": "orderFFT",
+      "setting": "maxOrder",
+      "name": "Max order",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.orderFFT.maxOrder",
+      "idn_legacy": "17.663.281",
+      "module": "soa2",
+      "submodule": "orderFFT",
+      "setting": "maxOrder",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.orderFFT.maxOrder",
+      "idn_legacy": "26.663.281",
+      "module": "soa3",
+      "submodule": "orderFFT",
+      "setting": "maxOrder",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.orderFFT.maxOrder",
+      "idn_legacy": "27.663.281",
+      "module": "soa4",
+      "submodule": "orderFFT",
+      "setting": "maxOrder",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.orderFFT.deltaOrder",
+      "idn_legacy": "14.663.282",
+      "module": "soa1",
+      "submodule": "orderFFT",
+      "setting": "deltaOrder",
+      "name": "Order resolution",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.orderFFT.deltaOrder",
+      "idn_legacy": "17.663.282",
+      "module": "soa2",
+      "submodule": "orderFFT",
+      "setting": "deltaOrder",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.orderFFT.deltaOrder",
+      "idn_legacy": "26.663.282",
+      "module": "soa3",
+      "submodule": "orderFFT",
+      "setting": "deltaOrder",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.orderFFT.deltaOrder",
+      "idn_legacy": "27.663.282",
+      "module": "soa4",
+      "submodule": "orderFFT",
+      "setting": "deltaOrder",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.orderFFT.revOverlap",
+      "idn_legacy": "14.663.113",
+      "module": "soa1",
+      "submodule": "orderFFT",
+      "setting": "revOverlap",
+      "name": "Overlap",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa2.orderFFT.revOverlap",
+      "idn_legacy": "17.663.113",
+      "module": "soa2",
+      "submodule": "orderFFT",
+      "setting": "revOverlap",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa3.orderFFT.revOverlap",
+      "idn_legacy": "26.663.113",
+      "module": "soa3",
+      "submodule": "orderFFT",
+      "setting": "revOverlap",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa4.orderFFT.revOverlap",
+      "idn_legacy": "27.663.113",
+      "module": "soa4",
+      "submodule": "orderFFT",
+      "setting": "revOverlap",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa1.orderFFT.angOverlap",
+      "idn_legacy": "14.663.262",
+      "module": "soa1",
+      "submodule": "orderFFT",
+      "setting": "angOverlap",
+      "name": "Angular overlap",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa2.orderFFT.angOverlap",
+      "idn_legacy": "17.663.262",
+      "module": "soa2",
+      "submodule": "orderFFT",
+      "setting": "angOverlap",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa3.orderFFT.angOverlap",
+      "idn_legacy": "26.663.262",
+      "module": "soa3",
+      "submodule": "orderFFT",
+      "setting": "angOverlap",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa4.orderFFT.angOverlap",
+      "idn_legacy": "27.663.262",
+      "module": "soa4",
+      "submodule": "orderFFT",
+      "setting": "angOverlap",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa1.orderFFT.upperFreq",
+      "idn_legacy": "14.663.53",
+      "module": "soa1",
+      "submodule": "orderFFT",
+      "setting": "upperFreq",
+      "name": "Upper frequency",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa2.orderFFT.upperFreq",
+      "idn_legacy": "17.663.53",
+      "module": "soa2",
+      "submodule": "orderFFT",
+      "setting": "upperFreq",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa3.orderFFT.upperFreq",
+      "idn_legacy": "26.663.53",
+      "module": "soa3",
+      "submodule": "orderFFT",
+      "setting": "upperFreq",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa4.orderFFT.upperFreq",
+      "idn_legacy": "27.663.53",
+      "module": "soa4",
+      "submodule": "orderFFT",
+      "setting": "upperFreq",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa1.orderFFT.numberOfLines",
+      "idn_legacy": "14.663.89",
+      "module": "soa1",
+      "submodule": "orderFFT",
+      "setting": "numberOfLines",
+      "name": "Number of lines",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.orderFFT.numberOfLines",
+      "idn_legacy": "17.663.89",
+      "module": "soa2",
+      "submodule": "orderFFT",
+      "setting": "numberOfLines",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.orderFFT.numberOfLines",
+      "idn_legacy": "26.663.89",
+      "module": "soa3",
+      "submodule": "orderFFT",
+      "setting": "numberOfLines",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.orderFFT.numberOfLines",
+      "idn_legacy": "27.663.89",
+      "module": "soa4",
+      "submodule": "orderFFT",
+      "setting": "numberOfLines",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.orderFFT.phaseRefCos",
+      "idn_legacy": "14.663.283",
+      "module": "soa1",
+      "submodule": "orderFFT",
+      "setting": "phaseRefCos",
+      "name": "Phase Ref",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.orderFFT.phaseRefCos",
+      "idn_legacy": "17.663.283",
+      "module": "soa2",
+      "submodule": "orderFFT",
+      "setting": "phaseRefCos",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.orderFFT.phaseRefCos",
+      "idn_legacy": "26.663.283",
+      "module": "soa3",
+      "submodule": "orderFFT",
+      "setting": "phaseRefCos",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.orderFFT.phaseRefCos",
+      "idn_legacy": "27.663.283",
+      "module": "soa4",
+      "submodule": "orderFFT",
+      "setting": "phaseRefCos",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.orderFFT.reverseCrossFct",
+      "idn_legacy": "14.663.493",
+      "module": "soa1",
+      "submodule": "orderFFT",
+      "setting": "reverseCrossFct",
+      "name": "Reverse Cross fct",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "soa2.orderFFT.reverseCrossFct",
+      "idn_legacy": "17.663.493",
+      "module": "soa2",
+      "submodule": "orderFFT",
+      "setting": "reverseCrossFct",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "soa3.orderFFT.reverseCrossFct",
+      "idn_legacy": "26.663.493",
+      "module": "soa3",
+      "submodule": "orderFFT",
+      "setting": "reverseCrossFct",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "soa4.orderFFT.reverseCrossFct",
+      "idn_legacy": "27.663.493",
+      "module": "soa4",
+      "submodule": "orderFFT",
+      "setting": "reverseCrossFct",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "soa1.orderFFT.crossSpec",
+      "idn_legacy": "14.663.205",
+      "module": "soa1",
+      "submodule": "orderFFT",
+      "setting": "crossSpec",
+      "name": "Cross spectrum",
+      "type": "matrix"
+    },
+    {
+      "idn_text": "soa2.orderFFT.crossSpec",
+      "idn_legacy": "17.663.205",
+      "module": "soa2",
+      "submodule": "orderFFT",
+      "setting": "crossSpec",
+      "name": null,
+      "type": "matrix"
+    },
+    {
+      "idn_text": "soa3.orderFFT.crossSpec",
+      "idn_legacy": "26.663.205",
+      "module": "soa3",
+      "submodule": "orderFFT",
+      "setting": "crossSpec",
+      "name": null,
+      "type": "matrix"
+    },
+    {
+      "idn_text": "soa4.orderFFT.crossSpec",
+      "idn_legacy": "27.663.205",
+      "module": "soa4",
+      "submodule": "orderFFT",
+      "setting": "crossSpec",
+      "name": null,
+      "type": "matrix"
+    },
+    {
+      "idn_text": "soa1.orderFFT.phaseChRef",
+      "idn_legacy": "14.663.210",
+      "module": "soa1",
+      "submodule": "orderFFT",
+      "setting": "phaseChRef",
+      "name": "Orders Phase ref",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.orderFFT.phaseChRef",
+      "idn_legacy": "17.663.210",
+      "module": "soa2",
+      "submodule": "orderFFT",
+      "setting": "phaseChRef",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.orderFFT.phaseChRef",
+      "idn_legacy": "26.663.210",
+      "module": "soa3",
+      "submodule": "orderFFT",
+      "setting": "phaseChRef",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.orderFFT.phaseChRef",
+      "idn_legacy": "27.663.210",
+      "module": "soa4",
+      "submodule": "orderFFT",
+      "setting": "phaseChRef",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa1.overallAnl.bandPowerTrk",
+      "idn_legacy": "14.340.246",
+      "module": "soa1",
+      "submodule": "overallAnl",
+      "setting": "bandPowerTrk",
+      "name": "Band power tracking",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "soa2.overallAnl.bandPowerTrk",
+      "idn_legacy": "17.340.246",
+      "module": "soa2",
+      "submodule": "overallAnl",
+      "setting": "bandPowerTrk",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "soa3.overallAnl.bandPowerTrk",
+      "idn_legacy": "26.340.246",
+      "module": "soa3",
+      "submodule": "overallAnl",
+      "setting": "bandPowerTrk",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "soa4.overallAnl.bandPowerTrk",
+      "idn_legacy": "27.340.246",
+      "module": "soa4",
+      "submodule": "overallAnl",
+      "setting": "bandPowerTrk",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "soa1.overallAnl.upperOrder",
+      "idn_legacy": "14.340.291",
+      "module": "soa1",
+      "submodule": "overallAnl",
+      "setting": "upperOrder",
+      "name": "Upper order",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa2.overallAnl.upperOrder",
+      "idn_legacy": "17.340.291",
+      "module": "soa2",
+      "submodule": "overallAnl",
+      "setting": "upperOrder",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa3.overallAnl.upperOrder",
+      "idn_legacy": "26.340.291",
+      "module": "soa3",
+      "submodule": "overallAnl",
+      "setting": "upperOrder",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa4.overallAnl.upperOrder",
+      "idn_legacy": "27.340.291",
+      "module": "soa4",
+      "submodule": "overallAnl",
+      "setting": "upperOrder",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa1.overallAnl.lowerOrder",
+      "idn_legacy": "14.340.292",
+      "module": "soa1",
+      "submodule": "overallAnl",
+      "setting": "lowerOrder",
+      "name": "Lower order",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa2.overallAnl.lowerOrder",
+      "idn_legacy": "17.340.292",
+      "module": "soa2",
+      "submodule": "overallAnl",
+      "setting": "lowerOrder",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa3.overallAnl.lowerOrder",
+      "idn_legacy": "26.340.292",
+      "module": "soa3",
+      "submodule": "overallAnl",
+      "setting": "lowerOrder",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa4.overallAnl.lowerOrder",
+      "idn_legacy": "27.340.292",
+      "module": "soa4",
+      "submodule": "overallAnl",
+      "setting": "lowerOrder",
+      "name": null,
+      "type": "scalar"
+    },
+    {
+      "idn_text": "soa1.754:1.correlation",
+      "idn_legacy": "14.754.412",
+      "module": "soa1",
+      "submodule": "754:1",
+      "setting": "correlation",
+      "name": "Correlation",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "soa2.754:1.correlation",
+      "idn_legacy": "17.754.412",
+      "module": "soa2",
+      "submodule": "754:1",
+      "setting": "correlation",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "soa3.754:1.correlation",
+      "idn_legacy": "26.754.412",
+      "module": "soa3",
+      "submodule": "754:1",
+      "setting": "correlation",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "soa4.754:1.correlation",
+      "idn_legacy": "27.754.412",
+      "module": "soa4",
+      "submodule": "754:1",
+      "setting": "correlation",
+      "name": null,
+      "type": "boolean"
+    },
+    {
+      "idn_text": "soa1.754:1.corrWeightWin",
+      "idn_legacy": "14.754.413",
+      "module": "soa1",
+      "submodule": "754:1",
+      "setting": "corrWeightWin",
+      "name": "Weighting window",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa2.754:1.corrWeightWin",
+      "idn_legacy": "17.754.413",
+      "module": "soa2",
+      "submodule": "754:1",
+      "setting": "corrWeightWin",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa3.754:1.corrWeightWin",
+      "idn_legacy": "26.754.413",
+      "module": "soa3",
+      "submodule": "754:1",
+      "setting": "corrWeightWin",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "soa4.754:1.corrWeightWin",
+      "idn_legacy": "27.754.413",
+      "module": "soa4",
+      "submodule": "754:1",
+      "setting": "corrWeightWin",
+      "name": null,
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.analogTachCh1.label",
+      "idn_legacy": "6.731.1",
+      "module": "tach",
+      "submodule": "analogTachCh1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "tach.analogTachCh1.source",
+      "idn_legacy": "6.731.100",
+      "module": "tach",
+      "submodule": "analogTachCh1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.analogTachCh1.inputFilter",
+      "idn_legacy": "6.731.46",
+      "module": "tach",
+      "submodule": "analogTachCh1",
+      "setting": "inputFilter",
+      "name": "Input filter",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.analogTachCh1.threshold",
+      "idn_legacy": "6.731.7",
+      "module": "tach",
+      "submodule": "analogTachCh1",
+      "setting": "threshold",
+      "name": "Threshold",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.analogTachCh1.slope",
+      "idn_legacy": "6.731.27",
+      "module": "tach",
+      "submodule": "analogTachCh1",
+      "setting": "slope",
+      "name": "Slope",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.analogTachCh1.holdoff",
+      "idn_legacy": "6.731.8",
+      "module": "tach",
+      "submodule": "analogTachCh1",
+      "setting": "holdoff",
+      "name": "Hold off",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.analogTachCh1.holdOffPercent",
+      "idn_legacy": "6.731.290",
+      "module": "tach",
+      "submodule": "analogTachCh1",
+      "setting": "holdOffPercent",
+      "name": "Hold off (% period)",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.analogTachCh1.hysteresis",
+      "idn_legacy": "6.731.9",
+      "module": "tach",
+      "submodule": "analogTachCh1",
+      "setting": "hysteresis",
+      "name": "Hysteresis",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.analogTachCh1.tachPerRev",
+      "idn_legacy": "6.731.241",
+      "module": "tach",
+      "submodule": "analogTachCh1",
+      "setting": "tachPerRev",
+      "name": "Pulse / rev",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.analogTachCh1.410",
+      "idn_legacy": "6.731.410",
+      "module": "tach",
+      "submodule": "analogTachCh1",
+      "setting": "410",
+      "name": "Rotation",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.analogTachCh1.tachAvrgNb",
+      "idn_legacy": "6.731.242",
+      "module": "tach",
+      "submodule": "analogTachCh1",
+      "setting": "tachAvrgNb",
+      "name": "Average size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.analogTachCh1.270",
+      "idn_legacy": "6.731.270",
+      "module": "tach",
+      "submodule": "analogTachCh1",
+      "setting": "270",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.analogTachCh1.276",
+      "idn_legacy": "6.731.276",
+      "module": "tach",
+      "submodule": "analogTachCh1",
+      "setting": "276",
+      "name": "Min speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.digitalTach1.label",
+      "idn_legacy": "6.192.1",
+      "module": "tach",
+      "submodule": "digitalTach1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "tach.digitalTach1.source",
+      "idn_legacy": "6.192.100",
+      "module": "tach",
+      "submodule": "digitalTach1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.digitalTach1.tachPerRev",
+      "idn_legacy": "6.192.241",
+      "module": "tach",
+      "submodule": "digitalTach1",
+      "setting": "tachPerRev",
+      "name": "Pulse / rev",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.digitalTach1.410",
+      "idn_legacy": "6.192.410",
+      "module": "tach",
+      "submodule": "digitalTach1",
+      "setting": "410",
+      "name": "Rotation",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.digitalTach1.tachAvrgNb",
+      "idn_legacy": "6.192.242",
+      "module": "tach",
+      "submodule": "digitalTach1",
+      "setting": "tachAvrgNb",
+      "name": "Average size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.digitalTach1.holdoff",
+      "idn_legacy": "6.192.8",
+      "module": "tach",
+      "submodule": "digitalTach1",
+      "setting": "holdoff",
+      "name": "Hold off",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.digitalTach1.holdOffPercent",
+      "idn_legacy": "6.192.290",
+      "module": "tach",
+      "submodule": "digitalTach1",
+      "setting": "holdOffPercent",
+      "name": "Hold off (% period)",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.digitalTach1.270",
+      "idn_legacy": "6.192.270",
+      "module": "tach",
+      "submodule": "digitalTach1",
+      "setting": "270",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.digitalTach1.276",
+      "idn_legacy": "6.192.276",
+      "module": "tach",
+      "submodule": "digitalTach1",
+      "setting": "276",
+      "name": "Min speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.digitalTach1.421",
+      "idn_legacy": "6.192.421",
+      "module": "tach",
+      "submodule": "digitalTach1",
+      "setting": "421",
+      "name": "Missing teeth",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.virtualTach1.label",
+      "idn_legacy": "6.171.1",
+      "module": "tach",
+      "submodule": "virtualTach1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "tach.virtualTach1.source",
+      "idn_legacy": "6.171.100",
+      "module": "tach",
+      "submodule": "virtualTach1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.virtualTach1.300",
+      "idn_legacy": "6.171.300",
+      "module": "tach",
+      "submodule": "virtualTach1",
+      "setting": "300",
+      "name": "Output Gear 1",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.virtualTach1.299",
+      "idn_legacy": "6.171.299",
+      "module": "tach",
+      "submodule": "virtualTach1",
+      "setting": "299",
+      "name": "Input Gear 2",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.virtualTach1.301",
+      "idn_legacy": "6.171.301",
+      "module": "tach",
+      "submodule": "virtualTach1",
+      "setting": "301",
+      "name": "Output Gear 2",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.virtualTach1.302",
+      "idn_legacy": "6.171.302",
+      "module": "tach",
+      "submodule": "virtualTach1",
+      "setting": "302",
+      "name": "Tach ratio",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.virtualTach1.410",
+      "idn_legacy": "6.171.410",
+      "module": "tach",
+      "submodule": "virtualTach1",
+      "setting": "410",
+      "name": "Rotation",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.virtualTach1.tachAvrgNb",
+      "idn_legacy": "6.171.242",
+      "module": "tach",
+      "submodule": "virtualTach1",
+      "setting": "tachAvrgNb",
+      "name": "Average size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.virtualTach1.270",
+      "idn_legacy": "6.171.270",
+      "module": "tach",
+      "submodule": "virtualTach1",
+      "setting": "270",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.virtualTach1.276",
+      "idn_legacy": "6.171.276",
+      "module": "tach",
+      "submodule": "virtualTach1",
+      "setting": "276",
+      "name": "Min speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.combinedTach1.label",
+      "idn_legacy": "6.653.1",
+      "module": "tach",
+      "submodule": "combinedTach1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "tach.combinedTach1.101",
+      "idn_legacy": "6.653.101",
+      "module": "tach",
+      "submodule": "combinedTach1",
+      "setting": "101",
+      "name": "Source 1",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.combinedTach1.102",
+      "idn_legacy": "6.653.102",
+      "module": "tach",
+      "submodule": "combinedTach1",
+      "setting": "102",
+      "name": "Source 2",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.combinedTach1.410",
+      "idn_legacy": "6.653.410",
+      "module": "tach",
+      "submodule": "combinedTach1",
+      "setting": "410",
+      "name": "Rotation",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.combinedTach1.tachAvrgNb",
+      "idn_legacy": "6.653.242",
+      "module": "tach",
+      "submodule": "combinedTach1",
+      "setting": "tachAvrgNb",
+      "name": "Average size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.combinedTach1.270",
+      "idn_legacy": "6.653.270",
+      "module": "tach",
+      "submodule": "combinedTach1",
+      "setting": "270",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.combinedTach1.276",
+      "idn_legacy": "6.653.276",
+      "module": "tach",
+      "submodule": "combinedTach1",
+      "setting": "276",
+      "name": "Min speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.simulatedTach1.label",
+      "idn_legacy": "6.601.1",
+      "module": "tach",
+      "submodule": "simulatedTach1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "tach.simulatedTach1.410",
+      "idn_legacy": "6.601.410",
+      "module": "tach",
+      "submodule": "simulatedTach1",
+      "setting": "410",
+      "name": "Rotation",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.simulatedTach1.145",
+      "idn_legacy": "6.601.145",
+      "module": "tach",
+      "submodule": "simulatedTach1",
+      "setting": "145",
+      "name": "Tach speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.simulatedTach1.270",
+      "idn_legacy": "6.601.270",
+      "module": "tach",
+      "submodule": "simulatedTach1",
+      "setting": "270",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.simulatedTach1.276",
+      "idn_legacy": "6.601.276",
+      "module": "tach",
+      "submodule": "simulatedTach1",
+      "setting": "276",
+      "name": "Min speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.dcTach1.label",
+      "idn_legacy": "6.605.1",
+      "module": "tach",
+      "submodule": "dcTach1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "tach.dcTach1.source",
+      "idn_legacy": "6.605.100",
+      "module": "tach",
+      "submodule": "dcTach1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.dcTach1.410",
+      "idn_legacy": "6.605.410",
+      "module": "tach",
+      "submodule": "dcTach1",
+      "setting": "410",
+      "name": "Rotation",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.dcTach1.tachAvrgNb",
+      "idn_legacy": "6.605.242",
+      "module": "tach",
+      "submodule": "dcTach1",
+      "setting": "tachAvrgNb",
+      "name": "Average size",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.dcTach1.270",
+      "idn_legacy": "6.605.270",
+      "module": "tach",
+      "submodule": "dcTach1",
+      "setting": "270",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.dcTach1.276",
+      "idn_legacy": "6.605.276",
+      "module": "tach",
+      "submodule": "dcTach1",
+      "setting": "276",
+      "name": "Min speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.angularResamplingTach1.label",
+      "idn_legacy": "6.201.1",
+      "module": "tach",
+      "submodule": "angularResamplingTach1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "tach.angularResamplingTach1.source",
+      "idn_legacy": "6.201.100",
+      "module": "tach",
+      "submodule": "angularResamplingTach1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.angularResamplingTach1.tachPerRev",
+      "idn_legacy": "6.201.241",
+      "module": "tach",
+      "submodule": "angularResamplingTach1",
+      "setting": "tachPerRev",
+      "name": "Pulse / rev",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.angularResamplingTach1.470",
+      "idn_legacy": "6.201.470",
+      "module": "tach",
+      "submodule": "angularResamplingTach1",
+      "setting": "470",
+      "name": "Phase ref",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tach.angularResamplingTach1.270",
+      "idn_legacy": "6.201.270",
+      "module": "tach",
+      "submodule": "angularResamplingTach1",
+      "setting": "270",
+      "name": "Max speed",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.angularResamplingTach1.421",
+      "idn_legacy": "6.201.421",
+      "module": "tach",
+      "submodule": "angularResamplingTach1",
+      "setting": "421",
+      "name": "Missing teeth",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.dcProfile.profileDuration",
+      "idn_legacy": "6.598.248",
+      "module": "tach",
+      "submodule": "dcProfile",
+      "setting": "profileDuration",
+      "name": "Duration profile",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tach.dcProfile.273",
+      "idn_legacy": "6.598.273",
+      "module": "tach",
+      "submodule": "dcProfile",
+      "setting": "273",
+      "name": "Min resolution",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tda.channel1.source",
+      "idn_legacy": "22.501.100",
+      "module": "tda",
+      "submodule": "channel1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tda.channel1.inputFilter",
+      "idn_legacy": "22.501.46",
+      "module": "tda",
+      "submodule": "channel1",
+      "setting": "inputFilter",
+      "name": "Input filter",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tda.channel1.23",
+      "idn_legacy": "22.501.23",
+      "module": "tda",
+      "submodule": "channel1",
+      "setting": "23",
+      "name": "Duration",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tda.channel1.223",
+      "idn_legacy": "22.501.223",
+      "module": "tda",
+      "submodule": "channel1",
+      "setting": "223",
+      "name": "Time Base",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tda.614:1.autoBandWidth",
+      "idn_legacy": "22.614.871",
+      "module": "tda",
+      "submodule": "614:1",
+      "setting": "autoBandWidth",
+      "name": "Autobandwidth",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "tda.tdaAverage.avDuration",
+      "idn_legacy": "22.893.26",
+      "module": "tda",
+      "submodule": "tdaAverage",
+      "setting": "avDuration",
+      "name": "Avg. duration",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "tda.tdaAverage.type",
+      "idn_legacy": "22.893.80",
+      "module": "tda",
+      "submodule": "tdaAverage",
+      "setting": "type",
+      "name": "Type",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tda.tdaTrigger.314",
+      "idn_legacy": "22.892.314",
+      "module": "tda",
+      "submodule": "tdaTrigger",
+      "setting": "314",
+      "name": "Synchronization",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tda.tdaTrigger.start",
+      "idn_legacy": "22.892.19",
+      "module": "tda",
+      "submodule": "tdaTrigger",
+      "setting": "start",
+      "name": "Start",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tda.tdaTrigger.stop",
+      "idn_legacy": "22.892.21",
+      "module": "tda",
+      "submodule": "tdaTrigger",
+      "setting": "stop",
+      "name": "Stop",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tda.tdaTrigger.restartCond",
+      "idn_legacy": "22.892.211",
+      "module": "tda",
+      "submodule": "tdaTrigger",
+      "setting": "restartCond",
+      "name": "Repeat",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "tda.tdaTrigger.startDelay",
+      "idn_legacy": "22.892.20",
+      "module": "tda",
+      "submodule": "tdaTrigger",
+      "setting": "startDelay",
+      "name": "Start delay",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "window.328:1.226",
+      "idn_legacy": "9.328.226",
+      "module": "window",
+      "submodule": "328:1",
+      "setting": "226",
+      "name": "Settings",
+      "type": "window-tuning"
+    },
+    {
+      "idn_text": "window.329:1.226",
+      "idn_legacy": "9.329.226",
+      "module": "window",
+      "submodule": "329:1",
+      "setting": "226",
+      "name": "Settings",
+      "type": "window-tuning"
+    },
+    {
+      "idn_text": "window.329:1.110",
+      "idn_legacy": "9.329.110",
+      "module": "window",
+      "submodule": "329:1",
+      "setting": "110",
+      "name": "Exp. coef.",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "parametricOperating.channel1.source",
+      "idn_legacy": "24.501.100",
+      "module": "parametricOperating",
+      "submodule": "channel1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "parametricOperating.709:1.label",
+      "idn_legacy": "24.709.1",
+      "module": "parametricOperating",
+      "submodule": "709:1",
+      "setting": "label",
+      "name": "Label",
+      "type": "string"
+    },
+    {
+      "idn_text": "parametricOperating.709:1.physicalQty",
+      "idn_legacy": "24.709.204",
+      "module": "parametricOperating",
+      "submodule": "709:1",
+      "setting": "physicalQty",
+      "name": "Physical qty.",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "parametricOperating.709:1.457",
+      "idn_legacy": "24.709.457",
+      "module": "parametricOperating",
+      "submodule": "709:1",
+      "setting": "457",
+      "name": "Valid",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "parametricOperating.709:1.458",
+      "idn_legacy": "24.709.458",
+      "module": "parametricOperating",
+      "submodule": "709:1",
+      "setting": "458",
+      "name": "Min output",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "parametricOperating.709:1.459",
+      "idn_legacy": "24.709.459",
+      "module": "parametricOperating",
+      "submodule": "709:1",
+      "setting": "459",
+      "name": "Max output",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "recorder.track1.source",
+      "idn_legacy": "3.365.100",
+      "module": "recorder",
+      "submodule": "track1",
+      "setting": "source",
+      "name": "Source",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "recorder.track1.14",
+      "idn_legacy": "3.365.14",
+      "module": "recorder",
+      "submodule": "track1",
+      "setting": "14",
+      "name": "Signal bandwidth",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "recorder.bandwiths.autoBandWidth",
+      "idn_legacy": "3.76.871",
+      "module": "recorder",
+      "submodule": "bandwiths",
+      "setting": "autoBandWidth",
+      "name": "Autobandwidth",
+      "type": "boolean"
+    },
+    {
+      "idn_text": "recorder.bandwiths.11",
+      "idn_legacy": "3.76.11",
+      "module": "recorder",
+      "submodule": "bandwiths",
+      "setting": "11",
+      "name": "Sampling 1",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "recorder.bandwiths.191",
+      "idn_legacy": "3.76.191",
+      "module": "recorder",
+      "submodule": "bandwiths",
+      "setting": "191",
+      "name": "Bandwidth 1",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "recorder.bandwiths.12",
+      "idn_legacy": "3.76.12",
+      "module": "recorder",
+      "submodule": "bandwiths",
+      "setting": "12",
+      "name": "Sampling 2",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "recorder.bandwiths.192",
+      "idn_legacy": "3.76.192",
+      "module": "recorder",
+      "submodule": "bandwiths",
+      "setting": "192",
+      "name": "Bandwidth 2",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "recorder.recTrigger.407",
+      "idn_legacy": "3.624.407",
+      "module": "recorder",
+      "submodule": "recTrigger",
+      "setting": "407",
+      "name": "Recorder",
+      "type": "action"
+    },
+    {
+      "idn_text": "recorder.recTrigger.start",
+      "idn_legacy": "3.624.19",
+      "module": "recorder",
+      "submodule": "recTrigger",
+      "setting": "start",
+      "name": "Start",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "recorder.recTrigger.stop",
+      "idn_legacy": "3.624.21",
+      "module": "recorder",
+      "submodule": "recTrigger",
+      "setting": "stop",
+      "name": "Stop",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "recorder.recTrigger.startDelay",
+      "idn_legacy": "3.624.20",
+      "module": "recorder",
+      "submodule": "recTrigger",
+      "setting": "startDelay",
+      "name": "Start delay",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "recorder.recTrigger.stopDelay",
+      "idn_legacy": "3.624.22",
+      "module": "recorder",
+      "submodule": "recTrigger",
+      "setting": "stopDelay",
+      "name": "Stop delay",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "recorder.recMode.873",
+      "idn_legacy": "3.626.873",
+      "module": "recorder",
+      "submodule": "recMode",
+      "setting": "873",
+      "name": "Automatic",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "recorder.recMode.localisation",
+      "idn_legacy": "3.626.200",
+      "module": "recorder",
+      "submodule": "recMode",
+      "setting": "localisation",
+      "name": "Record",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "recorder.recMode.mode",
+      "idn_legacy": "3.626.17",
+      "module": "recorder",
+      "submodule": "recMode",
+      "setting": "mode",
+      "name": "Mode",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "recorder.recMode.23",
+      "idn_legacy": "3.626.23",
+      "module": "recorder",
+      "submodule": "recMode",
+      "setting": "23",
+      "name": "Duration",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "recorder.recMode.maxDuration",
+      "idn_legacy": "3.626.316",
+      "module": "recorder",
+      "submodule": "recMode",
+      "setting": "maxDuration",
+      "name": "Max Duration",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "recorder.recMode.partLength",
+      "idn_legacy": "3.626.974",
+      "module": "recorder",
+      "submodule": "recMode",
+      "setting": "partLength",
+      "name": "Part file length",
+      "type": "enumerated"
+    },
+    {
+      "idn_text": "recorder.recMode.18",
+      "idn_legacy": "3.626.18",
+      "module": "recorder",
+      "submodule": "recMode",
+      "setting": "18",
+      "name": "Number of records",
+      "type": "scalar"
+    },
+    {
+      "idn_text": "recorder.recMode.16",
+      "idn_legacy": "3.626.16",
+      "module": "recorder",
+      "submodule": "recMode",
+      "setting": "16",
+      "name": "Format",
+      "type": "enumerated"
+    }
+  ]
+}

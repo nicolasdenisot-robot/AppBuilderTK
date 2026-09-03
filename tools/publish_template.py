@@ -48,7 +48,8 @@ INCLUDE = [
     "shared",
     "apps/_template",            # ONLY the template app, never real apps
     "resources/README.md",
-    "resources/manuals-text",    # kept (private template)
+    "resources/AI",              # OROS machine-readable reference kit (v1.7)
+    "resources/llms.txt",        # map of that kit
     "tools/export_app.py",
     "tools/README.md",
     # NOTE: tools/publish_template.py is intentionally NOT shipped — it's yours.

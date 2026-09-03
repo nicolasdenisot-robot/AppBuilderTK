@@ -1,0 +1,950 @@
+﻿code,kind,scope,meaning,note,command,section,category,page,has_placeholder
+001 001 XXX,syntax,global,Generic syntax error. XXX = error position.,,,,,19,True
+001 002 000,syntax,global,A rank is specified for one of the optional parameters and is not specified for the following optional parameters.,,,,,19,False
+001 003 XXX,syntax,global,Unexpected line end.,XXX = error position (line end).,,,,19,True
+002 001 000,semantic,global,Command name unknown.,,,,,19,False
+002 002 XXX,semantic,global,An optional parameter is assigned several times.,XXX = rank of the parameter in question.,,,,19,True
+002 003 000,semantic,global,The command does not accept the constants,,,,,19,False
+003 001 XXX,parameter,global,Number of compulsory parameters insufficient.,XXX = number of parameters expected (minimum).,,,,19,True
+003 002 XXX,parameter,global,Too many parameters.,XXX = maximum number of parameters.,,,,19,True
+003 003 XXX,parameter,global,Optional parameter rank invalid.,XXX = maximum number of optional parameters.,,,,19,True
+002 001 000,consistency,command,The specified parameter is not a header,,GetErrorMessage,2.4.1,Part list of interpretation / syntax errors,20,False
+002 002 000,consistency,command,Code Unknown,,GetErrorMessage,2.4.1,Part list of interpretation / syntax errors,20,False
+001 001 000,consistency,command,Macro unknown,,ExecMacro,3.1.1,Actions,21,False
+001 002 XXX,consistency,command,Constant unknown,XXX is the rank of the constant in the command. The first constant specified is of rank 1.,ExecMacro,3.1.1,Actions,21,True
+001 003 XXX,consistency,command,Type of value for the constant of rank XXX incorrect.,,ExecMacro,3.1.1,Actions,21,True
+000008000,execution,command,Macro loading has failed,,ExecMacro,3.1.1,Actions,21,False
+000008001,execution,command,Recursive macro,,ExecMacro,3.1.1,Actions,21,False
+013 001 000,consistency,command,Measurement is already in process,,Run,3.1.2,Actions,22,False
+013 002 000,consistency,command,A measurement is saving.,,Run,3.1.2,Actions,22,False
+014 001 000,consistency,command,No measurement in the process of acquisition.,,Stop,3.1.3,Actions,23,False
+015 001 000,consistency,command,No measurement in the process of acquisition,,Pause,3.1.4,Actions,24,False
+297 001 000,consistency,command,No measurement in the process of acquisition,,PlayByStep,3.1.5,Actions,25,False
+160 1xx xxx,consistency,command,The depth of the waterfall is too large. Xxxxx indicates the maximum depth that can be stored,,StandAlone,3.1.10,Actions,30,False
+160 002 000,consistency,command,The analyzer must be stopped before closing the application,,StandAlone,3.1.10,Actions,30,False
+160 003 000,consistency,command,The recorder cannot record on the PC in standalone mode,,StandAlone,3.1.10,Actions,30,False
+164 001 000,consistency,command,The project does not exist.,,AbortStandAlone,3.1.11,Actions,31,False
+164 002 000,consistency,command,The project is not in standalone.,,AbortStandAlone,3.1.11,Actions,31,False
+090 001 000,consistency,command,The action is already in course.,,Autorange,3.1.12,Actions,32,False
+090 002 000,consistency,command,"Slave is Selected, but the configuration is not dual.",,Autorange,3.1.12,Actions,32,False
+091 001 000,consistency,command,Action not available with OR34 or OR35,,CheckICP,3.1.13,Actions,33,False
+091 002 000,consistency,command,Unknown setting,,CheckICP,3.1.13,Actions,33,False
+091 003 000,consistency,command,The action is already in course.,,CheckICP,3.1.13,Actions,33,False
+091 004 000,consistency,command,"Slave is Selected, but the configuration is not dual.",,CheckICP,3.1.13,Actions,33,False
+091 005 000,consistency,command,At least one channel whose coupling is ICP does not detect an ICP sensor. The report of the check ICP is returned.,,CheckICP,3.1.13,Actions,33,False
+191 001 000,consistency,command,The action is already in course.,,CheckTEDS,3.1.14,Actions,34,False
+191 002 000,consistency,command,Unknown setting,,CheckTEDS,3.1.14,Actions,34,False
+191 003 000,consistency,command,At least one channel whose coupling is ICP TEDS does not detect a TEDS sensor.,,CheckTEDS,3.1.14,Actions,34,False
+092 001 000,consistency,command,The action is already in course.,,EmergencyStop,3.1.15,Actions,35,False
+092 002 000,consistency,command,The emergency stop setting is not found.,,EmergencyStop,3.1.15,Actions,35,False
+128 001 000,consistency,command,NVGate is not in measure mode,,EditCalibration,3.1.16,Actions,36,False
+128 002 000,consistency,command,NVGate is not connected to an analyzer,,EditCalibration,3.1.16,Actions,36,False
+128 003 000,consistency,command,Not all the analyzers are stopped,,EditCalibration,3.1.16,Actions,36,False
+177 001 000,consistency,command,Format hard disk as failed,,FormatDisk,3.1.18,Actions,38,False
+036 001 000,consistency,command,Unknown window,,GetWindowTraces,3.2.1,Marker,39,False
+037 001 000,consistency,command,Unknown window,,GetWindowDisplayZone,3.2.2,Marker,40,False
+038 001 000,consistency,command,Unknown window,,GetMarkerList,3.2.3,Marker,42,False
+038 002 000,consistency,command,Invalid display zone,,GetMarkerList,3.2.3,Marker,42,False
+039 001 000,consistency,command,Unknown window,,AddFreeMarker,3.2.4,Marker,44,False
+039 002 000,consistency,command,Invalid position,,AddFreeMarker,3.2.4,Marker,44,False
+039 003 000,consistency,command,Invalid or unavailable display zone type,,AddFreeMarker,3.2.4,Marker,44,False
+039 004 000,consistency,command,Invalid interpolation type,,AddFreeMarker,3.2.4,Marker,44,False
+039 005 000,consistency,command,Invalid trace application,,AddFreeMarker,3.2.4,Marker,44,False
+039 006 000,consistency,command,Unknown trace,,AddFreeMarker,3.2.4,Marker,44,False
+040 001 000,consistency,command,Unknown window,,AddPeakMarker,3.2.5,Marker,45,False
+040 002 000,consistency,command,Invalid max peak number,,AddPeakMarker,3.2.5,Marker,45,False
+040 003 000,consistency,command,Invalid or unavailable display zone type,,AddPeakMarker,3.2.5,Marker,45,False
+040 004 000,consistency,command,Invalid interpolation type,,AddPeakMarker,3.2.5,Marker,45,False
+040 005 000,consistency,command,Invalid trace application,,AddPeakMarker,3.2.5,Marker,45,False
+040 006 000,consistency,command,Unknown trace,,AddPeakMarker,3.2.5,Marker,45,False
+041 001 000,consistency,command,Unknown window,,AddMaxMarker,3.2.6,Marker,46,False
+041 002 000,consistency,command,Invalid max peak number,,AddMaxMarker,3.2.6,Marker,46,False
+041 003 000,consistency,command,Invalid or unavailable display zone type,,AddMaxMarker,3.2.6,Marker,46,False
+041 004 000,consistency,command,Invalid interpolation type,,AddMaxMarker,3.2.6,Marker,46,False
+041 005 000,consistency,command,Invalid trace application,,AddMaxMarker,3.2.6,Marker,46,False
+041 006 000,consistency,command,Unknown trace,,AddMaxMarker,3.2.6,Marker,46,False
+042 001 000,consistency,command,Unknown window,,AddPowerBandMarker,3.2.7,Marker,47,False
+042 002 000,consistency,command,Invalid Start position,,AddPowerBandMarker,3.2.7,Marker,47,False
+042 003 000,consistency,command,Invalid Delta (Start position + delta is out of bound),,AddPowerBandMarker,3.2.7,Marker,47,False
+042 004 000,consistency,command,Invalid or unavailable display zone type,,AddPowerBandMarker,3.2.7,Marker,47,False
+042 005 000,consistency,command,Invalid trace application,,AddPowerBandMarker,3.2.7,Marker,47,False
+042 006 000,consistency,command,Unknown trace,,AddPowerBandMarker,3.2.7,Marker,47,False
+142 001 000,consistency,command,Unknown window,,AddSideBandMarker,3.2.8,Marker,48,False
+142 002 000,consistency,command,Invalid number of bands,,AddSideBandMarker,3.2.8,Marker,48,False
+142 003 000,consistency,command,Invalid or unavailable display zone type,,AddSideBandMarker,3.2.8,Marker,48,False
+142 004 000,consistency,command,Invalid or unavailable interpolation type,,AddSideBandMarker,3.2.8,Marker,48,False
+142 005 000,consistency,command,Invalid trace application,,AddSideBandMarker,3.2.8,Marker,48,False
+142 006 000,consistency,command,Unknown trace,,AddSideBandMarker,3.2.8,Marker,48,False
+143 001 000,consistency,command,Unknown window,,AddHarmonicMarker,3.2.9,Marker,49,False
+143 002 000,consistency,command,Invalid number of harmonics,,AddHarmonicMarker,3.2.9,Marker,49,False
+143 003 000,consistency,command,Invalid or unavailable display zone type,,AddHarmonicMarker,3.2.9,Marker,49,False
+143 004 000,consistency,command,Invalid or unavailable interpolation type,,AddHarmonicMarker,3.2.9,Marker,49,False
+143 005 000,consistency,command,Invalid trace application,,AddHarmonicMarker,3.2.9,Marker,49,False
+143 006 000,consistency,command,Unknown trace,,AddHarmonicMarker,3.2.9,Marker,49,False
+253 001 000,consistency,command,No recording,,AddRecordMarker,3.2.10,Marker,50,False
+279 001 000,consistency,command,Unknown window,,AddPeriodMarker,3.2.11,Marker,51,False
+279 002 000,consistency,command,Invalid number of periods,,AddPeriodMarker,3.2.11,Marker,51,False
+279 003 000,consistency,command,Invalid or unavailable display zone type,,AddPeriodMarker,3.2.11,Marker,51,False
+279 004 000,consistency,command,Invalid trace application,,AddPeriodMarker,3.2.11,Marker,51,False
+279 005 000,consistency,command,Unknown trace,,AddPeriodMarker,3.2.11,Marker,51,False
+333 001 000,consistency,command,Unknown window,,AddKinematicMarker,3.2.12,Marker,52,False
+333 002 000,consistency,command,Invalid position,,AddKinematicMarker,3.2.12,Marker,52,False
+333 003 000,consistency,command,Invalid or unavailable display zone type,,AddKinematicMarker,3.2.12,Marker,52,False
+333 004 000,consistency,command,Invalid interpolation type,,AddKinematicMarker,3.2.12,Marker,52,False
+333 005 000,consistency,command,Invalid trace application,,AddKinematicMarker,3.2.12,Marker,52,False
+333 006 000,consistency,command,Unknown trace,,AddKinematicMarker,3.2.12,Marker,52,False
+333 007 000,consistency,command,Unknown kinematic marker,,AddKinematicMarker,3.2.12,Marker,52,False
+384 001 000,consistency,command,Unknown window,,AddNOctaveMarker,3.2.13,Marker,53,False
+384 002 000,consistency,command,The window is not compatible with NOctave marker,,AddNOctaveMarker,3.2.13,Marker,53,False
+384 003 000,consistency,command,Invalid trace application,,AddNOctaveMarker,3.2.13,Marker,53,False
+384 004 000,consistency,command,Unknown trace,,AddNOctaveMarker,3.2.13,Marker,53,False
+255 001 000,consistency,command,Unknown window,,SetRecordMarkerLabel,3.2.15,Marker,55,False
+255 002 000,consistency,command,Unknown marker,,SetRecordMarkerLabel,3.2.15,Marker,55,False
+043 001 000,consistency,command,Unknown window,,RemoveMarker,3.2.16,Marker,56,False
+043 002 000,consistency,command,Invalid or unavailable display zone type,,RemoveMarker,3.2.16,Marker,56,False
+043 003 000,consistency,command,Unknown marker type,,RemoveMarker,3.2.16,Marker,56,False
+043 004 000,consistency,command,Unknown marker,,RemoveMarker,3.2.16,Marker,56,False
+334 001 000,consistency,command,Unknown window,,DisplayMarkerProperties,3.2.17,Marker,57,False
+334 002 000,consistency,command,Invalid or unavailable display zone type,,DisplayMarkerProperties,3.2.17,Marker,57,False
+334 003 000,consistency,command,Unknown marker type,,DisplayMarkerProperties,3.2.17,Marker,57,False
+334 004 000,consistency,command,Unknown marker,,DisplayMarkerProperties,3.2.17,Marker,57,False
+383 001 000,consistency,command,Unknown window,,DuplicateMarkerInMultigraphWindow,3.2.18,Marker,58,False
+383 002 000,consistency,command,The window is not in a multigraph mode,,DuplicateMarkerInMultigraphWindow,3.2.18,Marker,58,False
+383 003 000,consistency,command,Unknown marker type,,DuplicateMarkerInMultigraphWindow,3.2.18,Marker,58,False
+383 004 000,consistency,command,The marker is unknown in the window,,DuplicateMarkerInMultigraphWindow,3.2.18,Marker,58,False
+044 001 000,consistency,command,Unknown window,,SetFreeMarkerParameters,3.2.19,Marker,59,False
+044 002 000,consistency,command,Invalid or unavailable display zone type,,SetFreeMarkerParameters,3.2.19,Marker,59,False
+044 003 000,consistency,command,Unknown marker,,SetFreeMarkerParameters,3.2.19,Marker,59,False
+044 004 000,consistency,command,Invalid position,,SetFreeMarkerParameters,3.2.19,Marker,59,False
+044 005 000,consistency,command,Invalid interpolation type,,SetFreeMarkerParameters,3.2.19,Marker,59,False
+045 001 000,consistency,command,Unknown window,,GetFreeMarkerParameters,3.2.20,Marker,60,False
+045 002 000,consistency,command,Invalid or unavailable display zone type,,GetFreeMarkerParameters,3.2.20,Marker,60,False
+045 003 000,consistency,command,Unknown marker,,GetFreeMarkerParameters,3.2.20,Marker,60,False
+046 001 000,consistency,command,Unknown window,,SetPeakMarkerParameters,3.2.21,Marker,61,False
+046 002 000,consistency,command,Invalid or unavailable display zone type,,SetPeakMarkerParameters,3.2.21,Marker,61,False
+046 003 000,consistency,command,Unknown marker,,SetPeakMarkerParameters,3.2.21,Marker,61,False
+046 004 000,consistency,command,Invalid max peak number,,SetPeakMarkerParameters,3.2.21,Marker,61,False
+046 005 000,consistency,command,Invalid interpolation type,,SetPeakMarkerParameters,3.2.21,Marker,61,False
+047 001 000,consistency,command,Unknown window,,GetPeakMarkerParameters,3.2.22,Marker,62,False
+047 002 000,consistency,command,Invalid or unavailable display zone type,,GetPeakMarkerParameters,3.2.22,Marker,62,False
+047 003 000,consistency,command,Unknown marker,,GetPeakMarkerParameters,3.2.22,Marker,62,False
+048 001 000,consistency,command,Unknown window,,SetMaxMarkerParameters,3.2.23,Marker,63,False
+048 002 000,consistency,command,Invalid or unavailable display zone type,,SetMaxMarkerParameters,3.2.23,Marker,63,False
+048 003 000,consistency,command,Unknown marker,,SetMaxMarkerParameters,3.2.23,Marker,63,False
+048 004 000,consistency,command,Invalid max peak number,,SetMaxMarkerParameters,3.2.23,Marker,63,False
+048 005 000,consistency,command,Invalid interpolation type,,SetMaxMarkerParameters,3.2.23,Marker,63,False
+049 001 000,consistency,command,Unknown window,,GetMaxMarkerParameters,3.2.24,Marker,64,False
+049 002 000,consistency,command,Invalid or unavailable display zone type,,GetMaxMarkerParameters,3.2.24,Marker,64,False
+049 003 000,consistency,command,Unknown marker,,GetMaxMarkerParameters,3.2.24,Marker,64,False
+254 001 000,consistency,command,Unknown window,,GetRecordMarkerParameters,3.2.25,Marker,65,False
+254 002 000,consistency,command,Invalid or unavailable display zone type,,GetRecordMarkerParameters,3.2.25,Marker,65,False
+254 003 000,consistency,command,Unknown marker,,GetRecordMarkerParameters,3.2.25,Marker,65,False
+050 001 000,consistency,command,Unknown window,,SetPowerBandMarkerParameters,3.2.26,Marker,66,False
+050 002 000,consistency,command,Invalid or unavailable display zone type,,SetPowerBandMarkerParameters,3.2.26,Marker,66,False
+050 003 000,consistency,command,Unknown marker,,SetPowerBandMarkerParameters,3.2.26,Marker,66,False
+050 004 000,consistency,command,Invalid Start position,,SetPowerBandMarkerParameters,3.2.26,Marker,66,False
+050 005 000,consistency,command,Invalid delta (Start position + delta is out of bound),,SetPowerBandMarkerParameters,3.2.26,Marker,66,False
+051 001 000,consistency,command,Unknown window,,GetPowerBandMarkerParameters,3.2.27,Marker,67,False
+051 002 000,consistency,command,Invalid or unavailable display zone type,,GetPowerBandMarkerParameters,3.2.27,Marker,67,False
+051 003 000,consistency,command,Unknown marker,,GetPowerBandMarkerParameters,3.2.27,Marker,67,False
+145 001 000,consistency,command,Unknown window,,SetSideBandMarkerParameters,3.2.28,Marker,68,False
+145 002 000,consistency,command,Invalid or unavailable display zone type,,SetSideBandMarkerParameters,3.2.28,Marker,68,False
+145 003 000,consistency,command,Unknown marker,,SetSideBandMarkerParameters,3.2.28,Marker,68,False
+145 004 000,consistency,command,Invalid Start position,,SetSideBandMarkerParameters,3.2.28,Marker,68,False
+145 005 000,consistency,command,Invalid delta (Start position + delta is out of bound),,SetSideBandMarkerParameters,3.2.28,Marker,68,False
+145 006 000,consistency,command,Invalid number of bands (<1 or >128),,SetSideBandMarkerParameters,3.2.28,Marker,68,False
+147 001 000,consistency,command,Unknown window,,GetSideBandMarkerParameters,3.2.29,Marker,69,False
+147 002 000,consistency,command,Invalid or unavailable display zone type,,GetSideBandMarkerParameters,3.2.29,Marker,69,False
+147 003 000,consistency,command,Unknown marker,,GetSideBandMarkerParameters,3.2.29,Marker,69,False
+146 001 000,consistency,command,Unknown window,,SetHarmonicMarkerParameters,3.2.30,Marker,70,False
+146 002 000,consistency,command,Invalid or unavailable display zone type,,SetHarmonicMarkerParameters,3.2.30,Marker,70,False
+146 003 000,consistency,command,Unknown marker,,SetHarmonicMarkerParameters,3.2.30,Marker,70,False
+146 004 000,consistency,command,Invalid Start position,,SetHarmonicMarkerParameters,3.2.30,Marker,70,False
+146 005 000,consistency,command,Invalid number of harmonics (<1 or >128),,SetHarmonicMarkerParameters,3.2.30,Marker,70,False
+144 001 000,consistency,command,Unknown window,,SetHarmonicMarkerVisibility,3.2.31,Marker,71,False
+144 002 000,consistency,command,Invalid or unavailable display zone type,,SetHarmonicMarkerVisibility,3.2.31,Marker,71,False
+144 003 000,consistency,command,Unknown marker,,SetHarmonicMarkerVisibility,3.2.31,Marker,71,False
+144 004 000,consistency,command,Invalid number of harmonics (<2 or >nb max harmonics),,SetHarmonicMarkerVisibility,3.2.31,Marker,71,False
+148 001 000,consistency,command,Unknown window,,GetHarmonicMarkerParameters,3.2.32,Marker,72,False
+148 002 000,consistency,command,Invalid or unavailable display zone type,,GetHarmonicMarkerParameters,3.2.32,Marker,72,False
+148 003 000,consistency,command,Unknown marker,,GetHarmonicMarkerParameters,3.2.32,Marker,72,False
+281 001 000,consistency,command,Unknown window,,SetPeriodMarkerParameters,3.2.33,Marker,73,False
+281 002 000,consistency,command,Invalid or unavailable display zone type,,SetPeriodMarkerParameters,3.2.33,Marker,73,False
+281 003 000,consistency,command,Unknown marker,,SetPeriodMarkerParameters,3.2.33,Marker,73,False
+281 004 000,consistency,command,Invalid Start position,,SetPeriodMarkerParameters,3.2.33,Marker,73,False
+281 005 000,consistency,command,Invalid number of periods,,SetPeriodMarkerParameters,3.2.33,Marker,73,False
+280 001 000,consistency,command,Unknown window,,SetPeriodMarkerVisibility,3.2.34,Marker,74,False
+280 002 000,consistency,command,Invalid or unavailable display zone type,,SetPeriodMarkerVisibility,3.2.34,Marker,74,False
+280 003 000,consistency,command,Unknown marker,,SetPeriodMarkerVisibility,3.2.34,Marker,74,False
+280 004 000,consistency,command,Invalid period number,,SetPeriodMarkerVisibility,3.2.34,Marker,74,False
+044 001 000,consistency,command,Unknown window,,SetKinematicMarkerParameters,3.2.35,Marker,75,False
+044 002 000,consistency,command,Invalid or unavailable display zone type,,SetKinematicMarkerParameters,3.2.35,Marker,75,False
+044 003 000,consistency,command,Unknown marker,,SetKinematicMarkerParameters,3.2.35,Marker,75,False
+044 004 000,consistency,command,Invalid position,,SetKinematicMarkerParameters,3.2.35,Marker,75,False
+282 001 000,consistency,command,Unknown window,,GetPeriodMarkerParameters,3.2.36,Marker,76,False
+282 002 000,consistency,command,Invalid or unavailable display zone type,,GetPeriodMarkerParameters,3.2.36,Marker,76,False
+282 003 000,consistency,command,Unknown marker,,GetPeriodMarkerParameters,3.2.36,Marker,76,False
+052 001 000,consistency,command,Unknown window,,GetFreeMarkerValue,3.2.37,Marker,78,False
+052 002 000,consistency,command,Invalid or unavailable display zone type,,GetFreeMarkerValue,3.2.37,Marker,78,False
+052 003 000,consistency,command,Unknown marker,,GetFreeMarkerValue,3.2.37,Marker,78,False
+052 004 000,consistency,command,No trace in window,,GetFreeMarkerValue,3.2.37,Marker,78,False
+053 001 000,consistency,command,Unknown window,,GetPeakMarkerValue,3.2.38,Marker,81,False
+053 002 000,consistency,command,Invalid or unavailable display zone type,,GetPeakMarkerValue,3.2.38,Marker,81,False
+053 003 000,consistency,command,Unknown marker,,GetPeakMarkerValue,3.2.38,Marker,81,False
+053 004 000,consistency,command,No trace in window,,GetPeakMarkerValue,3.2.38,Marker,81,False
+054 001 000,consistency,command,Unknown window,,GetMaxMarkerValue,3.2.39,Marker,82,False
+054 002 000,consistency,command,Invalid or unavailable display zone type,,GetMaxMarkerValue,3.2.39,Marker,82,False
+054 003 000,consistency,command,Unknown marker,,GetMaxMarkerValue,3.2.39,Marker,82,False
+054 004 000,consistency,command,No trace in window,,GetMaxMarkerValue,3.2.39,Marker,82,False
+055 001 000,consistency,command,Unknown window,,GetPowerBandMarkerValue,3.2.40,Marker,83,False
+055 002 000,consistency,command,Invalid or unavailable display zone type,,GetPowerBandMarkerValue,3.2.40,Marker,83,False
+055 003 000,consistency,command,Unknown marker,,GetPowerBandMarkerValue,3.2.40,Marker,83,False
+055 004 000,consistency,command,No trace in window,,GetPowerBandMarkerValue,3.2.40,Marker,83,False
+149 001 000,consistency,command,Unknown window,,GetSideBandMarkerValue,3.2.41,Marker,85,False
+149 002 000,consistency,command,Invalid or unavailable display zone type,,GetSideBandMarkerValue,3.2.41,Marker,85,False
+149 003 000,consistency,command,Unknown marker,,GetSideBandMarkerValue,3.2.41,Marker,85,False
+149 004 000,consistency,command,No trace in window,,GetSideBandMarkerValue,3.2.41,Marker,85,False
+150 001 000,consistency,command,Unknown window,,GetHarmonicMarkerValue,3.2.42,Marker,87,False
+150 002 000,consistency,command,Invalid or unavailable display zone type,,GetHarmonicMarkerValue,3.2.42,Marker,87,False
+150 003 000,consistency,command,Unknown marker,,GetHarmonicMarkerValue,3.2.42,Marker,87,False
+150 004 000,consistency,command,No trace in window,,GetHarmonicMarkerValue,3.2.42,Marker,87,False
+283 001 000,consistency,command,Unknown window,,GetPeriodMarkerValue,3.2.43,Marker,89,False
+283 002 000,consistency,command,Invalid or unavailable display zone type,,GetPeriodMarkerValue,3.2.43,Marker,89,False
+283 003 000,consistency,command,Unknown marker,,GetPeriodMarkerValue,3.2.43,Marker,89,False
+283 004 000,consistency,command,No trace in window,,GetPeriodMarkerValue,3.2.43,Marker,89,False
+016 001 000,consistency,command,Module number incorrect (not included in the module number table) or number of a module not existing in the configuration.,,AddWindowResult,3.3.1,Graphics,91,False
+016 002 000,consistency,command,Number of a module not supplying a result,,AddWindowResult,3.3.1,Graphics,91,False
+016 003 000,consistency,command,Process number incorrect,,AddWindowResult,3.3.1,Graphics,91,False
+016 004 000,consistency,command,Channel number incorrect,,AddWindowResult,3.3.1,Graphics,91,False
+016 005 000,consistency,command,Reference channel number incorrect,,AddWindowResult,3.3.1,Graphics,91,False
+016 006 000,consistency,command,Weighting operator unknown,,AddWindowResult,3.3.1,Graphics,91,False
+016 007 000,consistency,command,No weighting for non-spectrum results,,AddWindowResult,3.3.1,Graphics,91,False
+016 008 000,consistency,command,Result already weighted,,AddWindowResult,3.3.1,Graphics,91,False
+016 009 000,consistency,command,Time operator unknown,,AddWindowResult,3.3.1,Graphics,91,False
+016 010 000,consistency,command,Display unit unknown,,AddWindowResult,3.3.1,Graphics,91,False
+016 011 000,consistency,command,Window cannot be created for the specified result,,AddWindowResult,3.3.1,Graphics,91,False
+016 012 000,consistency,command,Specified result and window incompatible (when the specified window already exists),,AddWindowResult,3.3.1,Graphics,91,False
+016 013 000,consistency,command,Value for the ArrangeWindow parameter incorrect,,AddWindowResult,3.3.1,Graphics,91,False
+016 014 000,consistency,command,,,AddWindowResult,3.3.1,Graphics,91,False
+016 015 000,consistency,command,The specified result is already displayed in the specified window,,AddWindowResult,3.3.1,Graphics,91,False
+105 001 000,consistency,command,Window cannot be created,,AddWindowPlayerResult,3.3.2,Graphics,92,False
+105 002 000,consistency,command,The preview window already exists.,,AddWindowPlayerResult,3.3.2,Graphics,92,False
+105 003 000,consistency,command,Unknown Project,,AddWindowPlayerResult,3.3.2,Graphics,92,False
+105 004 000,consistency,command,Unknown Measurement,,AddWindowPlayerResult,3.3.2,Graphics,92,False
+021 001 000,consistency,command,Project unknown,,AddWindowSavedResult,3.3.3,Graphics,93,False
+021 002 000,consistency,command,Measurement unknown,,AddWindowSavedResult,3.3.3,Graphics,93,False
+021 003 000,consistency,command,Process number incorrect,,AddWindowSavedResult,3.3.3,Graphics,93,False
+021 004 000,consistency,command,Channel number incorrect,,AddWindowSavedResult,3.3.3,Graphics,93,False
+021 005 000,consistency,command,Reference channel number incorrect,,AddWindowSavedResult,3.3.3,Graphics,93,False
+021 006 000,consistency,command,Result unknown,,AddWindowSavedResult,3.3.3,Graphics,93,False
+021 007 000,consistency,command,Weighting operator unknown,,AddWindowSavedResult,3.3.3,Graphics,93,False
+021 008 000,consistency,command,Time operator unknown,,AddWindowSavedResult,3.3.3,Graphics,93,False
+021 009 000,consistency,command,Display unit unknown,,AddWindowSavedResult,3.3.3,Graphics,93,False
+021 010 000,consistency,command,Window cannot be created for the specified result,,AddWindowSavedResult,3.3.3,Graphics,93,False
+089 001 000,consistency,command,Module number incorrect (not included in the module number table) or number of a module not existing in the configuration.,,AddWindowWtfResult,3.3.4,Graphics,95,False
+089 002 000,consistency,command,Number of a module not supplying a result,,AddWindowWtfResult,3.3.4,Graphics,95,False
+089 003 000,consistency,command,Process number incorrect,,AddWindowWtfResult,3.3.4,Graphics,95,False
+089 004 000,consistency,command,Channel number incorrect,,AddWindowWtfResult,3.3.4,Graphics,95,False
+089 005 000,consistency,command,Reference channel number incorrect,,AddWindowWtfResult,3.3.4,Graphics,95,False
+089 006 000,consistency,command,Weighting operator unknown,,AddWindowWtfResult,3.3.4,Graphics,95,False
+089 007 000,consistency,command,No weighting for non-spectrum results,,AddWindowWtfResult,3.3.4,Graphics,95,False
+089 008 000,consistency,command,Result already weighted,,AddWindowWtfResult,3.3.4,Graphics,95,False
+089 009 000,consistency,command,Time operator unknown,,AddWindowWtfResult,3.3.4,Graphics,95,False
+089 010 000,consistency,command,Display unit unknown,,AddWindowWtfResult,3.3.4,Graphics,95,False
+089 011 000,consistency,command,Window cannot be created for the specified result,,AddWindowWtfResult,3.3.4,Graphics,95,False
+089 012 000,consistency,command,Specified result and window incompatible (when the specified window already exists),,AddWindowWtfResult,3.3.4,Graphics,95,False
+089 013 000,consistency,command,Value for the ArrangeWindow parameter incorrect,,AddWindowWtfResult,3.3.4,Graphics,95,False
+395 001 000,consistency,command,Window cannot be created,,AddWindowZoomedSignal,3.3.5,Graphics,96,False
+395 002 000,consistency,command,The zoom window already exists.,,AddWindowZoomedSignal,3.3.5,Graphics,96,False
+395 003 000,consistency,command,Recorder is not running,,AddWindowZoomedSignal,3.3.5,Graphics,96,False
+395 004 000,consistency,command,Unknown recorder state,,AddWindowZoomedSignal,3.3.5,Graphics,96,False
+395 005 000,consistency,command,Begin or end cannot be greater than total duration,,AddWindowZoomedSignal,3.3.5,Graphics,96,False
+395 006 000,consistency,command,Begin and end are not consistent,,AddWindowZoomedSignal,3.3.5,Graphics,96,False
+395 007 000,consistency,command,Zoom impossible on given track,,AddWindowZoomedSignal,3.3.5,Graphics,96,False
+395 008 000,consistency,command,Unknown Project,,AddWindowZoomedSignal,3.3.5,Graphics,96,False
+395 009 000,consistency,command,Unknown Measurement,,AddWindowZoomedSignal,3.3.5,Graphics,96,False
+395 010 000,consistency,command,Project or Measurement inconsistent,,AddWindowZoomedSignal,3.3.5,Graphics,96,False
+264 001 000,consistency,command,Layout unknown,,RenameWindow,3.3.6,Graphics,97,False
+264 002 000,consistency,command,Window unknown,,RenameWindow,3.3.6,Graphics,97,False
+264 003 000,consistency,command,New name already used,,RenameWindow,3.3.6,Graphics,97,False
+011 001 000,consistency,command,Layout unknown,,SetLayout,3.3.7,Graphics,98,False
+017 001 000,consistency,command,Layout already existing,,NewLayout,3.3.8,Graphics,99,False
+017 002 000,consistency,command,Value incorrect for the BecomeCurrent flag (0 or 1 expected),,NewLayout,3.3.8,Graphics,99,False
+017 001 000,consistency,command,Layout not found,,RemoveLayout,3.3.9,Graphics,100,False
+017 002 000,consistency,command,There is only one layout in the current workbook,,RemoveLayout,3.3.9,Graphics,100,False
+017 003 000,consistency,command,Error removing layout,,RemoveLayout,3.3.9,Graphics,100,False
+317 001 000,consistency,command,Layout not found,,RenameLayout,3.3.10,Graphics,101,False
+317 002 000,consistency,command,"There is already a layout named ""new layout name""",,RenameLayout,3.3.10,Graphics,101,False
+317 003 000,consistency,command,Unknown Error while renaming layout,,RenameLayout,3.3.10,Graphics,101,False
+163 001 000,consistency,command,There is no layout.,,GetCurrentLayout,3.3.12,Graphics,103,False
+194 001 000,consistency,command,Layout unknown,,SetActiveWindow,3.3.14,Graphics,105,False
+194 002 000,consistency,command,Window unknown,,SetActiveWindow,3.3.14,Graphics,105,False
+059 001 000,consistency,command,Module number incorrect (not included in the module number table) or number of a module not existing in the configuration.,,GetWindowList,3.3.16,Graphics,107,False
+059 002 000,consistency,command,Number of a module not supplying a result,,GetWindowList,3.3.16,Graphics,107,False
+059 003 000,consistency,command,Process number incorrect (not included in the process number table),,GetWindowList,3.3.16,Graphics,107,False
+059 004 000,consistency,command,Channel number incorrect (number not included between 1 and 32),,GetWindowList,3.3.16,Graphics,107,False
+059 005 000,consistency,command,Reference channel number incorrect (number not included between 1 and 32),,GetWindowList,3.3.16,Graphics,107,False
+103 001 000,consistency,command,The layout does not exist.,,GetWindowNameList,3.3.17,Graphics,108,False
+103 002 000,consistency,command,Error loading layout,,GetWindowNameList,3.3.17,Graphics,108,False
+36 001 000,consistency,command,The window does not exist.,,GetWindowTraces,3.3.18,Graphics,109,False
+378 060 1 000,consistency,command,Unknown layout,,GetMeasurementWindowTrace,3.3.19,Graphics,110,False
+378 002 000,consistency,command,Unknown window,,GetMeasurementWindowTrace,3.3.19,Graphics,110,False
+378 003 000,consistency,command,Not supported window,,GetMeasurementWindowTrace,3.3.19,Graphics,110,False
+378 004 000,consistency,command,Bad trace index parameter,,GetMeasurementWindowTrace,3.3.19,Graphics,110,False
+064 001 000,consistency,command,Unknown layout,,CloseWindow,3.3.20,Graphics,111,False
+064 002 000,consistency,command,Unknown window,,CloseWindow,3.3.20,Graphics,111,False
+161 001 000,consistency,command,Unknown layout,,CloseAllWindows,3.3.21,Graphics,112,False
+066 001 000,consistency,command,Unknown layout,,Autoscale,3.3.22,Graphics,113,False
+066 002 000,consistency,command,Unknown window,,Autoscale,3.3.22,Graphics,113,False
+066 003 000,consistency,command,"Value for ""axis"" parameter incorrect",,Autoscale,3.3.22,Graphics,113,False
+108 001 000,consistency,command,Unknown layout,,AutoscaleAllWnd,3.3.23,Graphics,114,False
+108 003 000,consistency,command,"Value for ""axis"" parameter incorrect",,AutoscaleAllWnd,3.3.23,Graphics,114,False
+332 001 000,consistency,command,Unknown layout,,ChangeSpectralWeighting,3.3.24,Graphics,115,False
+332 002 000,consistency,command,Unknown window,,ChangeSpectralWeighting,3.3.24,Graphics,115,False
+332 003 000,consistency,command,The weighting cannot be applied to the window,,ChangeSpectralWeighting,3.3.24,Graphics,115,False
+332 004 000,consistency,command,The weighting is not valid,,ChangeSpectralWeighting,3.3.24,Graphics,115,False
+078 001 000,consistency,command,Unknown layout,,ChangeDisplayMode,3.3.25,Graphics,116,False
+078 002 000,consistency,command,Unknown window,,ChangeDisplayMode,3.3.25,Graphics,116,False
+078 003 000,consistency,command,The mode is not valid for the window,,ChangeDisplayMode,3.3.25,Graphics,116,False
+271 001 000,consistency,command,Unknown layout,,GetDisplayMode,3.3.26,Graphics,117,False
+271 002 000,consistency,command,Unknown window,,GetDisplayMode,3.3.26,Graphics,117,False
+140 001 000,consistency,command,Unknown layout,,GetDisplayModeList,3.3.27,Graphics,118,False
+140 002 000,consistency,command,Unknown window,,GetDisplayModeList,3.3.27,Graphics,118,False
+076 001 000,consistency,command,Unknown Tile style,,ArrangeWindows,3.3.28,Graphics,119,False
+302 001 000,consistency,command,Unknown layout,,GroupByMagnitude,3.3.29,Graphics,120,False
+302 002 000,consistency,command,Unknown window,,GroupByMagnitude,3.3.29,Graphics,120,False
+098 001 000,consistency,command,Unknown window,,OpenCloseInfoTrace,3.3.30,Graphics,121,False
+121 001 000,consistency,command,Unknown layout,,MemorizeTrace,3.3.31,Graphics,122,False
+121 002 000,consistency,command,Unknown window,,MemorizeTrace,3.3.31,Graphics,122,False
+138 001 000,consistency,command,Unknown window,,RemoveTrace,3.3.32,Graphics,123,False
+138 002 000,consistency,command,Trace number is not valid (must be between 1 and the number of signals),,RemoveTrace,3.3.32,Graphics,123,False
+209 001 000,consistency,command,Unknown layout,,ClearMemory,3.3.33,Graphics,124,False
+209 002 000,consistency,command,Unknown window,,ClearMemory,3.3.33,Graphics,124,False
+129 001 000,consistency,command,Unknown layout,,CascadeView,3.3.34,Graphics,125,False
+129 002 000,consistency,command,Unknown window,,CascadeView,3.3.34,Graphics,125,False
+132 001 000,consistency,command,Layout unknown,,AddResultAutoMemorize,3.3.35,Graphics,126,False
+132 002 000,consistency,command,Window unknown,,AddResultAutoMemorize,3.3.35,Graphics,126,False
+132 003 000,consistency,command,Module number incorrect,,AddResultAutoMemorize,3.3.35,Graphics,126,False
+132 004 000,consistency,command,Number of a module not supplying a result,,AddResultAutoMemorize,3.3.35,Graphics,126,False
+132 005 000,consistency,command,Process number incorrect,,AddResultAutoMemorize,3.3.35,Graphics,126,False
+132 006 000,consistency,command,Channel number incorrect,,AddResultAutoMemorize,3.3.35,Graphics,126,False
+132 007 000,consistency,command,Reference channel number incorrect,,AddResultAutoMemorize,3.3.35,Graphics,126,False
+132 008 000,consistency,command,Weighting operator unknown,,AddResultAutoMemorize,3.3.35,Graphics,126,False
+132 009 000,consistency,command,No weighting for non-spectrum results,,AddResultAutoMemorize,3.3.35,Graphics,126,False
+132 010 000,consistency,command,Result already weighted,,AddResultAutoMemorize,3.3.35,Graphics,126,False
+132 011 000,consistency,command,Time operator unknown,,AddResultAutoMemorize,3.3.35,Graphics,126,False
+132 012 000,consistency,command,Display unit unknown,,AddResultAutoMemorize,3.3.35,Graphics,126,False
+132 013 000,consistency,command,Window cannot be created for the specified result,,AddResultAutoMemorize,3.3.35,Graphics,126,False
+132 014 000,consistency,command,Result already in AutoMemorize,,AddResultAutoMemorize,3.3.35,Graphics,126,False
+133 001 000,consistency,command,Layout unknown,,RemoveResultAutoMemorize,3.3.36,Graphics,127,False
+133 002 000,consistency,command,Window unknown,,RemoveResultAutoMemorize,3.3.36,Graphics,127,False
+133 003 000,consistency,command,Module number incorrect,,RemoveResultAutoMemorize,3.3.36,Graphics,127,False
+133 004 000,consistency,command,Number of a module not supplying a result,,RemoveResultAutoMemorize,3.3.36,Graphics,127,False
+133 005 000,consistency,command,Process number incorrect,,RemoveResultAutoMemorize,3.3.36,Graphics,127,False
+133 006 000,consistency,command,Channel number incorrect,,RemoveResultAutoMemorize,3.3.36,Graphics,127,False
+133 007 000,consistency,command,Reference channel number incorrect,,RemoveResultAutoMemorize,3.3.36,Graphics,127,False
+133 008 000,consistency,command,Weighting operator unknown,,RemoveResultAutoMemorize,3.3.36,Graphics,127,False
+133 009 000,consistency,command,No weighting for non-spectrum results,,RemoveResultAutoMemorize,3.3.36,Graphics,127,False
+133 010 000,consistency,command,Result already weighted,,RemoveResultAutoMemorize,3.3.36,Graphics,127,False
+133 011 000,consistency,command,Time operator unknown,,RemoveResultAutoMemorize,3.3.36,Graphics,127,False
+133 012 000,consistency,command,Display unit unknown,,RemoveResultAutoMemorize,3.3.36,Graphics,127,False
+133 013 000,consistency,command,Window cannot be created for the specified result,,RemoveResultAutoMemorize,3.3.36,Graphics,127,False
+133 014 000,consistency,command,Result not in AutoMemorize,,RemoveResultAutoMemorize,3.3.36,Graphics,127,False
+134 001 000,consistency,command,Unknown layout,,EnableAutoMemorize,3.3.37,Graphics,128,False
+134 002 000,consistency,command,Unknown window,,EnableAutoMemorize,3.3.37,Graphics,128,False
+134 003 000,consistency,command,The selected window is already enabled or disabled.,,EnableAutoMemorize,3.3.37,Graphics,128,False
+137 001 000,consistency,command,Layout unknown,,AddAutoOperator,3.3.38,Graphics,131,False
+137 002 000,consistency,command,Window unknown,,AddAutoOperator,3.3.38,Graphics,131,False
+137 003 000,consistency,command,Module number incorrect,,AddAutoOperator,3.3.38,Graphics,131,False
+137 004 000,consistency,command,Number of a module not supplying a result,,AddAutoOperator,3.3.38,Graphics,131,False
+137 005 000,consistency,command,Process number incorrect,,AddAutoOperator,3.3.38,Graphics,131,False
+137 006 000,consistency,command,Channel number incorrect,,AddAutoOperator,3.3.38,Graphics,131,False
+137 007 000,consistency,command,Reference channel number incorrect,,AddAutoOperator,3.3.38,Graphics,131,False
+137 008 000,consistency,command,Weighting operator unknown,,AddAutoOperator,3.3.38,Graphics,131,False
+137 009 000,consistency,command,No weighting for non-spectrum results,,AddAutoOperator,3.3.38,Graphics,131,False
+137 010 000,consistency,command,Result already weighted,,AddAutoOperator,3.3.38,Graphics,131,False
+137 011 000,consistency,command,Time operator unknown,,AddAutoOperator,3.3.38,Graphics,131,False
+137 012 000,consistency,command,Display unit unknown,,AddAutoOperator,3.3.38,Graphics,131,False
+137 013 000,consistency,command,Window cannot be created for the specified result,,AddAutoOperator,3.3.38,Graphics,131,False
+137 014 000,consistency,command,"Operand is not complex, time domain is invalid",,AddAutoOperator,3.3.38,Graphics,131,False
+135 001 000,consistency,command,Unknown layout,,GetReferenceList,3.3.39,Graphics,132,False
+135 002 000,consistency,command,Unknown window,,GetReferenceList,3.3.39,Graphics,132,False
+135 003 000,consistency,command,Invalid display zone type,,GetReferenceList,3.3.39,Graphics,132,False
+136 001 000,consistency,command,Unknown layout,,SetReference,3.3.40,Graphics,133,False
+136 002 000,consistency,command,Unknown window,,SetReference,3.3.40,Graphics,133,False
+136 003 000,consistency,command,Invalid display zone type,,SetReference,3.3.40,Graphics,133,False
+136 004 000,consistency,command,Invalid reference name,,SetReference,3.3.40,Graphics,133,False
+152 001 000,consistency,command,Unknown layout,,GetCurrentReference,3.3.41,Graphics,134,False
+152 002 000,consistency,command,Unknown window,,GetCurrentReference,3.3.41,Graphics,134,False
+152 003 000,consistency,command,Invalid display zone type,,GetCurrentReference,3.3.41,Graphics,134,False
+152 004 000,consistency,command,Window cannot handle reference,,GetCurrentReference,3.3.41,Graphics,134,False
+152 005 000,consistency,command,Invalid reference name,,GetCurrentReference,3.3.41,Graphics,134,False
+141 001 000,consistency,command,Unknown layout,,SetCursorPosition,3.3.42,Graphics,135,False
+141 002 000,consistency,command,Unknown window,,SetCursorPosition,3.3.42,Graphics,135,False
+141 003 000,consistency,command,Incorrect value,,SetCursorPosition,3.3.42,Graphics,135,False
+141 004 000,consistency,command,X-axis does not exist in the specified window,,SetCursorPosition,3.3.42,Graphics,135,False
+141 005 000,consistency,command,Z-axis does not exist in the specified window,,SetCursorPosition,3.3.42,Graphics,135,False
+141 006 000,consistency,command,Time Reference does not exist in the specified window,,SetCursorPosition,3.3.42,Graphics,135,False
+141 007 000,consistency,command,Command not supported by the specified window,,SetCursorPosition,3.3.42,Graphics,135,False
+196 001 000,consistency,command,Unknown layout,,GetCursorInfo,3.3.43,Graphics,136,False
+196 002 000,consistency,command,Unknown window,,GetCursorInfo,3.3.43,Graphics,136,False
+156 001 000,consistency,command,Unknown layout,,CopyData,3.3.44,Graphics,137,False
+156 002 000,consistency,command,Unknown window,,CopyData,3.3.44,Graphics,137,False
+156 003 000,consistency,command,Incorrect display zone,,CopyData,3.3.44,Graphics,137,False
+156 005 000,consistency,command,The window does not handle the copydata command,,CopyData,3.3.44,Graphics,137,False
+322 001 000,consistency,command,Unknown layout,,CopyDataAllTraces,3.3.45,Graphics,138,False
+322 002 000,consistency,command,Unknown window,,CopyDataAllTraces,3.3.45,Graphics,138,False
+322 003 000,consistency,command,Incorrect display zone,,CopyDataAllTraces,3.3.45,Graphics,138,False
+322 005 000,consistency,command,The window does not handle the copydataalltraces command,,CopyDataAllTraces,3.3.45,Graphics,138,False
+356 001 000,consistency,command,Unknown layout,,CopyBitmap,3.3.46,Graphics,139,False
+356 002 000,consistency,command,Unknown window,,CopyBitmap,3.3.46,Graphics,139,False
+356 003 000,consistency,command,The window does not handle the copybitmap command,,CopyBitmap,3.3.46,Graphics,139,False
+355 001 000,consistency,command,Unknown layout,,CopyGraph,3.3.47,Graphics,140,False
+355 002 000,consistency,command,Unknown window,,CopyGraph,3.3.47,Graphics,140,False
+355 003 000,consistency,command,The window does not handle the copygraph command,,CopyGraph,3.3.47,Graphics,140,False
+158 001 000,consistency,command,Unknown layout,,SelectWaterfallWindowView,3.3.48,Graphics,141,False
+158 002 000,consistency,command,Unknown window,,SelectWaterfallWindowView,3.3.48,Graphics,141,False
+158 003 000,consistency,command,The window is not a waterfall window,,SelectWaterfallWindowView,3.3.48,Graphics,141,False
+158 004 000,consistency,command,The view parameter is incorrect,,SelectWaterfallWindowView,3.3.48,Graphics,141,False
+099 001 000,consistency,command,Unknown window,,GetScaleInfo,3.3.49,Graphics,143,False
+099 002 000,consistency,command,Invalid display zone type,,GetScaleInfo,3.3.49,Graphics,143,False
+099 003 000,consistency,command,Incoherence between display zone et axis,,GetScaleInfo,3.3.49,Graphics,143,False
+099 004 000,consistency,command,Invalid axis,,GetScaleInfo,3.3.49,Graphics,143,False
+099 005 000,consistency,command,Invalid trace number,,GetScaleInfo,3.3.49,Graphics,143,False
+100 001 000,consistency,command,Unknown window,,SetScaleType,3.3.50,Graphics,144,False
+100 002 000,consistency,command,Invalid display zone type,,SetScaleType,3.3.50,Graphics,144,False
+100 003 000,consistency,command,Incoherence between display zone and axis,,SetScaleType,3.3.50,Graphics,144,False
+100 004 000,consistency,command,Invalid axis,,SetScaleType,3.3.50,Graphics,144,False
+100 005 000,consistency,command,Type not authorized,,SetScaleType,3.3.50,Graphics,144,False
+101 001 000,consistency,command,Unknown window,,SetScaleValues,3.3.51,Graphics,145,False
+101 002 000,consistency,command,Invalid display zone type,,SetScaleValues,3.3.51,Graphics,145,False
+101 003 000,consistency,command,Incoherence between display zone et axis,,SetScaleValues,3.3.51,Graphics,145,False
+101 004 000,consistency,command,Invalid axis,,SetScaleValues,3.3.51,Graphics,145,False
+101 005 000,consistency,command,Min value upper than max value.,,SetScaleValues,3.3.51,Graphics,145,False
+101 006 000,consistency,command,Min and max scale values cannot be changed,,SetScaleValues,3.3.51,Graphics,145,False
+101 007 000,consistency,command,Signal no longer available in the time-to-stop window,,SetScaleValues,3.3.51,Graphics,145,False
+131 001 000,consistency,command,Unknown window,,SendScaleCommand,3.3.52,Graphics,146,False
+131 002 000,consistency,command,Invalid display zone type,,SendScaleCommand,3.3.52,Graphics,146,False
+131 003 000,consistency,command,Incoherence between display zone and axis,,SendScaleCommand,3.3.52,Graphics,146,False
+131 004 000,consistency,command,Invalid axis,,SendScaleCommand,3.3.52,Graphics,146,False
+131 005 000,consistency,command,Invalid Command,,SendScaleCommand,3.3.52,Graphics,146,False
+130 001 000,consistency,command,Unknown window,,GetAvailableScale,3.3.53,Graphics,147,False
+130 002 000,consistency,command,Invalid display zone type,,GetAvailableScale,3.3.53,Graphics,147,False
+130 003 000,consistency,command,Incoherence between display zone and axis,,GetAvailableScale,3.3.53,Graphics,147,False
+130 004 000,consistency,command,Invalid axis,,GetAvailableScale,3.3.53,Graphics,147,False
+197 001 000,consistency,command,Unknown window,,SetScaleTimeType,3.3.54,Graphics,148,False
+197 002 000,consistency,command,Invalid scale,,SetScaleTimeType,3.3.54,Graphics,148,False
+197 003 000,consistency,command,Time type not authorized,,SetScaleTimeType,3.3.54,Graphics,148,False
+197 004 000,consistency,command,Unknown time type,,SetScaleTimeType,3.3.54,Graphics,148,False
+198 001 000,consistency,command,Unknown window,,IsScaleTimeInRelative,3.3.55,Graphics,149,False
+198 002 000,consistency,command,Scale is not time type,,IsScaleTimeInRelative,3.3.55,Graphics,149,False
+195 001 000,consistency,command,Unknown layout,,GetWindowPosition,3.3.56,Graphics,150,False
+195 002 000,consistency,command,Unknown window,,GetWindowPosition,3.3.56,Graphics,150,False
+194 001 000,consistency,command,Unknown layout,,SetWindowPosition,3.3.57,Graphics,151,False
+194 002 000,consistency,command,Unknown window,,SetWindowPosition,3.3.57,Graphics,151,False
+194 003 000,consistency,command,One of the coordinate is negative,,SetWindowPosition,3.3.57,Graphics,151,False
+194 004 000,consistency,command,Right is lower than left or bottom is lower than top,,SetWindowPosition,3.3.57,Graphics,151,False
+194 005 000,consistency,command,The command failed to move the window,,SetWindowPosition,3.3.57,Graphics,151,False
+265 001 000,consistency,command,Unknown layout,,GetRotationPreferences,3.3.58,Graphics,152,False
+265 002 000,consistency,command,Unknown window,,GetRotationPreferences,3.3.58,Graphics,152,False
+265 003 000,consistency,command,Not an appropriate window,,GetRotationPreferences,3.3.58,Graphics,152,False
+266 001 000,consistency,command,Unknown layout,,SetRotationPreferences,3.3.59,Graphics,153,False
+266 002 000,consistency,command,Unknown window,,SetRotationPreferences,3.3.59,Graphics,153,False
+266 003 000,consistency,command,Not an appropriate window,,SetRotationPreferences,3.3.59,Graphics,153,False
+266 004 000,consistency,command,Invalid direction,,SetRotationPreferences,3.3.59,Graphics,153,False
+266 005 000,consistency,command,Invalid X orientation,,SetRotationPreferences,3.3.59,Graphics,153,False
+266 006 000,consistency,command,Invalid Y orientation,,SetRotationPreferences,3.3.59,Graphics,153,False
+386 001 000,consistency,command,Unknown layout,,SetViewmeterLevels,3.3.60,Graphics,154,False
+386 002 000,consistency,command,Unknown window,,SetViewmeterLevels,3.3.60,Graphics,154,False
+386 003 000,consistency,command,Not an appropriate window,,SetViewmeterLevels,3.3.60,Graphics,154,False
+386 004 000,consistency,command,Not 1D graphic window,,SetViewmeterLevels,3.3.60,Graphics,154,False
+386 005 000,consistency,command,Low > high,,SetViewmeterLevels,3.3.60,Graphics,154,False
+386 006 000,consistency,command,High > Alarm,,SetViewmeterLevels,3.3.60,Graphics,154,False
+273 001 000,consistency,command,Unknown layout,,PinWindow,3.3.61,Graphics,155,False
+273 002 000,consistency,command,Unknown window,,PinWindow,3.3.61,Graphics,155,False
+272 001 000,consistency,command,Unknown layout,,GetPinStatus,3.3.62,Graphics,156,False
+272 002 000,consistency,command,Unknown window,,GetPinStatus,3.3.62,Graphics,156,False
+325 001 000,consistency,command,Unknown layout,,SetTachometerPosition,3.3.63,Graphics,157,False
+325 002 000,consistency,command,Unknown window,,SetTachometerPosition,3.3.63,Graphics,157,False
+325 003 000,consistency,command,Not an appropriate window,,SetTachometerPosition,3.3.63,Graphics,157,False
+327 001 000,consistency,command,Unknown layout,,GetTachometerPosition,3.3.64,Graphics,158,False
+327 002 000,consistency,command,Unknown window,,GetTachometerPosition,3.3.64,Graphics,158,False
+327 003 000,consistency,command,Not an appropriate window,,GetTachometerPosition,3.3.64,Graphics,158,False
+303 001 000,consistency,command,Unknown layout,,AddResultTemplateToWindow,3.3.65,Graphics,159,False
+303 002 000,consistency,command,Unknown window,,AddResultTemplateToWindow,3.3.65,Graphics,159,False
+303 003 000,consistency,command,Unknown project,,AddResultTemplateToWindow,3.3.65,Graphics,159,False
+303 004 000,consistency,command,Unknown result template,,AddResultTemplateToWindow,3.3.65,Graphics,159,False
+303 005 000,consistency,command,Result template is not compatible with window,,AddResultTemplateToWindow,3.3.65,Graphics,159,False
+298 001 000,consistency,command,Unknown layout,,SetPhasePreference,3.3.66,Graphics,160,False
+298 002 000,consistency,command,Unknown window,,SetPhasePreference,3.3.66,Graphics,160,False
+298 003 000,consistency,command,Not an appropriate window,,SetPhasePreference,3.3.66,Graphics,160,False
+326 001 000,consistency,command,Unknown layout,,SetGraduationDirection,3.3.67,Graphics,161,False
+326 002 000,consistency,command,Unknown window,,SetGraduationDirection,3.3.67,Graphics,161,False
+326 003 000,consistency,command,Not an appropriate window (no concept of graduation direction is applicable to the window),,SetGraduationDirection,3.3.67,Graphics,161,False
+326 004 000,consistency,command,Invalid direction value.,,SetGraduationDirection,3.3.67,Graphics,161,False
+328 001 000,consistency,command,Unknown layout,,GetGraduationDirection,3.3.68,Graphics,162,False
+328 002 000,consistency,command,Unknown window,,GetGraduationDirection,3.3.68,Graphics,162,False
+328 003 000,consistency,command,Not an appropriate window,,GetGraduationDirection,3.3.68,Graphics,162,False
+358 001 000,consistency,command,Unknown layout,,GetActiveTrace,3.3.69,Graphics,163,False
+358 002 000,consistency,command,Unknown window,,GetActiveTrace,3.3.69,Graphics,163,False
+358 003 000,consistency,command,Not an appropriate window,,GetActiveTrace,3.3.69,Graphics,163,False
+358 004 000,consistency,command,Active trace not found in this window,,GetActiveTrace,3.3.69,Graphics,163,False
+357 001 000,consistency,command,Unknown layout,,SetActiveTrace,3.3.70,Graphics,164,False
+357 002 000,consistency,command,Unknown window,,SetActiveTrace,3.3.70,Graphics,164,False
+357 003 000,consistency,command,Not an appropriate window,,SetActiveTrace,3.3.70,Graphics,164,False
+357 004 000,consistency,command,Unknow trace index,,SetActiveTrace,3.3.70,Graphics,164,False
+377 001 000,consistency,command,Unknown layout,,ChangeWindowPreferences,3.3.71,Graphics,165,False
+377 002 000,consistency,command,Unknown window,,ChangeWindowPreferences,3.3.71,Graphics,165,False
+377 003 000,consistency,command,Unknown key preference,,ChangeWindowPreferences,3.3.71,Graphics,165,False
+377 004 000,consistency,command,Parameters bad format,,ChangeWindowPreferences,3.3.71,Graphics,165,False
+009 001 000,consistency,command,Project unknown,,LoadProject,3.4.1,Project Manager,166,False
+009 002 000,consistency,command,Error when saving the previous project,,LoadProject,3.4.1,Project Manager,166,False
+009 003 000,consistency,command,Error during project loading,,LoadProject,3.4.1,Project Manager,166,False
+009 004 000,consistency,command,Error when deleting the default project,,LoadProject,3.4.1,Project Manager,166,False
+009 005 000,consistency,command,A recording is running. So no project can be loaded.,,LoadProject,3.4.1,Project Manager,166,False
+290 001 000,consistency,command,Project name not allowed,,NewProject,3.4.2,Project Manager,167,False
+290 002 000,consistency,command,Invalid project name,,NewProject,3.4.2,Project Manager,167,False
+290 003 000,consistency,command,Project name already used,,NewProject,3.4.2,Project Manager,167,False
+290 004 000,consistency,command,Error creating project,,NewProject,3.4.2,Project Manager,167,False
+331 001 000,consistency,command,Project unknown,,OpenProject,3.4.3,Project Manager,168,False
+331 002 000,consistency,command,Error when saving the previous project,,OpenProject,3.4.3,Project Manager,168,False
+331 003 000,consistency,command,Error during project loading,,OpenProject,3.4.3,Project Manager,168,False
+331 004 000,consistency,command,Error when deleting the default project,,OpenProject,3.4.3,Project Manager,168,False
+331 005 000,consistency,command,A recording is running. So no project can be loaded.,,OpenProject,3.4.3,Project Manager,168,False
+084 001 000,consistency,command,The project is protected and cannot be overwritten,,SaveProject,3.4.4,Project Manager,169,False
+084 002 000,consistency,command,Project saving failed,,SaveProject,3.4.4,Project Manager,169,False
+124 001 000,consistency,command,Invalid project name,,SaveProjectAs,3.4.5,Project Manager,170,False
+124 002 000,consistency,command,Project name already used,,SaveProjectAs,3.4.5,Project Manager,170,False
+124 003 000,consistency,command,Error during project copying,,SaveProjectAs,3.4.5,Project Manager,170,False
+124 004 000,consistency,command,Error during project saving,,SaveProjectAs,3.4.5,Project Manager,170,False
+124 005 000,consistency,command,Error during project opening,,SaveProjectAs,3.4.5,Project Manager,170,False
+274 001 000,consistency,command,Cannot remove the current project,,RemoveProject,3.4.6,Project Manager,171,False
+274 002 000,consistency,command,Project not found,,RemoveProject,3.4.6,Project Manager,171,False
+274 003 000,consistency,command,Error removing project in StandAlone,,RemoveProject,3.4.6,Project Manager,171,False
+274 004 000,consistency,command,Error removing measure contained in the project,,RemoveProject,3.4.6,Project Manager,171,False
+274 005 000,consistency,command,Error removing project directory,,RemoveProject,3.4.6,Project Manager,171,False
+337 001 000,consistency,command,Path not exist or bad contain,,ImportProject,3.4.7,Project Manager,172,False
+337 002 000,consistency,command,Directory already exist in the project base,,ImportProject,3.4.7,Project Manager,172,False
+337 003 000,consistency,command,Error copying project folder,,ImportProject,3.4.7,Project Manager,172,False
+018 001 000,consistency,command,File error,,GetProjectList,3.4.8,Project Manager,173,False
+097 001 000,consistency,command,Project not found,,GetProjectProperties,3.4.10,Project Manager,175,False
+387 001 000,consistency,command,Invalid project name,,GetProjectUserPropertiesList,3.4.11,Project Manager,176,False
+393 001 000,consistency,command,Invalid project name,,GetMeasurementUserPropertiesList,3.4.12,Project Manager,177,False
+393 002 000,consistency,command,Invalid measurement name,,GetMeasurementUserPropertiesList,3.4.12,Project Manager,177,False
+388 001 000,consistency,command,Invalid project name,,AddProjectUserProperty,3.4.13,Project Manager,178,False
+388 002 000,consistency,command,Property title already used in this project,,AddProjectUserProperty,3.4.13,Project Manager,178,False
+392 001 000,consistency,command,Invalid project name,,AddMeasurementUserProperty,3.4.14,Project Manager,179,False
+392 002 000,consistency,command,Invalid measurement name,,AddMeasurementUserProperty,3.4.14,Project Manager,179,False
+392 003 000,consistency,command,Property title already used in this measurement,,AddMeasurementUserProperty,3.4.14,Project Manager,179,False
+390 001 000,consistency,command,Invalid project name,,ModifyProjectUserProperty,3.4.15,Project Manager,180,False
+390 002 000,consistency,command,Property in a readOnly mode,,ModifyProjectUserProperty,3.4.15,Project Manager,180,False
+390 003 000,consistency,command,Invalid identifier (see GetProjectUserPropertiesList),,ModifyProjectUserProperty,3.4.15,Project Manager,180,False
+394 001 000,consistency,command,Invalid project name,,ModifyMeasurementUserProperty,3.4.16,Project Manager,181,False
+394 002 000,consistency,command,Invalid measurement name,,ModifyMeasurementUserProperty,3.4.16,Project Manager,181,False
+394 003 000,consistency,command,Invalid identifier (see GetMeasurementUserPropertiesList),,ModifyMeasurementUserProperty,3.4.16,Project Manager,181,False
+394 004 000,consistency,command,Property in a readOnly mode,,ModifyMeasurementUserProperty,3.4.16,Project Manager,181,False
+389 001 000,consistency,command,Invalid project name,,DeleteProjectUserProperty,3.4.17,Project Manager,182,False
+389 002 000,consistency,command,Invalid identifier or property not deletable,,DeleteProjectUserProperty,3.4.17,Project Manager,182,False
+391 001 000,consistency,command,Invalid project name,,DeleteMeasurementUserProperty,3.4.18,Project Manager,183,False
+391 002 000,consistency,command,Measurement name,,DeleteMeasurementUserProperty,3.4.18,Project Manager,183,False
+391 003 000,consistency,command,Invalid identifier or property not deletable,,DeleteMeasurementUserProperty,3.4.18,Project Manager,183,False
+010 001 000,consistency,command,Saving of the previous workbook has failed,,LoadWorkbook,3.4.19,Project Manager,184,False
+010 002 000,consistency,command,Workbook loading has failed,,LoadWorkbook,3.4.19,Project Manager,184,False
+010 002 000,consistency,command,A recording is running. So no workbook can be loaded.,,LoadWorkbook,3.4.19,Project Manager,184,False
+165 001 000,consistency,command,Saving of the previous workbook has failed,,LoadWorkbookModel,3.4.20,Project Manager,185,False
+165 002 000,consistency,command,Workbook loading has failed,,LoadWorkbookModel,3.4.20,Project Manager,185,False
+165 003 000,consistency,command,A recording is running. So no workbook can be loaded.,,LoadWorkbookModel,3.4.20,Project Manager,185,False
+073 001 000,consistency,command,Workbook saving failed,,SaveWorkbook,3.4.21,Project Manager,186,False
+073 002 000,consistency,command,The workbook is protected and cannot be overwritten,,SaveWorkbook,3.4.21,Project Manager,186,False
+166 001 000,consistency,command,Workbook saving failed,,SaveWorkbookModel,3.4.22,Project Manager,187,False
+167 001 000,consistency,command,"""Workbook model name"" is not a model",,DeleteModel,3.4.23,Project Manager,188,False
+167 002 000,consistency,command,Deleting model has failed.,,DeleteModel,3.4.23,Project Manager,188,False
+074 001 000,consistency,command,Workbook loading has failed,,ReloadCurrentWorkbook,3.4.24,Project Manager,189,False
+153 001 000,consistency,command,Measurement unknown,,LoadMeasurement,3.4.26,Project Manager,191,False
+153 002 000,consistency,command,Error when saving the previous measurement,,LoadMeasurement,3.4.26,Project Manager,191,False
+153 003 000,consistency,command,Error during measurement loading,,LoadMeasurement,3.4.26,Project Manager,191,False
+155 001 000,consistency,command,Error during measurement saving,,UnloadCurrentMeasurement,3.4.27,Project Manager,192,False
+123 001 000,consistency,command,The directory can't be removed,,RemoveMeasurement,3.4.28,Project Manager,193,False
+019 001 000,consistency,command,File error,,GetMeasureList,3.4.29,Project Manager,194,False
+019 002 000,consistency,command,Project unknown,,GetMeasureList,3.4.29,Project Manager,194,False
+206 001 000,consistency,command,The item could not be found,,GetItemPMTree,3.4.30,Project Manager,196,False
+189 001 000,consistency,command,Error during project saving,,SwitchBasePath,3.4.33,Project Manager,199,False
+189 002 000,consistency,command,Error during project base loading,,SwitchBasePath,3.4.33,Project Manager,199,False
+313 001 000,consistency,command,Invalid project name,,RemoveSignalFromAnalyzer,3.4.34,Project Manager,200,False
+313 002 000,consistency,command,Invalid measurement name,,RemoveSignalFromAnalyzer,3.4.34,Project Manager,200,False
+313 003 000,consistency,command,No signal in the specified measurement.,,RemoveSignalFromAnalyzer,3.4.34,Project Manager,200,False
+313 004 000,consistency,command,No signal on analyzer.,,RemoveSignalFromAnalyzer,3.4.34,Project Manager,200,False
+313 005 000,consistency,command,Failed to remove signal from analyzer.,,RemoveSignalFromAnalyzer,3.4.34,Project Manager,200,False
+079 001 000,consistency,command,The mode is not valid,,AppliedMode,3.5.1,General configuration,201,False
+079 002 000,consistency,command,The action is not valid,,AppliedMode,3.5.1,General configuration,201,False
+080 001 000,consistency,command,Setting unknown,,AddToControlPanel,3.5.2,General configuration,202,False
+081 001 000,consistency,command,Application is not valid,,ResetControlPanel,3.5.3,General configuration,203,False
+081 002 000,consistency,command,"The tab "" tab name"" was not found",,ResetControlPanel,3.5.3,General configuration,203,False
+082 001 000,consistency,command,"The ""Tab"" parameter is not valid",,WorkspaceTab,3.5.4,General configuration,204,False
+012 001 000,consistency,command,User unknown,,SetUser,3.5.5,General configuration,205,False
+012 002 000,consistency,command,Password not valid,,SetUser,3.5.5,General configuration,205,False
+157 001 000,consistency,command,The value nSilent is invalid,,SetSilent,3.5.6,General configuration,206,False
+125 001 000,consistency,command,User unknown,,AdministratorMode,3.5.7,General configuration,207,False
+125 002 000,consistency,command,Password not valid,,AdministratorMode,3.5.7,General configuration,207,False
+125 003 000,consistency,command,User is not administrator,,AdministratorMode,3.5.7,General configuration,207,False
+125 004 000,consistency,command,Current user is not a restricted user,,AdministratorMode,3.5.7,General configuration,207,False
+125 005 000,consistency,command,Cannot change administrator user in administrator mode,,AdministratorMode,3.5.7,General configuration,207,False
+035 001 000,consistency,command,Value incorrect for the SaveMode flag,,SetSaveOption,3.5.8,General configuration,208,False
+035 002 000,consistency,command,Value incorrect for the AcquisitionSave flag,,SetSaveOption,3.5.8,General configuration,208,False
+035 003 000,consistency,command,Value incorrect for the ManualSave flag,,SetSaveOption,3.5.8,General configuration,208,False
+025 001 000,consistency,command,Value incorrect for one of the two flags (0 or 1 expected),,SetNewMeasurementParameters,3.5.9,General configuration,209,False
+093 001 000,consistency,command,Magnitude name is unknown.,,GetUnitList,3.5.11,General configuration,211,False
+085 001 000,consistency,command,Value incorrect for the Magnitude identifier,,SetUnit,3.5.12,General configuration,212,False
+085 002 000,consistency,command,Value incorrect for the Unit identifier,,SetUnit,3.5.12,General configuration,212,False
+120 001 000,consistency,command,Magnitude name is unknown.,,GetCurrentUnit,3.5.13,General configuration,213,False
+120 002 000,consistency,command,Magnitude does not have current unit,,GetCurrentUnit,3.5.13,General configuration,213,False
+094 001 000,consistency,command,Magnitude name unknown,,GetUnitInfo,3.5.14,General configuration,215,False
+094 002 000,consistency,command,Unit name unknown or not associated to the magnitude name.,,GetUnitInfo,3.5.14,General configuration,215,False
+122 001 000,consistency,command,Magnitude not found. The key is invalid,,GetMagnitudeInfo,3.5.15,General configuration,216,False
+122 002 000,consistency,command,The magnitude does not have current unit,,GetMagnitudeInfo,3.5.15,General configuration,216,False
+151 001 000,consistency,command,Value incorrect for the Magnitude identifier,,SetPreferedWtfReference,3.5.16,General configuration,217,False
+151 002 000,consistency,command,Magnitude not authorized,,SetPreferedWtfReference,3.5.16,General configuration,217,False
+034 001 000,consistency,command,Unlisted external application,,GetPermission,3.5.18,General configuration,219,False
+062 001 000,consistency,command,"Wrong value for ""Mode"" parameter",,ChangeMode,3.5.19,General configuration,220,False
+062 002 000,consistency,command,"When ""Mode"" parameter is set to 1 and post-analysis mode is already activated.",,ChangeMode,3.5.19,General configuration,220,False
+062 003 000,consistency,command,"When ""Mode"" parameter is set to 0 and post-analysis mode is already disabled.",,ChangeMode,3.5.19,General configuration,220,False
+256 001 000,consistency,command,"Wrong value for ""identifier"" parameter",,SetPreferenceGeneral,3.5.24,General configuration,225,False
+256 002 000,consistency,command,"Wrong value for ""value"" parameter",,SetPreferenceGeneral,3.5.24,General configuration,225,False
+174 001 000,consistency,command,Hardware is not connected,,GetFanInfo,3.5.25,General configuration,226,False
+174 002 000,consistency,command,Error reading hard status,,GetFanInfo,3.5.25,General configuration,226,False
+176 001 000,consistency,command,Hardware is not connected,,SetFanStatus,3.5.26,General configuration,227,False
+176 002 000,consistency,command,Status value is not valid,,SetFanStatus,3.5.26,General configuration,227,False
+176 003 000,consistency,command,Error reading hard status,,SetFanStatus,3.5.26,General configuration,227,False
+175 001 000,consistency,command,Hardware is not connected,,SetFanSpeed,3.5.27,General configuration,228,False
+175 002 000,consistency,command,Error reading hard status,,SetFanSpeed,3.5.27,General configuration,228,False
+175 003 000,consistency,command,Status value is not valid for an OR36/38,,SetFanSpeed,3.5.27,General configuration,228,False
+175 004 000,consistency,command,Status value is not valid for an OR34/35,,SetFanSpeed,3.5.27,General configuration,228,False
+175 005 000,consistency,command,Error reading hard type (OR3x).,,SetFanSpeed,3.5.27,General configuration,228,False
+364 001 000,consistency,command,Unknown action,,SetBandState,3.5.30,General configuration,231,False
+000 000 000,consistency,command,No error,,LogWarning,3.5.31,General configuration,232,False
+027 001 000,consistency,command,Setting unknown,,GetSettingValues,3.6.5,Settings and States configuration,238,False
+027 002 000,consistency,command,Type of setting not managed by the command,,GetSettingValues,3.6.5,Settings and States configuration,238,False
+032 001 000,consistency,command,Setting unknown,,GetSettingValue,3.6.6,Settings and States configuration,240,False
+032 002 000,consistency,command,Type of setting not managed by the command,,GetSettingValue,3.6.6,Settings and States configuration,240,False
+032 003 000,consistency,command,Incorrect line num or column num.,,GetSettingValue,3.6.6,Settings and States configuration,240,False
+029 001 000,consistency,command,Setting unknown,,SetSignalFileSettingValue,3.6.7,Settings and States configuration,241,False
+029 002 000,consistency,command,The setting is not of the signal file type: use the,SetSettingValue command,SetSignalFileSettingValue,3.6.7,Settings and States configuration,241,False
+029 003 000,consistency,command,Project unknown,,SetSignalFileSettingValue,3.6.7,Settings and States configuration,241,False
+029 004 000,consistency,command,Measurement unknown,,SetSignalFileSettingValue,3.6.7,Settings and States configuration,241,False
+029 005 000,consistency,command,No signal file in the specified measurement,,SetSignalFileSettingValue,3.6.7,Settings and States configuration,241,False
+029 006 000,consistency,command,PerformCheck value is not correct,,SetSignalFileSettingValue,3.6.7,Settings and States configuration,241,False
+029 008 000,consistency,command,Real time is not guaranted for current analysis setting (since NVGate V6.20),,SetSignalFileSettingValue,3.6.7,Settings and States configuration,241,False
+029 009 000,consistency,command,Limits of DSP power have been reached. The previous valid configuration has been restored (since NVGate V6.20),,SetSignalFileSettingValue,3.6.7,Settings and States configuration,241,False
+028 001 000,consistency,command,Setting unknown,,SetSettingValue,3.6.8,Settings and States configuration,243,False
+028 002 000,consistency,command,Value incorrect,,SetSettingValue,3.6.8,Settings and States configuration,243,False
+028 003 000,consistency,command,Signal file or virtual tach type setting: use the,SetSignalFileSettingValue or SetVirtualTachoSettingValue command.,SetSettingValue,3.6.8,Settings and States configuration,243,False
+028 004 000,consistency,command,Other type of setting not managed by the command,,SetSettingValue,3.6.8,Settings and States configuration,243,False
+028 005 000,consistency,command,The action is already in course,,SetSettingValue,3.6.8,Settings and States configuration,243,False
+028 006 000,consistency,command,Real time is not guaranted for current analysis setting (since NVGate V6.20),,SetSettingValue,3.6.8,Settings and States configuration,243,False
+028 007 000,consistency,command,Limits of DSP power have been reached. The previous valid configuration has been restored (since NVGate V6.20),,SetSettingValue,3.6.8,Settings and States configuration,243,False
+028 008 000,consistency,command,"Too many sources for ""multisources"" setting (limited to 12)",,SetSettingValue,3.6.8,Settings and States configuration,243,False
+188 001 000,consistency,command,Setting unknown,,GetSettingInfo,3.6.9,Settings and States configuration,244,False
+340 001 000,consistency,command,Module unknown,,GetSubModuleList,3.6.10,Settings and States configuration,245,False
+201 001 000,consistency,command,Setting unknown,,GetSignalFileSettingValues,3.6.11,Settings and States configuration,246,False
+201 002 000,consistency,command,The setting is not of the signal file type: use the,SetSettingValue command,GetSignalFileSettingValues,3.6.11,Settings and States configuration,246,False
+116 001 000,consistency,command,Setting unknown,,SetVirtualTachoSettingValue,3.6.12,Settings and States configuration,247,False
+116 002 000,consistency,command,The values are not available (the ratio value must be between 0.001 and 2).,,SetVirtualTachoSettingValue,3.6.12,Settings and States configuration,247,False
+056 001 000,consistency,command,Setting not available,,SetForceSettings,3.6.13,Settings and States configuration,248,False
+056 002 000,consistency,command,Values are not consistent,,SetForceSettings,3.6.13,Settings and States configuration,248,False
+057 001 000,consistency,command,Setting not available,,SetResponseSettings,3.6.14,Settings and States configuration,249,False
+057 002 000,consistency,command,Values are not consistent,,SetResponseSettings,3.6.14,Settings and States configuration,249,False
+058 001 000,consistency,command,Setting not available,,SetDualExponentialSettings,3.6.15,Settings and States configuration,250,False
+058 002 000,consistency,command,Values are not consistent,,SetDualExponentialSettings,3.6.15,Settings and States configuration,250,False
+075 001 000,consistency,command,Setting unknown,,AddArrayLine,3.6.16,Settings and States configuration,251,False
+075 002 000,consistency,command,Line number incorrect,,AddArrayLine,3.6.16,Settings and States configuration,251,False
+075 003 000,consistency,command,State value incorrect,,AddArrayLine,3.6.16,Settings and States configuration,251,False
+075 004 000,consistency,command,Order value incorrect,,AddArrayLine,3.6.16,Settings and States configuration,251,False
+075 005 000,consistency,command,Bandwidth value incorrect,,AddArrayLine,3.6.16,Settings and States configuration,251,False
+075 006 000,consistency,command,The setting is not an array,,AddArrayLine,3.6.16,Settings and States configuration,251,False
+075 007 000,consistency,command,Real time is not guaranted for current analysis setting (from the version 6.20),,AddArrayLine,3.6.16,Settings and States configuration,251,False
+075 008 000,consistency,command,Limits of DSP power have been reached. The previous valid configuration has been restored (from the version 6.20),,AddArrayLine,3.6.16,Settings and States configuration,251,False
+287 001 000,consistency,command,Setting unknown,,ModifyArrayLine,3.6.17,Settings and States configuration,252,False
+287 002 000,consistency,command,Line number incorrect,,ModifyArrayLine,3.6.17,Settings and States configuration,252,False
+287 003 000,consistency,command,State value incorrect,,ModifyArrayLine,3.6.17,Settings and States configuration,252,False
+287 004 000,consistency,command,Order value incorrect,,ModifyArrayLine,3.6.17,Settings and States configuration,252,False
+287 005 000,consistency,command,Bandwidth value incorrect,,ModifyArrayLine,3.6.17,Settings and States configuration,252,False
+287 006 000,consistency,command,The setting is not an array,,ModifyArrayLine,3.6.17,Settings and States configuration,252,False
+077 001 000,consistency,command,Setting unknown,,RemoveArrayLine,3.6.18,Settings and States configuration,253,False
+077 002 000,consistency,command,The line number is not valid,,RemoveArrayLine,3.6.18,Settings and States configuration,253,False
+077 003 000,consistency,command,The setting is not an array,,RemoveArrayLine,3.6.18,Settings and States configuration,253,False
+077 004 000,consistency,command,Real time is not guaranted for current analysis setting (from the version 6.20),,RemoveArrayLine,3.6.18,Settings and States configuration,253,False
+077 005 000,consistency,command,Limits of DSP power have been reached. The previous valid configuration has been restored (from the version 6.20),,RemoveArrayLine,3.6.18,Settings and States configuration,253,False
+126 001 000,consistency,command,Setting unknown,,EditSetting,3.6.19,Settings and States configuration,254,False
+126 002 000,consistency,command,Setting not present in the ASB,,EditSetting,3.6.19,Settings and States configuration,254,False
+126 003 000,consistency,command,Setting is not a sub-module (with EditCollection sets to 1),,EditSetting,3.6.19,Settings and States configuration,254,False
+126 004 000,consistency,command,No collection associated (with EditCollection sets to 1),,EditSetting,3.6.19,Settings and States configuration,254,False
+139 001 000,consistency,command,Setting unknown,,SetToDefault,3.6.20,Settings and States configuration,255,False
+139 002 000,consistency,command,Real time is not guaranted for current analysis setting (from the version 6.20),,SetToDefault,3.6.20,Settings and States configuration,255,False
+267 001 000,consistency,command,Collection unknown,,SetToDefaultCollection,3.6.21,Settings and States configuration,256,False
+291 001 000,consistency,command,Collection unknown,,GetInputInfo,3.6.22,Settings and States configuration,257,False
+030 001 000,consistency,command,Invalid Input / track number,,ConnectInput,3.6.23,Settings and States configuration,258,False
+030 002 000,consistency,command,Analyzer number unknown,,ConnectInput,3.6.23,Settings and States configuration,258,False
+030 003 000,consistency,command,Channel number not valid,,ConnectInput,3.6.23,Settings and States configuration,258,False
+030 004 000,consistency,command,Connection has failed,,ConnectInput,3.6.23,Settings and States configuration,258,False
+030 005 000,consistency,command,Real time is not guaranted for current analysis setting (from the version 6.20),,ConnectInput,3.6.23,Settings and States configuration,258,False
+030 006 000,consistency,command,Limits of DSP power have been reached. The previous valid configuration has been restored (from the version 6.20),,ConnectInput,3.6.23,Settings and States configuration,258,False
+065 001 000,consistency,command,Invalid front-end input / player track number,,DisconnectInput,3.6.24,Settings and States configuration,259,False
+065 002 000,consistency,command,Front-end input / player track already disabled,,DisconnectInput,3.6.24,Settings and States configuration,259,False
+065 003 000,consistency,command,Real time is not guaranted for current analysis setting (from the version 6.20),,DisconnectInput,3.6.24,Settings and States configuration,259,False
+065 004 000,consistency,command,Limits of DSP power have been reached. The previous valid configuration has been restored (from the version 6.20),,DisconnectInput,3.6.24,Settings and States configuration,259,False
+086 001 000,consistency,command,Process number incorrect (not included in the process number table),,SelectWtfChannels,3.6.25,Settings and States configuration,260,False
+086 002 000,consistency,command,Response channel number incorrect (number not included between 1 and 32),,SelectWtfChannels,3.6.25,Settings and States configuration,260,False
+086 003 000,consistency,command,Reference channel number incorrect (number not included between 1 and 32),,SelectWtfChannels,3.6.25,Settings and States configuration,260,False
+086 004 000,consistency,command,The selected Process and Module are not compatible.,,SelectWtfChannels,3.6.25,Settings and States configuration,260,False
+086 005 000,consistency,command,The selected result is already connected to the waterfall.,,SelectWtfChannels,3.6.25,Settings and States configuration,260,False
+086 006 000,consistency,command,The Response channel is not connected to the selected result.,,SelectWtfChannels,3.6.25,Settings and States configuration,260,False
+086 007 000,consistency,command,The Reference channel is not connected to the selected result.,,SelectWtfChannels,3.6.25,Settings and States configuration,260,False
+086 001 000,consistency,command,Process number incorrect (not included in the process number table),,UnSelectWtfChannels,3.6.26,Settings and States configuration,262,False
+086 002 000,consistency,command,Response channel number incorrect (number not included between 1 and 32),,UnSelectWtfChannels,3.6.26,Settings and States configuration,262,False
+086 003 000,consistency,command,Reference channel number incorrect (number not included between 1 and 32),,UnSelectWtfChannels,3.6.26,Settings and States configuration,262,False
+086 004 000,consistency,command,The selected Process and Module are not compatible.,,UnSelectWtfChannels,3.6.26,Settings and States configuration,262,False
+086 005 000,consistency,command,The selected result is not connected to the waterfall.,,UnSelectWtfChannels,3.6.26,Settings and States configuration,262,False
+086 006 000,consistency,command,The Response channel is not connected to the selected result.,,UnSelectWtfChannels,3.6.26,Settings and States configuration,262,False
+086 007 000,consistency,command,The Reference channel is not connected to the selected result.,,UnSelectWtfChannels,3.6.26,Settings and States configuration,262,False
+086 008 000,consistency,command,Real time is not guaranted for current analysis setting (from the version 6.20),,UnSelectWtfChannels,3.6.26,Settings and States configuration,262,False
+086 009 000,consistency,command,Limits of DSP power have been reached. The previous valid configuration has been restored (from the version 6.20),,UnSelectWtfChannels,3.6.26,Settings and States configuration,262,False
+193 001 000,consistency,command,Input number incorrect,,GetTEDSContentOnInput,3.6.27,Settings and States configuration,263,False
+193 002 000,consistency,command,No transducer on selected input.,,GetTEDSContentOnInput,3.6.27,Settings and States configuration,263,False
+193 003 000,consistency,command,The transducer on the input is not a TEDS.,,GetTEDSContentOnInput,3.6.27,Settings and States configuration,263,False
+193 004 000,consistency,command,TEDS buffer is empty.,,GetTEDSContentOnInput,3.6.27,Settings and States configuration,263,False
+192 001 000,consistency,command,Unknown transducer.,,GetTEDSContent,3.6.28,Settings and States configuration,264,False
+192 002 000,consistency,command,The selected transducer is not a TEDS.,,GetTEDSContent,3.6.28,Settings and States configuration,264,False
+192 003 000,consistency,command,TEDS buffer is empty.,,GetTEDSContent,3.6.28,Settings and States configuration,264,False
+031 001 000,consistency,command,Transducer unknown,,GetTransducerInfo,3.6.30,Settings and States configuration,267,False
+095 001 000,consistency,command,Transducer unknown,,AddCalibration,3.6.31,Settings and States configuration,268,False
+095 002 000,consistency,command,Sensitivity value not valid,,AddCalibration,3.6.31,Settings and States configuration,268,False
+095 003 000,consistency,command,Offset value not valid,,AddCalibration,3.6.31,Settings and States configuration,268,False
+095 004 000,consistency,command,Calibration type not valid,,AddCalibration,3.6.31,Settings and States configuration,268,False
+190 001 000,consistency,command,Transducer unknown,,SetTransducerAppliedSensitivity,3.6.32,Settings and States configuration,269,False
+003 001 000,consistency,command,Event unknown,,GetEvent,3.6.33,Settings and States configuration,270,False
+033 001 000,consistency,command,Module unknown or not managed by the command,,GetAnalyzerState,3.6.37,Settings and States configuration,274,False
+033 002 000,consistency,command,State unknown for the specified module,,GetAnalyzerState,3.6.37,Settings and States configuration,274,False
+275 001 000,consistency,command,Invalid operation.,,MergeTransducerDB,3.6.39,Settings and States configuration,276,False
+171 001 000,consistency,command,Status unknown,,GetStateValue,3.6.40,Settings and States configuration,277,False
+000 000 000,consistency,command,No error,,WizardBegin,3.6.41,Settings and States configuration,278,False
+226 001 000,consistency,command,Real time is not guaranted for current analysis setting (from the version 6.20),,WizardEnd,3.6.42,Settings and States configuration,279,False
+226 002 000,consistency,command,Limits of DSP power have been reached. The previous valid configuration has been restored (from the version 6.20),,WizardEnd,3.6.42,Settings and States configuration,279,False
+000 000 000,consistency,command,No error,,TransactionBegin,3.6.43,Settings and States configuration,280,False
+361 001 000,consistency,command,Real time is not guaranted for current analysis setting (from the version 6.20),,TransactionEnd,3.6.44,Settings and States configuration,281,False
+361 002 000,consistency,command,Limits of DSP power have been reached. The previous valid configuration has been restored (from the version 6.20),,TransactionEnd,3.6.44,Settings and States configuration,281,False
+382 001 000,consistency,command,Unspecified error,,WaitGUI,3.6.45,Settings and States configuration,282,False
+106 001 000,consistency,command,Project not found,,GetSignalProperties,3.7.3,Signal and result management,285,False
+106 002 000,consistency,command,Measurement not found,,GetSignalProperties,3.7.3,Signal and result management,285,False
+060 001 000,consistency,command,The player is not in the configuration,,GetRecordDate,3.7.4,Signal and result management,286,False
+060 002 000,consistency,command,No signal file is loaded in player,,GetRecordDate,3.7.4,Signal and result management,286,False
+060 003 000,consistency,command,No record has the number specified in parameter,,GetRecordDate,3.7.4,Signal and result management,286,False
+060 004 000,consistency,command,Get record date failed.,,GetRecordDate,3.7.4,Signal and result management,286,False
+200 001 000,consistency,command,Project not found,,ChangeSignalDate,3.7.5,Signal and result management,287,False
+200 002 000,consistency,command,Measurement not found,,ChangeSignalDate,3.7.5,Signal and result management,287,False
+200 003 000,consistency,command,Signal not found,,ChangeSignalDate,3.7.5,Signal and result management,287,False
+200 004 000,consistency,command,Signal loaded in the player,,ChangeSignalDate,3.7.5,Signal and result management,287,False
+200 005 000,consistency,command,Loading the file has failed,,ChangeSignalDate,3.7.5,Signal and result management,287,False
+200 006 000,consistency,command,Saving the new date has failed,,ChangeSignalDate,3.7.5,Signal and result management,287,False
+063 001 000,consistency,command,The specified measure has no signal,,Download,3.7.6,Signal and result management,288,False
+063 002 000,consistency,command,OR3X is not connected,,Download,3.7.6,Signal and result management,288,False
+063 003 000,consistency,command,Signal is already on PC disk,,Download,3.7.6,Signal and result management,288,False
+063 004 000,consistency,command,Signal is not on OR3X disk,,Download,3.7.6,Signal and result management,288,False
+063 005 000,consistency,command,There is not enough space on the PC to download the signal,,Download,3.7.6,Signal and result management,288,False
+107 001 000,consistency,command,The specified measure has no signal,,Upload,3.7.7,Signal and result management,289,False
+107 002 000,consistency,command,OR3X is not connected,,Upload,3.7.7,Signal and result management,289,False
+107 003 000,consistency,command,Signal is already on OR3x disk,,Upload,3.7.7,Signal and result management,289,False
+107 004 000,consistency,command,Signal is not on PC disk,,Upload,3.7.7,Signal and result management,289,False
+107 005 000,consistency,command,There is not enough space on OR3x to upload the signal,,Upload,3.7.7,Signal and result management,289,False
+118 001 000,consistency,command,The import failed. Refer to the log wnd for details,,ImportFile,3.7.8,Signal and result management,290,False
+118 002 000,consistency,command,The type of import is invalid,,ImportFile,3.7.8,Signal and result management,290,False
+118 003 000,consistency,command,The project does not exist,,ImportFile,3.7.8,Signal and result management,290,False
+118 004 000,consistency,command,The directory where the file is located does not exist,,ImportFile,3.7.8,Signal and result management,290,False
+118 005 000,consistency,command,The file to import does not exist,,ImportFile,3.7.8,Signal and result management,290,False
+118 006 000,consistency,command,The delete parameter in invalid,,ImportFile,3.7.8,Signal and result management,290,False
+119 001 000,consistency,command,The export failed. Refer to the log wnd for details,,Export,3.7.9,Signal and result management,292,False
+119 002 000,consistency,command,The type of export is invalid,,Export,3.7.9,Signal and result management,292,False
+119 003 000,consistency,command,The project does not exist,,Export,3.7.9,Signal and result management,292,False
+119 004 000,consistency,command,The measurement does not exist,,Export,3.7.9,Signal and result management,292,False
+119 005 000,consistency,command,The ExportDirectory does not exist,,Export,3.7.9,Signal and result management,292,False
+022 001 000,consistency,command,Module number incorrect (not included in the module number table) or number of a module not existing in the configuration.,,AddResultToSetup,3.7.10,Signal and result management,293,False
+022 002 000,consistency,command,Number of a module not supplying a result,,AddResultToSetup,3.7.10,Signal and result management,293,False
+022 003 000,consistency,command,Process number incorrect,,AddResultToSetup,3.7.10,Signal and result management,293,False
+022 004 000,consistency,command,Channel number incorrect,,AddResultToSetup,3.7.10,Signal and result management,293,False
+022 005 000,consistency,command,Reference channel number incorrect,,AddResultToSetup,3.7.10,Signal and result management,293,False
+022 006 000,consistency,command,Weighting operator unknown,,AddResultToSetup,3.7.10,Signal and result management,293,False
+022 007 000,consistency,command,No weighting for non-spectrum results,,AddResultToSetup,3.7.10,Signal and result management,293,False
+022 008 000,consistency,command,Result already weighted,,AddResultToSetup,3.7.10,Signal and result management,293,False
+022 009 000,consistency,command,Time operator unknown,,AddResultToSetup,3.7.10,Signal and result management,293,False
+022 010 000,consistency,command,Display unit unknown,,AddResultToSetup,3.7.10,Signal and result management,293,False
+022 011 000,consistency,command,Result already present in the list,,AddResultToSetup,3.7.10,Signal and result management,293,False
+022 012 000,consistency,command,IsWaterfall parameter incorrect,,AddResultToSetup,3.7.10,Signal and result management,293,False
+023 001 000,consistency,command,Module number incorrect (not included in the module number table) or number of a module not existing in the configuration.,,RemoveSetupResult,3.7.11,Signal and result management,294,False
+023 002 000,consistency,command,Number of a module not supplying a result,,RemoveSetupResult,3.7.11,Signal and result management,294,False
+023 003 000,consistency,command,Process number incorrect,,RemoveSetupResult,3.7.11,Signal and result management,294,False
+023 004 000,consistency,command,Channel number incorrect,,RemoveSetupResult,3.7.11,Signal and result management,294,False
+023 005 000,consistency,command,Reference channel number incorrect,,RemoveSetupResult,3.7.11,Signal and result management,294,False
+023 006 000,consistency,command,Weighting operator unknown,,RemoveSetupResult,3.7.11,Signal and result management,294,False
+023 007 000,consistency,command,No weighting operator for non spectal result,,RemoveSetupResult,3.7.11,Signal and result management,294,False
+023 008 000,consistency,command,The result is already weighted,,RemoveSetupResult,3.7.11,Signal and result management,294,False
+023 009 000,consistency,command,Time operator unknown,,RemoveSetupResult,3.7.11,Signal and result management,294,False
+023 010 000,consistency,command,Display unit unknown,,RemoveSetupResult,3.7.11,Signal and result management,294,False
+023 011 000,consistency,command,Result not present in the save setup list,,RemoveSetupResult,3.7.11,Signal and result management,294,False
+023 012 000,consistency,command,IsWaterfall parameter incorrect,,RemoveSetupResult,3.7.11,Signal and result management,294,False
+024 001 000,consistency,command,Increment unknown,,SetSetupParameters,3.7.13,Signal and result management,296,False
+024 002 000,consistency,command,"Measurement database name incorrect as it contains one of the following characters: \ /: * ? "" < > | .",,SetSetupParameters,3.7.13,Signal and result management,296,False
+368 001 000,consistency,command,The ExportDirectory does not exist,,SetAutomaticExportSetup,3.7.14,Signal and result management,297,False
+159 001 000,consistency,command,Unknown layout,,AddToResultSelection,3.7.16,Signal and result management,299,False
+159 002 000,consistency,command,Unknown window,,AddToResultSelection,3.7.16,Signal and result management,299,False
+284 0 01 000,consistency,command,Unknown layout,,RemoveToResultSelection,3.7.17,Signal and result management,300,False
+284 002 000,consistency,command,Unknown window,,RemoveToResultSelection,3.7.17,Signal and result management,300,False
+096 001 000,consistency,command,There is no result selected in the save setup,,SaveResults,3.7.18,Signal and result management,301,False
+096 002 000,consistency,command,"Results are not ready (Analyzer is running, or a setting has been changed since the last stop )",,SaveResults,3.7.18,Signal and result management,301,False
+096 003 000,consistency,command,There is a default measurement in the project manager. It must be saved before calling this command.,,SaveResults,3.7.18,Signal and result management,301,False
+096 004 000,consistency,command,Value incorrect for the parameter confirm name (0 or 1 expected),,SaveResults,3.7.18,Signal and result management,301,False
+096 005 000,consistency,command,Value incorrect for the parameter ReturnMeasurementName,(0 or 1 expected),SaveResults,3.7.18,Signal and result management,301,False
+096 006 000,consistency,command,No measurement was created.,,SaveResults,3.7.18,Signal and result management,301,False
+004 001 000,consistency,command,Module number incorrect (not included in the module number table) or number of a module not existing in the configuration.,,GetResultCaption,3.7.21,Signal and result management,304,False
+004 002 000,consistency,command,Number of a module not supplying a result,,GetResultCaption,3.7.21,Signal and result management,304,False
+004 003 000,consistency,command,Process number incorrect (not included in the process number table),,GetResultCaption,3.7.21,Signal and result management,304,False
+004 004 000,consistency,command,Channel number incorrect (number not included between 1 and 32),,GetResultCaption,3.7.21,Signal and result management,304,False
+004 005 000,consistency,command,Reference channel number incorrect (number not included between 1 and 32),,GetResultCaption,3.7.21,Signal and result management,304,False
+004 006 000,consistency,command,Result not available,,GetResultCaption,3.7.21,Signal and result management,304,False
+006 001 000,consistency,command,Project / measurement unknown,,GetSavedResultList,3.7.22,Signal and result management,305,False
+007 001 000,consistency,command,Project / measurement unknown,,GetSavedResultCaption,3.7.23,Signal and result management,306,False
+007 002 000,consistency,command,Process number incorrect (not included in the process number table),,GetSavedResultCaption,3.7.23,Signal and result management,306,False
+007 003 000,consistency,command,Channel number incorrect (number not included between 1 and 32),,GetSavedResultCaption,3.7.23,Signal and result management,306,False
+007 004 000,consistency,command,Reference channel number incorrect (number not included between 1 and 32),,GetSavedResultCaption,3.7.23,Signal and result management,306,False
+007 005 000,consistency,command,Result not available,,GetSavedResultCaption,3.7.23,Signal and result management,306,False
+112 001 000,consistency,command,Module number incorrect (not included in the module number table) or number of a module not existing in the configuration.,,CreateResultEx,3.7.24,Signal and result management,307,False
+112 002 000,consistency,command,Number of a module not supplying a result,,CreateResultEx,3.7.24,Signal and result management,307,False
+112 003 000,consistency,command,Process number incorrect (not included in the process number table),,CreateResultEx,3.7.24,Signal and result management,307,False
+112 004 000,consistency,command,Channel number incorrect (number not included between 1 and 32),,CreateResultEx,3.7.24,Signal and result management,307,False
+112 005 000,consistency,command,Reference channel number incorrect (number not included between 1 and 32),,CreateResultEx,3.7.24,Signal and result management,307,False
+112 006 000,consistency,command,Result could not be created.,,CreateResultEx,3.7.24,Signal and result management,307,False
+112 007 000,consistency,command,Process not managed by the plug-in,,CreateResultEx,3.7.24,Signal and result management,307,False
+112 008 000,consistency,command,Response not managed by the plug-in,,CreateResultEx,3.7.24,Signal and result management,307,False
+112 009 000,consistency,command,Reference not managed by the plug-in,,CreateResultEx,3.7.24,Signal and result management,307,False
+112 010 000,consistency,command,Result already created,,CreateResultEx,3.7.24,Signal and result management,307,False
+111 001 000,consistency,command,Module number incorrect (not included in the module number table) or number of a module not existing in the configuration.,,GetResultEx,3.7.25,Signal and result management,309,False
+111 002 000,consistency,command,Number of a module not supplying a result,,GetResultEx,3.7.25,Signal and result management,309,False
+111 003 000,consistency,command,Process number incorrect (not included in the process number table),,GetResultEx,3.7.25,Signal and result management,309,False
+111 004 000,consistency,command,Channel number incorrect (number not included between 1 and 32),,GetResultEx,3.7.25,Signal and result management,309,False
+111 005 000,consistency,command,Reference channel number incorrect (number not included between 1 and 32),,GetResultEx,3.7.25,Signal and result management,309,False
+111 006 000,consistency,command,Result not found. Call CreateResultEx before,,GetResultEx,3.7.25,Signal and result management,309,False
+111 007 000,consistency,command,Result not valid.,,GetResultEx,3.7.25,Signal and result management,309,False
+115 001 000,consistency,command,Module number incorrect (not included in the module number table),,GetSavedResultEx,3.7.26,Signal and result management,310,False
+115 002 000,consistency,command,Process number incorrect (not included in the process number table),,GetSavedResultEx,3.7.26,Signal and result management,310,False
+115 003 000,consistency,command,Channel number incorrect (number not included between 1 and 32),,GetSavedResultEx,3.7.26,Signal and result management,310,False
+115 004 000,consistency,command,Reference channel number incorrect (number not included between 1 and 32),,GetSavedResultEx,3.7.26,Signal and result management,310,False
+115 005 000,consistency,command,Result not available,,GetSavedResultEx,3.7.26,Signal and result management,310,False
+115 006 000,consistency,command,Project / measurement unknown,,GetSavedResultEx,3.7.26,Signal and result management,310,False
+113 001 000,consistency,command,Module number incorrect (not included in the module number table) or number of a module not existing in the configuration.,,DeleteResultEx,3.7.27,Signal and result management,311,False
+113 002 000,consistency,command,Number of a module not supplying a result,,DeleteResultEx,3.7.27,Signal and result management,311,False
+113 003 000,consistency,command,Process number incorrect (not included in the process number table),,DeleteResultEx,3.7.27,Signal and result management,311,False
+113 004 000,consistency,command,Channel number incorrect (number not included between 1 and 32),,DeleteResultEx,3.7.27,Signal and result management,311,False
+113 005 000,consistency,command,Reference channel number incorrect (number not included between 1 and 32),,DeleteResultEx,3.7.27,Signal and result management,311,False
+113 006 000,consistency,command,Result could not be found,,DeleteResultEx,3.7.27,Signal and result management,311,False
+005 001 000,consistency,command,Module number incorrect (not included in the module number table) or number of a module not existing in the configuration.,,GetResult,3.7.29,Signal and result management,314,False
+005 002 000,consistency,command,Number of a module not supplying a result,,GetResult,3.7.29,Signal and result management,314,False
+005 003 000,consistency,command,Process number incorrect (not included in the process number table),,GetResult,3.7.29,Signal and result management,314,False
+005 004 000,consistency,command,Channel number incorrect (number not included between 1 and 32),,GetResult,3.7.29,Signal and result management,314,False
+005 005 000,consistency,command,Reference channel number incorrect (number not included between 1 and 32),,GetResult,3.7.29,Signal and result management,314,False
+005 006 000,consistency,command,Result not available,,GetResult,3.7.29,Signal and result management,314,False
+005 007 000,consistency,command,Result not valid,,GetResult,3.7.29,Signal and result management,314,False
+071 001 000,consistency,command,Module number incorrect (not included in the module number table) or number of a module not existing in the configuration.,,GetWTFResult,3.7.30,Signal and result management,316,False
+071 002 000,consistency,command,Number of a module not supplying a result,,GetWTFResult,3.7.30,Signal and result management,316,False
+071 003 000,consistency,command,Process number incorrect (not included in the process number table),,GetWTFResult,3.7.30,Signal and result management,316,False
+071 004 000,consistency,command,Channel number incorrect (number not included between 501 and 532),,GetWTFResult,3.7.30,Signal and result management,316,False
+071 005 000,consistency,command,Reference channel number incorrect (number not included between 501 and 532),,GetWTFResult,3.7.30,Signal and result management,316,False
+071 006 000,consistency,command,Result not available,,GetWTFResult,3.7.30,Signal and result management,316,False
+071 007 000,consistency,command,Result not valid,,GetWTFResult,3.7.30,Signal and result management,316,False
+008 001 000,consistency,command,Project / measurement unknown,,GetSavedResult,3.7.31,Signal and result management,317,False
+008 002 000,consistency,command,Process number incorrect (not included in the process number table),,GetSavedResult,3.7.31,Signal and result management,317,False
+008 003 000,consistency,command,Channel number incorrect (number not included between 1 and 32),,GetSavedResult,3.7.31,Signal and result management,317,False
+008 004 000,consistency,command,Reference channel number incorrect (number not included between 1 and 32),,GetSavedResult,3.7.31,Signal and result management,317,False
+008 005 000,consistency,command,Result not available,,GetSavedResult,3.7.31,Signal and result management,317,False
+067 001 000,consistency,command,Unable to create,,CreateTCPResultChannel,3.7.32,Signal and result management,318,False
+067 002 000,consistency,command,Unable to decrypt binary param (since NVGate V6.10),,CreateTCPResultChannel,3.7.32,Signal and result management,318,False
+069 001 000,consistency,command,TCP generator not found,,RemoveTCPResultChannel,3.7.33,Signal and result management,319,False
+069 002 000,consistency,command,TCP channel not found,,RemoveTCPResultChannel,3.7.33,Signal and result management,319,False
+069 003 000,consistency,command,Channel id invalid,,RemoveTCPResultChannel,3.7.33,Signal and result management,319,False
+068 001 000,consistency,command,Unable to transfer data,,NewDataForTCPResultChannel,3.7.34,Signal and result management,320,False
+068 002 000,consistency,command,Unable to decrypt binary param (since NVGate V6.10),,NewDataForTCPResultChannel,3.7.34,Signal and result management,320,False
+259 001 000,consistency,command,Unable to transfer data,,AddDataToTCPResultChannel,3.7.35,Signal and result management,321,False
+259 002 000,consistency,command,Unable to decrypt binary param (since NVGate V6.10),,AddDataToTCPResultChannel,3.7.35,Signal and result management,321,False
+070 001 000,consistency,command,Unable to set the channel,,SetTCPResultChannel,3.7.36,Signal and result management,322,False
+070 002 000,consistency,command,Unable to decrypt binary param (since NVGate V6.10),,SetTCPResultChannel,3.7.36,Signal and result management,322,False
+172 001 000,consistency,command,TCP generator not found,,GetTCPResultChannelList,3.7.37,Signal and result management,323,False
+173 001 000,consistency,command,TCP generator not found,,GetTCPResult,3.7.38,Signal and result management,324,False
+173 002 000,consistency,command,TCP channel not found,,GetTCPResult,3.7.38,Signal and result management,324,False
+286 001 000,consistency,command,TCP generator not found,,ChangeTCPResultName,3.7.39,Signal and result management,325,False
+286 002 000,consistency,command,TCP channel not found,,ChangeTCPResultName,3.7.39,Signal and result management,325,False
+398 001 000,consistency,command,Recorder module not existing in the configuration.,,CreateResultRecordSignal,3.7.40,Signal and result management,326,False
+398 002 000,consistency,command,Unknown track number.,,CreateResultRecordSignal,3.7.40,Signal and result management,326,False
+398 003 000,consistency,command,A signal result has already been created for this track number.,,CreateResultRecordSignal,3.7.40,Signal and result management,326,False
+400 001 000,consistency,command,Recorder module not existing in the configuration.,,DeleteResultRecordSignal,3.7.41,Signal and result management,327,False
+400 002 000,consistency,command,Unknown track number.,,DeleteResultRecordSignal,3.7.41,Signal and result management,327,False
+400 003 000,consistency,command,No signal result created for this track number.,,DeleteResultRecordSignal,3.7.41,Signal and result management,327,False
+400 001 000,consistency,command,Configuration not found.,,DeleteAllResultRecordSignal,3.7.42,Signal and result management,328,False
+400 002 000,consistency,command,Recorder module not existing in the configuration.,,DeleteAllResultRecordSignal,3.7.42,Signal and result management,328,False
+398 001 000,consistency,command,Recorder module not existing in the configuration.,,GetResultRecordSignalBlock,3.7.43,Signal and result management,329,False
+398 002 000,consistency,command,No result created for this track number.,,GetResultRecordSignalBlock,3.7.43,Signal and result management,329,False
+398 003 000,consistency,command,The signal cannot be read.,,GetResultRecordSignalBlock,3.7.43,Signal and result management,329,False
+398 004 000,consistency,command,The record didn't start,,GetResultRecordSignalBlock,3.7.43,Signal and result management,329,False
+400 001 000,consistency,command,Recorder module not existing in the configuration.,,GetResultRecordSignalZoom,3.7.44,Signal and result management,330,False
+400 002 000,consistency,command,No result created for this track number.,,GetResultRecordSignalZoom,3.7.44,Signal and result management,330,False
+400 003 000,consistency,command,The signal cannot be read.,,GetResultRecordSignalZoom,3.7.44,Signal and result management,330,False
+400 004 000,consistency,command,The record didn't start,,GetResultRecordSignalZoom,3.7.44,Signal and result management,330,False
+026 001 000,consistency,command,Print loading has failed,,PrintReport,3.8.1,Reports,331,False
+026 002 000,consistency,command,No printer available,,PrintReport,3.8.1,Reports,331,False
+026 003 000,consistency,command,Printing has failed,,PrintReport,3.8.1,Reports,331,False
+026 004 000,consistency,command,No file created (only when ReturnFileName is set to 1),,PrintReport,3.8.1,Reports,331,False
+371 001 000,consistency,command,Interactive Report is not available.,,ReportGetInteractiveDocumentList,3.8.2,Reports,333,False
+372 001 000,consistency,command,Interactive Report is not available,,ReportSelectInteractiveDocument,3.8.3,Reports,334,False
+372 002 000,consistency,command,The specified document does not exist,,ReportSelectInteractiveDocument,3.8.3,Reports,334,False
+168 001 000,consistency,command,Unable to connect to server,,ConnectToTCPClient,3.9.1,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",335,False
+179 001 000,consistency,command,Error during disconnection,,DisconnectFromTCPClient,3.9.2,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",336,False
+181 001 000,consistency,command,Unable to find the specified state.,,RegisterState,3.9.3,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",337,False
+181 002 000,consistency,command,Need to call ConnectToTCPClient before.,,RegisterState,3.9.3,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",337,False
+182 001 000,consistency,command,Unable to find the specified state.,,UnregisterState,3.9.4,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",338,False
+182 002 000,consistency,command,Need to call ConnectToTCPClient before.,,UnregisterState,3.9.4,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",338,False
+178 001 000,consistency,command,Unable to find the specified setting.,,RegisterSetting,3.9.5,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",339,False
+178 002 000,consistency,command,Need to call ConnectToTCPClient before.,,RegisterSetting,3.9.5,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",339,False
+180 001 000,consistency,command,Unable to find the specified setting.,,UnregisterSetting,3.9.6,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",340,False
+180 002 000,consistency,command,Need to call ConnectToTCPClient before.,,UnregisterSetting,3.9.6,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",340,False
+183 001 000,consistency,command,Unable to find the specified UI Notification,,RegisterUINotification,3.9.7,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",341,False
+183 002 000,consistency,command,Need to call ConnectToTCPClient before.,,RegisterUINotification,3.9.7,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",341,False
+185 001 000,consistency,command,Unable to execute the command.,,ExecUINotification,3.9.8,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",342,False
+184 001 000,consistency,command,Unable to find the specified UI Notification,,UnregisterUINotification,3.9.9,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",343,False
+184 002 000,consistency,command,Need to call ConnectToTCPClient before.,,UnregisterUINotification,3.9.9,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",343,False
+186 001 000,consistency,command,Unable to find the specified command,,RegisterCommand,3.9.10,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",344,False
+186 002 000,consistency,command,Need to call ConnectToTCPClient before.,,RegisterCommand,3.9.10,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",344,False
+187 001 000,consistency,command,Unable to find the specified command,,UnregisterCommand,3.9.11,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",345,False
+187 002 000,consistency,command,Need to call ConnectToTCPClient before.,,UnregisterCommand,3.9.11,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",345,False
+202 001 000,consistency,command,Unable to find the specified Module ID,,RegisterNewResult,3.9.12,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",346,False
+202 002 000,consistency,command,Need to call ConnectToTCPClient before.,,RegisterNewResult,3.9.12,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",346,False
+204 001 000,consistency,command,Unable to find the specified Module ID,,UnblockNewResult,3.9.13,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",347,False
+204 002 000,consistency,command,Need to call ConnectToTCPClient before.,,UnblockNewResult,3.9.13,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",347,False
+203 001 000,consistency,command,Unable to find the specified Module ID,,UnregisterNewResult,3.9.14,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",348,False
+203 002 000,consistency,command,Need to call ConnectToTCPClient before.,,UnregisterNewResult,3.9.14,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",348,False
+299 001 000,consistency,command,Need to call ConnectToTCPClient before.,,RegisterNewMeasurement,3.9.15,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",349,False
+300 001 000,consistency,command,Need to call ConnectToTCPClient before.,,UnregisterNewMeasurement,3.9.16,"TCP Client to Scan State, Setting, User Interface Notification, Command And Result",350,False
+305 001 000,consistency,command,Command unavailable,,RemoveRecorderSetup,3.11.2,Recorder setup (option),371,False
+305 002 000,consistency,command,Too many configurations on the hard (max = 12).,,RemoveRecorderSetup,3.11.2,Recorder setup (option),371,False
+305 003 000,consistency,command,Error while creating setup,,RemoveRecorderSetup,3.11.2,Recorder setup (option),371,False
+307 001 000,consistency,command,Command unavailable,,RemoveRecorderSetup,3.11.2,Recorder setup (option),371,False
+307 002 000,consistency,command,Error while removing file,,RemoveRecorderSetup,3.11.2,Recorder setup (option),371,False
+306 001 000,consistency,command,Command unavailable,,GetRecorderSetupList,3.11.3,Recorder setup (option),372,False
+306 002 000,consistency,command,Error reading disk,,GetRecorderSetupList,3.11.3,Recorder setup (option),372,False
+309 001 000,consistency,command,Command unavailable,,SetDefaultRecorderSetup,3.11.5,Recorder setup (option),373,False
+309 002 000,consistency,command,Error while reading config name,,SetDefaultRecorderSetup,3.11.5,Recorder setup (option),373,False
+308 001 000,consistency,command,Command unavailable,,SetDefaultRecorderSetup,3.11.5,Recorder setup (option),373,False
+308 002 000,consistency,command,Error while writing ini file on analyzer (that memorizes the default config name),,SetDefaultRecorderSetup,3.11.5,Recorder setup (option),373,False
+311 001 000,consistency,command,Command unavailable,,ExportRecorderConfigAsText,3.11.6,Recorder setup (option),374,False
+311 002 000,consistency,command,Error while transferring data from Analyzer to PC,,ExportRecorderConfigAsText,3.11.6,Recorder setup (option),374,False
+311 003 000,consistency,command,Error while creating txt file,,ExportRecorderConfigAsText,3.11.6,Recorder setup (option),374,False
+315 001 000,consistency,command,Command unavailable,,ImportRecorderConfigInASB,3.11.7,Recorder setup (option),375,False
+315 002 000,consistency,command,Error while transferring data from Analyzer to PC,,ImportRecorderConfigInASB,3.11.7,Recorder setup (option),375,False
+315 003 000,consistency,command,Error while importing config file,,ImportRecorderConfigInASB,3.11.7,Recorder setup (option),375,False
+379 001 000,consistency,command,EV/HV option is not available,,ImportRecorderConfigInASB,3.11.7,Recorder setup (option),376,False
+379 002 000,consistency,command,There is no current measurement at this time.,,ImportRecorderConfigInASB,3.11.7,Recorder setup (option),376,False
