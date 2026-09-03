@@ -143,12 +143,13 @@ is in §9 and `resources/README.md`. Three things that are not obvious:
 - **The official PDFs in `Framework/` remain the reference.** Where the kit and the
   PDF disagree, the PDF wins. If a lookup contradicts what the analyzer actually does,
   trust the analyzer and record it in the app's "Lessons learned" (§6).
-- **The kit is pinned to one Framework version and can be older than the installed
-  SDK.** Run `python tools/check_kit_version.py` **once per session, the first time
-  you rely on the kit.** If it reports the kit is older, the kit is still right about
-  what it documents but blind to anything newer — so when it says a command or setting
-  does not exist, confirm against `Framework/Python/pynvdrive/` before telling the
-  user it is impossible.
+- **The kit is generated from the NVDrive manual, so it documents only what the manual
+  does.** About 20 commands exist in `pynvdrive` that the manual never described — so
+  when the kit says a command does not exist, **confirm against
+  `Framework/Python/pynvdrive/pynvdrive/commands/` before telling the user it is
+  impossible.** `python tools/verify_kit.py` lists those, and checks the kit's
+  Python-class claims against the installed SDK. (Framework and NVGate carry separate
+  version numbers — `version.txt` reporting NVGate 18 does *not* mean the kit is stale.)
 
 ### Two capability layers
 
@@ -234,9 +235,12 @@ generated `.tmp/` (scratch, **never exported**) and `dist/`. Full per-app layout
 export tool) and a body (the spec). Treat it as a **living document**:
 
 - Write it during the section-5 interview.
-- When you learn something while building (a setting only applies after Run, a
-  specific result/setting IDN, a quirk), **record it in the "Lessons learned"
+- When you learn something while building (a specific result/setting IDN, a command
+  with no Python class, a timing quirk), **record it in the "Lessons learned"
   section** so the next session and the next app benefit.
+- **If a setting write reports success but nothing seems to change, verify against
+  the analyzer before concluding the command failed** — read the value back, and look
+  at NVGate itself. Then record what you find.
 - **Do not overwrite or discard a DIRECTIVE.md without asking** (rule #5). Improve
   it over time; never use it ad hoc and throw it away.
 

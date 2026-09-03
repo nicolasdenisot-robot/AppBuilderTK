@@ -65,8 +65,8 @@ prototype **becomes** the shipped screen — it is not throwaway. Full rationale
   *exercise* every function they need — enter a serial number, run, see a result, force a
   fail and see the red verdict, hit an error state, cancel, retest. Wire those on the fake.
 - **Simulate the constraints you already know, not a frictionless demo.** Bake known
-  latencies and ordering (a setting only applies after Run; a result is only available
-  after Save; can't cancel mid-run) into `FakeEngine`, pulling them from `DIRECTIVE.md` §9.
+  latencies and ordering (a result is only available after Save; can't cancel mid-run)
+  into `FakeEngine`, pulling them from `DIRECTIVE.md` §9.
   The user must approve an interaction that's actually buildable.
 - **Prototype in the shipping stack** (PySide6 / Streamlit / Tkinter), never a throwaway
   design tool. Fake the async with a `QTimer` (Qt) or `time.sleep` + spinner (Streamlit).

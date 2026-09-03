@@ -58,7 +58,7 @@ features this change should build on instead of writing from scratch (rule #6). 
 ### Dependencies & unknowns
 {Things that depend on other things. Anything that needs checking against NVGate or the
 analyzer before committing — e.g. whether NVGate computes it natively, whether a setting
-only applies after Run, hardware/channel availability.}
+takes effect as expected, hardware/channel availability.}
 
 ### Where the difficulty is
 {Which parts are straightforward and which are hard, and WHY — in plain language. Ground it

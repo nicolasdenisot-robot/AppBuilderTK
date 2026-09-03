@@ -74,11 +74,10 @@ to it from OROS). Add it once:
 
 That's it — the apps and helpers expect the SDK at that path.
 
-4. Ask Claude to **check the reference kit matches your SDK** (it runs
-   `python tools/check_kit_version.py`). The kit in `resources/AI/` is built
-   from one NVGate version; if yours is newer, Claude tells you plainly and
-   knows to double-check the SDK itself rather than trust a stale answer.
-   Nothing breaks either way — this just avoids a confusing dead end later.
+4. Ask Claude to **check the reference kit against your SDK** (it runs
+   `python tools/verify_kit.py`). This confirms the shortcuts in `resources/AI/`
+   really match the library you downloaded, and lists a few commands that exist
+   but are missing from the manual. It takes a second and saves a dead end later.
 
 > OROS's machine-readable reference kit is already in `resources/AI/` — every NVDrive
 > command, setting, error code and notification as structured data, plus searchable

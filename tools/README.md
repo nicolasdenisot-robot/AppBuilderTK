@@ -1,20 +1,24 @@
 # tools
 
-## check_kit_version.py
-Checks the AI reference kit in `resources/AI/` against the installed OROS Framework.
+## verify_kit.py
+Verifies the AI reference kit in `resources/AI/` against the installed OROS SDK.
 
 ```bash
-python tools/check_kit_version.py
+python tools/verify_kit.py
 ```
 
-The kit is generated from one Framework version and stamped with it; the SDK is
-whatever was downloaded. When the SDK is newer, the kit is still accurate about what
-it documents but knows nothing added since — and CLAUDE.md tells Claude to trust the
-kit, so the mismatch is worth surfacing rather than discovering mid-build.
+Deliberately does **no** version comparison: the Framework and NVGate carry separate
+version numbers (`resources/Framework/version.txt` reports the *NVGate* version, the
+kit is stamped with the *Framework* version), so comparing them proves nothing. It
+checks what matters instead:
 
-Exit codes: `0` versions match · `1` kit is older than the SDK · `2` cannot tell
-(kit or Framework not present). Run it once per session before relying on the kit
-(CLAUDE.md §4), and after adding or updating either.
+- every command the kit says has a Python class — does that file and class exist?
+- which commands `pynvdrive` exposes that the NVDrive manual never documented. The kit
+  is generated from the manual, so it cannot describe those ~20 — but they work, and
+  knowing they exist saves reinventing them.
+
+Exit codes: `0` all claims verified · `1` mismatches found · `2` kit or SDK missing.
+Run it before relying on the kit (CLAUDE.md §4), and after updating either.
 
 ## export_app.py
 Bundles an app into a self-contained deliverable.

@@ -19,7 +19,8 @@ wrong plan, however tidy it looks.
 
 Second reality for NVGate apps: **the riskiest, least-predictable part is almost
 always the live-analyzer integration** — getting a real result out of NVGate over
-pynvdrive with the right IDNs, settings that only apply after Run, timing quirks. The
+pynvdrive with the right IDNs, settings whose effect isn't visible until you look,
+timing quirks. The
 deterministic parts (judging a threshold, formatting an Excel sheet) are the *easy,
 reliable* parts. Good slicing front-loads the uncertainty, not the comfort.
 
@@ -110,7 +111,7 @@ The failure mode of this technique: a fake that makes everything smooth and inst
 earns enthusiastic sign-off — then `RealEngine` reveals the result is only available
 *after Save*, takes 30 seconds, and *can't* be cancelled mid-run, and the approved
 interaction is unbuildable. **Bake the constraints you already know into `FakeEngine`**
-— known latencies, known ordering (a setting only applies after Run), known
+— known latencies, known ordering (a result only exists after Save), known
 "can't cancel." Pull them from `DIRECTIVE.md` §9 "Lessons learned." The simulator's
 job is an *honest rehearsal*, not a good demo.
 

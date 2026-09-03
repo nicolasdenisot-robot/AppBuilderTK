@@ -61,7 +61,7 @@ _NVGate not running, no signal, out-of-range, operator cancels, etc._
 
 ## 9. Lessons learned & improvement log (living)
 _Record discoveries here so the next session/app benefits: setting IDNs, quirks
-(e.g. "setting X only applies after Run"), timing, fixes for errors you hit._
+(e.g. "result X is only available after Save"), timing, fixes for errors you hit._
 
 _This is also the landing spot for the "improve an existing app" skills
 (CLAUDE.md §5): `/explore-codebase` appends a dated "Current state" note here when
