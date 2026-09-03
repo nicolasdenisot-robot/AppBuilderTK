@@ -151,6 +151,12 @@ is in §9 and `resources/README.md`. Three things that are not obvious:
 | **Live control** | `pynvdrive` (TCP, port 3000, host `127.0.0.1`) | **Required** | Driving the analyzer: run/stop, change settings, fetch live results, react to events |
 | **File access** | `orostk` / NVFileManager DLLs | Not required | Reading/editing saved signals & results on disk, offline batch processing |
 
+**`orostk` needs installing first, and only exists for Python 3.8–3.12** (`pynvdrive`
+needs nothing and runs anywhere). So whenever the answer to stop #2 is *file access*,
+or the app reacts to the operator (notifications), **check the interpreter and settle
+this before promising the app** — it also decides which Python builds the `.exe`:
+`docs/orostk-setup.md`.
+
 NVGate must be **launched and in connected mode** before any live-control app runs.
 
 ---
@@ -311,6 +317,7 @@ Full reference (folder contents, README logic, frontmatter fields, update workfl
 | Export data to Excel | `docs/recipes/export-to-excel.md` |
 | Auto-generate a report | `docs/recipes/generate-report.md` |
 | React when the operator changes/saves something | `docs/recipes/notifications.md` |
+| Read/edit saved signal files offline, or anything needing `orostk` (Python 3.8–3.12 only) | `docs/orostk-setup.md` |
 | Rotating-machinery / turbomachinery or sound-quality math | `docs/algorithms.md` |
 | Understand which app type this is | `docs/app-archetypes.md` |
 | Write any NVDrive code (connect, run, read a setting, fetch a result) | `resources/AI/HOWTO_NVDrive_from_Python.md` (§4) |

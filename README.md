@@ -48,7 +48,16 @@ You still never touch code — Claude does the work and shows you a plan first.
 
 - **NVGate** installed (and running, for any app that controls the analyzer live).
 - **Python** on the machine where apps are built (Claude will guide installation if
-  needed). Finished `.exe` apps do **not** need Python on the operator's machine.
+  needed). Any recent version is fine. Finished `.exe` apps do **not** need Python on
+  the operator's machine.
+
+  > **One exception worth knowing up front.** Two kinds of app — reading *saved*
+  > signal/result files without NVGate, and reacting automatically when the operator
+  > changes something — use an OROS library that is only published for **Python 3.12
+  > and below**. If you expect to build either, install **Python 3.12**. If you
+  > already have something newer, nothing is lost: Claude can add 3.12 alongside it
+  > later, without disturbing anything. Everything else — driving the analyzer,
+  > measuring, pass/fail, reports, Excel — works on any version.
 - **The OROS Framework SDK** in `resources/Framework/` — see first-time setup below.
 
 ## First-time setup: add the OROS Framework SDK

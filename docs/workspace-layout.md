@@ -29,6 +29,7 @@ Claude-NVGate/
 │   ├── algorithms.md             where to get calculations (turbomachinery, sound quality)
 │   ├── app-archetypes.md         app types → which example to copy
 │   ├── build-slicing.md          how to split a build into milestones + prototype the UI cheaply
+│   ├── orostk-setup.md           installing orostk (file access / notifications) — Python 3.8–3.12 only
 │   ├── workspace-layout.md       this file
 │   └── recipes/                  proven copy-adapt patterns
 ├── shared/

@@ -10,10 +10,10 @@ recipe / SDK example. Most apps are a blend.
 | 3 | **Custom calculation tool** | Read a result/marker, compute something NVGate doesn't | Live | `algorithms.md` |
 | 4 | **Custom configuration / results UI** | Branded screen to set up and/or show results | Live (+ UI) | stop #5 in CLAUDE.md |
 | 5 | **Data collector / monitor** | Pull results from one/many analyzers over the network | Live (TCP) | `recipes/run-get-result.md` |
-| 6 | **Event-driven / reactive** | React when a setting/state/save changes | Live (notifications) | `recipes/notifications.md` |
+| 6 | **Event-driven / reactive** | React when a setting/state/save changes | Live (notifications) | `recipes/notifications.md` + `orostk-setup.md` |
 | 7 | **Data injection** | Push computed scalar/spectrum back into NVGate to display | Live | NVDrive manual §3.7 / TCPResultChannel |
-| 8 | **Signal/result exporter / converter** | Read saved `.osfh`/`.res` files → CSV/Excel/your format, no NVGate | File | `OR3x_Developer_Toolkit.pdf` (Example_sig_read, NVGateFilesDemo) |
-| 9 | **Signal editor / batch post-processing** | Split/erase/remove records & channels, batch crunch folders | File | `OR3x_Developer_Toolkit.pdf` (NVGateSignalEditingDemo) |
+| 8 | **Signal/result exporter / converter** | Read saved `.osfh`/`.res` files → CSV/Excel/your format, no NVGate | File | `orostk-setup.md` first, then `resources/AI/OR3x_Developer_Toolkit.md` (Example_sig_read, NVGateFilesDemo) |
+| 9 | **Signal editor / batch post-processing** | Split/erase/remove records & channels, batch crunch folders | File | `orostk-setup.md` first, then `resources/AI/OR3x_Developer_Toolkit.md` (NVGateSignalEditingDemo) |
 
 ## Domain notes
 - **Rotating machinery / turbomachinery:** usually archetype 1/2/5 + Tier-1 order
@@ -22,4 +22,6 @@ recipe / SDK example. Most apps are a blend.
 
 ## The two layers (reminder)
 - **Live control** (`pynvdrive`): NVGate must be running. Archetypes 1–7.
-- **File access** (`orostk`/DLLs): no NVGate needed. Archetypes 8–9.
+- **File access** (`orostk`/DLLs): no NVGate needed. Archetypes 8–9. **`orostk` must
+  be installed and only exists for Python 3.8–3.12 — settle that before promising the
+  app (`orostk-setup.md`).**

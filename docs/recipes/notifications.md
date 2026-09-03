@@ -18,16 +18,10 @@ Verified in `resources/Framework/Python/NVFileManager/Packages/`.
 **Do not hand-roll the raw protocol.** Reach for that only if `orostk` cannot be
 installed.
 
-### Two setup traps, both cheap to hit
-
-1. **`orostk` is not ready to use** — unlike `pynvdrive`, it ships as installable
-   archives. Install the one matching the interpreter *before* importing:
-   `pip install resources/Framework/Python/NVFileManager/Packages/OROSPythonToolkit_Python312_x64_bdist.zip`
-2. **The pre-built packages stop at Python 3.12** (3.8–3.12, x64 and one x32).
-   The workspace's default interpreter may well be newer — check with
-   `python -V` first. If it is, either build the app against a 3.10–3.12
-   interpreter or use the `_sdist` archive. Decide this **before** promising the
-   feature: it constrains the whole app, including how it is exported.
+> **Set `orostk` up before promising the feature.** It has to be installed (unlike
+> `pynvdrive`) and only exists for **Python 3.8–3.12**, which also decides which
+> interpreter builds the app's `.exe`. Two minutes, and it constrains the whole app:
+> `../orostk-setup.md`.
 
 ## How it works
 
