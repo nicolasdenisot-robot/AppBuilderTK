@@ -41,7 +41,8 @@ Claude-NVGate/
 │           └── <customer>/   ← add a folder here for each customer brand
 ├── apps/                     ← the user's applications, one self-contained folder each
 │   └── _template/                clone this to start a new app
-└── tools/export_app.py       ← bundles an app into a standalone deliverable
+├── tools/export_app.py       ← bundles an app into a standalone deliverable
+└── tools/verify_kit.py       ← checks the AI kit's claims against the installed SDK
 ```
 
 ## Per-app folder

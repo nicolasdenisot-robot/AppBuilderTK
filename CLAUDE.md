@@ -148,8 +148,8 @@ is in §9 and `resources/README.md`. Three things that are not obvious:
   when the kit says a command does not exist, **confirm against
   `Framework/Python/pynvdrive/pynvdrive/commands/` before telling the user it is
   impossible.** `python tools/verify_kit.py` lists those, and checks the kit's
-  Python-class claims against the installed SDK. (Framework and NVGate carry separate
-  version numbers — `version.txt` reporting NVGate 18 does *not* mean the kit is stale.)
+  Python-class claims against the installed SDK. (The kit's Framework version and
+  `version.txt`'s NVGate version are different products — never a staleness signal.)
 
 ### Two capability layers
 

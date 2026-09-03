@@ -75,7 +75,9 @@ or `LoadMeasurement` class.)
 
 ## Notifications (manual §3.9) — react to changes
 Subscribe to setting/state/command/UI events so an app responds when the operator
-changes something. See `recipes/notifications.md`.
+changes something. **`pynvdrive` has no class for these** — there is no `RegisterSetting`,
+and `Client` exposes no subscribe method. Use `orostk`, which wraps them all:
+`recipes/notifications.md`.
 
 ## Error handling pattern
 ```python
