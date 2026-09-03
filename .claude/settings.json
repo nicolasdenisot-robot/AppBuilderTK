@@ -14,7 +14,11 @@
       "Write(./resources/Framework/**)",
       "Edit(./resources/Framework/**)",
       "Write(C:\\OROS\\NVGate data\\**)",
-      "Edit(C:\\OROS\\NVGate data\\**)"
+      "Edit(C:\\OROS\\NVGate data\\**)",
+      "Write(./resources/AI/**)",
+      "Edit(./resources/AI/**)",
+      "Write(**/NVGate data/**)",
+      "Edit(**/NVGate data/**)"
     ]
   }
 }

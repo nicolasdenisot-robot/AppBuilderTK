@@ -128,21 +128,10 @@ tree — and what each subfolder is for — in `docs/workspace-layout.md`.
 
 ### The AI reference kit (`resources/AI/`) — look it up, never guess
 
-OROS ships the manuals as structured data, so nothing about NVDrive has to be
-recalled from memory. **Consult it before writing any NVDrive code** (rule #6):
-
-| Question | File |
-|----------|------|
-| How do I write this in Python at all? | `HOWTO_NVDrive_from_Python.md` — **start here** |
-| What are this command's parameters, and does a Python class exist for it? | `nvdrive_commands.json` |
-| What is the identifier (IDN) for this setting, and what type is it? | `nvgate_idn_catalog.json` |
-| Which module/process numbers address the result I want? | `nvdrive_result_ids.json` |
-| What does this error code mean? | `nvdrive_errors.json` |
-| What does this notification send me? | `nvgate_notifications.json` |
-| What does this DLL function take? (file-access layer) | `dll_api.json` |
-| Anything else in the manuals | the four `*.md` mirrors (694 pages, page markers back to the PDF) |
-
-Three things to hold onto:
+OROS ships the manuals as structured data: every command, setting IDN, result
+address, error code and notification. **Consult it before writing any NVDrive code**
+(rule #6). Start at `HOWTO_NVDrive_from_Python.md`; which file answers which question
+is in §9 and `resources/README.md`. Three things that are not obvious:
 
 - **145 of the 309 commands have a `pynvdrive` class; 164 do not.** When `pynvdrive`
   is `null` in `nvdrive_commands.json`, there is no Python class — send the command

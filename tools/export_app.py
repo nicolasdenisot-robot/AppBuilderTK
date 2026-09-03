@@ -43,6 +43,7 @@ NOTE for Claude: always CONFIRM the export form with the user before running
 """
 
 import argparse
+import re
 import shutil
 import subprocess
 import sys
@@ -68,7 +69,14 @@ def parse_frontmatter(directive_path):
     block = text[3:end]
     data, key = {}, None
     for raw in block.splitlines():
-        line = raw.split("#", 1)[0].rstrip()
+        # A quoted value is taken verbatim, so it may contain '#'
+        # (e.g. display_name: "Rig #3"). Unquoted, '#' starts a comment as in YAML.
+        quoted = re.match(r'^\s*([\w.-]+)\s*:\s*(["\'])(.*?)\2\s*(?:#.*)?$', raw)
+        if quoted:
+            key = quoted.group(1)
+            data[key] = quoted.group(3)
+            continue
+        line = re.sub(r"(?:^|\s)#.*$", "", raw).rstrip()
         if not line.strip():
             continue
         if line.lstrip().startswith("- ") and key:
@@ -102,7 +110,16 @@ def find_readme(app_dir, target):
     if specific.exists():
         return specific
     generic = app_dir / "README.md"
-    return generic if generic.exists() else None
+    if not generic.exists():
+        return None
+    # The template's own README addresses the *builder*, not the operator. If it
+    # was never rewritten (rule #7), shipping it hands the operator instructions
+    # meant for whoever cloned the template.
+    if "Don't build here" in generic.read_text(encoding="utf-8", errors="replace"):
+        print("  WARNING: README.md is still the _template one (it says \"Don't build")
+        print("           here\"). The operator would receive builder instructions.")
+        print("           Write a plain-language README.md for the operator (rule #7).")
+    return generic
 
 
 def copy_whats_new(app_dir, pkg_dir):
@@ -138,8 +155,8 @@ def build_staging(app_dir, dist, logo_brand="oros"):
         shutil.rmtree(staging)
     staging.mkdir(parents=True)
 
-    shutil.copytree(app_dir / "app", staging / "app")
     _no_cache = shutil.ignore_patterns("__pycache__", "*.pyc")
+    shutil.copytree(app_dir / "app", staging / "app", ignore=_no_cache)
     shutil.copytree(PYNVDRIVE, staging / "pynvdrive", ignore=_no_cache)
     shutil.copytree(SHARED, staging / "oros_helpers", ignore=_no_cache)
 

@@ -88,11 +88,17 @@ always confirm *where and how* the operator will invoke the app (double-click, A
 
 ```yaml
 version: 1.0                # becomes part of the folder name
-display_name: My App Name   # shown in NVGate Automation (derived from app_name if absent)
+display_name: My App Name   # shown in NVGate Automation (derived from the folder name if absent)
 export_target: exe|source
 entry_point: app/main.py
 logo: oros                  # brand folder under shared/assets/logos/ (default: oros)
 ```
+
+Those five are the only fields the tool reads. `apps/_template/DIRECTIVE.md` also
+carries `app_name` and `helpers_used` — both **informational**: the app's name comes
+from its folder, and the whole `oros_helpers` package is vendored regardless of what
+`helpers_used` lists. A value containing `#` must be quoted
+(`display_name: "Rig #3"`) — unquoted, `#` starts a comment, as in YAML.
 
 ---
 

@@ -45,7 +45,11 @@ Python. Their apps and their `/sync-github` backups stay entirely in their repo.
 > For a private template, the customer's GitHub account needs access (add them as
 > a collaborator, or create the repo for them). Switch the template to **Public**
 > (repo Settings → Danger Zone → Change visibility) and anyone can self-serve —
-> but then the kit and the OROS manual text become world-visible.
+> **but check what that publishes first.** The template now ships `resources/AI/`:
+> Markdown mirrors of four OROS manuals (694 pages) plus the full command, setting,
+> error, notification and DLL catalogues. Going public makes all of it
+> world-visible and indexable. That is a redistribution decision for OROS, not a
+> repo setting — confirm it before flipping the switch.
 
 ## Testing it with a colleague (collaborator invite)
 
