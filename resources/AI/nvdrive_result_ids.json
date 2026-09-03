@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-08-24",
+  "generated": "2026-08-27",
   "source": "NVDrive_Reference_Manual.pdf, section 3.10",
   "nvgate_version": "17.00.002 (as declared by the shipped Framework)",
   "note": "The numeric identifiers that address a result. A result is addressed by four numbers: module id, process id, channel number, reference channel number - passed in that order to CreateResultEx and then GetResultEx. `modules` maps a plug-in name to its module id, `processes` maps a measurement to its process id, and `units`, `time_operators` and `weighting_operators` are the codes used when a command asks for a display unit, an integration operator or a frequency weighting. `quantity_map` is a shortcut for the common cases: it answers 'which module and process give me a spectrum' without reading the tables. Do not guess an address: `GetResultList` tells you what exists right now on the connected analyzer, and it is always the safer route.",

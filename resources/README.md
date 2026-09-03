@@ -8,7 +8,7 @@
 
 ## `AI/` — the reference kit (read this before writing NVDrive code)
 
-Produced by OROS from the official manuals and headers (package v1.7, Framework
+Produced by OROS from the official manuals and headers (package v1.8, Framework
 17.00.002). It exists so an assistant never has to guess a command name, a setting
 identifier or a result address. **Where the kit and the official PDF disagree, the
 PDF wins.**

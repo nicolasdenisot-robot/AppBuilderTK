@@ -95,10 +95,6 @@ read it off NVGate rather than computing it.
 
 To list the accepted values of an enumerated setting, use `GetSettingValues` (plural).
 
-> **The trap that costs the most time:** a setting does not always take effect
-> immediately. Some apply on the fly, others require the analysis to be restarted. If
-> you change a setting and the result does not move, that is why — send `Run()` again.
-
 ## 4. Results — find them, then read them
 
 A result is addressed by four numbers: **module, process, channel, reference channel**.
@@ -379,8 +375,6 @@ station that fails silently is worse than one that refuses to start.
 
 - **NVGate must be running** for anything in sections 1 to 7. `connect()` returns
   `False`, it does not raise.
-- **A setting may not apply immediately** — restart the analysis if the result does
-  not move.
 - **`CreateResultEx` before `GetResultEx`**, always.
 - **Not every documented command has a Python class.** 164 of the 309 documented
   commands have none, including most of the marker family and every notification

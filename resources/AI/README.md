@@ -1,6 +1,6 @@
 # OROS NVGate - AI-readable developer files
 
-Version 1.7, generated 2026-08-25.
+Version 1.8, generated 2026-08-27.
 Framework version: 17.00.002 113362-061272-240806-1502
 
 ## What this is
@@ -34,7 +34,7 @@ In the `AI/` folder:
 
 - `dll_api.json` (906 KB)
 - `DLL_NVDCommand_and_NVDResult_Reference_Manual.md` (181 KB)
-- `HOWTO_NVDrive_from_Python.md` (17 KB)
+- `HOWTO_NVDrive_from_Python.md` (16 KB)
 - `nvdrive_commands.csv` (59 KB)
 - `nvdrive_commands.json` (849 KB)
 - `nvdrive_errors.csv` (110 KB)

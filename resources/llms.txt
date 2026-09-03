@@ -1,6 +1,6 @@
 # OROS NVGate Developer Framework
 
-> Generated 2026-08-25. Framework version: 17.00.002 113362-061272-240806-1502
+> Generated 2026-08-27. Framework version: 17.00.002 113362-061272-240806-1502
 > This file tells an AI assistant what to read, in what order, and what to trust.
 
 ## Layout
@@ -128,10 +128,6 @@ In NVGate, Shift + right-click on a setting reveals its IDN, in both forms.
 
 ## Traps worth knowing
 
-- **A setting may not take effect immediately.** This is the single most common
-  false alarm: you write a setting, the command returns success, and nothing appears
-  to change. Some settings apply at once, others only once the analysis is restarted.
-  Restart the analysis before concluding that the command failed.
 - **Not every documented command has a Python wrapper.** 145 of the
   manual's 309 command sections are wrapped by `pynvdrive`; the remaining
   164 must be sent as raw commands over TCP.

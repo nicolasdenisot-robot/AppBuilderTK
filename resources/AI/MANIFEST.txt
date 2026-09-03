@@ -1,13 +1,13 @@
 OROS NVGate - AI-readable developer files
 
-Package version   : 1.7
-Generated         : 2026-08-25
+Package version   : 1.8
+Generated         : 2026-08-27
 Framework version : 17.00.002 113362-061272-240806-1502
 
 Contents:
   dll_api.json                         928405 bytes
   DLL_NVDCommand_and_NVDResult_Reference_Manual.md   185640 bytes
-  HOWTO_NVDrive_from_Python.md          17632 bytes
+  HOWTO_NVDrive_from_Python.md          17273 bytes
   nvdrive_commands.csv                  60617 bytes
   nvdrive_commands.json                869942 bytes
   nvdrive_errors.csv                   113650 bytes
@@ -15,7 +15,7 @@ Contents:
   NVDrive_Reference_Manual.md          403332 bytes
   nvdrive_result_ids.json               20878 bytes
   nvgate_idn_catalog.csv                58920 bytes
-  nvgate_idn_catalog.json              175922 bytes
+  nvgate_idn_catalog.json              175675 bytes
   NVGate_Notification_Mechanism.md     127705 bytes
   nvgate_notifications.json            114872 bytes
   OR3x_Developer_Toolkit.md             24802 bytes

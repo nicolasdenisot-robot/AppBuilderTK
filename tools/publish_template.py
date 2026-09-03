@@ -48,7 +48,7 @@ INCLUDE = [
     "shared",
     "apps/_template",            # ONLY the template app, never real apps
     "resources/README.md",
-    "resources/AI",              # OROS machine-readable reference kit (v1.7)
+    "resources/AI",              # OROS machine-readable reference kit (v1.8)
     "resources/llms.txt",        # map of that kit
     "tools/export_app.py",
     "tools/verify_kit.py",
