@@ -1,5 +1,21 @@
 # tools
 
+## check_kit_version.py
+Checks the AI reference kit in `resources/AI/` against the installed OROS Framework.
+
+```bash
+python tools/check_kit_version.py
+```
+
+The kit is generated from one Framework version and stamped with it; the SDK is
+whatever was downloaded. When the SDK is newer, the kit is still accurate about what
+it documents but knows nothing added since — and CLAUDE.md tells Claude to trust the
+kit, so the mismatch is worth surfacing rather than discovering mid-build.
+
+Exit codes: `0` versions match · `1` kit is older than the SDK · `2` cannot tell
+(kit or Framework not present). Run it once per session before relying on the kit
+(CLAUDE.md §4), and after adding or updating either.
+
 ## export_app.py
 Bundles an app into a self-contained deliverable.
 

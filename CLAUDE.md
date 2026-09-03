@@ -143,6 +143,12 @@ is in §9 and `resources/README.md`. Three things that are not obvious:
 - **The official PDFs in `Framework/` remain the reference.** Where the kit and the
   PDF disagree, the PDF wins. If a lookup contradicts what the analyzer actually does,
   trust the analyzer and record it in the app's "Lessons learned" (§6).
+- **The kit is pinned to one Framework version and can be older than the installed
+  SDK.** Run `python tools/check_kit_version.py` **once per session, the first time
+  you rely on the kit.** If it reports the kit is older, the kit is still right about
+  what it documents but blind to anything newer — so when it says a command or setting
+  does not exist, confirm against `Framework/Python/pynvdrive/` before telling the
+  user it is impossible.
 
 ### Two capability layers
 

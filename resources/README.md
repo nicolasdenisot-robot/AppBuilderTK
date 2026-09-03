@@ -27,6 +27,10 @@ PDF wins.**
 
 The `.csv` files duplicate three of the `.json` files for spreadsheet use.
 
+**Check it matches your SDK:** `python tools/check_kit_version.py`. The kit is
+generated from one Framework version and stamped with it; if your Framework is
+newer, the kit is still accurate but blind to anything added since.
+
 **How to use them: look things up, don't read them whole.** Several are close to a
 megabyte — opening one entirely wastes the context needed to build the app. Grep for
 the command or setting name, or load the JSON and filter it.

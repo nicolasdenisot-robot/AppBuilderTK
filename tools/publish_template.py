@@ -51,6 +51,7 @@ INCLUDE = [
     "resources/AI",              # OROS machine-readable reference kit (v1.7)
     "resources/llms.txt",        # map of that kit
     "tools/export_app.py",
+    "tools/check_kit_version.py",
     "tools/README.md",
     # NOTE: tools/publish_template.py is intentionally NOT shipped — it's yours.
     # NOTE: workspace-overview-deck.html is intentionally NOT shipped as a file.
